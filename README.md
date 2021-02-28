@@ -1,5 +1,7 @@
 # WikiRacer #
 
+# NOTE: Please open up WikiRacer.xcworkspace and NOT WikiRacer.xcodeproj for development
+
 WikiRacer is an iOS application based on the [Wiki Game](https://en.wikipedia.org/wiki/Wikipedia:Wiki_Game "Wiki Game title"). 
 
 In this game, the player is given a beginning and target Wiki article. They start off on the beginning article and try to navigate to the target one in the fastest time or least amount of referential links possible.
