@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		642A8F2C25EB5244006E814C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 642A8F2B25EB5244006E814C /* GoogleService-Info.plist */; };
+		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
 		D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CB25E841E900C233F9 /* AppDelegate.swift */; };
 		D12670CE25E841E900C233F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CD25E841E900C233F9 /* SceneDelegate.swift */; };
 		D12670D025E841E900C233F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CF25E841E900C233F9 /* ViewController.swift */; };
@@ -17,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiRacer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		642A8F2B25EB5244006E814C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.debug.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.debug.xcconfig"; sourceTree = "<group>"; };
 		D12670C825E841E900C233F9 /* WikiRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12670CB25E841E900C233F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D12670CD25E841E900C233F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +31,7 @@
 		D12670D725E841EC00C233F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D12670DA25E841EC00C233F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D12670DC25E841EC00C233F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F975A3C1526CE486DD6D795F /* Pods-WikiRacer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.release.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF014ABCFA4369762657BE7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D12670BF25E841E800C233F9 = {
 			isa = PBXGroup;
 			children = (
 				D12670CA25E841E900C233F9 /* WikiRacer */,
 				D12670C925E841E900C233F9 /* Products */,
+				F0699A2FF806332E6E85B95A /* Pods */,
+				CF014ABCFA4369762657BE7C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,9 +82,20 @@
 				D12670D725E841EC00C233F9 /* Assets.xcassets */,
 				D12670D925E841EC00C233F9 /* LaunchScreen.storyboard */,
 				D12670DC25E841EC00C233F9 /* Info.plist */,
+				642A8F2B25EB5244006E814C /* GoogleService-Info.plist */,
 				D12670D425E841E900C233F9 /* WikiRacer.xcdatamodeld */,
 			);
 			path = WikiRacer;
+			sourceTree = "<group>";
+		};
+		F0699A2FF806332E6E85B95A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */,
+				F975A3C1526CE486DD6D795F /* Pods-WikiRacer.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D12670DF25E841EC00C233F9 /* Build configuration list for PBXNativeTarget "WikiRacer" */;
 			buildPhases = (
+				FB4D58EDF7EF90B9BD15F7D6 /* [CP] Check Pods Manifest.lock */,
 				D12670C425E841E800C233F9 /* Sources */,
 				D12670C525E841E800C233F9 /* Frameworks */,
 				D12670C625E841E800C233F9 /* Resources */,
+				4C23A7181037DB1D18D78D85 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,12 +158,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				D12670DB25E841EC00C233F9 /* LaunchScreen.storyboard in Resources */,
+				642A8F2C25EB5244006E814C /* GoogleService-Info.plist in Resources */,
 				D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */,
 				D12670D325E841E900C233F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C23A7181037DB1D18D78D85 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WikiRacer/Pods-WikiRacer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WikiRacer/Pods-WikiRacer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WikiRacer/Pods-WikiRacer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB4D58EDF7EF90B9BD15F7D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WikiRacer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D12670C425E841E800C233F9 /* Sources */ = {
@@ -287,6 +360,7 @@
 		};
 		D12670E025E841EC00C233F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -305,6 +379,7 @@
 		};
 		D12670E125E841EC00C233F9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F975A3C1526CE486DD6D795F /* Pods-WikiRacer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
