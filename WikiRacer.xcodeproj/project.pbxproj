@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		642A8F2C25EB5244006E814C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 642A8F2B25EB5244006E814C /* GoogleService-Info.plist */; };
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
 		D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CB25E841E900C233F9 /* AppDelegate.swift */; };
 		D12670CE25E841E900C233F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CD25E841E900C233F9 /* SceneDelegate.swift */; };
@@ -16,11 +15,11 @@
 		D12670D625E841E900C233F9 /* WikiRacer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12670D425E841E900C233F9 /* WikiRacer.xcdatamodeld */; };
 		D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12670D725E841EC00C233F9 /* Assets.xcassets */; };
 		D12670DB25E841EC00C233F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12670D925E841EC00C233F9 /* LaunchScreen.storyboard */; };
+		D1F9009625EB6EC600745EF9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1F9009525EB6EC600745EF9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiRacer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		642A8F2B25EB5244006E814C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.debug.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.debug.xcconfig"; sourceTree = "<group>"; };
 		D12670C825E841E900C233F9 /* WikiRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12670CB25E841E900C233F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +30,7 @@
 		D12670D725E841EC00C233F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D12670DA25E841EC00C233F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D12670DC25E841EC00C233F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1F9009525EB6EC600745EF9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F975A3C1526CE486DD6D795F /* Pods-WikiRacer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.release.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +82,7 @@
 				D12670D725E841EC00C233F9 /* Assets.xcassets */,
 				D12670D925E841EC00C233F9 /* LaunchScreen.storyboard */,
 				D12670DC25E841EC00C233F9 /* Info.plist */,
-				642A8F2B25EB5244006E814C /* GoogleService-Info.plist */,
+				D1F9009525EB6EC600745EF9 /* GoogleService-Info.plist */,
 				D12670D425E841E900C233F9 /* WikiRacer.xcdatamodeld */,
 			);
 			path = WikiRacer;
@@ -94,7 +94,6 @@
 				995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */,
 				F975A3C1526CE486DD6D795F /* Pods-WikiRacer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -158,7 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D12670DB25E841EC00C233F9 /* LaunchScreen.storyboard in Resources */,
-				642A8F2C25EB5244006E814C /* GoogleService-Info.plist in Resources */,
+				D1F9009625EB6EC600745EF9 /* GoogleService-Info.plist in Resources */,
 				D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */,
 				D12670D325E841E900C233F9 /* Main.storyboard in Resources */,
 			);

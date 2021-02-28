@@ -1,2 +1,3 @@
 .DS_Store
-xcuser_data
+Pods/Pods.xcodeproj/xcuserdata/
+WikiRacer.xcworkspace/xcuserdata/
