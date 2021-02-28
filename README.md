@@ -1,6 +1,6 @@
 # WikiRacer #
 
-# NOTE: Please open up WikiRacer.xcworkspace and NOT WikiRacer.xcodeproj for development
+## NOTE: Please open up WikiRacer.xcworkspace and NOT WikiRacer.xcodeproj for development ##
 
 WikiRacer is an iOS application based on the [Wiki Game](https://en.wikipedia.org/wiki/Wikipedia:Wiki_Game "Wiki Game title"). 
 
