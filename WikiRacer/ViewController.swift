@@ -10,6 +10,9 @@ import WikipediaKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var wikiTitle: UILabel!
+    @IBOutlet weak var wikiDescription: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,11 +31,20 @@ class ViewController: UIViewController {
 //            }
 //        }
 
-        let _ = Wikipedia.shared.requestArticle(language: language, title: "Soft rime", imageWidth: 640) { result in
+        let _ = Wikipedia.shared.requestArticle(language: language, title: "Attack on Titan", imageWidth: 640) { result in
             switch result {
             case .success(let article):
-              print(article.displayTitle)
-              print(article.displayText)
+                self.wikiTitle.text = article.displayTitle
+                let htmlString = article.displayText
+                let data = htmlString.data(using: .utf8)!
+                let attributedString = try? NSAttributedString(
+                    data: data,
+                    options: [.documentType: NSAttributedString.DocumentType.html],
+                    documentAttributes: nil)
+                self.wikiDescription.attributedText = attributedString
+                self.wikiDescription.sizeToFit()
+//              print(article.displayTitle)
+//              print(article.displayText)
             case .failure(let error):
               print(error)
             }
