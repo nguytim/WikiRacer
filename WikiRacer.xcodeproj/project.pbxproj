@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		646DC6D325ECAD6200DB7DA6 /* WikipediaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 646DC6D225ECAD6200DB7DA6 /* WikipediaKit */; };
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
 		D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CB25E841E900C233F9 /* AppDelegate.swift */; };
 		D12670CE25E841E900C233F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CD25E841E900C233F9 /* SceneDelegate.swift */; };
@@ -40,6 +41,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */,
+				646DC6D325ECAD6200DB7DA6 /* WikipediaKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +117,9 @@
 			dependencies = (
 			);
 			name = WikiRacer;
+			packageProductDependencies = (
+				646DC6D225ECAD6200DB7DA6 /* WikipediaKit */,
+			);
 			productName = WikiRacer;
 			productReference = D12670C825E841E900C233F9 /* WikiRacer.app */;
 			productType = "com.apple.product-type.application";
@@ -142,6 +147,9 @@
 				Base,
 			);
 			mainGroup = D12670BF25E841E800C233F9;
+			packageReferences = (
+				646DC6D125ECAD6200DB7DA6 /* XCRemoteSwiftPackageReference "WikipediaKit" */,
+			);
 			productRefGroup = D12670C925E841E900C233F9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -417,6 +425,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		646DC6D125ECAD6200DB7DA6 /* XCRemoteSwiftPackageReference "WikipediaKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Raureif/WikipediaKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		646DC6D225ECAD6200DB7DA6 /* WikipediaKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 646DC6D125ECAD6200DB7DA6 /* XCRemoteSwiftPackageReference "WikipediaKit" */;
+			productName = WikipediaKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D12670D425E841E900C233F9 /* WikiRacer.xcdatamodeld */ = {
