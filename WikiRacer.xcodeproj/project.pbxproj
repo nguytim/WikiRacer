@@ -48,6 +48,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64E9955925F2E2F500FD427C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D12670CF25E841E900C233F9 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		64E9955A25F2E33500FD427C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D12670D925E841EC00C233F9 /* LaunchScreen.storyboard */,
+				D12670D125E841E900C233F9 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		CF014ABCFA4369762657BE7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,12 +94,11 @@
 		D12670CA25E841E900C233F9 /* WikiRacer */ = {
 			isa = PBXGroup;
 			children = (
+				64E9955A25F2E33500FD427C /* Storyboards */,
+				64E9955925F2E2F500FD427C /* View Controllers */,
 				D12670CB25E841E900C233F9 /* AppDelegate.swift */,
 				D12670CD25E841E900C233F9 /* SceneDelegate.swift */,
-				D12670CF25E841E900C233F9 /* ViewController.swift */,
-				D12670D125E841E900C233F9 /* Main.storyboard */,
 				D12670D725E841EC00C233F9 /* Assets.xcassets */,
-				D12670D925E841EC00C233F9 /* LaunchScreen.storyboard */,
 				D12670DC25E841EC00C233F9 /* Info.plist */,
 				D1F9009525EB6EC600745EF9 /* GoogleService-Info.plist */,
 				D12670D425E841E900C233F9 /* WikiRacer.xcdatamodeld */,
