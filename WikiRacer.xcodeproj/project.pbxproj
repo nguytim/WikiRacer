@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		646DC6D325ECAD6200DB7DA6 /* WikipediaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 646DC6D225ECAD6200DB7DA6 /* WikipediaKit */; };
+		646DC6D325ECAD6200DB7DA6 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 646DC6D225ECAD6200DB7DA6 /* SwiftPackageProductDependency */; };
 		64E9956025F596EF00FD427C /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9955F25F596EF00FD427C /* LoginPageViewController.swift */; };
 		64E9958725F59ECD00FD427C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E9958625F59ECD00FD427C /* Login.storyboard */; };
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
@@ -45,7 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */,
-				646DC6D325ECAD6200DB7DA6 /* WikipediaKit in Frameworks */,
+				646DC6D325ECAD6200DB7DA6 /* BuildFile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +140,7 @@
 			);
 			name = WikiRacer;
 			packageProductDependencies = (
-				646DC6D225ECAD6200DB7DA6 /* WikipediaKit */,
+				646DC6D225ECAD6200DB7DA6 /* SwiftPackageProductDependency */,
 			);
 			productName = WikiRacer;
 			productReference = D12670C825E841E900C233F9 /* WikiRacer.app */;
@@ -170,7 +170,7 @@
 			);
 			mainGroup = D12670BF25E841E800C233F9;
 			packageReferences = (
-				646DC6D125ECAD6200DB7DA6 /* XCRemoteSwiftPackageReference "WikipediaKit" */,
+				646DC6D125ECAD6200DB7DA6 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = D12670C925E841E900C233F9 /* Products */;
 			projectDirPath = "";
@@ -451,7 +451,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		646DC6D125ECAD6200DB7DA6 /* XCRemoteSwiftPackageReference "WikipediaKit" */ = {
+		646DC6D125ECAD6200DB7DA6 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Raureif/WikipediaKit.git";
 			requirement = {
@@ -462,9 +462,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		646DC6D225ECAD6200DB7DA6 /* WikipediaKit */ = {
+		646DC6D225ECAD6200DB7DA6 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 646DC6D125ECAD6200DB7DA6 /* XCRemoteSwiftPackageReference "WikipediaKit" */;
+			package = 646DC6D125ECAD6200DB7DA6 /* RemoteSwiftPackageReference */;
 			productName = WikipediaKit;
 		};
 /* End XCSwiftPackageProductDependency section */
