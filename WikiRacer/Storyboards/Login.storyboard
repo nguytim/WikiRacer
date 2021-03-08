@@ -25,7 +25,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-U5-hE8" userLabel="Username Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-U5-hE8" userLabel="Username Text Field">
                                         <rect key="frame" x="0.0" y="85" width="214.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -73,13 +73,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailAddressTextField" destination="x8q-U5-hE8" id="htQ-ja-bLK"/>
                         <outlet property="passwordTextField" destination="avR-mF-O51" id="pyt-69-BZ9"/>
-                        <outlet property="usernameTextField" destination="x8q-U5-hE8" id="htQ-ja-bLK"/>
+                        <segue destination="nFH-KD-Rlx" kind="presentation" identifier="SignInIdentifier" modalPresentationStyle="fullScreen" id="sc1-R7-eAJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RM6-gU-62X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-48" y="-39"/>
+            <point key="canvasLocation" x="151" y="-40"/>
         </scene>
         <!--Main-->
         <scene sceneID="omk-xc-xbv">
@@ -89,7 +90,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGS-en-Ye3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="693" y="-40"/>
+            <point key="canvasLocation" x="895" y="-40"/>
         </scene>
         <!--Register-->
         <scene sceneID="OsR-uT-bgx">
@@ -99,9 +100,12 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lg7-HL-KOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="693" y="-92"/>
+            <point key="canvasLocation" x="783" y="-124"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="sc1-R7-eAJ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

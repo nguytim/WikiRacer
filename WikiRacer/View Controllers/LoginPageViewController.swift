@@ -10,7 +10,7 @@ import FirebaseAuth
 
 class LoginPageViewController: UIViewController {
     
-    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
@@ -21,10 +21,10 @@ class LoginPageViewController: UIViewController {
     
     //Code for firebase login
     @IBAction func logInButton(_ sender: Any) {
-        Auth.auth().signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!, completion: {user, error in
+        Auth.auth().signIn(withEmail: emailAddressTextField.text!, password: passwordTextField.text!, completion: {user, error in
             if error == nil {
                 //successful login
-                self.performSegue(withIdentifier: "GmailSegue", sender: nil)
+                self.performSegue(withIdentifier: "SignInIdentifier", sender: nil)
             } else {
                 //unsuccessful login
                 let alert = UIAlertController(title: "Error", message: "Could not login. Check your email and password", preferredStyle: UIAlertController.Style.alert)
