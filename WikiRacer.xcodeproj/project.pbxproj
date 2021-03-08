@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		646DC6D325ECAD6200DB7DA6 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 646DC6D225ECAD6200DB7DA6 /* SwiftPackageProductDependency */; };
+		646DC6D325ECAD6200DB7DA6 /* WikipediaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 646DC6D225ECAD6200DB7DA6 /* WikipediaKit */; };
 		64E9956025F596EF00FD427C /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9955F25F596EF00FD427C /* LoginPageViewController.swift */; };
 		64E9958725F59ECD00FD427C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E9958625F59ECD00FD427C /* Login.storyboard */; };
+		64E995F025F5B4E800FD427C /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E995EF25F5B4E800FD427C /* Register.storyboard */; };
+		64E995F325F5B50200FD427C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E995F225F5B50200FD427C /* RegisterViewController.swift */; };
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
 		D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CB25E841E900C233F9 /* AppDelegate.swift */; };
 		D12670CE25E841E900C233F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CD25E841E900C233F9 /* SceneDelegate.swift */; };
@@ -25,6 +27,8 @@
 		1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiRacer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E9955F25F596EF00FD427C /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		64E9958625F59ECD00FD427C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		64E995EF25F5B4E800FD427C /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		64E995F225F5B50200FD427C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.debug.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.debug.xcconfig"; sourceTree = "<group>"; };
 		D12670C825E841E900C233F9 /* WikiRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12670CB25E841E900C233F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */,
-				646DC6D325ECAD6200DB7DA6 /* BuildFile in Frameworks */,
+				646DC6D325ECAD6200DB7DA6 /* WikipediaKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +61,7 @@
 			children = (
 				D12670CF25E841E900C233F9 /* ViewController.swift */,
 				64E9955F25F596EF00FD427C /* LoginPageViewController.swift */,
+				64E995F225F5B50200FD427C /* RegisterViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -67,6 +72,7 @@
 				D12670D925E841EC00C233F9 /* LaunchScreen.storyboard */,
 				D12670D125E841E900C233F9 /* Main.storyboard */,
 				64E9958625F59ECD00FD427C /* Login.storyboard */,
+				64E995EF25F5B4E800FD427C /* Register.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -140,7 +146,7 @@
 			);
 			name = WikiRacer;
 			packageProductDependencies = (
-				646DC6D225ECAD6200DB7DA6 /* SwiftPackageProductDependency */,
+				646DC6D225ECAD6200DB7DA6 /* WikipediaKit */,
 			);
 			productName = WikiRacer;
 			productReference = D12670C825E841E900C233F9 /* WikiRacer.app */;
@@ -170,7 +176,7 @@
 			);
 			mainGroup = D12670BF25E841E800C233F9;
 			packageReferences = (
-				646DC6D125ECAD6200DB7DA6 /* RemoteSwiftPackageReference */,
+				646DC6D125ECAD6200DB7DA6 /* XCRemoteSwiftPackageReference "WikipediaKit" */,
 			);
 			productRefGroup = D12670C925E841E900C233F9 /* Products */;
 			projectDirPath = "";
@@ -191,6 +197,7 @@
 				D1F9009625EB6EC600745EF9 /* GoogleService-Info.plist in Resources */,
 				D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */,
 				D12670D325E841E900C233F9 /* Main.storyboard in Resources */,
+				64E995F025F5B4E800FD427C /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +253,7 @@
 				D12670D025E841E900C233F9 /* ViewController.swift in Sources */,
 				D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */,
 				D12670CE25E841E900C233F9 /* SceneDelegate.swift in Sources */,
+				64E995F325F5B50200FD427C /* RegisterViewController.swift in Sources */,
 				64E9956025F596EF00FD427C /* LoginPageViewController.swift in Sources */,
 				D12670D625E841E900C233F9 /* WikiRacer.xcdatamodeld in Sources */,
 			);
@@ -451,7 +459,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		646DC6D125ECAD6200DB7DA6 /* RemoteSwiftPackageReference */ = {
+		646DC6D125ECAD6200DB7DA6 /* XCRemoteSwiftPackageReference "WikipediaKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Raureif/WikipediaKit.git";
 			requirement = {
@@ -462,9 +470,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		646DC6D225ECAD6200DB7DA6 /* SwiftPackageProductDependency */ = {
+		646DC6D225ECAD6200DB7DA6 /* WikipediaKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 646DC6D125ECAD6200DB7DA6 /* RemoteSwiftPackageReference */;
+			package = 646DC6D125ECAD6200DB7DA6 /* XCRemoteSwiftPackageReference "WikipediaKit" */;
 			productName = WikipediaKit;
 		};
 /* End XCSwiftPackageProductDependency section */

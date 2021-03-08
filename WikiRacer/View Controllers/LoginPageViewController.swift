@@ -47,7 +47,7 @@ class LoginPageViewController: UIViewController, UITextViewDelegate {
             guard let vc = segue.destination as? LoginPageViewController else { return }
         }
         
-        segue.destination.modalPresentationStyle = .fullScreen
+//        segue.destination.modalPresentationStyle = .fullScreen
     }
     
     // code to enable tapping on the background to remove software keyboard
