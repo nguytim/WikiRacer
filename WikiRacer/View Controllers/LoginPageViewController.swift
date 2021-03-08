@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import WikipediaKit
 
 class LoginPageViewController: UIViewController {
     
@@ -15,7 +16,37 @@ class LoginPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
+        let language = WikipediaLanguage("en")
+
+        let _ = Wikipedia.shared.requestOptimizedSearchResults(language: language, term: "Movies") { (searchResults, error) in
+
+            guard error == nil else { return }
+            guard let searchResults = searchResults else { return }
+
+            for articlePreview in searchResults.items {
+                print(articlePreview.displayTitle)
+            }
+        }
+//        let language = WikipediaLanguage("en")
+//
+//        let randomDay = Int.random(in: 1..<1500)
+//
+//        let dayBeforeYesterday = Date(timeIntervalSinceNow: TimeInterval(-60 * 60 * 24 * randomDay))
+//
+//        let _ = Wikipedia.shared.requestFeaturedArticles(language: language, date: dayBeforeYesterday) { result in
+//            switch result {
+//            case .success(let featuredCollection):
+//                for a in featuredCollection.mostReadArticles {
+//                    print(a.displayTitle)
+//                }
+//                print("Random Day: \(randomDay)")
+//                print("Num of articles: \(featuredCollection.mostReadArticles.count)")
+//            case .failure(let error):
+//              print(error)
+//            }
+//        }
     }
     
     
