@@ -16,7 +16,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var articlesTableView: UITableView!
     let articleCellIdentifier = "ArticleCell"
     
-    var wikiArticles = [""]
+    var wikiArticles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: articleCellIdentifier, for: indexPath as IndexPath)
-        let wikiArticle = wikiArticles[indexPath.row]
+        let wikiArticle = wikiArticles[indexPath.row].title
         cell.textLabel!.text = "\(wikiArticle)"
         return cell
     }
@@ -55,7 +55,8 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
             self.wikiArticles.removeAll()
             
             for article in articlePreviews {
-                self.wikiArticles.append("\(article.displayTitle)")
+                let article = Article(title: "\(article.displayTitle)", url: "\(article.url!.lastPathComponent)")
+                self.wikiArticles.append(article)
             }
             self.articlesTableView.reloadData()
         }
@@ -71,7 +72,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TargetArticleSegueIdentifier",
             let targetArticleVC = segue.destination as? ChooseTargetArticleVC {
-            targetArticleVC.startingArticle = sender as! String
+            targetArticleVC.startingArticle = sender as! Article
         }
     }
     

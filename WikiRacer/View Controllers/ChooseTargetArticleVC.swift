@@ -8,6 +8,16 @@
 import UIKit
 import WikipediaKit
 
+public class Article {
+    var title: String
+    var url: String
+    
+    init(title: String, url: String) {
+        self.title = title
+        self.url = url
+    }
+}
+
 class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Wikipedia language set to english
@@ -18,8 +28,8 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
     
     let articleCellIdentifier = "ArticleCell"
     
-    var wikiArticles = [""]
-    var startingArticle = ""
+    var wikiArticles = [Article]()
+    var startingArticle: Article?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +39,7 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
         articlesTableView.delegate = self
         articlesTableView.dataSource = self
         
-        startingArticleLabel.text = startingArticle
+        startingArticleLabel.text = startingArticle!.title
         
         getRandomArticles()
     }
@@ -40,7 +50,7 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: articleCellIdentifier, for: indexPath as IndexPath)
-        let wikiArticle = wikiArticles[indexPath.row]
+        let wikiArticle = wikiArticles[indexPath.row].title
         cell.textLabel!.text = "\(wikiArticle)"
         return cell
     }
@@ -60,7 +70,8 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
             self.wikiArticles.removeAll()
             
             for article in articlePreviews {
-                self.wikiArticles.append("\(article.displayTitle)")
+                let article = Article(title: "\(article.displayTitle)", url: "\(article.url!.lastPathComponent)")
+                self.wikiArticles.append(article)
             }
             self.articlesTableView.reloadData()
         }
@@ -75,7 +86,7 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "GameSegueIdentifier",
             let gameVC = segue.destination as? GameVC {
             gameVC.startingArticle = startingArticle
-            gameVC.targetArticle = sender as! String
+            gameVC.targetArticle = sender as! Article
         }
     }
 

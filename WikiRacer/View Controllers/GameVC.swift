@@ -24,11 +24,11 @@ class GameVC: UIViewController, UITextViewDelegate {
     var game: Game?
     
     // game mechanics
-    var previousArticles = [String]()
-    var startingArticle = "Attack on Titan"
-    var targetArticle = "Eren_Yeager"
+    var previousArticles = [Article]()
+    var startingArticle: Article?
+    var targetArticle: Article?
     
-    var currentArticle = ""
+    var currentArticle: Article?
     
     let youWinSegueIdentifier = "YouWinSegueIdentifier"
     
@@ -41,18 +41,17 @@ class GameVC: UIViewController, UITextViewDelegate {
         WikipediaNetworking.appAuthorEmailForAPI = "maniponce22@gmail.com"
         
         currentArticle = startingArticle
-        targetArticle = targetArticle.replacingOccurrences(of: " ", with: "_").lowercased()
         
-        startingArticleLabel.text = startingArticle
-        targetArticleLabel.text = targetArticle
-        print("Starting article: \(startingArticle)")
-        print("Target article: \(targetArticle)")
+        startingArticleLabel.text = startingArticle!.title
+        targetArticleLabel.text = targetArticle!.title
+        print("Starting article: \(startingArticle!.title)")
+        print("Target article: \(targetArticle!.title)")
 //        startingArticle = "Attack on Titan"
 //        targetArticle = "Eren_Yeager"
         
-        game = Game(startingArticle: startingArticle, targetArticle: targetArticle)
+        game = Game(startingArticle: startingArticle!.url, targetArticle: targetArticle!.url)
         
-        getArticle(article: startingArticle)
+        getArticle(article: startingArticle!.title)
     }
     
     // gets one random Wiki article
@@ -127,11 +126,11 @@ class GameVC: UIViewController, UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         
         // store the current article in previous articles
-        previousArticles.append(currentArticle)
+        previousArticles.append(currentArticle!)
         
         // get the new article from the last path component of the URL
         let newArticle = URL.lastPathComponent
-        currentArticle = newArticle
+        currentArticle!.url = newArticle
 
         backButton.isHidden = false
         
@@ -139,13 +138,13 @@ class GameVC: UIViewController, UITextViewDelegate {
         getArticle(article: newArticle)
         updateCounter()
         
-        currentArticle = currentArticle.lowercased()
+//        currentArticle = currentArticle.lowercased()
         
-        print("Current article: \(currentArticle)")
-        print("Target article: \(targetArticle)")
+        print("Current article: \(currentArticle!.url)")
+        print("Target article: \(targetArticle!.url)")
         
         // user wins the game and the current article matches the target article
-        if currentArticle == targetArticle {
+        if currentArticle!.url == targetArticle!.url {
             print("CONGRATULATIONS!! YOU WON!")
             performSegue(withIdentifier: "YouWinSegueIdentifier", sender: nil)
         }
@@ -158,7 +157,7 @@ class GameVC: UIViewController, UITextViewDelegate {
         
         // get the previous article
         currentArticle = previousArticles.popLast()!
-        getArticle(article: currentArticle)
+        getArticle(article: currentArticle!.title)
         
         updateCounter()
         
