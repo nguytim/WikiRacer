@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="d9z-0y-PwO">
-                                <rect key="frame" x="108.5" y="229" width="197.5" height="438"/>
+                                <rect key="frame" x="108.5" y="190" width="197.5" height="516"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up 👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2i-lc-Hu9">
                                         <rect key="frame" x="0.0" y="0.0" width="197.5" height="48"/>
@@ -41,14 +41,21 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d96-aH-Txg">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoD-J0-SQI">
                                         <rect key="frame" x="0.0" y="312" width="197.5" height="48"/>
+                                        <state key="normal" title="Sign up!"/>
+                                        <connections>
+                                            <action selector="signUpButton:" destination="8hO-fl-ENv" eventType="touchUpInside" id="gof-0d-rGM"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d96-aH-Txg">
+                                        <rect key="frame" x="0.0" y="390" width="197.5" height="48"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" name="MainDarkColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoN-gB-quQ">
-                                        <rect key="frame" x="0.0" y="390" width="197.5" height="48"/>
+                                        <rect key="frame" x="0.0" y="468" width="197.5" height="48"/>
                                         <state key="normal" title="Sign up with Gmail"/>
                                     </button>
                                 </subviews>
@@ -65,11 +72,22 @@
                         <outlet property="emailAddressTextField" destination="bO0-0O-2aO" id="SUQ-KR-Crs"/>
                         <outlet property="passwordTextField" destination="PLS-uU-xEp" id="6op-Ih-qzJ"/>
                         <outlet property="usernameTextField" destination="Bay-aY-w60" id="U7k-v0-29L"/>
+                        <segue destination="646-A2-zFa" kind="presentation" identifier="RegisterToMainIdentifier" modalPresentationStyle="fullScreen" id="eAH-H5-fgn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxh-Mk-OwU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="-78"/>
+            <point key="canvasLocation" x="68" y="-253"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="920-Nt-cj4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="646-A2-zFa" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jLm-XR-OPR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uF1-kK-Lix" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="576" y="-360"/>
         </scene>
     </scenes>
     <resources>

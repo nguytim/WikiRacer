@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginPageViewController: UIViewController, UITextViewDelegate {
+class LoginPageViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -43,9 +43,9 @@ class LoginPageViewController: UIViewController, UITextViewDelegate {
     
     //Fake segue to test
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GmailSegue" {
-            guard let vc = segue.destination as? LoginPageViewController else { return }
-        }
+//        if segue.identifier == "GmailSegue" {
+//            guard let vc = segue.destination as? LoginPageViewController else { return }
+//        }
         
 //        segue.destination.modalPresentationStyle = .fullScreen
     }

@@ -47,7 +47,7 @@
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="SignUpButton:" destination="dB3-R8-ZeA" eventType="touchUpInside" id="PA1-bg-MSt"/>
-                                            <segue destination="jlM-UK-aAa" kind="show" id="LPX-C0-Cyt"/>
+                                            <segue destination="jlM-UK-aAa" kind="show" identifier="RegisterIdentifier" id="LPX-C0-Cyt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lb-rd-eph" userLabel="Gmail Login Button">
