@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GameVC.swift
 //  WikiRacer
 //
 //  Created by Tim Nguyen on 2/25/21.
@@ -8,21 +8,29 @@
 import UIKit
 import WikipediaKit
 
-class ViewController: UIViewController, UITextViewDelegate {
+class GameVC: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var wikiTitle: UILabel!
     @IBOutlet weak var wikiDescription: UITextView!
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var startingArticleLabel: UILabel!
+    @IBOutlet weak var targetArticleLabel: UILabel!
+    
     // Wikipedia language set to english
     let language = WikipediaLanguage("en")
     
+    var game: Game?
+    
     // game mechanics
-    var linkCounter = 0
     var previousArticles = [String]()
-    var currentArticle = "Attack on Titan"
-    let targetArticle = "Eren_Yeager"
+    var startingArticle = "Attack on Titan"
+    var targetArticle = "Eren_Yeager"
+    
+    var currentArticle = ""
+    
+    let youWinSegueIdentifier = "YouWinSegueIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +40,19 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         WikipediaNetworking.appAuthorEmailForAPI = "maniponce22@gmail.com"
         
-        getArticle(article: currentArticle)
+        currentArticle = startingArticle
+        targetArticle = targetArticle.replacingOccurrences(of: " ", with: "_").lowercased()
+        
+        startingArticleLabel.text = startingArticle
+        targetArticleLabel.text = targetArticle
+        print("Starting article: \(startingArticle)")
+        print("Target article: \(targetArticle)")
+//        startingArticle = "Attack on Titan"
+//        targetArticle = "Eren_Yeager"
+        
+        game = Game(startingArticle: startingArticle, targetArticle: targetArticle)
+        
+        getArticle(article: startingArticle)
     }
     
     // gets one random Wiki article
@@ -119,9 +139,15 @@ class ViewController: UIViewController, UITextViewDelegate {
         getArticle(article: newArticle)
         updateCounter()
         
+        currentArticle = currentArticle.lowercased()
+        
+        print("Current article: \(currentArticle)")
+        print("Target article: \(targetArticle)")
+        
         // user wins the game and the current article matches the target article
         if currentArticle == targetArticle {
             print("CONGRATULATIONS!! YOU WON!")
+            performSegue(withIdentifier: "YouWinSegueIdentifier", sender: nil)
         }
         
         return false // don't navigate to the URL on a web browser
@@ -144,8 +170,15 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     // update the counter by 1
     func updateCounter() {
-        linkCounter += 1
-        counterLabel.text = String(linkCounter)
+        game!.numLinks += 1
+        counterLabel.text = String(game!.numLinks)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "YouWinSegueIdentifier",
+            let youWinVC = segue.destination as? YouWinVC {
+            youWinVC.game = game
+        }
     }
 }
 
