@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dB3-R8-ZeA">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login Page View Controller-->
+        <scene sceneID="U7j-Zl-zvm">
+            <objects>
+                <viewController id="dB3-R8-ZeA" customClass="LoginPageViewController" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PJW-Vo-MML">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-De-a5r">
+                                <rect key="frame" x="100" y="219" width="214.5" height="458"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WikiSpeedia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rt-hk-VF5" userLabel="WikiSpeedia Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="214.5" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-U5-hE8" userLabel="Username Text Field">
+                                        <rect key="frame" x="0.0" y="85" width="214.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avR-mF-O51" userLabel="Password Text Field">
+                                        <rect key="frame" x="0.0" y="156" width="214.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQb-9f-aJ0" userLabel="Log in Button">
+                                        <rect key="frame" x="0.0" y="227" width="214.5" height="30"/>
+                                        <state key="normal" title="Log In"/>
+                                        <connections>
+                                            <action selector="logInButton:" destination="dB3-R8-ZeA" eventType="touchUpInside" id="HtK-zo-4km"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26d-2A-DSw" userLabel="Sign up Button">
+                                        <rect key="frame" x="0.0" y="294" width="214.5" height="30"/>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="SignUpButton:" destination="dB3-R8-ZeA" eventType="touchUpInside" id="PA1-bg-MSt"/>
+                                            <segue destination="jlM-UK-aAa" kind="show" identifier="RegisterIdentifier" id="LPX-C0-Cyt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lb-rd-eph" userLabel="Gmail Login Button">
+                                        <rect key="frame" x="0.0" y="361" width="214.5" height="30"/>
+                                        <state key="normal" title="Login with Gmail"/>
+                                        <connections>
+                                            <action selector="gmailLoginButton:" destination="dB3-R8-ZeA" eventType="touchUpInside" id="VGS-p5-JZQ"/>
+                                            <segue destination="nFH-KD-Rlx" kind="show" identifier="GmailSegue" id="kbp-mb-IbP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9y-Gj-g9a" userLabel="Forgot Password Button">
+                                        <rect key="frame" x="0.0" y="428" width="214.5" height="30"/>
+                                        <state key="normal" title="Forgot Password?"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Z5t-aX-HAj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aDW-De-a5r" firstAttribute="centerX" secondItem="PJW-Vo-MML" secondAttribute="centerX" id="Fvk-tw-0u0"/>
+                            <constraint firstItem="aDW-De-a5r" firstAttribute="centerY" secondItem="PJW-Vo-MML" secondAttribute="centerY" id="PyD-P3-Vc0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="avR-mF-O51" id="pyt-69-BZ9"/>
+                        <outlet property="usernameTextField" destination="x8q-U5-hE8" id="htQ-ja-bLK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RM6-gU-62X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-48" y="-39"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="omk-xc-xbv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="nFH-KD-Rlx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TyH-Fa-q38"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RGS-en-Ye3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="693" y="-40"/>
+        </scene>
+        <!--Register-->
+        <scene sceneID="OsR-uT-bgx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Register" id="jlM-UK-aAa" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pnH-xy-ThB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lg7-HL-KOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="693" y="-92"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

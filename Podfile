@@ -7,5 +7,6 @@ target 'WikiRacer' do
 
   # Pods for WikiRacer
 pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
 
 end
