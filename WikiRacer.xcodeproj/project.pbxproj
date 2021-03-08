@@ -13,6 +13,7 @@
 		64E995F025F5B4E800FD427C /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E995EF25F5B4E800FD427C /* Register.storyboard */; };
 		64E995F325F5B50200FD427C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E995F225F5B50200FD427C /* RegisterViewController.swift */; };
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
+		D10AAC1C25F6CF7800750F02 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */; };
 		D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CB25E841E900C233F9 /* AppDelegate.swift */; };
 		D12670CE25E841E900C233F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CD25E841E900C233F9 /* SceneDelegate.swift */; };
 		D12670D325E841E900C233F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12670D125E841E900C233F9 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		64E995EF25F5B4E800FD427C /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		64E995F225F5B50200FD427C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.debug.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.debug.xcconfig"; sourceTree = "<group>"; };
+		D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D12670C825E841E900C233F9 /* WikiRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12670CB25E841E900C233F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D12670CD25E841E900C233F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				D1F1AC2725F5E3C200F42065 /* Game.swift */,
+				D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */,
 				D1F1AC2825F5E3C200F42065 /* WikipediaTool.swift */,
 				D1F1AC1B25F5E39E00F42065 /* ChooseStartingArticleVC.swift */,
 				D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */,
@@ -284,6 +287,7 @@
 				D1F1AC2125F5E39E00F42065 /* GameVC.swift in Sources */,
 				D12670D625E841E900C233F9 /* WikiRacer.xcdatamodeld in Sources */,
 				D1F1AC2A25F5E3C200F42065 /* WikipediaTool.swift in Sources */,
+				D10AAC1C25F6CF7800750F02 /* RoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

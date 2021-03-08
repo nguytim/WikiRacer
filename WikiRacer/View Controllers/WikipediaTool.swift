@@ -6,6 +6,9 @@
 //
 
 import WikipediaKit
+import UIKit
+
+let WIKI = WikipediaTool()
 
 class WikipediaTool {
     
@@ -14,6 +17,26 @@ class WikipediaTool {
     
     init() {
         WikipediaNetworking.appAuthorEmailForAPI = "maniponce22@gmail.com"
+    }
+    
+    func getPopularArticles() {
+
+        let randomDay = Int.random(in: 1..<1500)
+
+        let dayBeforeYesterday = Date(timeIntervalSinceNow: TimeInterval(-60 * 60 * 24 * randomDay))
+
+        let _ = Wikipedia.shared.requestFeaturedArticles(language: language, date: dayBeforeYesterday) { result in
+            switch result {
+            case .success(let featuredCollection):
+                for a in featuredCollection.mostReadArticles {
+                    print(a.displayTitle)
+                }
+                print("Random Day: \(randomDay)")
+                print("Num of articles: \(featuredCollection.mostReadArticles.count)")
+            case .failure(let error):
+              print(error)
+            }
+        }
     }
     
     // gets one random Wiki article

@@ -42,6 +42,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let wikiArticle = wikiArticles[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "TargetArticleSegueIdentifier", sender: wikiArticle)
     }
     
@@ -55,7 +56,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
             self.wikiArticles.removeAll()
             
             for article in articlePreviews {
-                let article = Article(title: "\(article.displayTitle)", url: "\(article.url!.lastPathComponent)")
+                let article = Article(title: "\(article.displayTitle)", lastPathComponentURL: "\(article.url!.lastPathComponent)")
                 self.wikiArticles.append(article)
             }
             self.articlesTableView.reloadData()

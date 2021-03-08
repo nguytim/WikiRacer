@@ -10,11 +10,11 @@ import WikipediaKit
 
 public class Article {
     var title: String
-    var url: String
+    var lastPathComponentURL: String
     
-    init(title: String, url: String) {
+    init(title: String, lastPathComponentURL: String) {
         self.title = title
-        self.url = url
+        self.lastPathComponentURL = lastPathComponentURL
     }
 }
 
@@ -57,6 +57,7 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let wikiArticle = wikiArticles[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "GameSegueIdentifier", sender: wikiArticle)
     }
     
@@ -70,7 +71,7 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
             self.wikiArticles.removeAll()
             
             for article in articlePreviews {
-                let article = Article(title: "\(article.displayTitle)", url: "\(article.url!.lastPathComponent)")
+                let article = Article(title: "\(article.displayTitle)", lastPathComponentURL: "\(article.url!.lastPathComponent)")
                 self.wikiArticles.append(article)
             }
             self.articlesTableView.reloadData()
