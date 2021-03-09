@@ -62,7 +62,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
         
         game = Game(startingArticle: startingArticle!.lastPathComponentURL, targetArticle: targetArticle!.lastPathComponentURL)
         
-        getArticle(article: startingArticle!.title)
+        getArticle(article: currentArticle!.lastPathComponentURL)
     }
     
     // retrieves the Wiki article and updates the UILabel of the title and UITextview of the description
@@ -84,6 +84,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
                 self.webView.load(myRequest)
                 
             case .failure(let error):
+                print("Can't find article: \(article)")
                 print(error)
             }
         }
@@ -110,10 +111,11 @@ class GameVC: UIViewController, WKNavigationDelegate {
     func goToArticle(url: URL) {
         // store the current article in previous articles
         previousArticles.append(currentArticle!)
+        print("Appended \(currentArticle!.title)")
         
         // get the new article from the last path component of the URL
         let newArticle = url.lastPathComponent
-        currentArticle!.lastPathComponentURL = newArticle
+        currentArticle = Article(title: newArticle, lastPathComponentURL: newArticle)
         
         backButton.isHidden = false
         
@@ -136,7 +138,8 @@ class GameVC: UIViewController, WKNavigationDelegate {
         
         // get the previous article
         currentArticle = previousArticles.popLast()!
-        getArticle(article: currentArticle!.title)
+        print("Go to previous article \(currentArticle!.lastPathComponentURL)")
+        getArticle(article: currentArticle!.lastPathComponentURL)
         
         updateCounter()
         
