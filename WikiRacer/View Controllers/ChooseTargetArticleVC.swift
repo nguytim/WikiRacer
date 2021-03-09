@@ -8,15 +8,8 @@
 import UIKit
 import WikipediaKit
 
-public class Article {
-    var title: String
-    var lastPathComponentURL: String
-    
-    init(title: String, lastPathComponentURL: String) {
-        self.title = title
-        self.lastPathComponentURL = lastPathComponentURL
-    }
-}
+// TODO: REMOVE THIS
+let exTargetArticle = Article(title: "Finding Dory", lastPathComponentURL: "Finding_Dory")
 
 class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -61,7 +54,7 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
         performSegue(withIdentifier: "GameSegueIdentifier", sender: wikiArticle)
     }
     
-    // gets 8 random Wiki articles
+    // gets 10 random Wiki articles
     func getRandomArticles() {
         Wikipedia.shared.requestRandomArticles(language: self.language, maxCount: 10, imageWidth: 640) {
             (articlePreviews, language, error) in
@@ -70,10 +63,14 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
             
             self.wikiArticles.removeAll()
             
+            // TODO: REMOVE THIS
+            self.wikiArticles.append(exTargetArticle)
+            
             for article in articlePreviews {
                 let article = Article(title: "\(article.displayTitle)", lastPathComponentURL: "\(article.url!.lastPathComponent)")
                 self.wikiArticles.append(article)
             }
+            
             self.articlesTableView.reloadData()
         }
     }

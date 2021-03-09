@@ -16,7 +16,10 @@ class YouWinVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        timeLabel.text = "\(game!.elapsedTime)"
+        let timeDisplayed = game!.elapsedTime
+        let minutes = (timeDisplayed % 3600) / 60
+        let seconds = (timeDisplayed % 3600) % 60
+        timeLabel.text = String(format:"%d:%02d", minutes, seconds)
         numLinksLabel.text = "\(game!.numLinks)"
     }
 
@@ -27,7 +30,6 @@ class YouWinVC: UIViewController {
     @IBAction func newGameButtonPressed(_ sender: Any) {
         
     }
-    
     
     @IBAction func leaderboardButtonPressed(_ sender: Any) {
         

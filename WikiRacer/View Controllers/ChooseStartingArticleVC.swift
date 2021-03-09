@@ -8,6 +8,9 @@
 import UIKit
 import WikipediaKit
 
+// TODO: REMOVE THIS
+let exStartingArticle = Article(title: "Finding Nemo", lastPathComponentURL: "Finding_Nemo")
+
 class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Wikipedia language set to english
@@ -46,7 +49,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
         performSegue(withIdentifier: "TargetArticleSegueIdentifier", sender: wikiArticle)
     }
     
-    // gets 8 random Wiki articles
+    // gets 10 random Wiki articles
     func getRandomArticles() {
         Wikipedia.shared.requestRandomArticles(language: self.language, maxCount: 10, imageWidth: 640) {
             (articlePreviews, language, error) in
@@ -59,6 +62,10 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
                 let article = Article(title: "\(article.displayTitle)", lastPathComponentURL: "\(article.url!.lastPathComponent)")
                 self.wikiArticles.append(article)
             }
+            
+            // TODO: REMOVE THIS
+            self.wikiArticles.append(exStartingArticle)
+            
             self.articlesTableView.reloadData()
         }
     }

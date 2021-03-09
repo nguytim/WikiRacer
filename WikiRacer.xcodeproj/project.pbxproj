@@ -20,6 +20,7 @@
 		D12670D625E841E900C233F9 /* WikiRacer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12670D425E841E900C233F9 /* WikiRacer.xcdatamodeld */; };
 		D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12670D725E841EC00C233F9 /* Assets.xcassets */; };
 		D12670DB25E841EC00C233F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12670D925E841EC00C233F9 /* LaunchScreen.storyboard */; };
+		D1B8AB9825F7345200AA128E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B8AB9725F7345200AA128E /* Article.swift */; };
 		D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */; };
 		D1F1AC1F25F5E39E00F42065 /* ChooseTargetArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */; };
 		D1F1AC2025F5E39E00F42065 /* ChooseStartingArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1B25F5E39E00F42065 /* ChooseStartingArticleVC.swift */; };
@@ -47,6 +48,7 @@
 		D12670D725E841EC00C233F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D12670DA25E841EC00C233F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D12670DC25E841EC00C233F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1B8AB9725F7345200AA128E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWinVC.swift; sourceTree = "<group>"; };
 		D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTargetArticleVC.swift; sourceTree = "<group>"; };
 		D1F1AC1B25F5E39E00F42065 /* ChooseStartingArticleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseStartingArticleVC.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */,
 				64E9955F25F596EF00FD427C /* LoginPageViewController.swift */,
 				64E995F225F5B50200FD427C /* RegisterViewController.swift */,
+				D1B8AB9725F7345200AA128E /* Article.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1B8AB9825F7345200AA128E /* Article.swift in Sources */,
 				D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */,
 				D1F1AC2225F5E39E00F42065 /* HomeVC.swift in Sources */,
 				D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */,

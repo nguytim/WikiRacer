@@ -15,11 +15,16 @@ class GameVC: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var viewForEmbedingWebView: UIView!
     
     @IBOutlet weak var wikiTitle: UILabel!
-    @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var startingArticleLabel: UILabel!
     @IBOutlet weak var targetArticleLabel: UILabel!
+   
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var counterLabel: UILabel!
+    
+    var timer = Timer()
+    var timeDisplayed = 0
     
     // Wikipedia language set to english
     let language = WikipediaLanguage("en")
@@ -35,11 +40,11 @@ class GameVC: UIViewController, WKNavigationDelegate {
     var currentArticle: Article?
     var previousArticles = [Article]()
     
-    let exStartingArticle = Article(title: "Finding Nemo", lastPathComponentURL: "Finding_Nemo")
-    let exTargetArticle = Article(title: "Finding Dory", lastPathComponentURL: "Finding_Dory")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.isHidden = true
         
         // set up webview
         webView = WKWebView(frame: viewForEmbedingWebView.bounds, configuration: WKWebViewConfiguration())
@@ -47,11 +52,10 @@ class GameVC: UIViewController, WKNavigationDelegate {
         webView.navigationDelegate = self
         viewForEmbedingWebView.addSubview(webView)
         
+        timerLabel.text = "0:00"
         counterLabel.text = "0"
         
-        // TODO: COMMENT THIS OUT AFTER DEMO
-        startingArticle = exStartingArticle
-        targetArticle = exTargetArticle
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         
         currentArticle = startingArticle
         
@@ -63,6 +67,14 @@ class GameVC: UIViewController, WKNavigationDelegate {
         game = Game(startingArticle: startingArticle!.lastPathComponentURL, targetArticle: targetArticle!.lastPathComponentURL)
         
         getArticle(article: currentArticle!.lastPathComponentURL)
+    }
+    
+    @objc func fireTimer() {
+        timeDisplayed += 1
+//        let hours = timeDisplayed / 3600
+        let minutes = (timeDisplayed % 3600) / 60
+        let seconds = (timeDisplayed % 3600) % 60
+        timerLabel.text = String(format:"%d:%02d", minutes, seconds)
     }
     
     // retrieves the Wiki article and updates the UILabel of the title and UITextview of the description
@@ -128,6 +140,8 @@ class GameVC: UIViewController, WKNavigationDelegate {
         
         // user wins the game and the current article matches the target article
         if currentArticle!.lastPathComponentURL == targetArticle!.lastPathComponentURL {
+            timer.invalidate()
+            game?.elapsedTime = timeDisplayed
             print("CONGRATULATIONS!! YOU WON!")
             performSegue(withIdentifier: "YouWinSegueIdentifier", sender: nil)
         }
