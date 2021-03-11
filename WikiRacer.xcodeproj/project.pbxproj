@@ -26,7 +26,6 @@
 		D1F1AC2025F5E39E00F42065 /* ChooseStartingArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1B25F5E39E00F42065 /* ChooseStartingArticleVC.swift */; };
 		D1F1AC2125F5E39E00F42065 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1C25F5E39E00F42065 /* GameVC.swift */; };
 		D1F1AC2225F5E39E00F42065 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1D25F5E39E00F42065 /* HomeVC.swift */; };
-		D1F1AC2525F5E3B100F42065 /* Supporting Files in Resources */ = {isa = PBXBuildFile; fileRef = D1F1AC2425F5E3B100F42065 /* Supporting Files */; };
 		D1F1AC2925F5E3C200F42065 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC2725F5E3C200F42065 /* Game.swift */; };
 		D1F1AC2A25F5E3C200F42065 /* WikipediaTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC2825F5E3C200F42065 /* WikipediaTool.swift */; };
 		D1F9009625EB6EC600745EF9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1F9009525EB6EC600745EF9 /* GoogleService-Info.plist */; };
@@ -54,7 +53,6 @@
 		D1F1AC1B25F5E39E00F42065 /* ChooseStartingArticleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseStartingArticleVC.swift; sourceTree = "<group>"; };
 		D1F1AC1C25F5E39E00F42065 /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		D1F1AC1D25F5E39E00F42065 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		D1F1AC2425F5E3B100F42065 /* Supporting Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Supporting Files"; sourceTree = "<group>"; };
 		D1F1AC2725F5E3C200F42065 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		D1F1AC2825F5E3C200F42065 /* WikipediaTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaTool.swift; sourceTree = "<group>"; };
 		D1F9009525EB6EC600745EF9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 		D12670CA25E841E900C233F9 /* WikiRacer */ = {
 			isa = PBXGroup;
 			children = (
-				D1F1AC2425F5E3B100F42065 /* Supporting Files */,
 				64E9955A25F2E33500FD427C /* Storyboards */,
 				64E9955925F2E2F500FD427C /* View Controllers */,
 				D12670CB25E841E900C233F9 /* AppDelegate.swift */,
@@ -219,7 +216,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1F1AC2525F5E3B100F42065 /* Supporting Files in Resources */,
 				D12670DB25E841EC00C233F9 /* LaunchScreen.storyboard in Resources */,
 				64E9958725F59ECD00FD427C /* Login.storyboard in Resources */,
 				D1F9009625EB6EC600745EF9 /* GoogleService-Info.plist in Resources */,
