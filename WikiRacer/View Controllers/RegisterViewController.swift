@@ -15,9 +15,17 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signUpGmailButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupRegisterButtons()
     }
     
     @IBAction func signUpButton(_ sender: Any) {
@@ -60,10 +68,21 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    // code to enable tapping on the background to remove software keyboard
+    private func setupRegisterButtons() {
+        //Attribute to underline button text.
+        let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20.0), NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.underlineStyle:1.0] as [NSAttributedString.Key : Any]
+        var attributedString = NSAttributedString(string: NSLocalizedString("Sign up", comment: ""), attributes: attributes)
+        signUpButton.setAttributedTitle(attributedString, for: .normal)
+        signUpButton.setTitleColor(.white, for: .normal)
         
-        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            self.view.endEditing(true)
-        }
+        attributedString = NSAttributedString(string: NSLocalizedString("Sign up with Gmail", comment: ""), attributes: attributes)
+        signUpGmailButton.setAttributedTitle(attributedString, for: .normal)
+        signUpGmailButton.setTitleColor(.white, for: .normal)
+    }
+    
+    // code to enable tapping on the background to remove software keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
 }
