@@ -16,7 +16,7 @@
 		64EA3FF925FACA3400D9CCE1 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EA3FF825FACA3400D9CCE1 /* Nunito-Regular.ttf */; };
 		64EA3FFC25FACA4E00D9CCE1 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EA3FFB25FACA4E00D9CCE1 /* Nunito-Bold.ttf */; };
 		64EA400025FACBA100D9CCE1 /* DarkerGrotesque-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EA3FFE25FACBA100D9CCE1 /* DarkerGrotesque-Bold.ttf */; };
-		64EA400125FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EA3FFF25FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf */; };
+		64EA400125FACBA100D9CCE1 /*  in Resources */ = {isa = PBXBuildFile; fileRef = 64EA3FFF25FACBA100D9CCE1 /*  */; };
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
 		D10AAC1C25F6CF7800750F02 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */; };
 		D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CB25E841E900C233F9 /* AppDelegate.swift */; };
@@ -42,11 +42,11 @@
 		64E9958625F59ECD00FD427C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		64E995EF25F5B4E800FD427C /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		64E995F225F5B50200FD427C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		64EA3FEF25FA7CF900D9CCE1 /* Righteous-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Righteous-Regular.ttf"; path = "../../../../Downloads/Righteous/Righteous-Regular.ttf"; sourceTree = "<group>"; };
-		64EA3FF825FACA3400D9CCE1 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Regular.ttf"; path = "../../../../Downloads/Nunito/Nunito-Regular.ttf"; sourceTree = "<group>"; };
-		64EA3FFB25FACA4E00D9CCE1 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Bold.ttf"; path = "../../../../Downloads/Nunito/Nunito-Bold.ttf"; sourceTree = "<group>"; };
-		64EA3FFE25FACBA100D9CCE1 /* DarkerGrotesque-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DarkerGrotesque-Bold.ttf"; path = "../../../../Downloads/Darker_Grotesque/DarkerGrotesque-Bold.ttf"; sourceTree = "<group>"; };
-		64EA3FFF25FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DarkerGrotesque-Regular.ttf"; path = "../../../../Downloads/Darker_Grotesque/DarkerGrotesque-Regular.ttf"; sourceTree = "<group>"; };
+		64EA3FEF25FA7CF900D9CCE1 /* Righteous-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Righteous-Regular.ttf"; sourceTree = "<group>"; };
+		64EA3FF825FACA3400D9CCE1 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		64EA3FFB25FACA4E00D9CCE1 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		64EA3FFE25FACBA100D9CCE1 /* DarkerGrotesque-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DarkerGrotesque-Bold.ttf"; sourceTree = "<group>"; };
+		64EA3FFF25FACBA100D9CCE1 /*  */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.debug.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.debug.xcconfig"; sourceTree = "<group>"; };
 		D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D12670C825E841E900C233F9 /* WikiRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +118,7 @@
 				64EA3FF825FACA3400D9CCE1 /* Nunito-Regular.ttf */,
 				64EA3FFB25FACA4E00D9CCE1 /* Nunito-Bold.ttf */,
 				64EA3FFE25FACBA100D9CCE1 /* DarkerGrotesque-Bold.ttf */,
-				64EA3FFF25FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf */,
+				64EA3FFF25FACBA100D9CCE1 /*  */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 				D12670DB25E841EC00C233F9 /* LaunchScreen.storyboard in Resources */,
 				64E9958725F59ECD00FD427C /* Login.storyboard in Resources */,
 				64EA3FF925FACA3400D9CCE1 /* Nunito-Regular.ttf in Resources */,
-				64EA400125FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf in Resources */,
+				64EA400125FACBA100D9CCE1 /*  in Resources */,
 				D1F9009625EB6EC600745EF9 /* GoogleService-Info.plist in Resources */,
 				64EA3FFC25FACA4E00D9CCE1 /* Nunito-Bold.ttf in Resources */,
 				D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */,
