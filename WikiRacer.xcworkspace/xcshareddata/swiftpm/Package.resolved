@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "WikipediaKit",
+        "repositoryURL": "https://github.com/Raureif/WikipediaKit.git",
+        "state": {
+          "branch": null,
+          "revision": "1c9d449aab9cf47f058a834caf4ff630fa283e04",
+          "version": "3.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
