@@ -30,19 +30,16 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     private func setupTextField() {
-        var whiteTextPlaceHolder = NSAttributedString(string: "Email Address",
-                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        
         let usernameBorder = CALayer()
         let borderWidth = CGFloat(2.0)
-        let frame = CGRect(x: 0, y: emailAddressTextField.frame.size.height - borderWidth, width: emailAddressTextField.frame.size.width, height: emailAddressTextField.frame.size.height)
         usernameBorder.borderColor = UIColor.white.cgColor
-        usernameBorder.frame = frame
+        usernameBorder.frame = CGRect(x: 0, y: emailAddressTextField.frame.size.height - borderWidth, width: emailAddressTextField.frame.size.width, height: emailAddressTextField.frame.size.height)
         usernameBorder.borderWidth = borderWidth
         
         emailAddressTextField.layer.addSublayer(usernameBorder)
         emailAddressTextField.layer.masksToBounds = true
-        emailAddressTextField.attributedPlaceholder = whiteTextPlaceHolder
+        emailAddressTextField.attributedPlaceholder = NSAttributedString(string: "Email Address",
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
     private func setupButton() {

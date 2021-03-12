@@ -89,9 +89,8 @@ class RegisterViewController: UIViewController {
         
         //USERNAME
         let usernameBorder = CALayer()
-        let frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: usernameTextField.frame.size.height)
         usernameBorder.borderColor = UIColor.white.cgColor
-        usernameBorder.frame = frame
+        usernameBorder.frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: usernameTextField.frame.size.height)
         usernameBorder.borderWidth = borderWidth
         
         usernameTextField.layer.addSublayer(usernameBorder)
@@ -99,23 +98,21 @@ class RegisterViewController: UIViewController {
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username",
                                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
-        
         //EMAIL
         let emailBorder = CALayer()
         emailBorder.borderWidth = borderWidth
         emailBorder.borderColor = UIColor.white.cgColor
-        emailBorder.frame = frame
+        emailBorder.frame = CGRect(x: 0, y: emailAddressTextField.frame.size.height - borderWidth, width: emailAddressTextField.frame.size.width, height: emailAddressTextField.frame.size.height)
 
         emailAddressTextField.layer.addSublayer(emailBorder)
         emailAddressTextField.layer.masksToBounds = true
         emailAddressTextField.attributedPlaceholder = NSAttributedString(string: "Email Address",
                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-
         //PASSWORD
         let passwordBorder = CALayer()
         passwordBorder.borderWidth = borderWidth
         passwordBorder.borderColor = UIColor.white.cgColor
-        passwordBorder.frame = frame
+        passwordBorder.frame = CGRect(x: 0, y: passwordTextField.frame.size.height - borderWidth, width: passwordTextField.frame.size.width, height: passwordTextField.frame.size.height)
 
         passwordTextField.layer.addSublayer(passwordBorder)
         passwordTextField.layer.masksToBounds = true
