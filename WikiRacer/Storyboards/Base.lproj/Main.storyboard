@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AeP-qx-4F1">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -8,31 +8,31 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="DarkerGrotesque-Bold.ttf">
+            <string>DarkerGrotesque-Bold</string>
+        </array>
+        <array key="Righteous-Regular.ttf">
+            <string>Righteous-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--NewGameVC-->
         <scene sceneID="OMb-sP-oC5">
             <objects>
                 <viewController id="deq-cq-w1h" userLabel="NewGameVC" customClass="HomeVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oYS-Dn-Z5h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Race" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uau-PI-FnV">
-                                <rect key="frame" x="92" y="202" width="229.5" height="60"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <color key="textColor" red="0.68653595501624787" green="0.94877347797927458" blue="0.80786422247036926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="81" translatesAutoresizingMaskIntoConstraints="NO" id="Mfc-hH-sWV">
-                                <rect key="frame" x="82" y="347" width="250" height="270"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="81" translatesAutoresizingMaskIntoConstraints="NO" id="Mfc-hH-sWV">
+                                <rect key="frame" x="82" y="324" width="226" height="342"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0J-nW-bLz" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0J-nW-bLz" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="226" height="60"/>
                                         <color key="backgroundColor" name="MainYellowColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="Single Player">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
+                                        <state key="normal" title="Single Player"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -49,10 +49,10 @@
                                             <segue destination="RdE-FC-uPd" kind="show" id="kcg-mF-Kzr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZY-HN-Pyk" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="117" width="250" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZY-HN-Pyk" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="141" width="226" height="60"/>
                                         <color key="backgroundColor" name="MainRedColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="Multiplayer">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -69,10 +69,10 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-9e-1jd" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="234" width="250" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-9e-1jd" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="282" width="226" height="60"/>
                                         <color key="backgroundColor" red="0.07285512442" green="0.23370620449999999" blue="0.32100064769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="How To Play?">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -85,6 +85,12 @@
                                     <constraint firstAttribute="width" constant="250" id="INq-jR-4X9"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New Race" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uau-PI-FnV">
+                                <rect key="frame" x="48" y="200" width="295" height="81"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="65"/>
+                                <color key="textColor" red="0.68653595501624787" green="0.94877347797927458" blue="0.80786422247036926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zIx-sD-kN1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -108,23 +114,23 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="RdE-FC-uPd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iNF-F8-V28">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-I2-Kcl">
-                                <rect key="frame" x="114" y="297" width="186" height="302"/>
+                                <rect key="frame" x="102" y="271" width="186" height="302"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-DE-rSk">
                                         <rect key="frame" x="0.0" y="0.0" width="186" height="84"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUV-hy-4VF">
-                                                <rect key="frame" x="0.0" y="0.0" width="186" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186" height="33.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your game type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4O-KE-Yo9">
-                                                <rect key="frame" x="0.0" y="63.5" width="186" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="63.666666666666693" width="186" height="20.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                 <nil key="highlightedColor"/>
@@ -193,7 +199,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="GameVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvI-Tm-DDx">
@@ -276,42 +282,42 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="os3-MG-L8P" customClass="YouWinVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6uK-Zg-sTu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="YEW-CE-oZb">
-                                <rect key="frame" x="110" y="293" width="194" height="388"/>
+                                <rect key="frame" x="110" y="293" width="170" height="336"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0Sa-ra-CcI">
-                                        <rect key="frame" x="0.0" y="0.0" width="194" height="201"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0Sa-ra-CcI">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="149"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Win!! 🏆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wx-GZ-7c3">
-                                                <rect key="frame" x="0.0" y="0.0" width="194" height="38.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You Win!! 🏆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wx-GZ-7c3">
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="8.6666666666666661"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Congratulations! You completed this game!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dej-oO-Zgq">
-                                                <rect key="frame" x="0.0" y="53.5" width="194" height="22"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="Congratulations! You completed this game!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dej-oO-Zgq">
+                                                <rect key="frame" x="0.0" y="23.666666666666686" width="170" height="0.0"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X0h-Dk-jOa" customClass="RoundedStack" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="90.5" width="194" height="75"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X0h-Dk-jOa" customClass="RoundedStack" customModule="WikiRacer" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="38.666666666666686" width="170" height="75"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="C4s-ZP-gkX" userLabel="Time Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="97" height="75"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="75"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsT-Tx-m0t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="97" height="47.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="85" height="47.666666666666664"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6D-f7-zN2">
-                                                                <rect key="frame" x="0.0" y="27.5" width="97" height="47.5"/>
+                                                                <rect key="frame" x="0.0" y="27.666666666666632" width="85" height="47.333333333333343"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -319,16 +325,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="kFn-QG-nRA" userLabel="Links Stack View">
-                                                        <rect key="frame" x="97" y="0.0" width="97" height="75"/>
+                                                        <rect key="frame" x="85" y="0.0" width="85" height="75"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Links:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wS-dB-ybX">
-                                                                <rect key="frame" x="0.0" y="0.0" width="97" height="47.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="85" height="47.666666666666664"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8V-jL-deB">
-                                                                <rect key="frame" x="0.0" y="27.5" width="97" height="47.5"/>
+                                                                <rect key="frame" x="0.0" y="27.666666666666632" width="85" height="47.333333333333343"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -344,19 +350,19 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You earn 3 ⚡️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gia-dd-3B6">
-                                                <rect key="frame" x="0.0" y="180.5" width="194" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You earn 3 ⚡️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gia-dd-3B6">
+                                                <rect key="frame" x="0.0" y="128.66666666666669" width="170" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FS3-BE-6rb">
-                                        <rect key="frame" x="0.0" y="268" width="194" height="120"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FS3-BE-6rb">
+                                        <rect key="frame" x="0.0" y="216" width="170" height="120"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOZ-N9-thb" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="194" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOZ-N9-thb" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
                                                 <color key="backgroundColor" red="0.072855124418130371" green="0.23370620447912985" blue="0.32100064766839376" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Play Again?">
@@ -369,8 +375,8 @@
                                                     <action selector="playAgainButtonPressed:" destination="os3-MG-L8P" eventType="touchUpInside" id="iKh-cX-lo9"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hz-Yb-kzZ" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="45" width="194" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hz-Yb-kzZ" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="45" width="170" height="30"/>
                                                 <color key="backgroundColor" red="0.07285512442" green="0.23370620449999999" blue="0.32100064769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="New Game">
@@ -383,8 +389,8 @@
                                                     <action selector="newGameButtonPressed:" destination="os3-MG-L8P" eventType="touchUpInside" id="BQD-HB-JoB"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehs-zT-TzT" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="90" width="194" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehs-zT-TzT" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="90" width="170" height="30"/>
                                                 <color key="backgroundColor" red="0.07285512442" green="0.23370620449999999" blue="0.32100064769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Leaderboard">
@@ -426,7 +432,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="384-tk-QQD" customClass="ChooseStartingArticleVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Go3-9K-ApN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Single Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ie5-sD-YNd">
@@ -449,14 +455,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" textLabel="9Uz-9S-viX" style="IBUITableViewCellStyleDefault" id="WsZ-Bs-c91" userLabel="Article Cell">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WsZ-Bs-c91" id="VC5-T9-03B">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Uz-9S-viX">
-                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -498,7 +504,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="R0H-Ca-3YS" customClass="ChooseTargetArticleVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JVG-BL-3o9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Single Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzi-u2-vqf">
@@ -521,14 +527,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" textLabel="JOh-XB-zjs" style="IBUITableViewCellStyleDefault" id="03I-z2-KP7" userLabel="Article Cell">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="03I-z2-KP7" id="2ek-Ia-EUA">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JOh-XB-zjs">
-                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -586,7 +592,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AeP-qx-4F1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1GU-1c-Q9Y">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -627,15 +633,15 @@
             <objects>
                 <tableViewController id="puX-ZV-fEZ" userLabel="ActiveGamesVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FvJ-zh-jTh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="d3A-rA-tsN">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d3A-rA-tsN" id="Q7m-UI-TEY">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -657,7 +663,7 @@
             <objects>
                 <viewController id="i3j-Pp-8es" userLabel="StoreVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cE2-gN-sgB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="fiR-ra-BYR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -673,7 +679,7 @@
             <objects>
                 <viewController id="IyR-Rr-X5T" userLabel="StatsVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qoB-nE-20F">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="m2E-D9-Ilw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -689,7 +695,7 @@
             <objects>
                 <viewController id="bOQ-vb-Zdx" userLabel="ProfileVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qFT-ih-hNX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="NHb-G5-gbm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -706,7 +712,7 @@
             <size key="intrinsicContentSize" width="79" height="30"/>
         </designable>
         <designable name="A0J-nW-bLz">
-            <size key="intrinsicContentSize" width="122" height="36"/>
+            <size key="intrinsicContentSize" width="174" height="60"/>
         </designable>
         <designable name="Ehs-zT-TzT">
             <size key="intrinsicContentSize" width="94" height="30"/>
@@ -724,10 +730,10 @@
             <size key="intrinsicContentSize" width="69" height="36"/>
         </designable>
         <designable name="xZY-HN-Pyk">
-            <size key="intrinsicContentSize" width="106" height="36"/>
+            <size key="intrinsicContentSize" width="150" height="60"/>
         </designable>
         <designable name="ySq-9e-1jd">
-            <size key="intrinsicContentSize" width="125" height="36"/>
+            <size key="intrinsicContentSize" width="177" height="60"/>
         </designable>
     </designables>
     <resources>

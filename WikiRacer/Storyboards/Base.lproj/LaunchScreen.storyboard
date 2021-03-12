@@ -16,11 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SplashCheckers" translatesAutoresizingMaskIntoConstraints="NO" id="pba-Nu-hv0">
-                                <rect key="frame" x="-49" y="-613" width="563" height="2164"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SplashCheckers" translatesAutoresizingMaskIntoConstraints="NO" id="pba-Nu-hv0">
+                                <rect key="frame" x="-34" y="-49" width="483" height="945"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="RacerInCart" translatesAutoresizingMaskIntoConstraints="NO" id="305-2O-z4r">
-                                <rect key="frame" x="111" y="370" width="192" height="199"/>
+                                <rect key="frame" x="118" y="355" width="179" height="186"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
