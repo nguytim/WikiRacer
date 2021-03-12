@@ -96,7 +96,7 @@
                             <constraint firstItem="zIx-sD-kN1" firstAttribute="trailing" secondItem="Mfc-hH-sWV" secondAttribute="trailing" constant="82" id="y5k-tF-u6e"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="laQ-1e-gog"/>
+                    <tabBarItem key="tabBarItem" title="Race" image="FlagIcon" id="laQ-1e-gog"/>
                     <navigationItem key="navigationItem" id="ERB-uD-9ub"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Blm-fC-H0K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -606,11 +606,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="MainAquaColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="deq-cq-w1h" kind="relationship" relationship="viewControllers" id="0V8-wS-eeu"/>
-                        <segue destination="puX-ZV-fEZ" kind="relationship" relationship="viewControllers" id="ch1-od-op1"/>
                         <segue destination="bOQ-vb-Zdx" kind="relationship" relationship="viewControllers" id="dvM-JA-lrW"/>
+                        <segue destination="puX-ZV-fEZ" kind="relationship" relationship="viewControllers" id="ch1-od-op1"/>
+                        <segue destination="deq-cq-w1h" kind="relationship" relationship="viewControllers" id="0V8-wS-eeu"/>
                         <segue destination="i3j-Pp-8es" kind="relationship" relationship="viewControllers" id="xq3-R0-Voj"/>
                         <segue destination="IyR-Rr-X5T" kind="relationship" relationship="viewControllers" id="zGm-6v-G5V"/>
                     </connections>
@@ -642,7 +643,7 @@
                             <outlet property="delegate" destination="puX-ZV-fEZ" id="G7j-ff-rhp"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="TVZ-yh-Q1z"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="RacetrackIcon" id="TVZ-yh-Q1z"/>
                     <navigationItem key="navigationItem" id="lhK-lk-UJY"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQ0-1F-Iwg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -659,7 +660,7 @@
                         <viewLayoutGuide key="safeArea" id="fiR-ra-BYR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="vKO-br-GmM" userLabel="Store"/>
+                    <tabBarItem key="tabBarItem" title="Shop" image="RepairShopIcon" id="vKO-br-GmM" userLabel="Store"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8p3-si-zKU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -675,7 +676,7 @@
                         <viewLayoutGuide key="safeArea" id="m2E-D9-Ilw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="YNx-Eh-QPg"/>
+                    <tabBarItem key="tabBarItem" title="Stats" image="TrophyIcon" id="YNx-Eh-QPg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvI-nN-akG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -691,7 +692,7 @@
                         <viewLayoutGuide key="safeArea" id="NHb-G5-gbm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="pU6-dl-Ifa" userLabel="Profile"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="TireIcon" id="pU6-dl-Ifa" userLabel="Profile"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdW-lX-C8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -728,6 +729,11 @@
         </designable>
     </designables>
     <resources>
+        <image name="FlagIcon" width="25" height="25"/>
+        <image name="RacetrackIcon" width="25" height="25"/>
+        <image name="RepairShopIcon" width="25" height="25"/>
+        <image name="TireIcon" width="25" height="25"/>
+        <image name="TrophyIcon" width="25" height="25"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <namedColor name="MainAquaColor">
             <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

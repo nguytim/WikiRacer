@@ -39,7 +39,6 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-U5-hE8" userLabel="Username Text Field">
                                         <rect key="frame" x="0.0" y="107" width="271.5" height="34"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
