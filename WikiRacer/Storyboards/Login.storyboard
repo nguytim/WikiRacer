@@ -86,6 +86,9 @@
                                         <state key="normal" title="Forgot Password?">
                                             <color key="titleColor" systemColor="systemGray2Color"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="p17-bM-uPf" kind="show" id="2Q7-aS-1bF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -120,6 +123,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGS-en-Ye3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="895" y="-40"/>
+        </scene>
+        <!--ForgotPassword-->
+        <scene sceneID="3fM-tj-eAy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ForgotPassword" id="p17-bM-uPf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Bt2-a5-ZyW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RxW-iu-qsh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879" y="55"/>
         </scene>
         <!--Register-->
         <scene sceneID="OsR-uT-bgx">

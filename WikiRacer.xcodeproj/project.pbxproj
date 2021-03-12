@@ -17,7 +17,7 @@
 		64EA3FFC25FACA4E00D9CCE1 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EA3FFB25FACA4E00D9CCE1 /* Nunito-Bold.ttf */; };
 		64EA400025FACBA100D9CCE1 /* DarkerGrotesque-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EA3FFE25FACBA100D9CCE1 /* DarkerGrotesque-Bold.ttf */; };
 		64EA400125FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EA3FFF25FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf */; };
-		64EA401225FB096900D9CCE1 /* ForgotPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64EA401125FB096900D9CCE1 /* ForgotPasswordViewController.storyboard */; };
+		64EA401225FB096900D9CCE1 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64EA401125FB096900D9CCE1 /* ForgotPassword.storyboard */; };
 		64EA401625FB09C800D9CCE1 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EA401525FB09C800D9CCE1 /* ForgotPasswordViewController.swift */; };
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
 		D10AAC1C25F6CF7800750F02 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */; };
@@ -49,7 +49,7 @@
 		64EA3FFB25FACA4E00D9CCE1 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		64EA3FFE25FACBA100D9CCE1 /* DarkerGrotesque-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DarkerGrotesque-Bold.ttf"; sourceTree = "<group>"; };
 		64EA3FFF25FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DarkerGrotesque-Regular.ttf"; sourceTree = "<group>"; };
-		64EA401125FB096900D9CCE1 /* ForgotPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPasswordViewController.storyboard; sourceTree = "<group>"; };
+		64EA401125FB096900D9CCE1 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		64EA401525FB09C800D9CCE1 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.debug.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.debug.xcconfig"; sourceTree = "<group>"; };
 		D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 				D12670D125E841E900C233F9 /* Main.storyboard */,
 				64E9958625F59ECD00FD427C /* Login.storyboard */,
 				64E995EF25F5B4E800FD427C /* Register.storyboard */,
-				64EA401125FB096900D9CCE1 /* ForgotPasswordViewController.storyboard */,
+				64EA401125FB096900D9CCE1 /* ForgotPassword.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 				64E9958725F59ECD00FD427C /* Login.storyboard in Resources */,
 				64EA3FF925FACA3400D9CCE1 /* Nunito-Regular.ttf in Resources */,
 				64EA400125FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf in Resources */,
-				64EA401225FB096900D9CCE1 /* ForgotPasswordViewController.storyboard in Resources */,
+				64EA401225FB096900D9CCE1 /* ForgotPassword.storyboard in Resources */,
 				D1F9009625EB6EC600745EF9 /* GoogleService-Info.plist in Resources */,
 				64EA3FFC25FACA4E00D9CCE1 /* Nunito-Bold.ttf in Resources */,
 				D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */,

@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class RegisterViewController: UIViewController, UITextViewDelegate {
+class RegisterViewController: UIViewController {
     
     
     @IBOutlet weak var emailAddressTextField: UITextField!
@@ -72,7 +72,7 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
     //Function that styles the buttons
     private func setupRegisterButtons() {
         //Attribute to underline button text.
-        let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20.0), NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.underlineStyle:1.0] as [NSAttributedString.Key : Any]
+        let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20.0), NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.underlineStyle:0.0] as [NSAttributedString.Key : Any]
         var attributedString = NSAttributedString(string: NSLocalizedString("Sign up", comment: ""), attributes: attributes)
         signUpButton.setAttributedTitle(attributedString, for: .normal)
         signUpButton.setTitleColor(.white, for: .normal)
@@ -84,11 +84,11 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
     
     //Function to style the text fields
     private func setupTextFields() {
-        var whiteTextPlaceHolder = NSAttributedString(string: "Username",
-                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
-        let usernameBorder = CALayer()
         let borderWidth = CGFloat(2.0)
+        
+        //USERNAME
+        let usernameBorder = CALayer()
         let frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: usernameTextField.frame.size.height)
         usernameBorder.borderColor = UIColor.white.cgColor
         usernameBorder.frame = frame
@@ -96,31 +96,31 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
         
         usernameTextField.layer.addSublayer(usernameBorder)
         usernameTextField.layer.masksToBounds = true
-        usernameTextField.attributedPlaceholder = whiteTextPlaceHolder
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
+        
+        //EMAIL
         let emailBorder = CALayer()
         emailBorder.borderWidth = borderWidth
         emailBorder.borderColor = UIColor.white.cgColor
         emailBorder.frame = frame
-        
+
         emailAddressTextField.layer.addSublayer(emailBorder)
         emailAddressTextField.layer.masksToBounds = true
-        
-        whiteTextPlaceHolder = NSAttributedString(string: "Email Address",
-                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        emailAddressTextField.attributedPlaceholder = whiteTextPlaceHolder
-        
+        emailAddressTextField.attributedPlaceholder = NSAttributedString(string: "Email Address",
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+
+        //PASSWORD
         let passwordBorder = CALayer()
         passwordBorder.borderWidth = borderWidth
         passwordBorder.borderColor = UIColor.white.cgColor
         passwordBorder.frame = frame
-        
+
         passwordTextField.layer.addSublayer(passwordBorder)
         passwordTextField.layer.masksToBounds = true
-        
-        whiteTextPlaceHolder = NSAttributedString(string: "Password",
-                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        passwordTextField.attributedText = whiteTextPlaceHolder
+        passwordTextField.attributedText = NSAttributedString(string: "placeholder text",
+                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
     // code to enable tapping on the background to remove software keyboard

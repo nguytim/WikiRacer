@@ -8,14 +8,49 @@
 import UIKit
 
 class ForgotPasswordViewController: UIViewController {
-
+    
+    @IBOutlet weak var emailAddressTextField: UITextField!
+    @IBOutlet weak var sendResetLinkButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        setupTextField()
+        setupButton()
+    }
+    
+    // code to enable tapping on the background to remove software keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    private func setupTextField() {
+        var whiteTextPlaceHolder = NSAttributedString(string: "Email Address",
+                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        let usernameBorder = CALayer()
+        let borderWidth = CGFloat(2.0)
+        let frame = CGRect(x: 0, y: emailAddressTextField.frame.size.height - borderWidth, width: emailAddressTextField.frame.size.width, height: emailAddressTextField.frame.size.height)
+        usernameBorder.borderColor = UIColor.white.cgColor
+        usernameBorder.frame = frame
+        usernameBorder.borderWidth = borderWidth
+        
+        emailAddressTextField.layer.addSublayer(usernameBorder)
+        emailAddressTextField.layer.masksToBounds = true
+        emailAddressTextField.attributedPlaceholder = whiteTextPlaceHolder
+    }
+    
+    private func setupButton() {
+        let attributedString = NSAttributedString(string: NSLocalizedString("Send Reset Link", comment: ""), attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20.0), NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.underlineStyle:1.0] as [NSAttributedString.Key : Any])
+        sendResetLinkButton.setAttributedTitle(attributedString, for: .normal)
+        sendResetLinkButton.setTitleColor(.white, for: .normal)
+    }
+    
     /*
     // MARK: - Navigation
 
