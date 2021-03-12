@@ -1,5 +1,5 @@
 //
-//  ChooseTargetArticleVC.swift
+//  ChooseStartingArticleVC.swift
 //  WikiRacer
 //
 //  Created by Tim Nguyen on 3/7/21.
@@ -8,21 +8,15 @@
 import UIKit
 import WikipediaKit
 
-// TODO: REMOVE THIS
-let exTargetArticle = Article(title: "Finding Dory", lastPathComponentURL: "Finding_Dory")
-
-class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Wikipedia language set to english
     let language = WikipediaLanguage("en")
     
     @IBOutlet weak var articlesTableView: UITableView!
-    @IBOutlet weak var startingArticleLabel: UILabel!
-    
     let articleCellIdentifier = "ArticleCell"
     
     var wikiArticles = [Article]()
-    var startingArticle: Article?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +25,6 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
         
         articlesTableView.delegate = self
         articlesTableView.dataSource = self
-        
-        startingArticleLabel.text = startingArticle!.title
         
         getRandomArticles()
     }
@@ -51,7 +43,7 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let wikiArticle = wikiArticles[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "GameSegueIdentifier", sender: wikiArticle)
+        performSegue(withIdentifier: "TargetArticleSegueIdentifier", sender: wikiArticle)
     }
     
     // gets 10 random Wiki articles
@@ -62,9 +54,6 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
             guard let articlePreviews = articlePreviews else { return }
             
             self.wikiArticles.removeAll()
-            
-            // TODO: REMOVE THIS
-            self.wikiArticles.append(exTargetArticle)
             
             for article in articlePreviews {
                 let article = Article(title: "\(article.displayTitle)", lastPathComponentURL: "\(article.url!.lastPathComponent)")
@@ -79,13 +68,14 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
         getRandomArticles()
     }
     
+    // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GameSegueIdentifier",
-            let gameVC = segue.destination as? GameVC {
-            gameVC.startingArticle = startingArticle
-            gameVC.targetArticle = sender as! Article
+        if segue.identifier == "TargetArticleSegueIdentifier",
+            let targetArticleVC = segue.destination as? ChooseTargetArticleVC {
+            targetArticleVC.startingArticle = sender as! Article
         }
     }
-
+    
 }
