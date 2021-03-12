@@ -112,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-I2-Kcl">
-                                <rect key="frame" x="114" y="280" width="186" height="302"/>
+                                <rect key="frame" x="114" y="297" width="186" height="302"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-DE-rSk">
                                         <rect key="frame" x="0.0" y="0.0" width="186" height="84"/>
@@ -178,8 +178,8 @@
                         <viewLayoutGuide key="safeArea" id="3AA-bG-rw6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="d9E-I2-Kcl" firstAttribute="top" secondItem="3AA-bG-rw6" secondAttribute="top" constant="192" id="dWd-vG-g5g"/>
-                            <constraint firstItem="d9E-I2-Kcl" firstAttribute="leading" secondItem="3AA-bG-rw6" secondAttribute="leading" constant="114" id="oP8-aH-psV"/>
+                            <constraint firstItem="d9E-I2-Kcl" firstAttribute="centerX" secondItem="iNF-F8-V28" secondAttribute="centerX" id="ZFV-b8-ofB"/>
+                            <constraint firstItem="d9E-I2-Kcl" firstAttribute="centerY" secondItem="iNF-F8-V28" secondAttribute="centerY" id="umV-aF-mef"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0N3-8v-LCz"/>
@@ -603,6 +603,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="AB1-xK-bQs"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M8D-OS-n3P">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -646,7 +647,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQ0-1F-Iwg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-301" y="842"/>
+            <point key="canvasLocation" x="-439" y="842"/>
         </scene>
         <!--StoreVC-->
         <scene sceneID="sa8-J9-0xF">
@@ -662,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8p3-si-zKU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="743"/>
+            <point key="canvasLocation" x="284" y="842"/>
         </scene>
         <!--StatsVC-->
         <scene sceneID="Ybo-6B-cbj">
@@ -678,7 +679,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvI-nN-akG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1091" y="729"/>
+            <point key="canvasLocation" x="1070" y="842"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="ug4-G9-Osa">
@@ -694,7 +695,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdW-lX-C8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-990" y="761"/>
+            <point key="canvasLocation" x="-1171" y="842"/>
         </scene>
     </scenes>
     <designables>
