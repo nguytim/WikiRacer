@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dB3-R8-ZeA">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -9,9 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Nunito-Bold.ttf">
-            <string>Nunito-Bold</string>
-        </array>
         <array key="Nunito-Regular.ttf">
             <string>Nunito-Regular</string>
         </array>
@@ -25,32 +22,32 @@
             <objects>
                 <viewController id="dB3-R8-ZeA" customClass="LoginPageViewController" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PJW-Vo-MML">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-De-a5r">
-                                <rect key="frame" x="71" y="191.5" width="272.5" height="513"/>
+                                <rect key="frame" x="47.666666666666657" y="234" width="295" height="376"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WikiRacer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rt-hk-VF5" userLabel="WikiSpeedia Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="272.5" height="75"/>
-                                        <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="81"/>
+                                        <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="65"/>
                                         <color key="textColor" name="MainAquaColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-U5-hE8" userLabel="Username Text Field">
-                                        <rect key="frame" x="0.0" y="112" width="272.5" height="37"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-U5-hE8" userLabel="Username Text Field">
+                                        <rect key="frame" x="0.0" y="118" width="295" height="37"/>
                                         <color key="textColor" name="MainDarkColor"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avR-mF-O51" userLabel="Password Text Field">
-                                        <rect key="frame" x="0.0" y="186" width="272.5" height="36"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="avR-mF-O51" userLabel="Password Text Field">
+                                        <rect key="frame" x="0.0" y="192" width="295" height="36"/>
                                         <color key="textColor" name="MainDarkColor"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQb-9f-aJ0" userLabel="Log in Button">
-                                        <rect key="frame" x="0.0" y="259" width="272.5" height="37"/>
+                                        <rect key="frame" x="0.0" y="265" width="295" height="37"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="20"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" name="MainDarkColor"/>
@@ -60,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26d-2A-DSw" userLabel="Sign up Button">
-                                        <rect key="frame" x="0.0" y="333" width="272.5" height="37"/>
+                                        <rect key="frame" x="0.0" y="339" width="295" height="37"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="20"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" name="MainDarkColor"/>
@@ -70,29 +67,31 @@
                                             <segue destination="jlM-UK-aAa" kind="show" identifier="RegisterIdentifier" id="LPX-C0-Cyt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lb-rd-eph" userLabel="Gmail Login Button">
-                                        <rect key="frame" x="0.0" y="407" width="272.5" height="33"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
-                                        <state key="normal" title="Login with Gmail">
-                                            <color key="titleColor" name="MainDarkColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="gmailLoginButton:" destination="dB3-R8-ZeA" eventType="touchUpInside" id="VGS-p5-JZQ"/>
-                                            <segue destination="nFH-KD-Rlx" kind="show" identifier="GmailSegue" id="kbp-mb-IbP"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9y-Gj-g9a" userLabel="Forgot Password Button">
-                                        <rect key="frame" x="0.0" y="477" width="272.5" height="36"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                        <state key="normal" title="Forgot Password?">
-                                            <color key="titleColor" systemColor="systemGray2Color"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="p17-bM-uPf" kind="show" id="2Q7-aS-1bF"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9y-Gj-g9a" userLabel="Forgot Password Button">
+                                <rect key="frame" x="71" y="829" width="272.5" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" systemColor="systemGray2Color"/>
+                                </state>
+                                <connections>
+                                    <segue destination="p17-bM-uPf" kind="show" id="2Q7-aS-1bF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lb-rd-eph" userLabel="Gmail Login Button">
+                                <rect key="frame" x="47" y="777" width="295" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
+                                <state key="normal" title="Login with Gmail">
+                                    <color key="titleColor" name="MainDarkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="gmailLoginButton:" destination="dB3-R8-ZeA" eventType="touchUpInside" id="VGS-p5-JZQ"/>
+                                    <segue destination="nFH-KD-Rlx" kind="show" identifier="GmailSegue" id="kbp-mb-IbP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z5t-aX-HAj"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
