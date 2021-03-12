@@ -84,6 +84,9 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
     
     //Function to style the text fields
     private func setupTextFields() {
+        var whiteTextPlaceHolder = NSAttributedString(string: "Username",
+                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
         let usernameBorder = CALayer()
         let borderWidth = CGFloat(2.0)
         let frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: usernameTextField.frame.size.height)
@@ -93,6 +96,7 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
         
         usernameTextField.layer.addSublayer(usernameBorder)
         usernameTextField.layer.masksToBounds = true
+        usernameTextField.attributedPlaceholder = whiteTextPlaceHolder
         
         let emailBorder = CALayer()
         emailBorder.borderWidth = borderWidth
@@ -102,6 +106,10 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
         emailAddressTextField.layer.addSublayer(emailBorder)
         emailAddressTextField.layer.masksToBounds = true
         
+        whiteTextPlaceHolder = NSAttributedString(string: "Email Address",
+                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        emailAddressTextField.attributedPlaceholder = whiteTextPlaceHolder
+        
         let passwordBorder = CALayer()
         passwordBorder.borderWidth = borderWidth
         passwordBorder.borderColor = UIColor.white.cgColor
@@ -109,6 +117,10 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
         
         passwordTextField.layer.addSublayer(passwordBorder)
         passwordTextField.layer.masksToBounds = true
+        
+        whiteTextPlaceHolder = NSAttributedString(string: "Password",
+                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passwordTextField.attributedText = whiteTextPlaceHolder
     }
     
     // code to enable tapping on the background to remove software keyboard
