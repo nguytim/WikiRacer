@@ -119,7 +119,7 @@ class RegisterViewController: UIViewController {
 
         passwordTextField.layer.addSublayer(passwordBorder)
         passwordTextField.layer.masksToBounds = true
-        passwordTextField.attributedText = NSAttributedString(string: "placeholder text",
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
