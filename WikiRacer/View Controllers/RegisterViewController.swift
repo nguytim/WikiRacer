@@ -26,6 +26,7 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         setupRegisterButtons()
+        setupTextFields()
     }
     
     @IBAction func signUpButton(_ sender: Any) {
@@ -68,6 +69,7 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    //Function that styles the buttons
     private func setupRegisterButtons() {
         //Attribute to underline button text.
         let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20.0), NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.underlineStyle:1.0] as [NSAttributedString.Key : Any]
@@ -78,6 +80,35 @@ class RegisterViewController: UIViewController, UITextViewDelegate {
         attributedString = NSAttributedString(string: NSLocalizedString("Sign up with Gmail", comment: ""), attributes: attributes)
         signUpGmailButton.setAttributedTitle(attributedString, for: .normal)
         signUpGmailButton.setTitleColor(.white, for: .normal)
+    }
+    
+    //Function to style the text fields
+    private func setupTextFields() {
+        let usernameBorder = CALayer()
+        let borderWidth = CGFloat(2.0)
+        let frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: usernameTextField.frame.size.height)
+        usernameBorder.borderColor = UIColor.white.cgColor
+        usernameBorder.frame = frame
+        usernameBorder.borderWidth = borderWidth
+        
+        usernameTextField.layer.addSublayer(usernameBorder)
+        usernameTextField.layer.masksToBounds = true
+        
+        let emailBorder = CALayer()
+        emailBorder.borderWidth = borderWidth
+        emailBorder.borderColor = UIColor.white.cgColor
+        emailBorder.frame = frame
+        
+        emailAddressTextField.layer.addSublayer(emailBorder)
+        emailAddressTextField.layer.masksToBounds = true
+        
+        let passwordBorder = CALayer()
+        passwordBorder.borderWidth = borderWidth
+        passwordBorder.borderColor = UIColor.white.cgColor
+        passwordBorder.frame = frame
+        
+        passwordTextField.layer.addSublayer(passwordBorder)
+        passwordTextField.layer.masksToBounds = true
     }
     
     // code to enable tapping on the background to remove software keyboard
