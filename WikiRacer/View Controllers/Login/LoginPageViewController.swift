@@ -26,6 +26,7 @@ class LoginPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupButtons()
+        setupTextField()
     }
     
     //Code for firebase login
@@ -80,6 +81,23 @@ class LoginPageViewController: UIViewController {
             NSAttributedString.Key.underlineStyle:1.0
         ])
         gmailButton.setAttributedTitle(attributedString, for: .normal)
+    }
+    
+    private func setupTextField() {
+        emailAddressTextField.backgroundColor = UIColor.white
+        emailAddressTextField.layer.borderColor = UIColor.lightGray.cgColor
+        emailAddressTextField.layer.cornerRadius = 5.0
+        emailAddressTextField.layer.borderWidth = 1.0
+        emailAddressTextField.attributedPlaceholder = NSAttributedString(string: "Email Address",
+                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
+        
+        passwordTextField.backgroundColor = UIColor.white
+        passwordTextField.layer.borderColor = UIColor.lightGray.cgColor
+        passwordTextField.layer.cornerRadius = 5.0
+        passwordTextField.layer.borderWidth = 1.0
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
+                                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     }
     
 }
