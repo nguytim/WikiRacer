@@ -8,7 +8,7 @@
 		<string>Nunito-Regular.ttf</string>
 		<string>Nunito-Bold.ttf</string>
 		<string>DarkerGrotesque-Bold.ttf</string>
-		<string>DarkerGrotesque.ttf</string>
+		<string>DarkerGrotesque-Regular.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
