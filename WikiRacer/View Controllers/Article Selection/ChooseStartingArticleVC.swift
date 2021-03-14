@@ -26,7 +26,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
         articlesTableView.delegate = self
         articlesTableView.dataSource = self
         
-        getRandomArticles()
+        getPopularArticles()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,6 +44,32 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
         let wikiArticle = wikiArticles[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "TargetArticleSegueIdentifier", sender: wikiArticle)
+    }
+    
+    // get 10 popular articles from wiki in a random day from 1 - 1500
+    func getPopularArticles() {
+        let randomDay = Int.random(in: 1..<1500)
+
+        let dayBeforeYesterday = Date(timeIntervalSinceNow: TimeInterval(-60 * 60 * 24 * randomDay))
+
+        let _ = Wikipedia.shared.requestFeaturedArticles(language: language, date: dayBeforeYesterday) { result in
+            switch result {
+            case .success(let featuredCollection):
+                self.wikiArticles.removeAll()
+                
+                
+                let popularArticles = featuredCollection.mostReadArticles
+                
+                for i in 0...9 {
+                    let a = popularArticles[i]
+                    let article = Article(title: "\(a.displayTitle)", lastPathComponentURL: "\(a.url!.lastPathComponent)")
+                    self.wikiArticles.append(article)
+                }
+                self.articlesTableView.reloadData()
+            case .failure(let error):
+              print(error)
+            }
+        }
     }
     
     // gets 10 random Wiki articles
@@ -65,7 +91,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func rerollButtonPressed(_ sender: Any) {
-        getRandomArticles()
+        getPopularArticles()
     }
     
     // MARK: - Navigation
