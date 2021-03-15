@@ -72,7 +72,7 @@ class RegisterViewController: UIViewController {
     //Function that styles the buttons
     private func setupRegisterButtons() {
         //Attribute to underline button text.
-        let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20.0), NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.underlineStyle:0.0] as [NSAttributedString.Key : Any]
+        let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20.0), NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.underlineStyle:1.0] as [NSAttributedString.Key : Any]
         var attributedString = NSAttributedString(string: NSLocalizedString("Sign up", comment: ""), attributes: attributes)
         signUpButton.setAttributedTitle(attributedString, for: .normal)
         signUpButton.setTitleColor(.white, for: .normal)
@@ -80,6 +80,7 @@ class RegisterViewController: UIViewController {
         attributedString = NSAttributedString(string: NSLocalizedString("Sign up with Gmail", comment: ""), attributes: attributes)
         signUpGmailButton.setAttributedTitle(attributedString, for: .normal)
         signUpGmailButton.setTitleColor(.white, for: .normal)
+        
     }
     
     //Function to style the text fields
