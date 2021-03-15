@@ -40,7 +40,6 @@ class GameVC: UIViewController, WKNavigationDelegate {
     var currentArticle: Article?
     var previousArticles = [Article]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +55,8 @@ class GameVC: UIViewController, WKNavigationDelegate {
         counterLabel.text = "0"
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
         
         currentArticle = startingArticle
         
