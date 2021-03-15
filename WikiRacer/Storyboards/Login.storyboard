@@ -96,6 +96,8 @@
                         <constraints>
                             <constraint firstItem="aDW-De-a5r" firstAttribute="centerX" secondItem="PJW-Vo-MML" secondAttribute="centerX" id="Fvk-tw-0u0"/>
                             <constraint firstItem="aDW-De-a5r" firstAttribute="centerY" secondItem="PJW-Vo-MML" secondAttribute="centerY" id="PyD-P3-Vc0"/>
+                            <constraint firstItem="aDW-De-a5r" firstAttribute="top" secondItem="Z5t-aX-HAj" secondAttribute="top" constant="129" id="kK9-c3-UKf"/>
+                            <constraint firstItem="Z5t-aX-HAj" firstAttribute="bottom" secondItem="aDW-De-a5r" secondAttribute="bottom" constant="139" id="oFV-Ti-MRp"/>
                         </constraints>
                     </view>
                     <connections>
