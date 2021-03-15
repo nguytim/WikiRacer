@@ -14,7 +14,6 @@ class GameVC: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     @IBOutlet weak var viewForEmbedingWebView: UIView!
     
-    @IBOutlet weak var wikiTitle: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var startingArticleLabel: UILabel!
@@ -84,15 +83,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
             switch result {
             case .success(let article):
                 
-                // TITLE
-                self.wikiTitle.attributedText = self.htmlToString(htmlString: article.displayTitle)
-                self.wikiTitle.font = UIFont(name: "Hoefler Text",
-                                             size: 20.0)
-                
-                // LOAD HTML
-//                self.webView.loadHTMLString(article.displayText, baseURL: nil)
-                
-                // OR GO TO URL
+                // GO TO URL
                 let myRequest = URLRequest(url: article.url!)
                 self.webView.load(myRequest)
                 
@@ -186,5 +177,26 @@ class GameVC: UIViewController, WKNavigationDelegate {
             options: [.documentType: NSAttributedString.DocumentType.html],
             documentAttributes: nil)
         return attributedString!
+    }
+    
+    // remove header (nav bar), wiki article actions, and footer
+    // change background color of all "a" HTML Tags
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+        // REMOVE HEADER, WIKI ACTIONS, AND FOOTER
+        let elementClassesToRemove = ["header-container header-chrome", "page-actions-menu", "mw-footer minerva-footer"]
+        
+        for elementClassName in elementClassesToRemove {
+            let removeElementClassScript = "var element = document.getElementsByClassName('\(elementClassName)')[0]; element.parentElement.removeChild(element);"
+            webView.evaluateJavaScript(removeElementClassScript) { (response, error) in
+                debugPrint("Am here")
+            }
+        }
+        
+        // CHANGE THE STYLING OF LINKS
+        let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); for (var i = 0; i < elements.length; i++) { elements[i].style.backgroundColor='pink'; elements[i].style.color='white'; elements[i].style.fontWeight='900'}"
+        webView.evaluateJavaScript(changeLinksToButtonsScript) { (response, error) in
+            debugPrint("Am here")
+        }
     }
 }

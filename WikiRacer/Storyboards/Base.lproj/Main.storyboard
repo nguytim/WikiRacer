@@ -26,16 +26,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="97" translatesAutoresizingMaskIntoConstraints="NO" id="Mfc-hH-sWV">
-                                <rect key="frame" x="47.666666666666657" y="146" width="295" height="552"/>
+                                <rect key="frame" x="47.666666666666657" y="159" width="295" height="526"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Race" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uau-PI-FnV">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="81"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="76"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="65"/>
                                         <color key="textColor" red="0.68653595501624787" green="0.94877347797927458" blue="0.80786422247036926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0J-nW-bLz" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="178" width="295" height="60"/>
+                                        <rect key="frame" x="0.0" y="173" width="295" height="53"/>
                                         <color key="backgroundColor" name="MainYellowColor"/>
                                         <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="Single Player"/>
@@ -56,7 +56,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZY-HN-Pyk" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="335" width="295" height="60"/>
+                                        <rect key="frame" x="0.0" y="323" width="295" height="53"/>
                                         <color key="backgroundColor" name="MainRedColor"/>
                                         <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="Multiplayer">
@@ -76,7 +76,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-9e-1jd" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="492" width="295" height="60"/>
+                                        <rect key="frame" x="0.0" y="473" width="295" height="53"/>
                                         <color key="backgroundColor" red="0.07285512442" green="0.23370620449999999" blue="0.32100064769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="How To Play?">
@@ -114,19 +114,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-I2-Kcl">
-                                <rect key="frame" x="93.000000000000014" y="255.33333333333334" width="204.33333333333337" height="333.66666666666663"/>
+                                <rect key="frame" x="73.666666666666686" y="260" width="243" height="324.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-DE-rSk">
-                                        <rect key="frame" x="0.0" y="0.0" width="204.33333333333334" height="115.66666666666667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="243" height="106.33333333333333"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUV-hy-4VF">
-                                                <rect key="frame" x="0.0" y="0.0" width="204.33333333333334" height="65.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="243" height="56"/>
                                                 <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="48"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your game type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4O-KE-Yo9">
-                                                <rect key="frame" x="0.0" y="95.333333333333343" width="204.33333333333334" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="86" width="243" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                 <nil key="highlightedColor"/>
@@ -134,10 +134,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nrB-pu-hNW">
-                                        <rect key="frame" x="0.0" y="165.66666666666666" width="204.33333333333334" height="167.99999999999997"/>
+                                        <rect key="frame" x="0.0" y="156.33333333333331" width="243" height="168"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVL-ZF-sMn" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="204.33333333333334" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="243" height="36"/>
                                                 <color key="backgroundColor" name="MainRedColor"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Normal">
@@ -151,7 +151,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV8-az-VfS" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="66" width="204.33333333333334" height="36"/>
+                                                <rect key="frame" x="0.0" y="66" width="243" height="36"/>
                                                 <color key="backgroundColor" name="MainLimeGreenColor"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Time Trial ⏳">
@@ -162,7 +162,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNp-ct-ZQR" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="132" width="204.33333333333334" height="36"/>
+                                                <rect key="frame" x="0.0" y="132.00000000000006" width="243" height="36"/>
                                                 <color key="backgroundColor" name="MainAquaColor"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Least Links 🔗">
@@ -199,13 +199,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvI-Tm-DDx">
-                                <rect key="frame" x="23" y="170" width="371" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Starting Article" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bni-3I-eDi">
                                 <rect key="frame" x="23" y="841" width="200" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -267,7 +260,6 @@
                         <outlet property="targetArticleLabel" destination="hXB-Qs-g83" id="yRU-nS-vkd"/>
                         <outlet property="timerLabel" destination="CUC-Vq-IgA" id="lbB-Ez-JQe"/>
                         <outlet property="viewForEmbedingWebView" destination="bgX-8c-o4a" id="6xR-bt-yIG"/>
-                        <outlet property="wikiTitle" destination="mvI-Tm-DDx" id="0RX-G3-4NU"/>
                         <segue destination="os3-MG-L8P" kind="show" identifier="YouWinSegueIdentifier" id="I35-BP-9ub"/>
                     </connections>
                 </viewController>
@@ -492,6 +484,7 @@
                     <navigationItem key="navigationItem" id="KPh-2I-Nqp"/>
                     <connections>
                         <outlet property="ArticlesTableView" destination="ekg-Su-Z73" id="5OG-0Z-pwM"/>
+                        <outlet property="rerollButton" destination="Qm9-eB-pQm" id="L0I-gx-wGd"/>
                         <segue destination="R0H-Ca-3YS" kind="show" identifier="TargetArticleSegueIdentifier" id="eiT-n5-n9V"/>
                     </connections>
                 </viewController>
@@ -578,6 +571,7 @@
                     <navigationItem key="navigationItem" id="bhZ-Ia-jEU"/>
                     <connections>
                         <outlet property="ArticlesTableView" destination="DVH-5k-tQe" id="dan-jp-CQa"/>
+                        <outlet property="rerollButton" destination="J24-OZ-BEA" id="q0t-EU-ygy"/>
                         <outlet property="startingArticleLabel" destination="bCD-Ci-F5Y" id="nOy-5v-ayc"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="GameSegueIdentifier" id="SY2-gB-Sc3"/>
                     </connections>
@@ -682,7 +676,7 @@
             <objects>
                 <viewController id="UHb-ek-tUT" userLabel="SettingsVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gbw-LT-sCO">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="bCa-Rn-BXl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -748,7 +742,7 @@
             <size key="intrinsicContentSize" width="79" height="30"/>
         </designable>
         <designable name="A0J-nW-bLz">
-            <size key="intrinsicContentSize" width="174" height="60"/>
+            <size key="intrinsicContentSize" width="204" height="53"/>
         </designable>
         <designable name="Ehs-zT-TzT">
             <size key="intrinsicContentSize" width="94" height="30"/>
@@ -766,10 +760,10 @@
             <size key="intrinsicContentSize" width="69" height="36"/>
         </designable>
         <designable name="xZY-HN-Pyk">
-            <size key="intrinsicContentSize" width="150" height="60"/>
+            <size key="intrinsicContentSize" width="172" height="53"/>
         </designable>
         <designable name="ySq-9e-1jd">
-            <size key="intrinsicContentSize" width="177" height="60"/>
+            <size key="intrinsicContentSize" width="214" height="53"/>
         </designable>
     </designables>
     <resources>

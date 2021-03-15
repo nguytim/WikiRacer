@@ -15,6 +15,7 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var articlesTableView: UITableView!
     @IBOutlet weak var startingArticleLabel: UILabel!
+    @IBOutlet weak var rerollButton: UIButton!
     
     let articleCellIdentifier = "ArticleCell"
     
@@ -30,6 +31,8 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
         articlesTableView.dataSource = self
         
         startingArticleLabel.text = startingArticle!.title
+        
+        rerollButton.setTitleColor(.systemGray, for: .disabled)
         
         getPopularArticles()
     }
@@ -53,6 +56,7 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
     
     // get 10 popular articles from wiki in a random day from 1 - 1500
     func getPopularArticles() {
+        rerollButton.isEnabled = false
         let randomDay = Int.random(in: 1..<1500)
 
         let dayBeforeYesterday = Date(timeIntervalSinceNow: TimeInterval(-60 * 60 * 24 * randomDay))
@@ -70,6 +74,7 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
                     self.wikiArticles.append(article)
                 }
                 self.articlesTableView.reloadData()
+                self.rerollButton.isEnabled = true
             case .failure(let error):
               print(error)
             }

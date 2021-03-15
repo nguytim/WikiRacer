@@ -14,6 +14,8 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     let language = WikipediaLanguage("en")
     
     @IBOutlet weak var articlesTableView: UITableView!
+    @IBOutlet weak var rerollButton: UIButton!
+    
     let articleCellIdentifier = "ArticleCell"
     
     var wikiArticles = [Article]()
@@ -25,6 +27,8 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
         
         articlesTableView.delegate = self
         articlesTableView.dataSource = self
+        
+        rerollButton.setTitleColor(.systemGray, for: .disabled)
         
         getPopularArticles()
     }
@@ -48,6 +52,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     
     // get 10 popular articles from wiki in a random day from 1 - 1500
     func getPopularArticles() {
+        rerollButton.isEnabled = false
         let randomDay = Int.random(in: 1..<1500)
 
         let dayBeforeYesterday = Date(timeIntervalSinceNow: TimeInterval(-60 * 60 * 24 * randomDay))
@@ -66,6 +71,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
                     self.wikiArticles.append(article)
                 }
                 self.articlesTableView.reloadData()
+                self.rerollButton.isEnabled = true
             case .failure(let error):
               print(error)
             }
