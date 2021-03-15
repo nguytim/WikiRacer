@@ -26,10 +26,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="81" translatesAutoresizingMaskIntoConstraints="NO" id="Mfc-hH-sWV">
-                                <rect key="frame" x="82" y="324" width="226" height="321"/>
+                                <rect key="frame" x="82" y="324" width="226" height="342"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0J-nW-bLz" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="226" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="226" height="60"/>
                                         <color key="backgroundColor" name="MainYellowColor"/>
                                         <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="Single Player"/>
@@ -50,7 +50,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZY-HN-Pyk" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="134" width="226" height="53"/>
+                                        <rect key="frame" x="0.0" y="141" width="226" height="60"/>
                                         <color key="backgroundColor" name="MainRedColor"/>
                                         <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="Multiplayer">
@@ -70,7 +70,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-9e-1jd" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="268" width="226" height="53"/>
+                                        <rect key="frame" x="0.0" y="282" width="226" height="60"/>
                                         <color key="backgroundColor" red="0.07285512442" green="0.23370620449999999" blue="0.32100064769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="How To Play?">
@@ -690,6 +690,21 @@
             </objects>
             <point key="canvasLocation" x="1070" y="842"/>
         </scene>
+        <!--SettingsVC-->
+        <scene sceneID="uyT-zh-4ji">
+            <objects>
+                <viewController id="UHb-ek-tUT" userLabel="SettingsVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gbw-LT-sCO">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bCa-Rn-BXl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJE-8I-hH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1920" y="842"/>
+        </scene>
         <!--ProfileVC-->
         <scene sceneID="ug4-G9-Osa">
             <objects>
@@ -697,6 +712,19 @@
                     <view key="view" contentMode="scaleToFill" id="qFT-ih-hNX">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1N-xr-w2Z">
+                                <rect key="frame" x="35" y="99" width="25" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Settings" image="gearshape.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="UHb-ek-tUT" kind="popoverPresentation" popoverAnchorView="z1N-xr-w2Z" id="8G6-3B-gaq">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="NHb-G5-gbm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -704,7 +732,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdW-lX-C8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1171" y="842"/>
+            <point key="canvasLocation" x="-1173.8461538461538" y="841.70616113744074"/>
         </scene>
     </scenes>
     <designables>
@@ -712,7 +740,7 @@
             <size key="intrinsicContentSize" width="79" height="30"/>
         </designable>
         <designable name="A0J-nW-bLz">
-            <size key="intrinsicContentSize" width="204" height="53"/>
+            <size key="intrinsicContentSize" width="174" height="60"/>
         </designable>
         <designable name="Ehs-zT-TzT">
             <size key="intrinsicContentSize" width="94" height="30"/>
@@ -730,10 +758,10 @@
             <size key="intrinsicContentSize" width="69" height="36"/>
         </designable>
         <designable name="xZY-HN-Pyk">
-            <size key="intrinsicContentSize" width="172" height="53"/>
+            <size key="intrinsicContentSize" width="150" height="60"/>
         </designable>
         <designable name="ySq-9e-1jd">
-            <size key="intrinsicContentSize" width="214" height="53"/>
+            <size key="intrinsicContentSize" width="177" height="60"/>
         </designable>
     </designables>
     <resources>
@@ -743,6 +771,7 @@
         <image name="TireIcon" width="22" height="22"/>
         <image name="TrophyIcon" width="22" height="22"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <namedColor name="MainAquaColor">
             <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
