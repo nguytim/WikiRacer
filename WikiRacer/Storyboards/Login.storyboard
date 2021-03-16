@@ -105,6 +105,7 @@
                         <outlet property="forgotPasswordButton" destination="Z9y-Gj-g9a" id="qPE-yF-eB3"/>
                         <outlet property="gmailButton" destination="4lb-rd-eph" id="cO3-a8-G8r"/>
                         <outlet property="loginButton" destination="BQb-9f-aJ0" id="jG7-bg-xnU"/>
+                        <outlet property="logoLabel" destination="1rt-hk-VF5" id="ArB-IR-5bY"/>
                         <outlet property="passwordTextField" destination="avR-mF-O51" id="pyt-69-BZ9"/>
                         <outlet property="signUpButton" destination="26d-2A-DSw" id="5G5-tr-F5t"/>
                         <segue destination="nFH-KD-Rlx" kind="presentation" identifier="SignInIdentifier" modalPresentationStyle="fullScreen" id="sc1-R7-eAJ"/>

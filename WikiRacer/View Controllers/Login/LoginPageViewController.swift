@@ -11,6 +11,8 @@ import WikipediaKit
 
 class LoginPageViewController: UIViewController {
     
+    @IBOutlet weak var logoLabel: UILabel!
+    
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -25,8 +27,50 @@ class LoginPageViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.logoLabel.alpha = 0
+        self.emailAddressTextField.alpha = 0
+        self.passwordTextField.alpha = 0
+        self.loginButton.alpha = 0
+        self.signUpButton.alpha = 0
+        self.gmailButton.alpha = 0
+        self.forgotPasswordButton.alpha = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         setupButtons()
         setupTextField()
+        
+        self.logoLabel.center.y -= view.bounds.width
+        self.loginButton.alpha = 0
+        self.forgotPasswordButton.alpha = 0
+        self.gmailButton.alpha = 0
+        
+        self.loginButton.center.x -= self.view.bounds.width
+        self.signUpButton.center.x += self.view.bounds.width
+        
+        UIView.animate(withDuration: 1.0,
+            delay: 0.5,
+            usingSpringWithDamping: 0.2,
+            initialSpringVelocity: 0.3,
+            options: [],
+            animations: {
+                self.logoLabel.alpha = 1.0
+                self.logoLabel.center.y += self.view.bounds.width
+            })
+        UIView.animate(withDuration: 1.5, delay: 1.0, options: [],
+            animations: {
+                self.emailAddressTextField.alpha = 1
+                self.passwordTextField.alpha = 1
+                self.forgotPasswordButton.alpha = 1
+                self.gmailButton.alpha = 1
+            }, completion: nil)
+        UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.3, options: [],
+            animations: {
+                self.loginButton.alpha = 1
+                self.signUpButton.alpha = 1
+                self.loginButton.center.x += self.view.bounds.width
+                self.signUpButton.center.x -= self.view.bounds.width
+            }, completion: nil)
     }
     
     //Code for firebase login
