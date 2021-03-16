@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dB3-R8-ZeA">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -22,32 +22,32 @@
             <objects>
                 <viewController id="dB3-R8-ZeA" customClass="LoginPageViewController" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PJW-Vo-MML">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-De-a5r">
-                                <rect key="frame" x="48" y="173" width="294" height="498"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-De-a5r">
+                                <rect key="frame" x="67" y="148" width="294" height="630"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WikiRacer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rt-hk-VF5" userLabel="WikiSpeedia Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="294" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="96"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="65"/>
                                         <color key="textColor" name="MainAquaColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-U5-hE8" userLabel="Username Text Field">
-                                        <rect key="frame" x="0.0" y="113" width="294" height="34"/>
+                                        <rect key="frame" x="0.0" y="133" width="294" height="43"/>
                                         <color key="textColor" name="MainDarkColor"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="avR-mF-O51" userLabel="Password Text Field">
-                                        <rect key="frame" x="0.0" y="184" width="294" height="34"/>
+                                        <rect key="frame" x="0.0" y="213" width="294" height="43.333333333333314"/>
                                         <color key="textColor" name="MainDarkColor"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQb-9f-aJ0" userLabel="Log in Button">
-                                        <rect key="frame" x="0.0" y="255" width="294" height="36"/>
+                                        <rect key="frame" x="0.0" y="293.33333333333331" width="294" height="45.333333333333314"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="20"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" name="MainDarkColor"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26d-2A-DSw" userLabel="Sign up Button">
-                                        <rect key="frame" x="0.0" y="328" width="294" height="36"/>
+                                        <rect key="frame" x="0.0" y="375.66666666666663" width="294" height="45.666666666666686"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="20"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" name="MainDarkColor"/>
@@ -68,7 +68,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lb-rd-eph" userLabel="Gmail Login Button">
-                                        <rect key="frame" x="0.0" y="401" width="294" height="30"/>
+                                        <rect key="frame" x="0.0" y="458.33333333333337" width="294" height="38"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                         <state key="normal" title="Login with Gmail">
                                             <color key="titleColor" name="MainDarkColor"/>
@@ -79,7 +79,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9y-Gj-g9a" userLabel="Forgot Password Button">
-                                        <rect key="frame" x="0.0" y="468" width="294" height="30"/>
+                                        <rect key="frame" x="0.0" y="533.33333333333337" width="294" height="96.666666666666629"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                         <state key="normal" title="Forgot Password?">
                                             <color key="titleColor" systemColor="systemGray2Color"/>
@@ -94,10 +94,9 @@
                         <viewLayoutGuide key="safeArea" id="Z5t-aX-HAj"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Z5t-aX-HAj" firstAttribute="bottom" secondItem="aDW-De-a5r" secondAttribute="bottom" constant="114" id="6eo-FU-Jm2"/>
                             <constraint firstItem="aDW-De-a5r" firstAttribute="centerX" secondItem="PJW-Vo-MML" secondAttribute="centerX" id="Fvk-tw-0u0"/>
-                            <constraint firstItem="aDW-De-a5r" firstAttribute="centerY" secondItem="PJW-Vo-MML" secondAttribute="centerY" id="PyD-P3-Vc0"/>
-                            <constraint firstItem="aDW-De-a5r" firstAttribute="top" secondItem="Z5t-aX-HAj" secondAttribute="top" constant="129" id="kK9-c3-UKf"/>
-                            <constraint firstItem="Z5t-aX-HAj" firstAttribute="bottom" secondItem="aDW-De-a5r" secondAttribute="bottom" constant="139" id="oFV-Ti-MRp"/>
+                            <constraint firstItem="aDW-De-a5r" firstAttribute="top" secondItem="Z5t-aX-HAj" secondAttribute="top" constant="104" id="GsF-cF-BTc"/>
                         </constraints>
                     </view>
                     <connections>
