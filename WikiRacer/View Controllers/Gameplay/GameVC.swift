@@ -194,7 +194,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
         }
         
         // CHANGE THE STYLING OF LINKS
-        let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); for (var i = 0; i < elements.length; i++) { elements[i].style.backgroundColor='pink'; elements[i].style.color='white'; elements[i].style.fontWeight='900'}"
+        let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (j == 0) { elements[i].style.backgroundColor='#E8787A';} else if (j == 1) { elements[i].style.backgroundColor='#7EEABF';} else if (j == 2) { elements[i].style.backgroundColor='#F0B351';} else { elements[i].style.backgroundColor='#8FDE60'; j = -1;} elements[i].style.color='white'; elements[i].style.fontWeight='700'; j++;}"
         webView.evaluateJavaScript(changeLinksToButtonsScript) { (response, error) in
             debugPrint("Am here")
         }
