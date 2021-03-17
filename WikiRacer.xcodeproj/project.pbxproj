@@ -27,6 +27,7 @@
 		D12670D625E841E900C233F9 /* WikiRacer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12670D425E841E900C233F9 /* WikiRacer.xcdatamodeld */; };
 		D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12670D725E841EC00C233F9 /* Assets.xcassets */; };
 		D12670DB25E841EC00C233F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12670D925E841EC00C233F9 /* LaunchScreen.storyboard */; };
+		D15A6D052601860B00DDCD85 /* GameTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A6D042601860B00DDCD85 /* GameTypeVC.swift */; };
 		D1B8AB9825F7345200AA128E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B8AB9725F7345200AA128E /* Article.swift */; };
 		D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */; };
 		D1F1AC1F25F5E39E00F42065 /* ChooseTargetArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */; };
@@ -61,6 +62,7 @@
 		D12670D725E841EC00C233F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D12670DA25E841EC00C233F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D12670DC25E841EC00C233F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D15A6D042601860B00DDCD85 /* GameTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypeVC.swift; sourceTree = "<group>"; };
 		D1B8AB9725F7345200AA128E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWinVC.swift; sourceTree = "<group>"; };
 		D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTargetArticleVC.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				D1F1AC1C25F5E39E00F42065 /* GameVC.swift */,
 				D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */,
+				D15A6D042601860B00DDCD85 /* GameTypeVC.swift */,
 			);
 			path = Gameplay;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			files = (
 				D1B8AB9825F7345200AA128E /* Article.swift in Sources */,
 				D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */,
+				D15A6D052601860B00DDCD85 /* GameTypeVC.swift in Sources */,
 				D1F1AC2225F5E39E00F42065 /* HomeVC.swift in Sources */,
 				D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */,
 				D1F1AC2025F5E39E00F42065 /* ChooseStartingArticleVC.swift in Sources */,

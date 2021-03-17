@@ -55,15 +55,14 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
         rerollButton.isEnabled = false
         let randomDay = Int.random(in: 1..<1500)
 
-        let dayBeforeYesterday = Date(timeIntervalSinceNow: TimeInterval(-60 * 60 * 24 * randomDay))
+        let randomDate = Date(timeIntervalSinceNow: TimeInterval(-60 * 60 * 24 * randomDay))
 
-        let _ = Wikipedia.shared.requestFeaturedArticles(language: language, date: dayBeforeYesterday) { result in
+        let _ = Wikipedia.shared.requestFeaturedArticles(language: language, date: randomDate) { result in
             switch result {
             case .success(let featuredCollection):
                 self.wikiArticles.removeAll()
                 
-                
-                let popularArticles = featuredCollection.mostReadArticles
+                let popularArticles = featuredCollection.mostReadArticles.shuffled()
                 
                 for i in 0...9 {
                     let a = popularArticles[i]

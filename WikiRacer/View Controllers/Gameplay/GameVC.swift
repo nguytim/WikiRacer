@@ -41,6 +41,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewForEmbedingWebView.isHidden = true
         
         self.navigationController?.navigationBar.isHidden = true
         
@@ -198,5 +199,6 @@ class GameVC: UIViewController, WKNavigationDelegate {
         webView.evaluateJavaScript(changeLinksToButtonsScript) { (response, error) in
             debugPrint("Am here")
         }
+        viewForEmbedingWebView.isHidden = false
     }
 }

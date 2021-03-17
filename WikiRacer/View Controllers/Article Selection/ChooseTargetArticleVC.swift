@@ -8,70 +8,47 @@
 import UIKit
 import WikipediaKit
 
-class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    // Wikipedia language set to english
-    let language = WikipediaLanguage("en")
+class ChooseTargetArticleVC: ChooseStartingArticleVC {
     
-    @IBOutlet weak var articlesTableView: UITableView!
     @IBOutlet weak var startingArticleLabel: UILabel!
-    @IBOutlet weak var rerollButton: UIButton!
     
-    let articleCellIdentifier = "ArticleCell"
-    
-    var wikiArticles = [Article]()
     var startingArticle: Article?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        WikipediaNetworking.appAuthorEmailForAPI = "maniponce22@gmail.com"
-        
-        articlesTableView.delegate = self
-        articlesTableView.dataSource = self
-        
         startingArticleLabel.text = startingArticle!.title
-        
-        rerollButton.setTitleColor(.systemGray, for: .disabled)
-        
-        getPopularArticles()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wikiArticles.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: articleCellIdentifier, for: indexPath as IndexPath)
-        let wikiArticle = wikiArticles[indexPath.row].title
-        cell.textLabel!.text = "\(wikiArticle)"
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let wikiArticle = wikiArticles[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "GameSegueIdentifier", sender: wikiArticle)
     }
     
     // get 10 popular articles from wiki in a random day from 1 - 1500
-    func getPopularArticles() {
+    override func getPopularArticles() {
         rerollButton.isEnabled = false
         let randomDay = Int.random(in: 1..<1500)
 
-        let dayBeforeYesterday = Date(timeIntervalSinceNow: TimeInterval(-60 * 60 * 24 * randomDay))
+        let randomDate = Date(timeIntervalSinceNow: TimeInterval(-60 * 60 * 24 * randomDay))
 
-        let _ = Wikipedia.shared.requestFeaturedArticles(language: language, date: dayBeforeYesterday) { result in
+        let _ = Wikipedia.shared.requestFeaturedArticles(language: language, date: randomDate) { result in
             switch result {
             case .success(let featuredCollection):
                 self.wikiArticles.removeAll()
                 
-                let popularArticles = featuredCollection.mostReadArticles
+                let popularArticles = featuredCollection.mostReadArticles.shuffled()
                 
-                for i in 0...9 {
+                var maxArticles = 9
+                
+                for i in 0...maxArticles {
                     let a = popularArticles[i]
-                    let article = Article(title: "\(a.displayTitle)", lastPathComponentURL: "\(a.url!.lastPathComponent)")
-                    self.wikiArticles.append(article)
+                    if (a.displayTitle == self.startingArticle?.title) {
+                        maxArticles += 1
+                    } else {
+                        let article = Article(title: "\(a.displayTitle)", lastPathComponentURL: "\(a.url!.lastPathComponent)")
+                        self.wikiArticles.append(article)
+                    }
                 }
                 self.articlesTableView.reloadData()
                 self.rerollButton.isEnabled = true
@@ -79,28 +56,6 @@ class ChooseTargetArticleVC: UIViewController, UITableViewDelegate, UITableViewD
               print(error)
             }
         }
-    }
-    
-    // gets 10 random Wiki articles
-    func getRandomArticles() {
-        Wikipedia.shared.requestRandomArticles(language: self.language, maxCount: 10, imageWidth: 640) {
-            (articlePreviews, language, error) in
-
-            guard let articlePreviews = articlePreviews else { return }
-            
-            self.wikiArticles.removeAll()
-            
-            for article in articlePreviews {
-                let article = Article(title: "\(article.displayTitle)", lastPathComponentURL: "\(article.url!.lastPathComponent)")
-                self.wikiArticles.append(article)
-            }
-            
-            self.articlesTableView.reloadData()
-        }
-    }
-    
-    @IBAction func rerollButtonPressed(_ sender: Any) {
-        getPopularArticles()
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
