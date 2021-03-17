@@ -28,6 +28,8 @@
 		D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12670D725E841EC00C233F9 /* Assets.xcassets */; };
 		D12670DB25E841EC00C233F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12670D925E841EC00C233F9 /* LaunchScreen.storyboard */; };
 		D15A6D052601860B00DDCD85 /* GameTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A6D042601860B00DDCD85 /* GameTypeVC.swift */; };
+		D15A6D0B26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A6D0A26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift */; };
+		D15A6D0E2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A6D0D2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift */; };
 		D1B8AB9825F7345200AA128E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B8AB9725F7345200AA128E /* Article.swift */; };
 		D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */; };
 		D1F1AC1F25F5E39E00F42065 /* ChooseTargetArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */; };
@@ -63,6 +65,8 @@
 		D12670DA25E841EC00C233F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D12670DC25E841EC00C233F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D15A6D042601860B00DDCD85 /* GameTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypeVC.swift; sourceTree = "<group>"; };
+		D15A6D0A26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCustomStartingArticleVC.swift; sourceTree = "<group>"; };
+		D15A6D0D2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCustomTargetArticleVC.swift; sourceTree = "<group>"; };
 		D1B8AB9725F7345200AA128E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWinVC.swift; sourceTree = "<group>"; };
 		D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTargetArticleVC.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 			children = (
 				D1F1AC1B25F5E39E00F42065 /* ChooseStartingArticleVC.swift */,
 				D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */,
+				D15A6D0A26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift */,
+				D15A6D0D2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift */,
 			);
 			path = "Article Selection";
 			sourceTree = "<group>";
@@ -345,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15A6D0E2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift in Sources */,
 				D1B8AB9825F7345200AA128E /* Article.swift in Sources */,
 				D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */,
 				D15A6D052601860B00DDCD85 /* GameTypeVC.swift in Sources */,
@@ -356,6 +363,7 @@
 				D1F1AC2925F5E3C200F42065 /* Game.swift in Sources */,
 				64E995F325F5B50200FD427C /* RegisterViewController.swift in Sources */,
 				64E9956025F596EF00FD427C /* LoginPageViewController.swift in Sources */,
+				D15A6D0B26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift in Sources */,
 				D1F1AC2125F5E39E00F42065 /* GameVC.swift in Sources */,
 				64EA401625FB09C800D9CCE1 /* ForgotPasswordViewController.swift in Sources */,
 				D12670D625E841E900C233F9 /* WikiRacer.xcdatamodeld in Sources */,
