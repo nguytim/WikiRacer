@@ -184,7 +184,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
         // REMOVE HEADER, WIKI ACTIONS, AND FOOTER
-        let elementClassesToRemove = ["header-container header-chrome", "page-actions-menu", "mw-footer minerva-footer"]
+        let elementClassesToRemove = ["header-container header-chrome", "page-actions-menu", "mw-footer minerva-footer", "box-Multiple_issues plainlinks metadata ambox ambox-content ambox-multiple_issues compact-ambox", "reference", "unicode haudio"]
         
         for elementClassName in elementClassesToRemove {
             let removeElementClassScript = "var element = document.getElementsByClassName('\(elementClassName)')[0]; element.parentElement.removeChild(element);"
@@ -194,7 +194,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
         }
         
         // CHANGE THE STYLING OF LINKS
-        let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (j == 0) { elements[i].style.backgroundColor='#E8787A';} else if (j == 1) { elements[i].style.backgroundColor='#7EEABF';} else if (j == 2) { elements[i].style.backgroundColor='#F0B351';} else { elements[i].style.backgroundColor='#8FDE60'; j = -1;} elements[i].style.color='white'; elements[i].style.fontWeight='700'; j++;}"
+        let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (j == 0) { elements[i].style.backgroundColor='#E8787A';} else if (j == 1) { elements[i].style.backgroundColor='#7EEABF';} else if (j == 2) { elements[i].style.backgroundColor='#F0B351';} else { elements[i].style.backgroundColor='#8FDE60'; j = -1;} elements[i].style.color='white'; elements[i].style.fontWeight='700'; elements[i].style.borderRadius='5px'; j++;}"
         webView.evaluateJavaScript(changeLinksToButtonsScript) { (response, error) in
             debugPrint("Am here")
         }
