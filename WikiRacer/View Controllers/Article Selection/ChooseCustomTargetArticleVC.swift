@@ -22,7 +22,12 @@ class ChooseCustomTargetArticleVC: ChooseCustomStartingArticleVC {
     }
     
     override func goToGame(article: Article) {
-        performSegue(withIdentifier: gameplayIdentifier, sender: article)
+        if article.title.lowercased() == startingArticle!.title.lowercased() {
+            errorMessageLabel.isHidden = false
+            errorMessageLabel.text = "You cannot choose the same article!"
+        } else {
+            performSegue(withIdentifier: gameplayIdentifier, sender: article)
+        }
     }
     
     // MARK: - Navigation

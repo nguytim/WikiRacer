@@ -9,12 +9,13 @@ import UIKit
 import WikipediaKit
 
 class ChooseCustomStartingArticleVC: UIViewController {
+
+    @IBOutlet weak var inputArticleText: UITextField!
+    @IBOutlet weak var errorMessageLabel: UILabel!
     
     let language = WikipediaLanguage("en")
     
     let customTargetArticleIdentifier = "CustomTargetArticleSegueIdentifier"
-
-    @IBOutlet weak var inputArticleText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,10 @@ class ChooseCustomStartingArticleVC: UIViewController {
     @IBAction func confirmButtonPressed(_ sender: Any) {
         // ERROR
         if inputArticleText.text == "" {
-            print("ERROR: Article cannot be blank and must be a valid name")
+            errorMessageLabel.isHidden = false
+            errorMessageLabel.text = "Article cannot be blank!"
         } else {
+            errorMessageLabel.isHidden = true
             getArticle(article: inputArticleText.text!)
         }
     }
@@ -39,12 +42,19 @@ class ChooseCustomStartingArticleVC: UIViewController {
                 self.goToGame(article: article)
             case .failure(let error):
               print(error)
+                self.errorMessageLabel.isHidden = false
+                self.errorMessageLabel.text = "\(article) is not an existing Wiki article!"
             }
         }
     }
     
     func goToGame(article: Article) {
         performSegue(withIdentifier: customTargetArticleIdentifier, sender: article)
+    }
+    
+    // code to enable tapping on the background to remove software keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: - Navigation

@@ -55,9 +55,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
         timerLabel.text = "0:00"
         counterLabel.text = "0"
         
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
-        
-        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
+        startTimer()
         
         currentArticle = startingArticle
         
@@ -69,6 +67,12 @@ class GameVC: UIViewController, WKNavigationDelegate {
         game = Game(startingArticle: startingArticle!.lastPathComponentURL, targetArticle: targetArticle!.lastPathComponentURL)
         
         getArticle(article: currentArticle!.lastPathComponentURL)
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
     @objc func fireTimer() {

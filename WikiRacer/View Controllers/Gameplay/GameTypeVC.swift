@@ -12,8 +12,11 @@ class GameTypeVC: UIViewController {
     @IBOutlet weak var normalButton: RoundedButton!
     @IBOutlet weak var timeTrialButton: RoundedButton!
     @IBOutlet weak var leastLinksButton: RoundedButton!
+    @IBOutlet weak var customButton: RoundedButton!
+    @IBOutlet weak var goBackButton: RoundedButton!
     
     var isMultiplayer: Bool = false
+    var isTimeTrial: Bool = true
     
     let selectArticlesIdentifier = "SelectArticlesSegueIdentifier"
     let customArticleIdentifier = "CustomGameSegueIdentifier"
@@ -23,6 +26,7 @@ class GameTypeVC: UIViewController {
         
         if isMultiplayer {
             normalButton.isHidden = true
+            customButton.isHidden = true
             timeTrialButton.isHidden = false
             leastLinksButton.isHidden = false
         }
@@ -37,11 +41,33 @@ class GameTypeVC: UIViewController {
     }
     
     @IBAction func timeTrialButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: selectArticlesIdentifier, sender: nil)
+        isTimeTrial = true
+        multiplayerModesToGameModes()
     }
     
     @IBAction func leastLinksButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: selectArticlesIdentifier, sender: nil)
+        isTimeTrial = false
+        multiplayerModesToGameModes()
+    }
+    
+    @IBAction func goBackButtonPressed(_ sender: Any) {
+        gameModesToMultiplayerModes()
+    }
+    
+    func multiplayerModesToGameModes() {
+        timeTrialButton.isHidden = true
+        leastLinksButton.isHidden = true
+        normalButton.isHidden = false
+        customButton.isHidden = false
+        goBackButton.isHidden = false
+    }
+    
+    func gameModesToMultiplayerModes() {
+        timeTrialButton.isHidden = false
+        leastLinksButton.isHidden = false
+        normalButton.isHidden = true
+        customButton.isHidden = true
+        goBackButton.isHidden = true
     }
     
     // MARK: - Navigation
@@ -50,10 +76,10 @@ class GameTypeVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == selectArticlesIdentifier,
             let chooseArticleVC = segue.destination as? ChooseStartingArticleVC {
-            // CHECK MULTIPLAYER
+            // CHECK MULTIPLAYER and WHICH TRAIL
             
         } else if segue.identifier == customArticleIdentifier {
-            // CHECK MULTIPLAYER
+            // CHECK MULTIPLAYER AND WHICH TRIAL
         }
     }
 
