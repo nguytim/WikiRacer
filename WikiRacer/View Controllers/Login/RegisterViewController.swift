@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 class RegisterViewController: UIViewController {
     
@@ -35,8 +36,8 @@ class RegisterViewController: UIViewController {
                 if error == nil {
                     //successful registration
                     
-//                    //Add user to database and default their profile settings
-//                    let collection = Firestore.firestore().collection("users")
+                    //Add user to database and default their profile settings
+                    let collection = Firestore.firestore().collection("users")
 //                    let user = User(
 //                        username: self.emailField.text!,
 //                        favoriteSport: "noFavoriteSport :(",
