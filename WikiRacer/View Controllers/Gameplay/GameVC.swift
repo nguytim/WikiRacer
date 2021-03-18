@@ -96,6 +96,21 @@ class GameVC: UIViewController, WKNavigationDelegate {
                 let myRequest = URLRequest(url: article.url!)
                 self.webView.load(myRequest)
                 
+                self.currentArticle = Article(title: article.displayTitle, lastPathComponentURL: article.url!.lastPathComponent)
+                
+                print("Current article Title : \(self.currentArticle!.title)")
+                print("Target article Title: \(self.targetArticle!.title)")
+                print("Current article URL: \(self.currentArticle!.lastPathComponentURL)")
+                print("Target article URL: \(self.targetArticle!.lastPathComponentURL)")
+                
+                // user wins the game and the current article matches the target article
+                if self.currentArticle!.lastPathComponentURL == self.targetArticle!.lastPathComponentURL {
+                    self.timer.invalidate()
+                    self.game?.elapsedTime = self.timeDisplayed
+                    print("CONGRATULATIONS!! YOU WON!")
+                    self.performSegue(withIdentifier: "YouWinSegueIdentifier", sender: nil)
+                }
+                
             case .failure(let error):
                 print("Can't find article: \(article)")
                 print(error)
@@ -128,24 +143,12 @@ class GameVC: UIViewController, WKNavigationDelegate {
         
         // get the new article from the last path component of the URL
         let newArticle = url.lastPathComponent
-        currentArticle = Article(title: newArticle, lastPathComponentURL: newArticle)
         
         backButton.isHidden = false
+        updateCounter()
         
         // navigate to the new Wiki article
         getArticle(article: newArticle)
-        updateCounter()
-        
-        print("Current article: \(currentArticle!.lastPathComponentURL)")
-        print("Target article: \(targetArticle!.lastPathComponentURL)")
-        
-        // user wins the game and the current article matches the target article
-        if currentArticle!.lastPathComponentURL == targetArticle!.lastPathComponentURL {
-            timer.invalidate()
-            game?.elapsedTime = timeDisplayed
-            print("CONGRATULATIONS!! YOU WON!")
-            performSegue(withIdentifier: "YouWinSegueIdentifier", sender: nil)
-        }
     }
     
     // on button click, user can go back to previous article

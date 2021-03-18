@@ -15,7 +15,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // resets navigation
+        // resets navigation to this VC
         self.navigationController?.viewControllers = [self]
     }
     
