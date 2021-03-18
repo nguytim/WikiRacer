@@ -45,6 +45,9 @@ class GameVC: UIViewController, WKNavigationDelegate {
         
         self.navigationController?.navigationBar.isHidden = true
         
+        // resets navigation to this VC
+        self.navigationController?.viewControllers = [self]
+        
         // set up webview
         webView = WKWebView(frame: viewForEmbedingWebView.bounds, configuration: WKWebViewConfiguration())
         webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -64,7 +67,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
         print("Starting article: \(startingArticle!.title)")
         print("Target article: \(targetArticle!.title)")
         
-        game = Game(startingArticle: startingArticle!.lastPathComponentURL, targetArticle: targetArticle!.lastPathComponentURL)
+        game = Game(startingArticle: startingArticle!, targetArticle: targetArticle!)
         
         getArticle(article: currentArticle!.lastPathComponentURL)
     }
@@ -184,6 +187,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
             documentAttributes: nil)
         return attributedString!
     }
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
         // REMOVE HEADER, WIKI ACTIONS, AND FOOTER

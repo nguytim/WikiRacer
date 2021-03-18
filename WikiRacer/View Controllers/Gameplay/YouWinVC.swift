@@ -12,10 +12,16 @@ class YouWinVC: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var numLinksLabel: UILabel!
     
+    let replaySegueIdentifier = "ReplayIdentifier"
+    
     var game: Game?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // resets navigation to this VC
+        self.navigationController?.viewControllers = [self]
+        
         let timeDisplayed = game!.elapsedTime
         let minutes = (timeDisplayed % 3600) / 60
         let seconds = (timeDisplayed % 3600) % 60
@@ -24,7 +30,7 @@ class YouWinVC: UIViewController {
     }
 
     @IBAction func playAgainButtonPressed(_ sender: Any) {
-        
+        performSegue(withIdentifier: replaySegueIdentifier, sender: nil)
     }
     
     @IBAction func newGameButtonPressed(_ sender: Any) {
@@ -36,14 +42,17 @@ class YouWinVC: UIViewController {
         
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == replaySegueIdentifier,
+            let gameVC = segue.destination as? GameVC {
+            gameVC.startingArticle = game!.startingArticle
+            gameVC.targetArticle = game!.targetArticle
+        }
     }
-    */
+    
 
 }

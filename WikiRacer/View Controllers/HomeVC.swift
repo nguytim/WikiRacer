@@ -14,6 +14,14 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // resets navigation
+        self.navigationController?.viewControllers = [self]
+    }
+    
+    // unhides navigation bar when homeVC disappears
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     @IBAction func singlePlayerButtonPressed(_ sender: Any) {
