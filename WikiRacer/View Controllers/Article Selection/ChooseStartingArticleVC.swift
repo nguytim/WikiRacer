@@ -64,10 +64,16 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
                 
                 let popularArticles = featuredCollection.mostReadArticles.shuffled()
                 
-                for i in 0...9 {
+                var maxArticles = 9
+                
+                for i in 0...maxArticles {
                     let a = popularArticles[i]
-                    let article = Article(title: "\(a.displayTitle)", lastPathComponentURL: "\(a.url!.lastPathComponent)")
-                    self.wikiArticles.append(article)
+                    if (ProfanityFilter.containsBadWord(a.displayTitle.lowercased())) {
+                        maxArticles += 1
+                    } else {
+                        let article = Article(title: "\(a.displayTitle)", lastPathComponentURL: "\(a.url!.lastPathComponent)")
+                        self.wikiArticles.append(article)
+                    }
                 }
                 self.articlesTableView.reloadData()
                 self.rerollButton.isEnabled = true

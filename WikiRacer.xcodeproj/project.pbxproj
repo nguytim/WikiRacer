@@ -30,6 +30,7 @@
 		D15A6D052601860B00DDCD85 /* GameTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A6D042601860B00DDCD85 /* GameTypeVC.swift */; };
 		D15A6D0B26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A6D0A26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift */; };
 		D15A6D0E2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A6D0D2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift */; };
+		D1892A22260421C200F2215F /* ProfanityFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1892A21260421C200F2215F /* ProfanityFilter.swift */; };
 		D1B8AB9825F7345200AA128E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B8AB9725F7345200AA128E /* Article.swift */; };
 		D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */; };
 		D1F1AC1F25F5E39E00F42065 /* ChooseTargetArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */; };
@@ -67,6 +68,7 @@
 		D15A6D042601860B00DDCD85 /* GameTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypeVC.swift; sourceTree = "<group>"; };
 		D15A6D0A26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCustomStartingArticleVC.swift; sourceTree = "<group>"; };
 		D15A6D0D2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCustomTargetArticleVC.swift; sourceTree = "<group>"; };
+		D1892A21260421C200F2215F /* ProfanityFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfanityFilter.swift; sourceTree = "<group>"; };
 		D1B8AB9725F7345200AA128E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWinVC.swift; sourceTree = "<group>"; };
 		D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTargetArticleVC.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				D1B8AB9725F7345200AA128E /* Article.swift */,
 				D1F1AC2725F5E3C200F42065 /* Game.swift */,
+				D1892A21260421C200F2215F /* ProfanityFilter.swift */,
 				D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */,
 				D1F1AC2825F5E3C200F42065 /* WikipediaTool.swift */,
 			);
@@ -354,6 +357,7 @@
 				D15A6D0E2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift in Sources */,
 				D1B8AB9825F7345200AA128E /* Article.swift in Sources */,
 				D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */,
+				D1892A22260421C200F2215F /* ProfanityFilter.swift in Sources */,
 				D15A6D052601860B00DDCD85 /* GameTypeVC.swift in Sources */,
 				D1F1AC2225F5E39E00F42065 /* HomeVC.swift in Sources */,
 				D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */,
