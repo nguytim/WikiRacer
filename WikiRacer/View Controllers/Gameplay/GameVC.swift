@@ -169,18 +169,19 @@ class GameVC: UIViewController, WKNavigationDelegate {
     }
     
     @IBAction func exitButtonClicked(_ sender: Any) {
-        var exitAlert = UIAlertController(title: "Exit", message: "Are you sure you want to end the game?", preferredStyle: .alert)
-        
-        let exitAction = UIAlertAction(title: "Exit", style: .default) { (action) in
-            self.performSegue(withIdentifier: self.exitSegueIdentifier, sender: nil)
-        }
+        let exitAlert = UIAlertController(title: "Exit", message: "Are you sure you want to end the game?", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Go Back", style: .default) { (action) in
             exitAlert.dismiss(animated: true, completion: nil)
         }
         
-        exitAlert.addAction(exitAction)
+        let exitAction = UIAlertAction(title: "Exit", style: .destructive) { (action) in
+            self.performSegue(withIdentifier: self.exitSegueIdentifier, sender: nil)
+        }
+        
         exitAlert.addAction(cancelAction)
+        exitAlert.addAction(exitAction)
+        
         self.present(exitAlert, animated: true, completion: nil)
     }
     

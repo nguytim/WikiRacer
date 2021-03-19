@@ -301,7 +301,7 @@
                                 <state key="normal" image="xmark" catalog="system"/>
                                 <connections>
                                     <action selector="exitButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1EN-py-DSJ"/>
-                                    <segue destination="deq-cq-w1h" kind="show" id="Vzd-rn-tWt"/>
+                                    <segue destination="deq-cq-w1h" kind="show" identifier="ExitIdentifier" id="Vzd-rn-tWt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHg-9f-CVm">
@@ -1119,7 +1119,6 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="I35-BP-9ub"/>
         <segue reference="FJ5-nF-h9E"/>
         <segue reference="Vzd-rn-tWt"/>
     </inferredMetricsTieBreakers>
