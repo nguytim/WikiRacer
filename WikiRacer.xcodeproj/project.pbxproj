@@ -19,6 +19,8 @@
 		64EA400125FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EA3FFF25FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf */; };
 		64EA401225FB096900D9CCE1 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64EA401125FB096900D9CCE1 /* ForgotPassword.storyboard */; };
 		64EA401625FB09C800D9CCE1 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EA401525FB09C800D9CCE1 /* ForgotPasswordViewController.swift */; };
+		64EA4050260423CB00D9CCE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EA404F260423CB00D9CCE1 /* User.swift */; };
+		64EA405326042E9700D9CCE1 /* Racer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EA405226042E9700D9CCE1 /* Racer.swift */; };
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
 		D10AAC1C25F6CF7800750F02 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */; };
 		D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CB25E841E900C233F9 /* AppDelegate.swift */; };
@@ -55,6 +57,8 @@
 		64EA3FFF25FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DarkerGrotesque-Regular.ttf"; sourceTree = "<group>"; };
 		64EA401125FB096900D9CCE1 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		64EA401525FB09C800D9CCE1 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		64EA404F260423CB00D9CCE1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		64EA405226042E9700D9CCE1 /* Racer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Racer.swift; sourceTree = "<group>"; };
 		995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.debug.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.debug.xcconfig"; sourceTree = "<group>"; };
 		D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D12670C825E841E900C233F9 /* WikiRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +184,8 @@
 				D1892A21260421C200F2215F /* ProfanityFilter.swift */,
 				D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */,
 				D1F1AC2825F5E3C200F42065 /* WikipediaTool.swift */,
+				64EA404F260423CB00D9CCE1 /* User.swift */,
+				64EA405226042E9700D9CCE1 /* Racer.swift */,
 			);
 			name = "Supporting Files";
 			path = "View Controllers/Supporting Files";
@@ -356,12 +362,14 @@
 			files = (
 				D15A6D0E2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift in Sources */,
 				D1B8AB9825F7345200AA128E /* Article.swift in Sources */,
+				64EA405326042E9700D9CCE1 /* Racer.swift in Sources */,
 				D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */,
 				D1892A22260421C200F2215F /* ProfanityFilter.swift in Sources */,
 				D15A6D052601860B00DDCD85 /* GameTypeVC.swift in Sources */,
 				D1F1AC2225F5E39E00F42065 /* HomeVC.swift in Sources */,
 				D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */,
 				D1F1AC2025F5E39E00F42065 /* ChooseStartingArticleVC.swift in Sources */,
+				64EA4050260423CB00D9CCE1 /* User.swift in Sources */,
 				D1F1AC1F25F5E39E00F42065 /* ChooseTargetArticleVC.swift in Sources */,
 				D12670CE25E841E900C233F9 /* SceneDelegate.swift in Sources */,
 				D1F1AC2925F5E3C200F42065 /* Game.swift in Sources */,
