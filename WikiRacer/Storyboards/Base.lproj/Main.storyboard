@@ -32,16 +32,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Mfc-hH-sWV">
-                                <rect key="frame" x="66.666666666666686" y="270.66666666666669" width="295" height="385.00000000000006"/>
+                                <rect key="frame" x="66.666666666666686" y="257.66666666666669" width="295" height="411.00000000000006"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Race" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uau-PI-FnV">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="81"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="65"/>
                                         <color key="textColor" red="0.68653595501624787" green="0.94877347797927458" blue="0.80786422247036926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0J-nW-bLz" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="126" width="295" height="53"/>
+                                        <rect key="frame" x="0.0" y="131" width="295" height="60"/>
                                         <color key="backgroundColor" name="MainYellowColor"/>
                                         <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="Single Player"/>
@@ -62,7 +62,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZY-HN-Pyk" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="229" width="295" height="53"/>
+                                        <rect key="frame" x="0.0" y="241" width="295" height="60"/>
                                         <color key="backgroundColor" name="MainRedColor"/>
                                         <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="Multiplayer">
@@ -85,7 +85,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-9e-1jd" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="331.99999999999994" width="295" height="53"/>
+                                        <rect key="frame" x="0.0" y="350.99999999999994" width="295" height="60"/>
                                         <color key="backgroundColor" name="MainLimeGreenColor"/>
                                         <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                         <state key="normal" title="How To Play?">
@@ -132,19 +132,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-I2-Kcl">
-                                <rect key="frame" x="84" y="310.66666666666669" width="260.33333333333331" height="305.00000000000006"/>
+                                <rect key="frame" x="84" y="299.33333333333326" width="260.33333333333331" height="327.66666666666674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-DE-rSk">
-                                        <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="99"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="107.66666666666667"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUV-hy-4VF">
-                                                <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="59.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your game type:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4O-KE-Yo9">
-                                                <rect key="frame" x="0.0" y="71" width="260.33333333333331" height="28"/>
+                                                <rect key="frame" x="0.0" y="74.666666666666686" width="260.33333333333331" height="33"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="24"/>
                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                 <nil key="highlightedColor"/>
@@ -152,10 +152,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="nrB-pu-hNW">
-                                        <rect key="frame" x="0.0" y="149" width="260.33333333333331" height="156"/>
+                                        <rect key="frame" x="0.0" y="157.66666666666669" width="260.33333333333331" height="170"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVL-ZF-sMn" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="53"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="60"/>
                                                 <color key="backgroundColor" name="MainRedColor"/>
                                                 <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                                 <state key="normal" title="Normal 🏁">
@@ -169,7 +169,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV8-az-VfS" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="77.999999999999943" width="260.33333333333331" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="85" width="260.33333333333331" height="0.0"/>
                                                 <color key="backgroundColor" name="MainLimeGreenColor"/>
                                                 <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                                 <state key="normal" title="Time Trial ⏳">
@@ -183,7 +183,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNp-ct-ZQR" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="77.999999999999943" width="260.33333333333331" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="85" width="260.33333333333331" height="0.0"/>
                                                 <color key="backgroundColor" name="MainAquaColor"/>
                                                 <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                                 <state key="normal" title="Least Links 🔗">
@@ -197,7 +197,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIr-9v-ve9" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="102.99999999999994" width="260.33333333333331" height="53"/>
+                                                <rect key="frame" x="0.0" y="110" width="260.33333333333331" height="60"/>
                                                 <color key="backgroundColor" name="MainRedColor"/>
                                                 <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                                 <state key="normal" title="Custom 🕹">
@@ -211,7 +211,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vx-WT-dzT" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="155.99999999999994" width="260.33333333333331" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="170" width="260.33333333333331" height="0.0"/>
                                                 <color key="backgroundColor" name="MainDarkColor"/>
                                                 <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                                 <state key="normal" title="Go back">
@@ -227,7 +227,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VgK-cv-8NJ" userLabel="Search for Game Stack View">
-                                        <rect key="frame" x="0.0" y="304.99999999999994" width="260.33333333333331" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="327.66666666666669" width="260.33333333333331" height="0.0"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsU-D0-ujG">
                                                 <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="0.0"/>
@@ -408,29 +408,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="YEW-CE-oZb">
-                                <rect key="frame" x="64" y="80" width="300" height="581.66666666666663"/>
+                                <rect key="frame" x="64" y="80" width="300" height="605.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0Sa-ra-CcI">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="400.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="412.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Win!! 🏆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wx-GZ-7c3">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="52.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="56"/>
                                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="45"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Congratulations! You completed this game!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dej-oO-Zgq">
-                                                <rect key="frame" x="0.0" y="67.666666666666657" width="300" height="68"/>
+                                                <rect key="frame" x="0.0" y="71" width="300" height="68"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X0h-Dk-jOa" customClass="RoundedStack" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="150.66666666666666" width="300" height="193.99999999999997"/>
+                                                <rect key="frame" x="0.0" y="154" width="300" height="200"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillProportionally" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="C4s-ZP-gkX" userLabel="Time Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="194"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yl-kT-avg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
@@ -439,19 +439,19 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsT-Tx-m0t">
-                                                                <rect key="frame" x="0.0" y="61.000000000000028" width="150" height="20"/>
+                                                                <rect key="frame" x="0.0" y="61.000000000000007" width="150" height="23.333333333333336"/>
                                                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6D-f7-zN2">
-                                                                <rect key="frame" x="0.0" y="92.000000000000028" width="150" height="41"/>
+                                                                <rect key="frame" x="0.0" y="95.333333333333314" width="150" height="43.666666666666657"/>
                                                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="35"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k11-5G-8m7">
-                                                                <rect key="frame" x="0.0" y="144.00000000000003" width="150" height="50"/>
+                                                                <rect key="frame" x="0.0" y="150" width="150" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -459,7 +459,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kFn-QG-nRA" userLabel="Links Stack View">
-                                                        <rect key="frame" x="150" y="0.0" width="150" height="194"/>
+                                                        <rect key="frame" x="150" y="0.0" width="150" height="200"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5E-fR-a6p">
                                                                 <rect key="frame" x="13.333333333333336" y="0.0" width="123.33333333333331" height="51.333333333333336"/>
@@ -468,19 +468,19 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Links:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wS-dB-ybX">
-                                                                <rect key="frame" x="52.666666666666686" y="61.333333333333343" width="45" height="20"/>
+                                                                <rect key="frame" x="53.333333333333314" y="61.333333333333321" width="43.333333333333343" height="23.333333333333336"/>
                                                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8V-jL-deB">
-                                                                <rect key="frame" x="65.333333333333314" y="91.333333333333343" width="19.666666666666671" height="41"/>
+                                                                <rect key="frame" x="63.666666666666679" y="94.666666666666686" width="22.666666666666664" height="43.666666666666657"/>
                                                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="35"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBe-jD-Fd0">
-                                                                <rect key="frame" x="13.333333333333336" y="142.33333333333334" width="123.33333333333331" height="51.666666666666657"/>
+                                                                <rect key="frame" x="13.333333333333336" y="148.33333333333331" width="123.33333333333331" height="51.666666666666657"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -494,7 +494,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You earn 3 ⚡️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gia-dd-3B6">
-                                                <rect key="frame" x="0.0" y="359.66666666666669" width="300" height="41"/>
+                                                <rect key="frame" x="0.0" y="369" width="300" height="43.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="35"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -502,10 +502,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FS3-BE-6rb">
-                                        <rect key="frame" x="0.0" y="457.66666666666663" width="300" height="124"/>
+                                        <rect key="frame" x="0.0" y="469.66666666666663" width="300" height="136"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOZ-N9-thb" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="47"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="53"/>
                                                 <color key="backgroundColor" name="MainYellowColor"/>
                                                 <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="30"/>
                                                 <state key="normal" title="Play Again?">
@@ -519,7 +519,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hz-Yb-kzZ" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="77" width="300" height="47"/>
+                                                <rect key="frame" x="0.0" y="83" width="300" height="53"/>
                                                 <color key="backgroundColor" name="MainRedColor"/>
                                                 <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="30"/>
                                                 <state key="normal" title="New Game">
@@ -534,7 +534,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehs-zT-TzT" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="124" width="300" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="136" width="300" height="0.0"/>
                                                 <color key="backgroundColor" name="MainDarkColor"/>
                                                 <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="30"/>
                                                 <state key="normal" title="Leaderboard">
@@ -730,18 +730,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ekg-Su-Z73">
-                                <rect key="frame" x="49" y="222.66666666666669" width="330" height="559.33333333333326"/>
+                                <rect key="frame" x="49" y="231" width="330" height="548"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" textLabel="9Uz-9S-viX" style="IBUITableViewCellStyleDefault" id="WsZ-Bs-c91" userLabel="Article Cell">
-                                        <rect key="frame" x="0.0" y="28" width="330" height="45.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="330" height="51.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WsZ-Bs-c91" id="VC5-T9-03B">
-                                            <rect key="frame" x="0.0" y="0.0" width="330" height="45.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="51.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Uz-9S-viX">
-                                                    <rect key="frame" x="20" y="0.0" width="290" height="45.666667938232422"/>
+                                                    <rect key="frame" x="20" y="0.0" width="290" height="51.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="19"/>
                                                     <nil key="textColor"/>
@@ -754,19 +754,19 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ie5-sD-YNd">
-                                <rect key="frame" x="58.666666666666657" y="111.00000000000001" width="310.66666666666674" height="46.666666666666671"/>
+                                <rect key="frame" x="58.666666666666657" y="111" width="310.66666666666674" height="50"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your starting article: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7R-PK-O8t">
-                                <rect key="frame" x="33" y="165.66666666666666" width="362" height="28"/>
+                                <rect key="frame" x="33" y="169" width="362" height="33"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="24"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm9-eB-pQm" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="104" y="822" width="219" height="47"/>
+                                <rect key="frame" x="104" y="819" width="219" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="30"/>
                                 <state key="normal" title="Reroll? 🎲">
@@ -824,25 +824,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzi-u2-vqf">
-                                <rect key="frame" x="66" y="114.00000000000001" width="296" height="46.666666666666671"/>
+                                <rect key="frame" x="66" y="114" width="296" height="50"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DVH-5k-tQe">
-                                <rect key="frame" x="49" y="292.66666666666674" width="330" height="499.33333333333326"/>
+                                <rect key="frame" x="49" y="311" width="330" height="478"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" name="MainAquaColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" textLabel="JOh-XB-zjs" style="IBUITableViewCellStyleDefault" id="03I-z2-KP7" userLabel="Article Cell">
-                                        <rect key="frame" x="0.0" y="28" width="330" height="47.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="330" height="54.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="03I-z2-KP7" id="2ek-Ia-EUA">
-                                            <rect key="frame" x="0.0" y="0.0" width="330" height="47.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="54.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JOh-XB-zjs">
-                                                    <rect key="frame" x="20" y="0.0" width="290" height="47.666667938232422"/>
+                                                    <rect key="frame" x="20" y="0.0" width="290" height="54.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -855,7 +855,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J24-OZ-BEA" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="105" y="822" width="219" height="47"/>
+                                <rect key="frame" x="105" y="819" width="219" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="30"/>
                                 <state key="normal" title="Reroll? 🎲">
@@ -875,7 +875,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected starting article:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaN-0g-xyB">
-                                <rect key="frame" x="56.333333333333343" y="168.66666666666666" width="315.33333333333326" height="28"/>
+                                <rect key="frame" x="56.333333333333343" y="172" width="315.33333333333326" height="33"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="24"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -1009,18 +1009,122 @@
         <!--StatsVC-->
         <scene sceneID="Ybo-6B-cbj">
             <objects>
-                <viewController id="IyR-Rr-X5T" userLabel="StatsVC" sceneMemberID="viewController">
+                <viewController id="IyR-Rr-X5T" userLabel="StatsVC" customClass="ProfileVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qoB-nE-20F">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpf-gL-TxS">
+                                <rect key="frame" x="172" y="170" width="139" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Single Player Stats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jla-4s-C2y">
+                                <rect key="frame" x="143" y="302" width="158" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Games Played" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FT-ZV-5RT">
+                                <rect key="frame" x="69" y="439" width="113" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Games Won" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFf-q5-73M">
+                                <rect key="frame" x="281" y="439" width="97" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average  Game Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBG-eW-9dM">
+                                <rect key="frame" x="42" y="557" width="166" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44p-oJ-ZN2">
+                                <rect key="frame" x="273" y="557" width="112" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fastest Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyr-2K-jA0">
+                                <rect key="frame" x="52" y="656" width="108" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Least Amount of Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mL-4A-9Q4">
+                                <rect key="frame" x="230" y="657" width="178" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSl-vr-p1a">
+                                <rect key="frame" x="104" y="496" width="30" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycJ-oT-Pch">
+                                <rect key="frame" x="314" y="495" width="30" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kto-vX-ag0">
+                                <rect key="frame" x="110" y="597" width="30" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6W-C1-yag">
+                                <rect key="frame" x="304" y="597" width="30" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m79-xT-5BF">
+                                <rect key="frame" x="104" y="705" width="30" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="550-lK-jrN">
+                                <rect key="frame" x="304" y="705" width="30" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RacerInCart" translatesAutoresizingMaskIntoConstraints="NO" id="bda-Ny-tCO">
+                                <rect key="frame" x="102" y="56" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="m2E-D9-Ilw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stats" image="TrophyIcon" id="YNx-Eh-QPg"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="TrophyIcon" id="YNx-Eh-QPg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvI-nN-akG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="842"/>
+            <point key="canvasLocation" x="1068.2242990654206" y="841.68466522678193"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GjN-WA-MYH">
@@ -1117,7 +1221,7 @@
             <objects>
                 <viewController id="UHb-ek-tUT" userLabel="SettingsVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gbw-LT-sCO">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="bCa-Rn-BXl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1140,7 +1244,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="tintColor" name="MainAquaColor"/>
-                                <state key="normal" title="Settings" image="gearshape.fill" catalog="system"/>
+                                <state key="normal" image="gearshape.fill" catalog="system"/>
                                 <connections>
                                     <segue destination="UHb-ek-tUT" kind="popoverPresentation" popoverAnchorView="z1N-xr-w2Z" id="8G6-3B-gaq">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -1151,7 +1255,7 @@
                         <viewLayoutGuide key="safeArea" id="NHb-G5-gbm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="TireIcon" id="pU6-dl-Ifa" userLabel="Profile"/>
+                    <tabBarItem key="tabBarItem" title="Racer" image="TireIcon" id="pU6-dl-Ifa" userLabel="Profile"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdW-lX-C8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1260,55 +1364,55 @@
     </scenes>
     <designables>
         <designable name="1hz-Yb-kzZ">
-            <size key="intrinsicContentSize" width="150" height="47"/>
+            <size key="intrinsicContentSize" width="124" height="53"/>
         </designable>
         <designable name="2vx-WT-dzT">
-            <size key="intrinsicContentSize" width="133" height="53"/>
+            <size key="intrinsicContentSize" width="112" height="60"/>
         </designable>
         <designable name="A0J-nW-bLz">
-            <size key="intrinsicContentSize" width="204" height="53"/>
+            <size key="intrinsicContentSize" width="174" height="60"/>
         </designable>
         <designable name="Ehs-zT-TzT">
-            <size key="intrinsicContentSize" width="172" height="47"/>
+            <size key="intrinsicContentSize" width="149" height="53"/>
         </designable>
         <designable name="J24-OZ-BEA">
-            <size key="intrinsicContentSize" width="132" height="47"/>
+            <size key="intrinsicContentSize" width="136" height="50"/>
         </designable>
         <designable name="Qm9-eB-pQm">
-            <size key="intrinsicContentSize" width="132" height="47"/>
+            <size key="intrinsicContentSize" width="136" height="50"/>
         </designable>
         <designable name="SGO-4w-apH">
-            <size key="intrinsicContentSize" width="107" height="47"/>
+            <size key="intrinsicContentSize" width="108" height="50"/>
         </designable>
         <designable name="Sir-hb-zRg">
-            <size key="intrinsicContentSize" width="107" height="47"/>
+            <size key="intrinsicContentSize" width="108" height="50"/>
         </designable>
         <designable name="TOZ-N9-thb">
-            <size key="intrinsicContentSize" width="159" height="47"/>
+            <size key="intrinsicContentSize" width="133" height="53"/>
         </designable>
         <designable name="XIr-9v-ve9">
-            <size key="intrinsicContentSize" width="168" height="53"/>
+            <size key="intrinsicContentSize" width="145" height="60"/>
         </designable>
         <designable name="ZZp-8m-D1D">
-            <size key="intrinsicContentSize" width="83" height="53"/>
+            <size key="intrinsicContentSize" width="73" height="60"/>
         </designable>
         <designable name="jTK-UH-goZ">
-            <size key="intrinsicContentSize" width="103" height="47"/>
+            <size key="intrinsicContentSize" width="114" height="50"/>
         </designable>
         <designable name="kNp-ct-ZQR">
-            <size key="intrinsicContentSize" width="223" height="53"/>
+            <size key="intrinsicContentSize" width="195" height="60"/>
         </designable>
         <designable name="lV8-az-VfS">
-            <size key="intrinsicContentSize" width="194" height="53"/>
+            <size key="intrinsicContentSize" width="169" height="60"/>
         </designable>
         <designable name="uVL-ZF-sMn">
-            <size key="intrinsicContentSize" width="159" height="53"/>
+            <size key="intrinsicContentSize" width="139" height="60"/>
         </designable>
         <designable name="xZY-HN-Pyk">
-            <size key="intrinsicContentSize" width="172" height="53"/>
+            <size key="intrinsicContentSize" width="150" height="60"/>
         </designable>
         <designable name="ySq-9e-1jd">
-            <size key="intrinsicContentSize" width="214" height="53"/>
+            <size key="intrinsicContentSize" width="177" height="60"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
@@ -1317,6 +1421,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="FlagIcon" width="22" height="22"/>
+        <image name="RacerInCart" width="241" height="242"/>
         <image name="RacetrackIcon" width="22" height="22"/>
         <image name="RepairShopIcon" width="22" height="22"/>
         <image name="TireIcon" width="22" height="22"/>

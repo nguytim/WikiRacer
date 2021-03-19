@@ -18,7 +18,7 @@ class HomeVC: UIViewController {
         // resets navigation to this VC
         self.navigationController?.viewControllers = [self]
     }
-    
+
     // unhides navigation bar when homeVC disappears
     override func viewDidDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
