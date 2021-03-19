@@ -43,7 +43,7 @@ class ChooseTargetArticleVC: ChooseStartingArticleVC {
                 
                 for i in 0...maxArticles {
                     let a = popularArticles[i]
-                    if (a.displayTitle == self.startingArticle?.title) {
+                    if (ProfanityFilter.containsBadWord(a.displayTitle.lowercased()) || a.displayTitle == self.startingArticle?.title) {
                         maxArticles += 1
                     } else {
                         let article = Article(title: "\(a.displayTitle)", lastPathComponentURL: "\(a.url!.lastPathComponent)")
