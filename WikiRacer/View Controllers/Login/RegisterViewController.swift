@@ -31,7 +31,7 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-        if(!usernameTextField.text!.isEmpty && !passwordTextField.text!.isEmpty) {
+        if(!emailAddressTextField.text!.isEmpty && !passwordTextField.text!.isEmpty && !usernameTextField.text!.isEmpty) {
             Auth.auth().createUser(withEmail: emailAddressTextField.text!, password: passwordTextField.text!, completion: {user, error in
                 if error == nil {
                     //successful registration
@@ -64,7 +64,7 @@ class RegisterViewController: UIViewController {
         }
         else {
             //Username or Password is empty
-            let alert = UIAlertController(title: "Error", message: "Please make sure Username or Password are not empty.", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Error", message: "Please make sure Username, Email, and Password are not empty.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
