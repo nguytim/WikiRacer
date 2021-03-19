@@ -29,6 +29,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
     let language = WikipediaLanguage("en")
     
     let youWinSegueIdentifier = "YouWinSegueIdentifier"
+    let exitSegueIdentifier = "ExitIdentifier"
     
     var game: Game?
     
@@ -165,6 +166,22 @@ class GameVC: UIViewController, WKNavigationDelegate {
         if previousArticles.isEmpty {
             backButton.isHidden = true
         }
+    }
+    
+    @IBAction func exitButtonClicked(_ sender: Any) {
+        var exitAlert = UIAlertController(title: "Exit", message: "Are you sure you want to end the game?", preferredStyle: .alert)
+        
+        let exitAction = UIAlertAction(title: "Exit", style: .default) { (action) in
+            self.performSegue(withIdentifier: self.exitSegueIdentifier, sender: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Go Back", style: .default) { (action) in
+            exitAlert.dismiss(animated: true, completion: nil)
+        }
+        
+        exitAlert.addAction(exitAction)
+        exitAlert.addAction(cancelAction)
+        self.present(exitAlert, animated: true, completion: nil)
     }
     
     // update the counter by 1
