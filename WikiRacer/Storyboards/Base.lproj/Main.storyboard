@@ -1063,7 +1063,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Least Amount of Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mL-4A-9Q4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Least Number of Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mL-4A-9Q4">
                                 <rect key="frame" x="230" y="657" width="178" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
@@ -1116,11 +1116,25 @@
                                 <rect key="frame" x="102" y="56" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RacerInCart" translatesAutoresizingMaskIntoConstraints="NO" id="KSY-mj-NUO">
+                                <rect key="frame" x="103" y="56" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m2E-D9-Ilw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="TrophyIcon" id="YNx-Eh-QPg"/>
+                    <connections>
+                        <outlet property="avgGameTimeLabel" destination="Kto-vX-ag0" id="0II-hs-ymH"/>
+                        <outlet property="avgLinksLabel" destination="k6W-C1-yag" id="wg1-PV-Fia"/>
+                        <outlet property="fastestTimeLabel" destination="m79-xT-5BF" id="RjZ-s1-8oF"/>
+                        <outlet property="leastNumLinksLabel" destination="550-lK-jrN" id="Plt-5v-tFQ"/>
+                        <outlet property="numGamesLabel" destination="mSl-vr-p1a" id="rZr-Dw-43a"/>
+                        <outlet property="numGamesWonLabel" destination="ycJ-oT-Pch" id="3rS-1C-jqr"/>
+                        <outlet property="racerImage" destination="KSY-mj-NUO" id="oEd-Io-AIA"/>
+                        <outlet property="userNameLabel" destination="gpf-gL-TxS" id="KuC-5k-8rb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvI-nN-akG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
