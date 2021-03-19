@@ -22,6 +22,7 @@
 		64EA4050260423CB00D9CCE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EA404F260423CB00D9CCE1 /* User.swift */; };
 		64EA405326042E9700D9CCE1 /* Racer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EA405226042E9700D9CCE1 /* Racer.swift */; };
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
+		A70CDBEC2605252100269BC2 /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70CDBEB2605252100269BC2 /* ShopVC.swift */; };
 		A7DADC7D260506A300C5B850 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DADC7C260506A300C5B850 /* ProfileVC.swift */; };
 		D10AAC1C25F6CF7800750F02 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */; };
 		D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CB25E841E900C233F9 /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		64EA404F260423CB00D9CCE1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		64EA405226042E9700D9CCE1 /* Racer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Racer.swift; sourceTree = "<group>"; };
 		995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.debug.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.debug.xcconfig"; sourceTree = "<group>"; };
+		A70CDBEB2605252100269BC2 /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
 		A7DADC7C260506A300C5B850 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileVC.swift; path = Profile/ProfileVC.swift; sourceTree = "<group>"; };
 		D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D12670C825E841E900C233F9 /* WikiRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 				D19D867825FAF521000C421B /* Gameplay */,
 				D1F1AC1D25F5E39E00F42065 /* HomeVC.swift */,
 				A7DADC7C260506A300C5B850 /* ProfileVC.swift */,
+				A70CDBEB2605252100269BC2 /* ShopVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				D1F1AC2225F5E39E00F42065 /* HomeVC.swift in Sources */,
 				D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */,
 				D1F1AC2025F5E39E00F42065 /* ChooseStartingArticleVC.swift in Sources */,
+				A70CDBEC2605252100269BC2 /* ShopVC.swift in Sources */,
 				64EA4050260423CB00D9CCE1 /* User.swift in Sources */,
 				D1F1AC1F25F5E39E00F42065 /* ChooseTargetArticleVC.swift in Sources */,
 				D15EE909260433E40097A19E /* ViewGameVC.swift in Sources */,
