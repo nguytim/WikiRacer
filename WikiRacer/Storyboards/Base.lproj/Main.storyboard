@@ -226,6 +226,42 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VgK-cv-8NJ" userLabel="Search for Game Stack View">
+                                        <rect key="frame" x="0.0" y="304.99999999999994" width="260.33333333333331" height="0.0"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsU-D0-ujG">
+                                                <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CODE:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPO-BW-aRT">
+                                                <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZV-BS-10h">
+                                                <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZp-8m-D1D" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="0.0"/>
+                                                <color key="backgroundColor" name="MainDarkColor"/>
+                                                <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
+                                                <state key="normal" title="Enter">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="codeEnterButtonPressed:" destination="RdE-FC-uPd" eventType="touchUpInside" id="SGK-IO-Fn8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260.33333333333331" id="4vk-KB-JUe"/>
@@ -245,18 +281,21 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="codeTextField" destination="TZV-BS-10h" id="tN4-3f-Vhs"/>
                         <outlet property="customButton" destination="XIr-9v-ve9" id="5Rq-Td-iop"/>
                         <outlet property="goBackButton" destination="2vx-WT-dzT" id="KFb-Ss-aRg"/>
                         <outlet property="leastLinksButton" destination="kNp-ct-ZQR" id="Cxy-es-wJm"/>
                         <outlet property="normalButton" destination="uVL-ZF-sMn" id="Wgk-Eq-ViY"/>
+                        <outlet property="searchForGameBlock" destination="VgK-cv-8NJ" id="cuD-Z4-tbc"/>
                         <outlet property="timeTrialButton" destination="lV8-az-VfS" id="Lfp-Wz-mpt"/>
                         <segue destination="384-tk-QQD" kind="show" identifier="SelectArticlesSegueIdentifier" id="Gcx-1B-XuC"/>
                         <segue destination="rW8-ag-pEA" kind="show" identifier="CustomGameSegueIdentifier" id="S1g-O1-HFW"/>
+                        <segue destination="p0u-Ot-JcC" kind="show" identifier="ViewExistingGameIdentifier" id="AmO-Zt-YRR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fW1-f2-IWh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2129.2307692307691" y="87.440758293838854"/>
+            <point key="canvasLocation" x="2128.0373831775701" y="86.825053995680349"/>
         </scene>
         <!--GameVC-->
         <scene sceneID="tne-QT-ifu">
@@ -533,6 +572,154 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHv-h8-L7z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5418.3999999999996" y="87.192118226600982"/>
+        </scene>
+        <!--View GameVC-->
+        <scene sceneID="XrT-Lf-N9r">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="p0u-Ot-JcC" customClass="ViewGameVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Owy-aD-a1O">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Article" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvG-Ax-86I" userLabel="Starting Article">
+                                <rect key="frame" x="76" y="223" width="277" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="24"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Starting Article:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blL-Mc-e4D" userLabel="Starting Article Title">
+                                <rect key="frame" x="57" y="182" width="315.33333333333326" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="24"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Target Article:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEN-mp-5NU" userLabel="Target Article Title">
+                                <rect key="frame" x="137" y="252" width="153" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="24"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Article" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbG-7F-Qxj" userLabel="Target Article">
+                                <rect key="frame" x="83" y="293" width="277" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="24"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2O-Tk-d2f">
+                                <rect key="frame" x="66" y="334" width="296" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g2V-2C-oQZ">
+                                <rect key="frame" x="20" y="384" width="388" height="385"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaderboardCellIdentifier" id="pBV-R8-PCv" customClass="LeaderboardTableCell" customModule="WikiRacer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="388" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pBV-R8-PCv" id="doT-ax-sO3">
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="79" translatesAutoresizingMaskIntoConstraints="NO" id="tYX-8G-Wbh">
+                                                    <rect key="frame" x="20" y="11.999999999999998" width="347.66666666666669" height="20.333333333333332"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VuN-ny-4f8" userLabel="Rank">
+                                                            <rect key="frame" x="0.0" y="0.0" width="18" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeO-Mt-pxU" userLabel="Player">
+                                                            <rect key="frame" x="97" y="0.0" width="46.666666666666657" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SL-xn-Ewu" userLabel="Time">
+                                                            <rect key="frame" x="222.66666666666666" y="0.0" width="35.666666666666657" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZF-hr-ACZ" userLabel="Links">
+                                                            <rect key="frame" x="337.33333333333331" y="0.0" width="10.333333333333314" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="linksLabel" destination="nZF-hr-ACZ" id="tC2-8A-ROC"/>
+                                            <outlet property="playerLabel" destination="ZeO-Mt-pxU" id="8QN-zl-zyg"/>
+                                            <outlet property="rankLabel" destination="VuN-ny-4f8" id="tbI-72-oo8"/>
+                                            <outlet property="timeLabel" destination="6SL-xn-Ewu" id="8us-sH-ZGI"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTK-UH-goZ" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
+                                <rect key="frame" x="113" y="795" width="219" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="30"/>
+                                <state key="normal" title="Start 🏎">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="p0u-Ot-JcC" eventType="touchUpInside" id="X28-HW-ljS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Multiplayer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghE-Z3-9pA">
+                                <rect key="frame" x="66" y="88" width="296" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paX-HO-bi9">
+                                <rect key="frame" x="201" y="146" width="115" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxI-QE-Y6U" userLabel="Code Title">
+                                <rect key="frame" x="137" y="146" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Zu-dp-Hqs"/>
+                        <color key="backgroundColor" name="MainRedColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4wl-ep-JKK"/>
+                    <connections>
+                        <outlet property="codeLabel" destination="paX-HO-bi9" id="Og9-45-YWU"/>
+                        <outlet property="leaderboardTableView" destination="g2V-2C-oQZ" id="wmj-Po-Ctd"/>
+                        <outlet property="startingArticleLabel" destination="wvG-Ax-86I" id="TTB-NG-Mbx"/>
+                        <outlet property="targetArticleLabel" destination="ZbG-7F-Qxj" id="09W-iV-XNf"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="StartGameIdentifier" id="fUR-hF-Fes"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AVB-kG-EPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3347.663551401869" y="-621.38228941684667"/>
         </scene>
         <!--Choose Starting ArticleVC-->
         <scene sceneID="X3u-Bj-jbs">
@@ -1102,6 +1289,12 @@
         <designable name="XIr-9v-ve9">
             <size key="intrinsicContentSize" width="168" height="53"/>
         </designable>
+        <designable name="ZZp-8m-D1D">
+            <size key="intrinsicContentSize" width="83" height="53"/>
+        </designable>
+        <designable name="jTK-UH-goZ">
+            <size key="intrinsicContentSize" width="103" height="47"/>
+        </designable>
         <designable name="kNp-ct-ZQR">
             <size key="intrinsicContentSize" width="223" height="53"/>
         </designable>
@@ -1119,7 +1312,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="FJ5-nF-h9E"/>
+        <segue reference="SY2-gB-Sc3"/>
         <segue reference="Vzd-rn-tWt"/>
     </inferredMetricsTieBreakers>
     <resources>
