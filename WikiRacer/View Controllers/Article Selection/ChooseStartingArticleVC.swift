@@ -17,8 +17,11 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var rerollButton: UIButton!
     
     let articleCellIdentifier = "ArticleCell"
+    let viewGameSegueIdentifier = "ViewGameSegueIdentifier"
     
     var wikiArticles = [Article]()
+    var isMultiplayer: Bool?
+    var gameType: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +114,11 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TargetArticleSegueIdentifier",
             let targetArticleVC = segue.destination as? ChooseTargetArticleVC {
-            targetArticleVC.startingArticle = sender as! Article
+            targetArticleVC.startingArticle = sender as? Article
+            if isMultiplayer != nil {
+                targetArticleVC.isMultiplayer = isMultiplayer
+                targetArticleVC.gameType = gameType
+            }
         }
     }
     

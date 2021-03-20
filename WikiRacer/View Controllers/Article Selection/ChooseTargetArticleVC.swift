@@ -7,31 +7,44 @@
 
 import UIKit
 import WikipediaKit
+import Firebase
 
 class ChooseTargetArticleVC: ChooseStartingArticleVC {
     
     @IBOutlet weak var startingArticleLabel: UILabel!
     
+    var db: Firestore!
     var startingArticle: Article?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        
         startingArticleLabel.text = startingArticle!.title
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let wikiArticle = wikiArticles[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "GameSegueIdentifier", sender: wikiArticle)
+        
+        if isMultiplayer != nil {
+            performSegue(withIdentifier: viewGameSegueIdentifier, sender: wikiArticle)
+        } else {
+            performSegue(withIdentifier: "GameSegueIdentifier", sender: wikiArticle)
+        }
     }
     
     // get 10 popular articles from wiki in a random day from 1 - 1500
     override func getPopularArticles() {
         rerollButton.isEnabled = false
         let randomDay = Int.random(in: 1..<1500)
-
+        
         let randomDate = Date(timeIntervalSinceNow: TimeInterval(-60 * 60 * 24 * randomDay))
-
+        
         let _ = Wikipedia.shared.requestFeaturedArticles(language: language, date: randomDate) { result in
             switch result {
             case .success(let featuredCollection):
@@ -53,7 +66,7 @@ class ChooseTargetArticleVC: ChooseStartingArticleVC {
                 self.articlesTableView.reloadData()
                 self.rerollButton.isEnabled = true
             case .failure(let error):
-              print(error)
+                print(error)
             }
         }
     }
@@ -61,10 +74,32 @@ class ChooseTargetArticleVC: ChooseStartingArticleVC {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GameSegueIdentifier",
-            let gameVC = segue.destination as? GameVC {
+           let gameVC = segue.destination as? GameVC {
             gameVC.startingArticle = startingArticle
-            gameVC.targetArticle = sender as! Article
+            gameVC.targetArticle = sender as? Article
+        } else if segue.identifier == viewGameSegueIdentifier,
+                  let viewGameVC = segue.destination as? ViewGameVC {
+            
+            let code = getRandomCode()
+            let game = Game(startingArticle: startingArticle!, targetArticle: sender as! Article, code: code, gameType: gameType!, leaderboard: [Player]())
+            
+            viewGameVC.game = game
+            // Add a new document in collection "cities"
+            db.collection("games").document(code).setData([
+                "gameType": game.gameType!,
+                "leaderboard": game.leaderboard!,
+                "startingArticleTitle": game.startingArticle.title,
+                "startingArticleURL": game.startingArticle.lastPathComponentURL,
+                "targetArticleTitle": game.targetArticle.title,
+                "targetArticleURL": game.targetArticle.lastPathComponentURL
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
         }
     }
-
+    
 }

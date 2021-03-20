@@ -13,9 +13,13 @@ class ChooseCustomStartingArticleVC: UIViewController {
     @IBOutlet weak var inputArticleText: UITextField!
     @IBOutlet weak var errorMessageLabel: UILabel!
     
+    var isMultiplayer: Bool?
+    var gameType: String?
+    
     let language = WikipediaLanguage("en")
     
     let customTargetArticleIdentifier = "CustomTargetArticleSegueIdentifier"
+    let viewGameSegueIdentifier = "ViewGameSegueIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +67,11 @@ class ChooseCustomStartingArticleVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == customTargetArticleIdentifier,
             let customTargetArticleVC = segue.destination as? ChooseCustomTargetArticleVC {
-            customTargetArticleVC.startingArticle = sender as! Article
+            customTargetArticleVC.startingArticle = sender as? Article
+            if isMultiplayer != nil {
+                customTargetArticleVC.isMultiplayer = isMultiplayer
+                customTargetArticleVC.gameType = gameType
+            }
         }
     }
     

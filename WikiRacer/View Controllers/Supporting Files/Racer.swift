@@ -17,7 +17,7 @@ struct Racer {
         return [
             "accessoriesOwned": accessoriesOwned,
             "currentAccessorries": currentAccessorries,
-            "points": currentRacer
+            "currentRacer": currentRacer
         ]
     }
 }

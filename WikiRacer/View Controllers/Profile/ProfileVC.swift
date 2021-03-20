@@ -10,8 +10,9 @@ import Firebase
 import FirebaseAuth
 
 class ProfileVC: UIViewController {
+    
     var db: Firestore!
-
+    
     @IBOutlet weak var leastNumLinksLabel: UILabel!
     @IBOutlet weak var fastestTimeLabel: UILabel!
     @IBOutlet weak var avgLinksLabel: UILabel!
@@ -27,11 +28,11 @@ class ProfileVC: UIViewController {
         let settings = FirestoreSettings()
         
         Firestore.firestore().settings = settings
-        //[End setup]
+        
         db = Firestore.firestore()
         
-        // Do any additional setup after loading the view.
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         loadStats()
     }
@@ -58,20 +59,20 @@ class ProfileVC: UIViewController {
                 self.avgLinksLabel.text = String(avgLinks)
                 self.avgGameTimeLabel.text = String(avgTime)
                 
-                
             }
         }
         
     }
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 

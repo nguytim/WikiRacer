@@ -21,7 +21,7 @@ class GameTypeVC: UIViewController {
     @IBOutlet weak var codeTextField: UITextField!
     
     var isMultiplayer: Bool = false
-    var isTimeTrial: Bool = true
+    var gameType: String = ""
     
     let selectArticlesIdentifier = "SelectArticlesSegueIdentifier"
     let customArticleIdentifier = "CustomGameSegueIdentifier"
@@ -55,12 +55,12 @@ class GameTypeVC: UIViewController {
     }
     
     @IBAction func timeTrialButtonPressed(_ sender: Any) {
-        isTimeTrial = true
+        gameType = "Time Trial"
         multiplayerModesToGameModes()
     }
     
     @IBAction func leastLinksButtonPressed(_ sender: Any) {
-        isTimeTrial = false
+        gameType = "Least Links"
         multiplayerModesToGameModes()
     }
     
@@ -81,28 +81,29 @@ class GameTypeVC: UIViewController {
                     let data = document.data()
                     
                     let gameType = data!["gameType"] as! String
-                    let startingArticleTitle = data!["startingArticle"] as! String
-                    let targetArticleTitle = data!["targetArticle"] as! String
                     let leaderboardData = data!["leaderboard"] as! [Any]
+                    let startingArticleTitle = data!["startingArticleTitle"] as! String
+                    let startingArticleURL = data!["startingArticleURL"] as! String
+                    let targetArticleTitle = data!["targetArticleTitle"] as! String
+                    let targetArticleURL = data!["targetArticleURL"] as! String
                     
                     var leaderboard = [Player]()
                     
-                    for i in 0...leaderboardData.count - 1 {
-                        let player = leaderboardData[i] as! [String: Any]
-                        leaderboard.append(
-                            Player(name: player["name"] as! String,
-                                   time: player["time"] as! String,
-                                   numLinks: player["links"] as! Int)
-                        )
+                    if !leaderboardData.isEmpty {
+                        for i in 0...leaderboardData.count - 1 {
+                            let player = leaderboardData[i] as! [String: Any]
+                            leaderboard.append(
+                                Player(name: player["name"] as! String,
+                                       time: player["time"] as! String,
+                                       numLinks: player["links"] as! Int)
+                            )
+                        }
                     }
                     
-                    let startingArticle = Article(title: startingArticleTitle, lastPathComponentURL: startingArticleTitle)
-                    let targetArticle = Article(title: targetArticleTitle, lastPathComponentURL: targetArticleTitle)
+                    let startingArticle = Article(title: startingArticleTitle, lastPathComponentURL: startingArticleURL)
+                    let targetArticle = Article(title: targetArticleTitle, lastPathComponentURL: targetArticleURL)
                     
-                    let game = Game(startingArticle: startingArticle, targetArticle: targetArticle)
-                    game.gameType = gameType
-                    game.leaderboard = leaderboard
-                    game.code = code
+                    let game = Game(startingArticle: startingArticle, targetArticle: targetArticle, code: code, gameType: gameType, leaderboard: leaderboard)
                     
                     self.performSegue(withIdentifier: self.viewExistingGameIdentifier, sender: game)
                 } else {
@@ -134,10 +135,18 @@ class GameTypeVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == selectArticlesIdentifier,
            let chooseArticleVC = segue.destination as? ChooseStartingArticleVC {
-            // CHECK MULTIPLAYER and WHICH TRAIL
             
-        } else if segue.identifier == customArticleIdentifier {
-            // CHECK MULTIPLAYER AND WHICH TRIAL
+            if isMultiplayer {
+                chooseArticleVC.isMultiplayer = true
+                chooseArticleVC.gameType = gameType
+            }
+        } else if segue.identifier == customArticleIdentifier,
+                  let chooseArticleVC = segue.destination as? ChooseCustomStartingArticleVC {
+            
+            if isMultiplayer {
+                chooseArticleVC.isMultiplayer = true
+                chooseArticleVC.gameType = gameType
+            }
         } else if segue.identifier == viewExistingGameIdentifier,
                   let viewGameVC = segue.destination as? ViewGameVC {
             viewGameVC.game = sender as? Game
