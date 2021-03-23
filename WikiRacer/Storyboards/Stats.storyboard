@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a2i-pO-eWX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+        <array key="Righteous-Regular.ttf">
+            <string>Righteous-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--StatsVC-->
+        <scene sceneID="jtQ-AZ-Uuo">
+            <objects>
+                <viewController id="a2i-pO-eWX" userLabel="StatsVC" customClass="ProfileVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4I9-Zo-UTb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Single Player Stats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGa-zr-keL">
+                                <rect key="frame" x="71" y="241" width="218" height="30"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RacerInCart" translatesAutoresizingMaskIntoConstraints="NO" id="8G6-Ex-AH1">
+                                <rect key="frame" x="60" y="44" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Games Played" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l6-Yp-6jk">
+                                <rect key="frame" x="57" y="315" width="110" height="24"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Games Won" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zi4-y5-s88">
+                                <rect key="frame" x="212" y="315" width="95" height="24"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Average Game Time" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zm-60-dMp">
+                                <rect key="frame" x="57" y="420" width="102" height="52"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Average Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRX-Kr-bGs">
+                                <rect key="frame" x="205" y="434" width="108" height="24"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Fastest Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xE-hn-DNp">
+                                <rect key="frame" x="60" y="582" width="105" height="24"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWX-dq-4JG">
+                                <rect key="frame" x="89" y="352" width="47" height="60"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amk-0i-hny">
+                                <rect key="frame" x="236" y="352" width="29" height="60"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="32.1s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cF-Y8-AOl">
+                                <rect key="frame" x="53" y="492" width="109" height="60"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OE-Zg-gov">
+                                <rect key="frame" x="236" y="492" width="31" height="60"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="15.5s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM2-J8-dVy">
+                                <rect key="frame" x="52" y="633" width="110" height="60"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmt-ep-e6b">
+                                <rect key="frame" x="242" y="634" width="28" height="60"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Least Number of Links" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7M-7k-kba">
+                                <rect key="frame" x="208" y="564" width="115" height="60"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PO1-Q1-CPM">
+                                <rect key="frame" x="60" y="153" width="254" height="80"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q8N-Cv-1kZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Zm-60-dMp" firstAttribute="top" secondItem="jWX-dq-4JG" secondAttribute="bottom" constant="8" symbolic="YES" id="Fca-FP-c53"/>
+                            <constraint firstItem="nGa-zr-keL" firstAttribute="centerX" secondItem="Q8N-Cv-1kZ" secondAttribute="centerX" id="G0m-KA-jem"/>
+                            <constraint firstItem="QRX-Kr-bGs" firstAttribute="top" secondItem="Amk-0i-hny" secondAttribute="bottom" constant="22" id="GZa-ip-xEI"/>
+                            <constraint firstItem="Amk-0i-hny" firstAttribute="top" secondItem="Zi4-y5-s88" secondAttribute="bottom" constant="13" id="Gnu-LH-5rN"/>
+                            <constraint firstItem="Zi4-y5-s88" firstAttribute="top" secondItem="nGa-zr-keL" secondAttribute="bottom" constant="44" id="NYS-si-qgc"/>
+                            <constraint firstItem="dM2-J8-dVy" firstAttribute="top" secondItem="5xE-hn-DNp" secondAttribute="bottom" constant="27" id="Ukh-Sw-bQw"/>
+                            <constraint firstItem="6l6-Yp-6jk" firstAttribute="top" secondItem="nGa-zr-keL" secondAttribute="bottom" constant="44" id="XWX-ut-YBs"/>
+                            <constraint firstItem="jWX-dq-4JG" firstAttribute="top" secondItem="6l6-Yp-6jk" secondAttribute="bottom" constant="13" id="gbx-sE-ytP"/>
+                            <constraint firstItem="4cF-Y8-AOl" firstAttribute="top" secondItem="6Zm-60-dMp" secondAttribute="bottom" constant="20" id="gmc-wa-FKQ"/>
+                            <constraint firstItem="Tmt-ep-e6b" firstAttribute="top" secondItem="r7M-7k-kba" secondAttribute="bottom" constant="10" id="qhg-Sh-utc"/>
+                            <constraint firstItem="r7M-7k-kba" firstAttribute="top" secondItem="4OE-Zg-gov" secondAttribute="bottom" constant="12" id="sMl-lF-YDn"/>
+                            <constraint firstItem="PO1-Q1-CPM" firstAttribute="top" secondItem="Q8N-Cv-1kZ" secondAttribute="top" constant="109" id="sz2-hX-J1W"/>
+                            <constraint firstItem="PO1-Q1-CPM" firstAttribute="centerX" secondItem="Q8N-Cv-1kZ" secondAttribute="centerX" id="twa-qp-zih"/>
+                            <constraint firstItem="4OE-Zg-gov" firstAttribute="top" secondItem="QRX-Kr-bGs" secondAttribute="bottom" constant="34" id="ua9-6E-Pqb"/>
+                            <constraint firstItem="5xE-hn-DNp" firstAttribute="top" secondItem="4cF-Y8-AOl" secondAttribute="bottom" constant="30" id="x9n-2s-vmN"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="TrophyIcon" id="aUJ-tg-sti"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="avgGameTimeLabel" destination="4cF-Y8-AOl" id="sX0-zn-SGu"/>
+                        <outlet property="avgLinksLabel" destination="4OE-Zg-gov" id="XxH-zH-aGb"/>
+                        <outlet property="fastestTimeLabel" destination="dM2-J8-dVy" id="1h1-WH-5Nj"/>
+                        <outlet property="leastNumLinksLabel" destination="Tmt-ep-e6b" id="oj9-0d-O6z"/>
+                        <outlet property="numGamesLabel" destination="jWX-dq-4JG" id="TUH-bK-r50"/>
+                        <outlet property="numGamesWonLabel" destination="Amk-0i-hny" id="RgZ-fQ-CtJ"/>
+                        <outlet property="racerImage" destination="8G6-Ex-AH1" id="nSO-4X-QLy"/>
+                        <outlet property="userNameLabel" destination="PO1-Q1-CPM" id="n8C-iU-SnR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lzj-W1-xiP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1068" y="841.62561576354688"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="RacerInCart" width="241" height="242"/>
+        <image name="TrophyIcon" width="22" height="22"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

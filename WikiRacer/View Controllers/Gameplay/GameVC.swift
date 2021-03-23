@@ -32,6 +32,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
     let exitSegueIdentifier = "ExitIdentifier"
     
     var game: Game?
+    var isMultiplayer: Bool?
     
     // game mechanics
     var startingArticle: Article?

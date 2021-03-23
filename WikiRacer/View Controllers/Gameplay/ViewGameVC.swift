@@ -71,6 +71,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
            let gameVC = segue.destination as? GameVC {
             gameVC.startingArticle = game?.startingArticle
             gameVC.targetArticle = game?.targetArticle
+            gameVC.isMultiplayer = true
         }
     }
 
