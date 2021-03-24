@@ -11,10 +11,14 @@ class YouWinVC: UIViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var numLinksLabel: UILabel!
+    @IBOutlet weak var playAgainButton: RoundedButton!
+    @IBOutlet weak var leaderboardButton: RoundedButton!
     
     let replaySegueIdentifier = "ReplayIdentifier"
+    let viewExistingGameIdentifier = "ViewExistingGameIdentifier"
     
     var game: Game?
+    var isMultiplayer: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,21 +31,21 @@ class YouWinVC: UIViewController {
         let seconds = (timeDisplayed % 3600) % 60
         timeLabel.text = String(format:"%d:%02d", minutes, seconds)
         numLinksLabel.text = "\(game!.numLinks)"
+        
+        if isMultiplayer {
+            playAgainButton.isHidden = true
+            leaderboardButton.isHidden = false
+        }
     }
 
     @IBAction func playAgainButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: replaySegueIdentifier, sender: nil)
     }
     
-    @IBAction func newGameButtonPressed(_ sender: Any) {
-        
-    }
-    
     // multiplayer
     @IBAction func leaderboardButtonPressed(_ sender: Any) {
-        
+        performSegue(withIdentifier: viewExistingGameIdentifier, sender: game)
     }
-    
     
     // MARK: - Navigation
 
@@ -51,8 +55,10 @@ class YouWinVC: UIViewController {
             let gameVC = segue.destination as? GameVC {
             gameVC.startingArticle = game!.startingArticle
             gameVC.targetArticle = game!.targetArticle
+        } else if segue.identifier == viewExistingGameIdentifier,
+                  let viewGameVC = segue.destination as? ViewGameVC {
+            viewGameVC.game = sender as? Game
         }
     }
-    
 
 }

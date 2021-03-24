@@ -93,7 +93,8 @@ class GameTypeVC: UIViewController {
                         for i in 0...leaderboardData.count - 1 {
                             let player = leaderboardData[i] as! [String: Any]
                             leaderboard.append(
-                                Player(name: player["name"] as! String,
+                                Player(uid: player["uid"] as! String,
+                                       name: player["name"] as! String,
                                        time: player["time"] as! String,
                                        numLinks: player["links"] as! Int)
                             )

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LeaderboardTableCell: UITableViewCell {
     
@@ -21,6 +22,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var startingArticleLabel: UILabel!
     @IBOutlet weak var targetArticleLabel: UILabel!
     @IBOutlet weak var leaderboardTableView: UITableView!
+    @IBOutlet weak var startButton: RoundedButton!
     
     let startGameIdentifier = "StartGameIdentifier"
     let leaderboardCellIdentifier = "LeaderboardCellIdentifier"
@@ -29,6 +31,9 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkIfUserHasPlayedAlready()
+        
         leaderboardTableView.delegate = self
         leaderboardTableView.dataSource = self
         
@@ -53,6 +58,15 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func checkIfUserHasPlayedAlready() {
+        let uid = Auth.auth().currentUser!.uid
+        for player in game!.leaderboard! {
+            if player.uid == uid {
+                self.startButton.isHidden = true
+                break
+            }
+        }
+    }
 
     @IBAction func startButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: startGameIdentifier, sender: nil)
@@ -72,6 +86,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             gameVC.startingArticle = game?.startingArticle
             gameVC.targetArticle = game?.targetArticle
             gameVC.isMultiplayer = true
+            gameVC.game = game
         }
     }
 

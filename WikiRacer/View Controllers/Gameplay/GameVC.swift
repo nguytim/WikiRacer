@@ -8,6 +8,8 @@
 import UIKit
 import WikipediaKit
 import WebKit
+import FirebaseAuth
+import Firebase
 
 class GameVC: UIViewController, WKNavigationDelegate {
     
@@ -32,7 +34,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
     let exitSegueIdentifier = "ExitIdentifier"
     
     var game: Game?
-    var isMultiplayer: Bool?
+    var isMultiplayer: Bool = false
     
     // game mechanics
     var startingArticle: Article?
@@ -69,7 +71,9 @@ class GameVC: UIViewController, WKNavigationDelegate {
         print("Starting article: \(startingArticle!.title)")
         print("Target article: \(targetArticle!.title)")
         
-        game = Game(startingArticle: startingArticle!, targetArticle: targetArticle!)
+        if !isMultiplayer {
+            game = Game(startingArticle: startingArticle!, targetArticle: targetArticle!)
+        }
         
         getArticle(article: currentArticle!.lastPathComponentURL)
     }
@@ -196,6 +200,24 @@ class GameVC: UIViewController, WKNavigationDelegate {
         if segue.identifier == "YouWinSegueIdentifier",
            let youWinVC = segue.destination as? YouWinVC {
             youWinVC.game = game
+            youWinVC.isMultiplayer = isMultiplayer
+            if isMultiplayer {
+                
+                let uid = Auth.auth().currentUser!.uid
+                let username = Auth.auth().currentUser!.displayName!
+                let timeDisplayed = game!.elapsedTime
+                let minutes = (timeDisplayed % 3600) / 60
+                let seconds = (timeDisplayed % 3600) % 60
+                let time = String(format:"%d:%02d", minutes, seconds)
+                
+                let currentPlayer = Player(uid: uid, name: username, time: time, numLinks: game!.numLinks)
+                
+                // add to leaderboard
+                game!.leaderboard!.append(currentPlayer)
+                
+                let db: Firestore = Firestore.firestore()
+                db.collection("games").document(game!.code!).setData(game!.dictionary)
+            }
         }
     }
     
