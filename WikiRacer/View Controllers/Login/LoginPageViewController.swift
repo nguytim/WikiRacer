@@ -27,11 +27,12 @@ class LoginPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        checkLoggedInUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // Before screen is shown make sure they dont have a logged in user in the cache.
-        checkLoggedInUser()
+
         
         self.logoLabel.alpha = 0
         self.emailAddressTextField.alpha = 0
