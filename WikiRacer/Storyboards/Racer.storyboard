@@ -3,158 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Nunito-Regular.ttf">
-            <string>Nunito-Regular</string>
-        </array>
-        <array key="Righteous-Regular.ttf">
-            <string>Righteous-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
-        <!--Login-->
-        <scene sceneID="aN6-FU-IKt">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" id="aGh-bX-QAf" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="3Je-y9-xqC"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yFp-oZ-MkT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="283" y="1156"/>
-        </scene>
-        <!--SettingsVC-->
-        <scene sceneID="aBX-bw-B3X">
-            <objects>
-                <viewController id="6J6-ih-DCl" userLabel="SettingsVC" customClass="SettingsVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hCO-GN-B75">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-jI-95g" userLabel="Settings Label">
-                                <rect key="frame" x="119" y="33" width="176.5" height="56"/>
-                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke3-SW-IL4" userLabel="Username Label">
-                                <rect key="frame" x="39" y="114" width="97" height="23.5"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="player_username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mt-rj-gY1">
-                                <rect key="frame" x="39" y="147.5" width="153" height="23.5"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osf-xw-2Xc" userLabel="Email Label">
-                                <rect key="frame" x="39" y="183" width="132" height="23.5"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="player@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuM-0T-TZt" userLabel="Player Email">
-                                <rect key="frame" x="39" y="216.5" width="163" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="yoR-4T-CDb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eTe-uu-b0v" userLabel="Sound Effects Switch">
-                                <rect key="frame" x="39" y="346.5" width="51" height="31"/>
-                                <connections>
-                                    <action selector="soundEffectsSwitchToggled:" destination="6J6-ih-DCl" eventType="valueChanged" id="5Sc-2l-lJV"/>
-                                </connections>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WoJ-PO-uYl" userLabel="Dark Mode Switch">
-                                <rect key="frame" x="39" y="281.5" width="51" height="31"/>
-                                <connections>
-                                    <action selector="darkModeSwitchToggled:" destination="6J6-ih-DCl" eventType="valueChanged" id="e8A-os-B6m"/>
-                                </connections>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGd-ck-ASd" userLabel="Delete Account Button">
-                                <rect key="frame" x="118.5" y="584.5" width="177" height="142.5"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
-                                <state key="normal" title="Delete Account">
-                                    <color key="titleColor" name="MainRedColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteAccountClicked:" destination="6J6-ih-DCl" eventType="touchUpInside" id="a0K-X9-DLz"/>
-                                    <action selector="deleteAccountClicked:" destination="ejY-lI-7o3" eventType="touchUpInside" id="l3H-rD-NEJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aj6-lg-oXx" userLabel="Sign Out Button" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="112" y="507.5" width="190" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="190" id="lWJ-sF-wgG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="20"/>
-                                <state key="normal" title="Sign Out"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="signOutClicked:" destination="6J6-ih-DCl" eventType="touchUpInside" id="3pz-QI-ZJ5"/>
-                                    <action selector="signOutClicked:" destination="ejY-lI-7o3" eventType="touchUpInside" id="pXj-cV-bD2"/>
-                                </connections>
-                            </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Fp-vX-esd" userLabel="Notifications Switch">
-                                <rect key="frame" x="39" y="416.5" width="51" height="31"/>
-                                <connections>
-                                    <action selector="notificationsSwitchToggled:" destination="6J6-ih-DCl" eventType="valueChanged" id="dFF-Bp-Hxu"/>
-                                </connections>
-                            </switch>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="iig-Zs-dOg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="eTe-uu-b0v" firstAttribute="top" secondItem="WoJ-PO-uYl" secondAttribute="bottom" constant="34" id="1bt-FI-1IO"/>
-                            <constraint firstItem="Ke3-SW-IL4" firstAttribute="top" secondItem="k43-jI-95g" secondAttribute="bottom" constant="25" id="2G6-G9-l2z"/>
-                            <constraint firstItem="iig-Zs-dOg" firstAttribute="trailing" secondItem="JGd-ck-ASd" secondAttribute="trailing" constant="118.66666666666669" id="3Tc-g1-gmM"/>
-                            <constraint firstItem="WuM-0T-TZt" firstAttribute="leading" secondItem="iig-Zs-dOg" secondAttribute="leading" constant="39" id="5sM-Zd-vcu"/>
-                            <constraint firstItem="3Mt-rj-gY1" firstAttribute="top" secondItem="Ke3-SW-IL4" secondAttribute="bottom" constant="10" id="BZf-B8-HZu"/>
-                            <constraint firstItem="iig-Zs-dOg" firstAttribute="bottom" secondItem="JGd-ck-ASd" secondAttribute="bottom" constant="81" id="EpH-Wp-iG1"/>
-                            <constraint firstItem="JGd-ck-ASd" firstAttribute="centerX" secondItem="hCO-GN-B75" secondAttribute="centerX" id="Fb1-VI-xpa"/>
-                            <constraint firstItem="WuM-0T-TZt" firstAttribute="top" secondItem="osf-xw-2Xc" secondAttribute="bottom" constant="10" id="Fuw-Di-8tf"/>
-                            <constraint firstItem="WoJ-PO-uYl" firstAttribute="leading" secondItem="WuM-0T-TZt" secondAttribute="leading" id="I7s-u2-4qz"/>
-                            <constraint firstItem="k43-jI-95g" firstAttribute="top" secondItem="iig-Zs-dOg" secondAttribute="top" constant="33" id="YXb-sf-TIh"/>
-                            <constraint firstItem="k43-jI-95g" firstAttribute="centerX" secondItem="hCO-GN-B75" secondAttribute="centerX" id="ae7-58-Lv4"/>
-                            <constraint firstItem="Aj6-lg-oXx" firstAttribute="top" secondItem="WuM-0T-TZt" secondAttribute="bottom" constant="270" id="bmE-2Y-Y8F"/>
-                            <constraint firstItem="osf-xw-2Xc" firstAttribute="top" secondItem="3Mt-rj-gY1" secondAttribute="bottom" constant="12" id="bxr-PO-jww"/>
-                            <constraint firstItem="osf-xw-2Xc" firstAttribute="leading" secondItem="iig-Zs-dOg" secondAttribute="leading" constant="39" id="dId-n2-Yps"/>
-                            <constraint firstItem="WoJ-PO-uYl" firstAttribute="top" secondItem="WuM-0T-TZt" secondAttribute="bottom" constant="44" id="dqb-3T-4dY"/>
-                            <constraint firstItem="WoJ-PO-uYl" firstAttribute="leading" secondItem="4Fp-vX-esd" secondAttribute="leading" id="eQ0-nL-LGX"/>
-                            <constraint firstItem="WoJ-PO-uYl" firstAttribute="leading" secondItem="eTe-uu-b0v" secondAttribute="leading" id="g2N-mE-oUM"/>
-                            <constraint firstItem="3Mt-rj-gY1" firstAttribute="leading" secondItem="iig-Zs-dOg" secondAttribute="leading" constant="39" id="iKy-cQ-gvv"/>
-                            <constraint firstItem="Aj6-lg-oXx" firstAttribute="centerX" secondItem="hCO-GN-B75" secondAttribute="centerX" id="jaI-cd-YQn"/>
-                            <constraint firstItem="JGd-ck-ASd" firstAttribute="leading" secondItem="iig-Zs-dOg" secondAttribute="leading" constant="118.66666666666669" id="l9h-t0-fVG"/>
-                            <constraint firstItem="Ke3-SW-IL4" firstAttribute="leading" secondItem="iig-Zs-dOg" secondAttribute="leading" constant="39" id="m9m-r6-UrN"/>
-                            <constraint firstItem="iig-Zs-dOg" firstAttribute="trailing" secondItem="WoJ-PO-uYl" secondAttribute="trailing" constant="326" id="tAg-R3-UeI"/>
-                            <constraint firstItem="4Fp-vX-esd" firstAttribute="top" secondItem="eTe-uu-b0v" secondAttribute="bottom" constant="39" id="udF-ER-kGU"/>
-                            <constraint firstItem="JGd-ck-ASd" firstAttribute="top" secondItem="Aj6-lg-oXx" secondAttribute="bottom" constant="41" id="wi8-SZ-XBL"/>
-                            <constraint firstItem="WoJ-PO-uYl" firstAttribute="trailing" secondItem="eTe-uu-b0v" secondAttribute="trailing" id="xv3-2u-UYe"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="emailLabel" destination="WuM-0T-TZt" id="Z7b-y1-Ihr"/>
-                        <outlet property="usernameLabel" destination="3Mt-rj-gY1" id="ncv-DJ-KbU"/>
-                        <segue destination="aGh-bX-QAf" kind="presentation" identifier="LoginIdentifier" modalPresentationStyle="fullScreen" id="PAA-aB-fxG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="il3-NO-7bG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="ejY-lI-7o3" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="-384" y="1157"/>
-        </scene>
         <!--ProfileVC-->
         <scene sceneID="9zZ-qI-mN3">
             <objects>
@@ -163,18 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4K-fx-rUA">
-                                <rect key="frame" x="35" y="50" width="25" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="tintColor" name="MainAquaColor"/>
-                                <state key="normal" image="gearshape.fill" catalog="system"/>
-                                <connections>
-                                    <segue destination="6J6-ih-DCl" kind="popoverPresentation" popoverAnchorView="I4K-fx-rUA" id="IqF-zV-xC4">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="noi-AT-JcS" userLabel="Background Image">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="356"/>
                                 <constraints>
@@ -256,20 +98,8 @@
             <point key="canvasLocation" x="-1143.9252336448596" y="1155.9395248380131"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Aj6-lg-oXx">
-            <size key="intrinsicContentSize" width="79" height="36"/>
-        </designable>
-    </designables>
     <resources>
         <image name="TireIcon" width="22" height="22"/>
-        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
-        <namedColor name="MainAquaColor">
-            <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="MainRedColor">
-            <color red="0.90980392156862744" green="0.47058823529411764" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
