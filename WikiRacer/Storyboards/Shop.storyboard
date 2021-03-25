@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PAF-ZV-fcX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -10,8 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Nunito-Bold.ttf">
-            <string>Nunito-Bold</string>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+        <array key="Righteous-Regular.ttf">
+            <string>Righteous-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -20,19 +23,17 @@
             <objects>
                 <viewController id="PAF-ZV-fcX" userLabel="ShopVC" customClass="ShopVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZD7-ai-YJP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lil-N6-Jc7">
-                                <rect key="frame" x="193" y="200" width="41" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lil-N6-Jc7">
+                                <rect key="frame" x="131" y="65" width="113" height="60"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fFQ-6K-M7V">
-                                <rect key="frame" x="29" y="336" width="379" height="386"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fFQ-6K-M7V">
+                                <rect key="frame" x="16" y="183" width="343" height="507"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qrV-aK-86N">
                                     <size key="itemSize" width="128" height="128"/>
@@ -48,20 +49,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXy-W0-ihU">
-                                                    <rect key="frame" x="43" y="77" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXy-W0-ihU" userLabel="Money Label">
+                                                    <rect key="frame" x="43" y="86" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RacerInCart" translatesAutoresizingMaskIntoConstraints="NO" id="Zzx-L0-eCN">
-                                                    <rect key="frame" x="33" y="15" width="63" height="54"/>
+                                                    <rect key="frame" x="33" y="24" width="63" height="54"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" name="MainAquaColor"/>
+                                        <color key="tintColor" name="MainAquaColor"/>
                                         <connections>
                                             <outlet property="costLabel" destination="zXy-W0-ihU" id="080-SG-ywN"/>
                                             <outlet property="image" destination="Zzx-L0-eCN" id="d4G-si-NFO"/>
@@ -69,67 +71,47 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcs-7n-0Ue" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="61" y="778" width="66" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="MainDarkColor"/>
-                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
-                                <state key="normal" title="Exit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="exitButtonPressed:" destination="PAF-ZV-fcX" eventType="touchUpInside" id="EVg-h1-k5K"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uu5-zy-3BO" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="315" y="777" width="66" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="MainDarkColor"/>
-                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
-                                <state key="normal" title="Buy">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="buyButtonPressed:" destination="PAF-ZV-fcX" eventType="touchUpInside" id="1OA-Vx-brl"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzE-w8-San" userLabel="Money Label">
+                                <rect key="frame" x="16" y="65" width="36" height="28"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g30-Ue-Vls"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fFQ-6K-M7V" firstAttribute="centerX" secondItem="g30-Ue-Vls" secondAttribute="centerX" id="05h-xe-mAl"/>
+                            <constraint firstItem="NzE-w8-San" firstAttribute="leading" secondItem="g30-Ue-Vls" secondAttribute="leading" constant="16" id="Glo-Pn-uUL"/>
+                            <constraint firstItem="NzE-w8-San" firstAttribute="top" secondItem="g30-Ue-Vls" secondAttribute="top" constant="21" id="HiK-tV-SVp"/>
+                            <constraint firstItem="g30-Ue-Vls" firstAttribute="trailing" secondItem="NzE-w8-San" secondAttribute="trailing" constant="323" id="Hzm-Tx-SGn"/>
+                            <constraint firstItem="g30-Ue-Vls" firstAttribute="trailing" secondItem="lil-N6-Jc7" secondAttribute="trailing" constant="131" id="Ubo-e9-c6n"/>
+                            <constraint firstItem="fFQ-6K-M7V" firstAttribute="leading" secondItem="g30-Ue-Vls" secondAttribute="leading" constant="16" id="bE7-oA-d5T"/>
+                            <constraint firstItem="lil-N6-Jc7" firstAttribute="top" secondItem="g30-Ue-Vls" secondAttribute="top" constant="21" id="fLp-pg-QBv"/>
+                            <constraint firstItem="lil-N6-Jc7" firstAttribute="centerX" secondItem="g30-Ue-Vls" secondAttribute="centerX" id="h7N-We-D6e"/>
+                            <constraint firstItem="g30-Ue-Vls" firstAttribute="bottom" secondItem="fFQ-6K-M7V" secondAttribute="bottom" constant="39" id="lQI-x4-e8i"/>
+                            <constraint firstItem="lil-N6-Jc7" firstAttribute="leading" secondItem="g30-Ue-Vls" secondAttribute="leading" constant="131" id="vBt-HB-53u"/>
+                            <constraint firstItem="g30-Ue-Vls" firstAttribute="trailing" secondItem="fFQ-6K-M7V" secondAttribute="trailing" constant="16" id="xBh-is-oHJ"/>
+                            <constraint firstItem="fFQ-6K-M7V" firstAttribute="top" secondItem="lil-N6-Jc7" secondAttribute="bottom" constant="58" id="ys4-7z-Zvd"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shop" image="RepairShopIcon" id="m32-Bm-sPE" userLabel="Store"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="moneyLabel" destination="NzE-w8-San" id="2vL-Sc-aGk"/>
                         <outlet property="shopGrid" destination="fFQ-6K-M7V" id="quD-DA-Faw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozc-CB-ngQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="842"/>
+            <point key="canvasLocation" x="204" y="841.62561576354688"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Uu5-zy-3BO">
-            <size key="intrinsicContentSize" width="31" height="36"/>
-        </designable>
-        <designable name="xcs-7n-0Ue">
-            <size key="intrinsicContentSize" width="31" height="36"/>
-        </designable>
-    </designables>
     <resources>
         <image name="RacerInCart" width="241" height="242"/>
         <image name="RepairShopIcon" width="22" height="22"/>
         <namedColor name="MainAquaColor">
             <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="MainDarkColor">
-            <color red="0.13333333333333333" green="0.19215686274509805" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

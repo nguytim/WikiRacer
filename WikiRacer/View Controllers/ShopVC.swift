@@ -33,6 +33,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     var hats = [Hat]()
     
     @IBOutlet weak var shopGrid: UICollectionView!
+    @IBOutlet weak var moneyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,14 +61,6 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         return cell
     }
     
-    @IBAction func exitButtonPressed(_ sender: Any) {
-        
-    }
-    
-    @IBAction func buyButtonPressed(_ sender: Any) {
-        
-    }
-    
     func loadShop() {
         let docRef = db!.collection("shop").document("accessories")
         docRef.getDocument { (document, error) in
@@ -90,14 +83,38 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath)!
+        cell.layer.borderColor = UIColor.systemGray.cgColor
+        cell.contentView.backgroundColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1)
+        cell.isSelected = true
+        
+        // TODO: check amount of money and check price of item clicked - if not enough money - create alert saying not enough money
+        
+        let confirmPurchaseAlert = UIAlertController(title: "Confirm Purchase", message: "Are you sure you want to purchase this item?", preferredStyle: UIAlertController.Style.alert)
+        
+        confirmPurchaseAlert.addAction(UIAlertAction(title: "Buy", style: .default, handler: { (action: UIAlertAction!) in
+            
+            // TODO: update changes in Firestore (items bought, coins left, etc.)
+            // update money label
+            
+        }))
+        
+        confirmPurchaseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        }))
+        
+        present(confirmPurchaseAlert, animated: true, completion: nil)
+    }
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
 }
