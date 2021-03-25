@@ -37,31 +37,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-jI-95g" userLabel="Settings Label">
-                                <rect key="frame" x="112.5" y="33" width="189.5" height="60"/>
+                                <rect key="frame" x="119" y="33" width="176.5" height="56"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke3-SW-IL4" userLabel="Username Label">
-                                <rect key="frame" x="39" y="118" width="97" height="27.5"/>
+                                <rect key="frame" x="39" y="114" width="97" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="player_username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mt-rj-gY1">
-                                <rect key="frame" x="39" y="155.5" width="154" height="27"/>
+                                <rect key="frame" x="39" y="147.5" width="153" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osf-xw-2Xc" userLabel="Email Label">
-                                <rect key="frame" x="39" y="194.5" width="131" height="27.5"/>
+                                <rect key="frame" x="39" y="183" width="132" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="player@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuM-0T-TZt" userLabel="Player Email">
-                                <rect key="frame" x="39" y="232" width="165.5" height="21"/>
+                                <rect key="frame" x="39" y="216.5" width="163" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="yoR-4T-CDb"/>
                                 </constraints>
@@ -70,19 +70,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eTe-uu-b0v" userLabel="Sound Effects Switch">
-                                <rect key="frame" x="39" y="362" width="51" height="31"/>
+                                <rect key="frame" x="39" y="346.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="soundEffectsSwitchToggled:" destination="6J6-ih-DCl" eventType="valueChanged" id="5Sc-2l-lJV"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WoJ-PO-uYl" userLabel="Dark Mode Switch">
-                                <rect key="frame" x="39" y="297" width="51" height="31"/>
+                                <rect key="frame" x="39" y="281.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="darkModeSwitchToggled:" destination="6J6-ih-DCl" eventType="valueChanged" id="e8A-os-B6m"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGd-ck-ASd" userLabel="Delete Account Button">
-                                <rect key="frame" x="118.5" y="601" width="177" height="126"/>
+                                <rect key="frame" x="118.5" y="584.5" width="177" height="142.5"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                 <state key="normal" title="Delete Account">
                                     <color key="titleColor" name="MainRedColor"/>
@@ -93,7 +93,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aj6-lg-oXx" userLabel="Sign Out Button" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="112" y="523" width="190" height="37"/>
+                                <rect key="frame" x="112" y="507.5" width="190" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="190" id="lWJ-sF-wgG"/>
                                 </constraints>
@@ -108,7 +108,7 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Fp-vX-esd" userLabel="Notifications Switch">
-                                <rect key="frame" x="39" y="432" width="51" height="31"/>
+                                <rect key="frame" x="39" y="416.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="notificationsSwitchToggled:" destination="6J6-ih-DCl" eventType="valueChanged" id="dFF-Bp-Hxu"/>
                                 </connections>
@@ -258,7 +258,7 @@
     </scenes>
     <designables>
         <designable name="Aj6-lg-oXx">
-            <size key="intrinsicContentSize" width="82" height="37"/>
+            <size key="intrinsicContentSize" width="79" height="36"/>
         </designable>
     </designables>
     <resources>
