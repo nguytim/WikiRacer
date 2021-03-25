@@ -27,12 +27,14 @@ class LoginPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        checkLoggedInUser()
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // Before screen is shown make sure they dont have a logged in user in the cache.
-
+        checkLoggedInUser()
         
         self.logoLabel.alpha = 0
         self.emailAddressTextField.alpha = 0
@@ -153,19 +155,17 @@ class LoginPageViewController: UIViewController {
     }
     
     private func checkLoggedInUser() {
-        if Auth.auth().currentUser != nil {
-            let docRef = collectionOfUsers.document(Auth.auth().currentUser!.uid)
-
-            docRef.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                    print("Document data: \(dataDescription)")
-                    self.performSegue(withIdentifier: "SignInIdentifier", sender: nil)
-                } else {
-                    print("Document does not exist")
-                }
+        
+        self.view.isHidden = true
+        
+        Auth.auth().addStateDidChangeListener() { auth, user in
+            if user == nil {
+                self.view.isHidden = false
+                self.dismiss(animated: true, completion: nil)
             }
-
+            else {
+                self.performSegue(withIdentifier: "SignInIdentifier", sender: nil)
+            }
         }
     }
     

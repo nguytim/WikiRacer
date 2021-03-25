@@ -47,11 +47,7 @@
 		<key>FirebaseStorage.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< Updated upstream
-			<integer>20</integer>
-=======
 			<integer>21</integer>
->>>>>>> Stashed changes
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
