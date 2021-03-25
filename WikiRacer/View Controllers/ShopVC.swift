@@ -9,6 +9,7 @@ import UIKit
 import FirebaseStorage
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class Hat{
     var cost: Int
@@ -85,10 +86,6 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let cell = collectionView.cellForItem(at: indexPath)!
-        cell.layer.borderColor = UIColor.systemGray.cgColor
-        cell.contentView.backgroundColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1)
-        cell.isSelected = true
         
         // TODO: check amount of money and check price of item clicked - if not enough money - create alert saying not enough money
         

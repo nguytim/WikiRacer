@@ -15,6 +15,11 @@ class SettingsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let user = Auth.auth().currentUser
+        if let user = user {
+            emailLabel.text = user.email
+        }
 
         // Do any additional setup after loading the view.
     }
