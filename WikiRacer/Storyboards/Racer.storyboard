@@ -106,7 +106,7 @@
     </scenes>
     <resources>
         <image name="Car" width="1089" height="740"/>
-        <image name="Example Background" width="5667" height="3881"/>
+        <image name="Example Background" width="8000" height="4363"/>
         <image name="Racer" width="581" height="712"/>
         <image name="TireIcon" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
