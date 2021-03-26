@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dzn-i8-mhC">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,28 +12,28 @@
         <!--ProfileVC-->
         <scene sceneID="9zZ-qI-mN3">
             <objects>
-                <viewController id="dzn-i8-mhC" userLabel="ProfileVC" sceneMemberID="viewController">
+                <viewController id="dzn-i8-mhC" userLabel="ProfileVC" customClass="RacerVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h4g-gJ-i7z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="noi-AT-JcS" userLabel="Background Image">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="356"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Example Background" translatesAutoresizingMaskIntoConstraints="NO" id="noi-AT-JcS" userLabel="Background Image">
+                                <rect key="frame" x="0.0" y="-9" width="428" height="365"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="356" id="4gJ-1E-LKj"/>
+                                    <constraint firstAttribute="height" constant="365" id="4gJ-1E-LKj"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Glb-lc-PBp" userLabel="Car Image">
-                                <rect key="frame" x="157" y="127" width="240" height="208"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Car" translatesAutoresizingMaskIntoConstraints="NO" id="Glb-lc-PBp" userLabel="Car Image">
+                                <rect key="frame" x="157" y="127" width="254" height="208"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bIW-Uf-qnJ" userLabel="Character Image">
-                                <rect key="frame" x="57" y="162" width="195" height="173"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Racer" translatesAutoresizingMaskIntoConstraints="NO" id="bIW-Uf-qnJ" userLabel="Character Image">
+                                <rect key="frame" x="23" y="187" width="209" height="173"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l7G-gB-iQJ" userLabel="Hat Image">
-                                <rect key="frame" x="111" y="134" width="87" height="88"/>
+                                <rect key="frame" x="83" y="134" width="101" height="88"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K9t-Nj-uhQ">
-                                <rect key="frame" x="20" y="399" width="363" height="368"/>
+                                <rect key="frame" x="20" y="399" width="377" height="398"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aEE-Sd-JSt">
                                     <size key="itemSize" width="128" height="128"/>
@@ -69,36 +69,45 @@
                         <viewLayoutGuide key="safeArea" id="wup-46-wax"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="wup-46-wax" firstAttribute="top" secondItem="noi-AT-JcS" secondAttribute="top" constant="44" id="4xM-jA-Y0q"/>
-                            <constraint firstItem="bIW-Uf-qnJ" firstAttribute="leading" secondItem="wup-46-wax" secondAttribute="leading" constant="57" id="6wg-pE-xUT"/>
+                            <constraint firstItem="wup-46-wax" firstAttribute="top" secondItem="noi-AT-JcS" secondAttribute="top" constant="53" id="4xM-jA-Y0q"/>
+                            <constraint firstItem="bIW-Uf-qnJ" firstAttribute="leading" secondItem="wup-46-wax" secondAttribute="leading" constant="23" id="6wg-pE-xUT"/>
                             <constraint firstItem="wup-46-wax" firstAttribute="bottom" secondItem="K9t-Nj-uhQ" secondAttribute="bottom" constant="46" id="Evv-WQ-4hr"/>
                             <constraint firstItem="K9t-Nj-uhQ" firstAttribute="top" secondItem="noi-AT-JcS" secondAttribute="bottom" constant="43" id="LUG-xX-69o"/>
-                            <constraint firstItem="wup-46-wax" firstAttribute="trailing" secondItem="bIW-Uf-qnJ" secondAttribute="trailing" constant="162" id="O6n-P6-I3I"/>
-                            <constraint firstItem="Glb-lc-PBp" firstAttribute="bottom" secondItem="bIW-Uf-qnJ" secondAttribute="bottom" id="Pb0-kB-ou6"/>
+                            <constraint firstItem="wup-46-wax" firstAttribute="trailing" secondItem="bIW-Uf-qnJ" secondAttribute="trailing" constant="196" id="O6n-P6-I3I"/>
+                            <constraint firstItem="Glb-lc-PBp" firstAttribute="bottom" secondItem="bIW-Uf-qnJ" secondAttribute="bottom" constant="-25" id="Pb0-kB-ou6"/>
                             <constraint firstItem="wup-46-wax" firstAttribute="trailing" secondItem="K9t-Nj-uhQ" secondAttribute="trailing" constant="31" id="Uwc-Ze-maq"/>
                             <constraint firstItem="Glb-lc-PBp" firstAttribute="top" secondItem="wup-46-wax" secondAttribute="top" constant="83" id="YDs-bA-CSA"/>
-                            <constraint firstItem="bIW-Uf-qnJ" firstAttribute="top" secondItem="wup-46-wax" secondAttribute="top" constant="118" id="eDq-mS-Hy6"/>
+                            <constraint firstItem="bIW-Uf-qnJ" firstAttribute="top" secondItem="wup-46-wax" secondAttribute="top" constant="143" id="eDq-mS-Hy6"/>
                             <constraint firstItem="l7G-gB-iQJ" firstAttribute="top" secondItem="wup-46-wax" secondAttribute="top" constant="90" id="foF-t5-b9W"/>
                             <constraint firstItem="Glb-lc-PBp" firstAttribute="leading" secondItem="wup-46-wax" secondAttribute="leading" constant="157" id="gMt-e4-DUH"/>
                             <constraint firstItem="K9t-Nj-uhQ" firstAttribute="top" secondItem="Glb-lc-PBp" secondAttribute="bottom" constant="64" id="hKs-tW-dxX"/>
                             <constraint firstItem="Glb-lc-PBp" firstAttribute="leading" secondItem="noi-AT-JcS" secondAttribute="trailing" constant="-271" id="iba-s3-6MN"/>
                             <constraint firstItem="K9t-Nj-uhQ" firstAttribute="leading" secondItem="wup-46-wax" secondAttribute="leading" constant="20" id="kyU-qT-9NS"/>
-                            <constraint firstItem="l7G-gB-iQJ" firstAttribute="centerY" secondItem="noi-AT-JcS" secondAttribute="centerY" id="mDz-Rd-0Dr"/>
+                            <constraint firstItem="l7G-gB-iQJ" firstAttribute="centerY" secondItem="noi-AT-JcS" secondAttribute="centerY" constant="4.5" id="mDz-Rd-0Dr"/>
                             <constraint firstItem="wup-46-wax" firstAttribute="trailing" secondItem="Glb-lc-PBp" secondAttribute="trailing" constant="17" id="neZ-6p-Oy9"/>
-                            <constraint firstItem="bIW-Uf-qnJ" firstAttribute="centerX" secondItem="l7G-gB-iQJ" secondAttribute="centerX" id="pxe-6D-vRg"/>
+                            <constraint firstItem="bIW-Uf-qnJ" firstAttribute="centerX" secondItem="l7G-gB-iQJ" secondAttribute="centerX" constant="-6" id="pxe-6D-vRg"/>
                             <constraint firstItem="noi-AT-JcS" firstAttribute="leading" secondItem="wup-46-wax" secondAttribute="leading" id="xag-A7-eSW"/>
-                            <constraint firstItem="l7G-gB-iQJ" firstAttribute="leading" secondItem="wup-46-wax" secondAttribute="leading" constant="111" id="y5V-g5-FPt"/>
+                            <constraint firstItem="l7G-gB-iQJ" firstAttribute="leading" secondItem="wup-46-wax" secondAttribute="leading" constant="83" id="y5V-g5-FPt"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Racer" image="TireIcon" id="DQw-BY-4pI" userLabel="Profile"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="noi-AT-JcS" id="kbR-V0-yTU"/>
+                        <outlet property="carImage" destination="Glb-lc-PBp" id="Ari-CF-NCN"/>
+                        <outlet property="characterImage" destination="bIW-Uf-qnJ" id="WTi-bt-srA"/>
+                        <outlet property="hatImage" destination="l7G-gB-iQJ" id="bfH-lo-gqW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeT-ro-4P7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1143.9252336448596" y="1155.9395248380131"/>
+            <point key="canvasLocation" x="-1144.9275362318842" y="1155.8035714285713"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Car" width="1089" height="740"/>
+        <image name="Example Background" width="5667" height="3881"/>
+        <image name="Racer" width="581" height="712"/>
         <image name="TireIcon" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
