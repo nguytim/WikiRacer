@@ -161,6 +161,8 @@ class LoginPageViewController: UIViewController {
         Auth.auth().addStateDidChangeListener() { auth, user in
             if user == nil {
                 self.view.isHidden = false
+                self.emailAddressTextField.text = nil
+                self.passwordTextField.text = nil
                 self.dismiss(animated: true, completion: nil)
             }
             else {
