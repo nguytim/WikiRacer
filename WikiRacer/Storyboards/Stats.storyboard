@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a2i-pO-eWX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -22,11 +22,11 @@
             <objects>
                 <viewController id="a2i-pO-eWX" userLabel="StatsVC" customClass="ProfileVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4I9-Zo-UTb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single Player Stats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGa-zr-keL">
-                                <rect key="frame" x="98" y="341" width="218" height="28"/>
+                                <rect key="frame" x="105" y="354.33333333333331" width="218" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="218" id="lhd-C6-Hj4"/>
                                 </constraints>
@@ -35,49 +35,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RacerInCart" translatesAutoresizingMaskIntoConstraints="NO" id="8G6-Ex-AH1">
-                                <rect key="frame" x="87" y="44" width="240" height="228"/>
+                                <rect key="frame" x="94" y="44.000000000000014" width="240" height="241.33333333333337"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="eWv-jv-5xO"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Games Won" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zi4-y5-s88">
-                                <rect key="frame" x="259" y="413" width="93" height="20"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Average Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRX-Kr-bGs">
-                                <rect key="frame" x="259" y="524" width="99" height="20"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="753" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amk-0i-hny">
-                                <rect key="frame" x="295" y="446" width="27" height="56"/>
-                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="754" text="11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OE-Zg-gov">
-                                <rect key="frame" x="293" y="571" width="31" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="31" id="SH1-1w-d5x"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Least Number of Links" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7M-7k-kba">
-                                <rect key="frame" x="255" y="648" width="107" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Ydg-Oj-2Kh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PO1-Q1-CPM">
-                                <rect key="frame" x="80" y="153" width="254" height="180"/>
+                                <rect key="frame" x="87" y="153" width="254" height="193.33333333333337"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="254" id="fbb-jR-1Ss"/>
                                 </constraints>
@@ -85,73 +49,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Games Played" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l6-Yp-6jk">
-                                <rect key="frame" x="76" y="413" width="157" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="7gq-4K-WnD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Average Game Time" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zm-60-dMp">
-                                <rect key="frame" x="76" y="518" width="97" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="3mT-4U-h8Q"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Fastest Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xE-hn-DNp">
-                                <rect key="frame" x="79" y="664" width="99" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="R9A-TB-NPR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32.1s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cF-Y8-AOl">
-                                <rect key="frame" x="79" y="567" width="162" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="eFk-3X-Ijy"/>
-                                    <constraint firstAttribute="width" constant="162" id="xQR-Fv-qPc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.5s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM2-J8-dVy">
-                                <rect key="frame" x="71" y="715" width="163" height="61"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="163" id="AOP-Ap-0L8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWX-dq-4JG">
-                                <rect key="frame" x="99" y="450" width="47" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="HiR-5P-TT1"/>
-                                    <constraint firstAttribute="width" constant="47" id="v61-BI-cxc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmt-ep-e6b">
-                                <rect key="frame" x="295" y="716" width="27" height="59"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="b1Y-Q6-rFD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqq-yw-vAm">
-                                <rect key="frame" x="359" y="44" width="35" height="33"/>
+                                <rect key="frame" x="373" y="44" width="35" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="6nb-GI-NsA"/>
                                     <constraint firstAttribute="width" secondItem="hqq-yw-vAm" secondAttribute="height" multiplier="35:33" id="Xyc-zq-fGi"/>
@@ -163,52 +62,153 @@
                                     <segue destination="hOp-wn-MFy" kind="show" id="vtD-jU-5o6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Games Won" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zi4-y5-s88">
+                                <rect key="frame" x="213" y="423.66666666666669" width="154" height="23.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="753" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amk-0i-hny">
+                                <rect key="frame" x="241.66666666666666" y="460" width="95.333333333333343" height="60"/>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Least Number of Links" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7M-7k-kba">
+                                <rect key="frame" x="194" y="673" width="165" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Ydg-Oj-2Kh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Games Played" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l6-Yp-6jk">
+                                <rect key="frame" x="59" y="423.66666666666669" width="110" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="7gq-4K-WnD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Fastest Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xE-hn-DNp">
+                                <rect key="frame" x="62" y="689" width="107" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="R9A-TB-NPR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM2-J8-dVy">
+                                <rect key="frame" x="30" y="739" width="163" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="163" id="AOP-Ap-0L8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmt-ep-e6b">
+                                <rect key="frame" x="241" y="741" width="93" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="b1Y-Q6-rFD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWX-dq-4JG">
+                                <rect key="frame" x="63" y="460.66666666666669" width="97" height="60.000000000000057"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HiR-5P-TT1"/>
+                                    <constraint firstAttribute="width" constant="97" id="v61-BI-cxc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Average Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRX-Kr-bGs">
+                                <rect key="frame" x="206" y="556" width="161" height="23"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="754" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OE-Zg-gov">
+                                <rect key="frame" x="238.66666666666663" y="604" width="96" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="SH1-1w-d5x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Average Game Time" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zm-60-dMp">
+                                <rect key="frame" x="58" y="541.33333333333337" width="92" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="3mT-4U-h8Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cF-Y8-AOl">
+                                <rect key="frame" x="30" y="605" width="162" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="eFk-3X-Ijy"/>
+                                    <constraint firstAttribute="width" constant="162" id="xQR-Fv-qPc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q8N-Cv-1kZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PO1-Q1-CPM" firstAttribute="top" secondItem="Q8N-Cv-1kZ" secondAttribute="top" constant="109" id="9oV-JX-U0d"/>
-                            <constraint firstItem="Zi4-y5-s88" firstAttribute="top" secondItem="nGa-zr-keL" secondAttribute="bottom" constant="44" id="BB2-0S-FKM"/>
+                            <constraint firstItem="Zi4-y5-s88" firstAttribute="top" secondItem="nGa-zr-keL" secondAttribute="bottom" constant="39.333333333333371" id="BB2-0S-FKM"/>
                             <constraint firstItem="PO1-Q1-CPM" firstAttribute="centerX" secondItem="4I9-Zo-UTb" secondAttribute="centerX" id="CBM-Lo-amv"/>
-                            <constraint firstItem="4OE-Zg-gov" firstAttribute="leading" secondItem="Amk-0i-hny" secondAttribute="leading" constant="-2" id="Dwa-aZ-fZP"/>
+                            <constraint firstItem="4OE-Zg-gov" firstAttribute="leading" secondItem="Amk-0i-hny" secondAttribute="leading" constant="-2.9999999999999716" id="Dwa-aZ-fZP"/>
                             <constraint firstItem="nGa-zr-keL" firstAttribute="centerX" secondItem="4I9-Zo-UTb" secondAttribute="centerX" id="E0I-7f-6Ym"/>
-                            <constraint firstItem="5xE-hn-DNp" firstAttribute="top" secondItem="4cF-Y8-AOl" secondAttribute="bottom" constant="37" id="ETF-hl-Xi8"/>
-                            <constraint firstItem="5xE-hn-DNp" firstAttribute="trailing" secondItem="jWX-dq-4JG" secondAttribute="trailing" constant="32" id="FZg-pK-KvF"/>
+                            <constraint firstItem="5xE-hn-DNp" firstAttribute="top" secondItem="4cF-Y8-AOl" secondAttribute="bottom" constant="24" id="ETF-hl-Xi8"/>
+                            <constraint firstItem="5xE-hn-DNp" firstAttribute="trailing" secondItem="jWX-dq-4JG" secondAttribute="trailing" constant="9" id="FZg-pK-KvF"/>
                             <constraint firstItem="hqq-yw-vAm" firstAttribute="trailing" secondItem="4I9-Zo-UTb" secondAttribute="trailingMargin" id="G8Y-df-OSz"/>
-                            <constraint firstItem="6Zm-60-dMp" firstAttribute="top" secondItem="jWX-dq-4JG" secondAttribute="bottom" constant="8" symbolic="YES" id="GNz-b6-6ft"/>
-                            <constraint firstItem="6l6-Yp-6jk" firstAttribute="top" secondItem="nGa-zr-keL" secondAttribute="bottom" constant="44" id="Kfo-ax-zvI"/>
-                            <constraint firstItem="Q8N-Cv-1kZ" firstAttribute="bottom" secondItem="dM2-J8-dVy" secondAttribute="bottom" constant="37" id="KlE-FS-liC"/>
+                            <constraint firstItem="6Zm-60-dMp" firstAttribute="top" secondItem="jWX-dq-4JG" secondAttribute="bottom" constant="20.666666666666686" id="GNz-b6-6ft"/>
+                            <constraint firstItem="6l6-Yp-6jk" firstAttribute="top" secondItem="nGa-zr-keL" secondAttribute="bottom" constant="39.333333333333371" id="Kfo-ax-zvI"/>
+                            <constraint firstItem="Q8N-Cv-1kZ" firstAttribute="bottom" secondItem="dM2-J8-dVy" secondAttribute="bottom" constant="43" id="KlE-FS-liC"/>
                             <constraint firstItem="nGa-zr-keL" firstAttribute="top" secondItem="PO1-Q1-CPM" secondAttribute="bottom" constant="8" symbolic="YES" id="LGl-wn-Dlh"/>
-                            <constraint firstItem="6l6-Yp-6jk" firstAttribute="leading" secondItem="Q8N-Cv-1kZ" secondAttribute="leading" constant="76" id="Lkr-bY-k8x"/>
-                            <constraint firstItem="r7M-7k-kba" firstAttribute="leading" secondItem="5xE-hn-DNp" secondAttribute="trailing" constant="77" id="M2h-h9-TX0"/>
-                            <constraint firstItem="r7M-7k-kba" firstAttribute="top" secondItem="4OE-Zg-gov" secondAttribute="bottom" constant="21" id="MjT-ZJ-QhF"/>
-                            <constraint firstItem="5xE-hn-DNp" firstAttribute="leading" secondItem="Q8N-Cv-1kZ" secondAttribute="leading" constant="79" id="R6q-YO-pUi"/>
+                            <constraint firstItem="6l6-Yp-6jk" firstAttribute="leading" secondItem="Q8N-Cv-1kZ" secondAttribute="leading" constant="59" id="Lkr-bY-k8x"/>
+                            <constraint firstItem="r7M-7k-kba" firstAttribute="leading" secondItem="5xE-hn-DNp" secondAttribute="trailing" constant="25" id="M2h-h9-TX0"/>
+                            <constraint firstItem="r7M-7k-kba" firstAttribute="top" secondItem="4OE-Zg-gov" secondAttribute="bottom" constant="9" id="MjT-ZJ-QhF"/>
+                            <constraint firstItem="5xE-hn-DNp" firstAttribute="leading" secondItem="Q8N-Cv-1kZ" secondAttribute="leading" constant="62" id="R6q-YO-pUi"/>
                             <constraint firstItem="jWX-dq-4JG" firstAttribute="top" secondItem="6l6-Yp-6jk" secondAttribute="bottom" constant="13" id="SFj-9b-Fcf"/>
                             <constraint firstItem="nGa-zr-keL" firstAttribute="top" secondItem="8G6-Ex-AH1" secondAttribute="bottom" constant="69" id="SQW-yN-SuF"/>
-                            <constraint firstItem="Q8N-Cv-1kZ" firstAttribute="trailing" secondItem="r7M-7k-kba" secondAttribute="trailing" constant="52" id="ShM-Bq-XhW"/>
-                            <constraint firstItem="6l6-Yp-6jk" firstAttribute="centerX" secondItem="jWX-dq-4JG" secondAttribute="centerX" constant="32" id="TdI-jC-beO"/>
+                            <constraint firstItem="Q8N-Cv-1kZ" firstAttribute="trailing" secondItem="r7M-7k-kba" secondAttribute="trailing" constant="69" id="ShM-Bq-XhW"/>
+                            <constraint firstItem="6l6-Yp-6jk" firstAttribute="centerX" secondItem="jWX-dq-4JG" secondAttribute="centerX" constant="2.5" id="TdI-jC-beO"/>
                             <constraint firstItem="8G6-Ex-AH1" firstAttribute="top" secondItem="Q8N-Cv-1kZ" secondAttribute="top" id="WHb-mV-xlq"/>
-                            <constraint firstItem="Tmt-ep-e6b" firstAttribute="centerX" secondItem="r7M-7k-kba" secondAttribute="centerX" id="WrW-OJ-6Bg"/>
-                            <constraint firstItem="6Zm-60-dMp" firstAttribute="leading" secondItem="Q8N-Cv-1kZ" secondAttribute="leading" constant="76" id="Xlr-cL-1bU"/>
-                            <constraint firstItem="dM2-J8-dVy" firstAttribute="top" secondItem="r7M-7k-kba" secondAttribute="bottom" constant="7" id="aCi-pp-J97"/>
+                            <constraint firstItem="Tmt-ep-e6b" firstAttribute="centerX" secondItem="r7M-7k-kba" secondAttribute="centerX" constant="11" id="WrW-OJ-6Bg"/>
+                            <constraint firstItem="6Zm-60-dMp" firstAttribute="leading" secondItem="Q8N-Cv-1kZ" secondAttribute="leading" constant="58" id="Xlr-cL-1bU"/>
+                            <constraint firstItem="dM2-J8-dVy" firstAttribute="top" secondItem="r7M-7k-kba" secondAttribute="bottom" constant="6" id="aCi-pp-J97"/>
                             <constraint firstItem="hqq-yw-vAm" firstAttribute="top" secondItem="Q8N-Cv-1kZ" secondAttribute="top" id="cgN-Q6-zIB"/>
-                            <constraint firstItem="Tmt-ep-e6b" firstAttribute="centerY" secondItem="dM2-J8-dVy" secondAttribute="centerY" id="d7I-QQ-CZ3"/>
-                            <constraint firstItem="dM2-J8-dVy" firstAttribute="leading" secondItem="Q8N-Cv-1kZ" secondAttribute="leading" constant="71" id="f4l-Mg-dMN"/>
-                            <constraint firstItem="QRX-Kr-bGs" firstAttribute="leading" secondItem="6Zm-60-dMp" secondAttribute="trailing" constant="86" id="fT6-U9-Mwm"/>
-                            <constraint firstItem="dM2-J8-dVy" firstAttribute="top" secondItem="5xE-hn-DNp" secondAttribute="bottom" constant="27" id="g0E-Pa-dLi"/>
-                            <constraint firstItem="r7M-7k-kba" firstAttribute="centerX" secondItem="4OE-Zg-gov" secondAttribute="centerX" id="g8L-vQ-AjA"/>
-                            <constraint firstItem="4OE-Zg-gov" firstAttribute="top" secondItem="QRX-Kr-bGs" secondAttribute="bottom" constant="27" id="lWb-KX-EDN"/>
-                            <constraint firstItem="Q8N-Cv-1kZ" firstAttribute="bottom" secondItem="Tmt-ep-e6b" secondAttribute="bottom" constant="38" id="mS1-gz-mQF"/>
-                            <constraint firstItem="QRX-Kr-bGs" firstAttribute="top" secondItem="Amk-0i-hny" secondAttribute="bottom" constant="22" id="pLI-dT-o2a"/>
+                            <constraint firstItem="Tmt-ep-e6b" firstAttribute="centerY" secondItem="dM2-J8-dVy" secondAttribute="centerY" constant="1" id="d7I-QQ-CZ3"/>
+                            <constraint firstItem="dM2-J8-dVy" firstAttribute="leading" secondItem="Q8N-Cv-1kZ" secondAttribute="leading" constant="30" id="f4l-Mg-dMN"/>
+                            <constraint firstItem="QRX-Kr-bGs" firstAttribute="leading" secondItem="6Zm-60-dMp" secondAttribute="trailing" constant="56" id="fT6-U9-Mwm"/>
+                            <constraint firstItem="dM2-J8-dVy" firstAttribute="top" secondItem="5xE-hn-DNp" secondAttribute="bottom" constant="26" id="g0E-Pa-dLi"/>
+                            <constraint firstItem="r7M-7k-kba" firstAttribute="centerX" secondItem="4OE-Zg-gov" secondAttribute="centerX" constant="-10" id="g8L-vQ-AjA"/>
+                            <constraint firstItem="4OE-Zg-gov" firstAttribute="top" secondItem="QRX-Kr-bGs" secondAttribute="bottom" constant="25" id="lWb-KX-EDN"/>
+                            <constraint firstItem="Q8N-Cv-1kZ" firstAttribute="bottom" secondItem="Tmt-ep-e6b" secondAttribute="bottom" constant="43" id="mS1-gz-mQF"/>
+                            <constraint firstItem="QRX-Kr-bGs" firstAttribute="top" secondItem="Amk-0i-hny" secondAttribute="bottom" constant="36" id="pLI-dT-o2a"/>
                             <constraint firstItem="8G6-Ex-AH1" firstAttribute="centerX" secondItem="4I9-Zo-UTb" secondAttribute="centerX" id="pVl-5A-rc6"/>
-                            <constraint firstItem="Tmt-ep-e6b" firstAttribute="centerX" secondItem="Amk-0i-hny" secondAttribute="centerX" id="psX-Pj-3WK"/>
-                            <constraint firstItem="4cF-Y8-AOl" firstAttribute="leading" secondItem="Q8N-Cv-1kZ" secondAttribute="leading" constant="79" id="q23-31-rMI"/>
+                            <constraint firstItem="Tmt-ep-e6b" firstAttribute="centerX" secondItem="Amk-0i-hny" secondAttribute="centerX" constant="-1.75" id="psX-Pj-3WK"/>
+                            <constraint firstItem="4cF-Y8-AOl" firstAttribute="leading" secondItem="Q8N-Cv-1kZ" secondAttribute="leading" constant="30" id="q23-31-rMI"/>
                             <constraint firstItem="QRX-Kr-bGs" firstAttribute="centerX" secondItem="4OE-Zg-gov" secondAttribute="centerX" id="rvt-aS-vUH"/>
-                            <constraint firstItem="dM2-J8-dVy" firstAttribute="top" secondItem="r7M-7k-kba" secondAttribute="bottom" constant="7" id="t4q-63-vxz"/>
-                            <constraint firstItem="Q8N-Cv-1kZ" firstAttribute="trailing" secondItem="QRX-Kr-bGs" secondAttribute="trailing" constant="56" id="tdR-fb-9Rj"/>
+                            <constraint firstItem="dM2-J8-dVy" firstAttribute="top" secondItem="r7M-7k-kba" secondAttribute="bottom" constant="6" id="t4q-63-vxz"/>
+                            <constraint firstItem="Q8N-Cv-1kZ" firstAttribute="trailing" secondItem="QRX-Kr-bGs" secondAttribute="trailing" constant="61" id="tdR-fb-9Rj"/>
                             <constraint firstItem="Amk-0i-hny" firstAttribute="top" secondItem="Zi4-y5-s88" secondAttribute="bottom" constant="13" id="u22-nv-n2W"/>
-                            <constraint firstItem="Zi4-y5-s88" firstAttribute="leading" secondItem="6l6-Yp-6jk" secondAttribute="trailing" constant="26" id="w6o-0o-CGW"/>
-                            <constraint firstItem="Q8N-Cv-1kZ" firstAttribute="trailing" secondItem="Zi4-y5-s88" secondAttribute="trailing" constant="62" id="yeX-Cx-TrB"/>
+                            <constraint firstItem="Zi4-y5-s88" firstAttribute="leading" secondItem="6l6-Yp-6jk" secondAttribute="trailing" constant="44" id="w6o-0o-CGW"/>
+                            <constraint firstItem="Q8N-Cv-1kZ" firstAttribute="trailing" secondItem="Zi4-y5-s88" secondAttribute="trailing" constant="61" id="yeX-Cx-TrB"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="TrophyIcon" id="aUJ-tg-sti"/>
@@ -226,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lzj-W1-xiP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066.6666666666667" y="841.07142857142856"/>
+            <point key="canvasLocation" x="1066.4000000000001" y="840.88669950738915"/>
         </scene>
         <!--Login-->
         <scene sceneID="QqE-tM-DXQ">
@@ -243,35 +243,35 @@
             <objects>
                 <viewController id="hOp-wn-MFy" userLabel="SettingsVC" customClass="SettingsVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1kO-Ac-PIu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2Q-KZ-nxy" userLabel="Settings Label">
-                                <rect key="frame" x="119" y="33" width="176.5" height="56"/>
+                                <rect key="frame" x="119.66666666666669" y="33" width="189" height="60"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-bp-Uwd" userLabel="Username Label">
-                                <rect key="frame" x="39" y="114" width="97" height="23.5"/>
+                                <rect key="frame" x="39" y="118.00000000000001" width="97" height="27.666666666666671"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="player_username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIf-Vo-G3S">
-                                <rect key="frame" x="39" y="147.5" width="153" height="23.5"/>
+                                <rect key="frame" x="39" y="155.66666666666666" width="154" height="27.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59u-Ck-Nzo" userLabel="Email Label">
-                                <rect key="frame" x="39" y="183" width="132" height="23.5"/>
+                                <rect key="frame" x="39" y="195" width="130.66666666666666" height="27.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="player@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npM-05-dRU" userLabel="Player Email">
-                                <rect key="frame" x="39" y="216.5" width="163" height="21"/>
+                                <rect key="frame" x="39" y="232.66666666666666" width="165.66666666666666" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="o1A-tZ-mvg"/>
                                 </constraints>
@@ -280,19 +280,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EG0-T9-9FG" userLabel="Sound Effects Switch">
-                                <rect key="frame" x="39" y="346.5" width="51" height="31"/>
+                                <rect key="frame" x="39" y="362.66666666666669" width="65" height="31"/>
                                 <connections>
                                     <action selector="soundEffectsSwitchToggled:" destination="hOp-wn-MFy" eventType="valueChanged" id="u0V-fE-dsu"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yxA-YR-ZqV" userLabel="Dark Mode Switch">
-                                <rect key="frame" x="39" y="281.5" width="51" height="31"/>
+                                <rect key="frame" x="39" y="297.66666666666669" width="65" height="31"/>
                                 <connections>
                                     <action selector="darkModeSwitchToggled:" destination="hOp-wn-MFy" eventType="valueChanged" id="CqF-aX-w3x"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t10-ZZ-NWB" userLabel="Delete Account Button">
-                                <rect key="frame" x="118.5" y="584.5" width="177" height="142.5"/>
+                                <rect key="frame" x="118.66666666666667" y="601.66666666666663" width="190.66666666666663" height="155.33333333333337"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                 <state key="normal" title="Delete Account">
                                     <color key="titleColor" name="MainRedColor"/>
@@ -303,7 +303,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHM-hk-cbA" userLabel="Sign Out Button" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="112" y="507.5" width="190" height="36"/>
+                                <rect key="frame" x="119" y="523.66666666666663" width="190" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="190" id="o79-To-gjI"/>
                                 </constraints>
@@ -318,7 +318,7 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fzh-Wm-D1l" userLabel="Notifications Switch">
-                                <rect key="frame" x="39" y="416.5" width="51" height="31"/>
+                                <rect key="frame" x="39" y="432.66666666666669" width="51" height="31"/>
                                 <connections>
                                     <action selector="notificationsSwitchToggled:" destination="hOp-wn-MFy" eventType="valueChanged" id="HL4-eq-nCr"/>
                                 </connections>
@@ -369,7 +369,7 @@
     </scenes>
     <designables>
         <designable name="LHM-hk-cbA">
-            <size key="intrinsicContentSize" width="79" height="36"/>
+            <size key="intrinsicContentSize" width="82" height="37"/>
         </designable>
     </designables>
     <resources>

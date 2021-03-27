@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Example Background" translatesAutoresizingMaskIntoConstraints="NO" id="noi-AT-JcS" userLabel="Background Image">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="noi-AT-JcS" userLabel="Background Image">
                                 <rect key="frame" x="0.0" y="-9" width="428" height="365"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="365" id="4gJ-1E-LKj"/>
@@ -93,7 +93,6 @@
                     <tabBarItem key="tabBarItem" title="Racer" image="TireIcon" id="DQw-BY-4pI" userLabel="Profile"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="backgroundImage" destination="noi-AT-JcS" id="kbR-V0-yTU"/>
                         <outlet property="carImage" destination="Glb-lc-PBp" id="Ari-CF-NCN"/>
                         <outlet property="characterImage" destination="bIW-Uf-qnJ" id="WTi-bt-srA"/>
                         <outlet property="hatImage" destination="l7G-gB-iQJ" id="bfH-lo-gqW"/>
@@ -106,7 +105,6 @@
     </scenes>
     <resources>
         <image name="Car" width="1089" height="740"/>
-        <image name="Example Background" width="8000" height="4363"/>
         <image name="Racer" width="581" height="712"/>
         <image name="TireIcon" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
