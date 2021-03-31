@@ -40,6 +40,7 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        games = [Game]()
         getCurrentUsersGames()
         
         // set if game has already been played and set the game.played = true

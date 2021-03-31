@@ -44,6 +44,7 @@
 		D1839675260D51BC00D5AE7A /* GamesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1839674260D51BC00D5AE7A /* GamesVC.swift */; };
 		D1892A22260421C200F2215F /* ProfanityFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1892A21260421C200F2215F /* ProfanityFilter.swift */; };
 		D190BF282611452700A091DE /* RacerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D190BF272611452700A091DE /* RacerVC.swift */; };
+		D1A79D8626140BB5001D26D9 /* SAConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A79D8526140BB5001D26D9 /* SAConfettiView.swift */; };
 		D1B8AB9825F7345200AA128E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B8AB9725F7345200AA128E /* Article.swift */; };
 		D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */; };
 		D1F1AC1F25F5E39E00F42065 /* ChooseTargetArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */; };
@@ -95,6 +96,7 @@
 		D1839674260D51BC00D5AE7A /* GamesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesVC.swift; sourceTree = "<group>"; };
 		D1892A21260421C200F2215F /* ProfanityFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfanityFilter.swift; sourceTree = "<group>"; };
 		D190BF272611452700A091DE /* RacerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacerVC.swift; sourceTree = "<group>"; };
+		D1A79D8526140BB5001D26D9 /* SAConfettiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAConfettiView.swift; sourceTree = "<group>"; };
 		D1B8AB9725F7345200AA128E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWinVC.swift; sourceTree = "<group>"; };
 		D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTargetArticleVC.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				D1F1AC2725F5E3C200F42065 /* Game.swift */,
 				D1892A21260421C200F2215F /* ProfanityFilter.swift */,
 				D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */,
+				D1A79D8526140BB5001D26D9 /* SAConfettiView.swift */,
 				D1F1AC2825F5E3C200F42065 /* WikipediaTool.swift */,
 				64EA404F260423CB00D9CCE1 /* User.swift */,
 				64EA405226042E9700D9CCE1 /* Racer.swift */,
@@ -400,6 +403,7 @@
 			files = (
 				D15A6D0E2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift in Sources */,
 				A7DADC7D260506A300C5B850 /* ProfileVC.swift in Sources */,
+				D1A79D8626140BB5001D26D9 /* SAConfettiView.swift in Sources */,
 				D1839675260D51BC00D5AE7A /* GamesVC.swift in Sources */,
 				D1B8AB9825F7345200AA128E /* Article.swift in Sources */,
 				64EA405326042E9700D9CCE1 /* Racer.swift in Sources */,
