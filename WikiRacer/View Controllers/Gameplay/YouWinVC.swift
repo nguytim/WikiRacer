@@ -13,6 +13,7 @@ class YouWinVC: UIViewController {
     @IBOutlet weak var numLinksLabel: UILabel!
     @IBOutlet weak var playAgainButton: RoundedButton!
     @IBOutlet weak var leaderboardButton: RoundedButton!
+    @IBOutlet weak var stackView: UIStackView!
     
     let replaySegueIdentifier = "ReplayIdentifier"
     let viewExistingGameIdentifier = "ViewExistingGameIdentifier"
@@ -25,6 +26,10 @@ class YouWinVC: UIViewController {
         
         // resets navigation to this VC
         self.navigationController?.viewControllers = [self]
+        let confettiView = SAConfettiView(frame: self.view.bounds)
+        self.view.addSubview(confettiView)
+        self.view.addSubview(stackView)
+        confettiView.startConfetti()
         
         let timeDisplayed = game!.elapsedTime
         let minutes = (timeDisplayed % 3600) / 60
