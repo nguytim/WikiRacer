@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
-class Hat{
+class Item {
     var cost: Int
     var name: String
     
@@ -31,7 +31,15 @@ class ItemCollectionCell: UICollectionViewCell{
 class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var db: Firestore!
-    var hats = [Hat]()
+    var storageRef: StorageReference!
+    var hatsRef: StorageReference!
+    var racecarsRef: StorageReference!
+    var racersRef: StorageReference!
+    
+    var shopItems = [Item]()
+    var hatsCount = 0
+    var racecarsCount = 0
+    var racersCount = 0
     
     @IBOutlet weak var shopGrid: UICollectionView!
     @IBOutlet weak var moneyLabel: UILabel!
@@ -47,41 +55,89 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         
+        storageRef = Storage.storage().reference()
+        hatsRef = storageRef.child("hats")
+        racecarsRef = storageRef.child("racecars")
+        racersRef = storageRef.child("racers")
+        
         loadShop()
     }
     
     
     func collectionView(_ collectionView:  UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hats.count
+        return shopItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath as IndexPath) as! ItemCollectionCell
-        let hat = hats[indexPath.row]
-        cell.costLabel.text = "\(hat.cost)"
+        let index = indexPath.row
+        let item = shopItems[index]
+        cell.costLabel.text = "\(item.cost)"
+        
+        // Create a reference to the file you want to download
+        let count = index
+        
+        var itemImages: StorageReference
+        if count < hatsCount {
+            itemImages = hatsRef.child("\(item.name)")
+        } else if count < hatsCount + racecarsCount {
+            itemImages = racecarsRef.child("\(item.name)")
+        } else {
+            itemImages = racersRef.child("\(item.name)")
+        }
+        
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        itemImages.getData(maxSize: 1 * 1024 * 1024) { data, error in
+          if let error = error {
+            // Uh-oh, an error occurred!
+            print(error)
+          } else {
+            // Data for "images/island.jpg" is returned
+            let image = UIImage(data: data!)
+            cell.image.image = image
+          }
+        }
+        
         return cell
     }
     
+    // load shop items
     func loadShop() {
-        let docRef = db!.collection("shop").document("accessories")
+        let docRef = db!.collection("shop").document("items")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
-                let hatsData = data!["hats"] as! [Any]
                 
-                for i in 0...hatsData.count - 1 {
-                    let hat = hatsData[i] as! [String: Any]
-                    self.hats.append(
-                        Hat(cost: hat["cost"] as! Int,
-                            name: hat["name"] as! String)
-                        
-                    )
-                }
-                print(self.hats)
+                // get shop item category
+                let hatsData = data!["hats"] as! [Any]
+                let racecarsData = data!["racecars"] as! [Any]
+                let racersData = data!["racers"] as! [Any]
+                
+                // get the length of each shop item category
+                self.hatsCount = hatsData.count
+                self.racecarsCount = racecarsData.count
+                self.racersCount = racersData.count
+                
+                // extract data from each shop item category
+                self.getData(data: hatsData)
+                self.getData(data: racecarsData)
+                self.getData(data: racersData)
+                
                 self.shopGrid.reloadData()
             }
         }
         
+    }
+    
+    // extract data from each item of data
+    func getData(data: [Any]) {
+        for i in 0...data.count - 1 {
+            let item = data[i] as! [String: Any]
+            self.shopItems.append(
+                Item(cost: item["cost"] as! Int,
+                    name: item["name"] as! String)
+            )
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
