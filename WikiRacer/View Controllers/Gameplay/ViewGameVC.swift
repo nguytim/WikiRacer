@@ -32,6 +32,10 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.isHidden = true
+        
+        self.navigationController?.viewControllers = [self]
+        
         checkIfUserHasPlayedAlready()
         
         leaderboardTableView.delegate = self

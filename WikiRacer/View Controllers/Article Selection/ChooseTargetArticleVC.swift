@@ -97,9 +97,29 @@ class ChooseTargetArticleVC: ChooseStartingArticleVC {
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
+                    self.addGameToUsersGames(code: code)
                 }
             }
         }
     }
     
+    func addGameToUsersGames(code: String) {
+        
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        var games: [String] = [String]()
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                
+                games = data!["games"] as! [String]
+                games.append(code)
+                docRef.updateData(["games": games])
+                
+            } else {
+                games.append(code)
+                docRef.updateData(["games": games])
+            }
+        }
+    }
 }

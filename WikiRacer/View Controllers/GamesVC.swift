@@ -37,8 +37,11 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         gamesTableView.dataSource = self
         gamesTableView.delegate = self
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         getCurrentUsersGames()
+        
         // set if game has already been played and set the game.played = true
     }
     
@@ -79,8 +82,10 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
-                self.gameIDs = data!["games"] as! [String]
-                self.getGames()
+                if (data?["games"] != nil) {
+                    self.gameIDs = data!["games"] as! [String]
+                    self.getGames()
+                }
             }
         }
     }
