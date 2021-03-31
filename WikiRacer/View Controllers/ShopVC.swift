@@ -72,7 +72,14 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath as IndexPath) as! ItemCollectionCell
         let index = indexPath.row
         let item = shopItems[index]
-        cell.costLabel.text = "\(item.cost)"
+        
+        let cost = NSMutableAttributedString(string:"\(item.cost)")
+        let fuel = NSTextAttachment()
+        fuel.image = resizeImage(image: UIImage(named: "fuel.png")!, targetSize: CGSize(width: 17, height: 17))
+        let fuelText = NSAttributedString(attachment: fuel)
+        cost.append(fuelText)
+        
+        cell.costLabel.attributedText = cost
         
         // Create a reference to the file you want to download
         let count = index
@@ -96,6 +103,19 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             let image = UIImage(data: data!)
             cell.image.image = image
           }
+        }
+        
+        cell.layer.borderWidth = 3
+        
+        if cell.isSelected {
+            //put border logic
+            cell.layer.borderColor = UIColor.systemGray.cgColor
+            cell.contentView.backgroundColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1)
+            
+        } else {
+            // remove border
+            cell.layer.borderColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1).cgColor
+            cell.contentView.backgroundColor = UIColor.white
         }
         
         return cell
@@ -142,7 +162,10 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
+        let cell = collectionView.cellForItem(at: indexPath) as! UICollectionViewCell
+        cell.layer.borderColor = UIColor.systemGray.cgColor
+        cell.contentView.backgroundColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1)
+        cell.isSelected = true
         // TODO: check amount of money and check price of item clicked - if not enough money - create alert saying not enough money
         
         let confirmPurchaseAlert = UIAlertController(title: "Confirm Purchase", message: "Are you sure you want to purchase this item?", preferredStyle: UIAlertController.Style.alert)
@@ -158,6 +181,39 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         }))
         
         present(confirmPurchaseAlert, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1).cgColor
+        cell?.contentView.backgroundColor = UIColor.white
+        cell?.isSelected = false
+    }
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
     }
 
 /*
