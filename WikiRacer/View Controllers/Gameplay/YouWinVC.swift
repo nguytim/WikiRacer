@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftySound
 
 class YouWinVC: UIViewController {
     
@@ -29,6 +30,8 @@ class YouWinVC: UIViewController {
         let confettiView = SAConfettiView(frame: self.view.bounds)
         self.view.addSubview(confettiView)
         self.view.addSubview(stackView)
+        Sound.play(file: "cork-pop.mp3")
+        Sound.play(file: "win.mp3")
         confettiView.startConfetti()
         
         let timeDisplayed = game!.elapsedTime

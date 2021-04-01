@@ -8,6 +8,7 @@
 import UIKit
 import WikipediaKit
 import Firebase
+import FirebaseFirestore
 
 class ChooseTargetArticleVC: ChooseStartingArticleVC {
     

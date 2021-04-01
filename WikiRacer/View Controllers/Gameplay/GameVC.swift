@@ -10,6 +10,7 @@ import WikipediaKit
 import WebKit
 import FirebaseAuth
 import Firebase
+import FirebaseFirestore
 
 class GameVC: UIViewController, WKNavigationDelegate {
     
