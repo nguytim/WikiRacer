@@ -245,7 +245,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
             }
         }
         
-        let elementIdsToRemove = ["References", "Bibliography", "External_links", "Notes", "Further_reading", "Footnotes"]
+        let elementIdsToRemove = ["References", "Bibliography", "External_links", "Notes", "Further_reading", "Footnotes", "mw-head", "mw-panel"]
         
         for elementId in elementIdsToRemove {
             let removeElementIdScript = "var element = document.getElementById('\(elementId)'); if (element != null) {element.parentNode.parentNode.removeChild(element.parentNode);}"
