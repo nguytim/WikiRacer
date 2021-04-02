@@ -69,15 +69,30 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // initialization
         cell.startingArticleLabel.text = game.startingArticle.title
         cell.targetArticleLabel.text = game.targetArticle.title
-//        cell.gameStatusLabel = "Check results"
+        
+        if game.hasPlayed! {
+            cell.gameStatusLabel.text = "Check results"
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let game = games[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: self.viewExistingGameIdentifier, sender: game)
     }
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        let index = indexPath.row
+//        let game = games[index]
+//        
+//        if editingStyle == .delete {
+//            
+//            games.remove(at: index)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
     
     func getCurrentUsersGames() {
         let docRef = db!.collection("users").document(Auth.auth().currentUser!.uid)
@@ -109,6 +124,8 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     
                     var leaderboard = [Player]()
                     
+                    var hasPlayed = false
+                    
                     if !leaderboardData.isEmpty {
                         for i in 0...leaderboardData.count - 1 {
                             let player = leaderboardData[i] as! [String: Any]
@@ -118,6 +135,7 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                        time: player["time"] as! String,
                                        numLinks: player["links"] as! Int)
                             )
+                            hasPlayed = player["uid"] as? String == Auth.auth().currentUser?.uid
                         }
                     }
                     
@@ -125,6 +143,8 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     let targetArticle = Article(title: targetArticleTitle, lastPathComponentURL: targetArticleURL)
                     
                     let game = Game(startingArticle: startingArticle, targetArticle: targetArticle, code: gameID, gameType: gameType, leaderboard: leaderboard)
+                    
+                    game.hasPlayed = hasPlayed
                     
                     self.games.append(game)
                     self.gamesTableView.reloadData()
@@ -154,6 +174,7 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == viewExistingGameIdentifier,
                   let viewGameVC = segue.destination as? ViewGameVC {
             viewGameVC.game = sender as? Game
+            viewGameVC.backViewController = self
         }
     }
 

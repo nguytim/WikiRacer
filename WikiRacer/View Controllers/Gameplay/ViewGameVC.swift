@@ -28,13 +28,15 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let leaderboardCellIdentifier = "LeaderboardCellIdentifier"
     
     var game: Game?
+    var backViewController: UIViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
-        
-        self.navigationController?.viewControllers = [self]
+        if backViewController == nil {
+            backViewController = storyboard!.instantiateViewController(withIdentifier: "HomeVC")
+        }
+        self.navigationController?.viewControllers = [backViewController!, self]
         
         checkIfUserHasPlayedAlready()
         

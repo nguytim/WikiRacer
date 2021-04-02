@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EJt-3Q-ggR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ob8-IT-eSu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Games-->
+        <!--GamesVC-->
         <scene sceneID="mda-ev-9sc">
             <objects>
                 <viewController id="EJt-3Q-ggR" customClass="GamesVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                         <viewLayoutGuide key="safeArea" id="QfG-fM-0v1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Games" image="RacetrackIcon" id="PNw-ML-QWn"/>
+                    <navigationItem key="navigationItem" id="TZ0-TU-rNb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="gamesTableView" destination="0PJ-rZ-aI0" id="j6P-6w-KA1"/>
@@ -79,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w56-H2-MZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-472.46376811594206" y="871.875"/>
+            <point key="canvasLocation" x="437.68115942028987" y="871.875"/>
         </scene>
         <!--ViewExistingGame-->
         <scene sceneID="rvt-W6-ifY">
@@ -89,7 +89,26 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cff-Qy-1xx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="194" y="769"/>
+            <point key="canvasLocation" x="1103.6231884057972" y="768.75"/>
+        </scene>
+        <!--Games-->
+        <scene sceneID="Fvv-ob-Yng">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ob8-IT-eSu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Games" image="RacetrackIcon" id="PNw-ML-QWn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xv7-DU-zz4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EJt-3Q-ggR" kind="relationship" relationship="rootViewController" id="Ue8-23-zj8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zxw-7R-tb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-472.46376811594206" y="871.875"/>
         </scene>
     </scenes>
     <resources>

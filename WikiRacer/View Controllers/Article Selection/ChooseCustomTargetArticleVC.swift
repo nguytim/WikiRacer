@@ -57,6 +57,7 @@ class ChooseCustomTargetArticleVC: ChooseCustomStartingArticleVC {
             viewGameVC.game = game
             // Add a new document in collection "cities"
             db.collection("games").document(code).setData([
+                "ownerUID": Auth.auth().currentUser!.uid,
                 "gameType": game.gameType!,
                 "leaderboard": game.leaderboard!,
                 "startingArticleTitle": game.startingArticle.title,

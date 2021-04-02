@@ -30,9 +30,11 @@ class Game {
     var numLinks: Int
     
     // MULTIPLAYER ATTRIBUTES
+    var ownerUID: String?
     var code: String?
     var gameType: String?
     var leaderboard: [Player]?
+    var hasPlayed: Bool?
     
     init(startingArticle: Article, targetArticle: Article) {
         self.startingArticle = startingArticle

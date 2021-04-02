@@ -46,6 +46,9 @@
 		D190BF282611452700A091DE /* RacerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D190BF272611452700A091DE /* RacerVC.swift */; };
 		D1A79D8626140BB5001D26D9 /* SAConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A79D8526140BB5001D26D9 /* SAConfettiView.swift */; };
 		D1B8AB9825F7345200AA128E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B8AB9725F7345200AA128E /* Article.swift */; };
+		D1F0F6B326169A8A008F1582 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F0F6B226169A8A008F1582 /* AVFoundation.framework */; };
+		D1F0F6B726169AB6008F1582 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D1F0F6B526169AB6008F1582 /* win.mp3 */; };
+		D1F0F6B826169AB6008F1582 /* cork-pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D1F0F6B626169AB6008F1582 /* cork-pop.mp3 */; };
 		D1F1AC1E25F5E39E00F42065 /* YouWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */; };
 		D1F1AC1F25F5E39E00F42065 /* ChooseTargetArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */; };
 		D1F1AC2025F5E39E00F42065 /* ChooseStartingArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1AC1B25F5E39E00F42065 /* ChooseStartingArticleVC.swift */; };
@@ -98,6 +101,9 @@
 		D190BF272611452700A091DE /* RacerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacerVC.swift; sourceTree = "<group>"; };
 		D1A79D8526140BB5001D26D9 /* SAConfettiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAConfettiView.swift; sourceTree = "<group>"; };
 		D1B8AB9725F7345200AA128E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		D1F0F6B226169A8A008F1582 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D1F0F6B526169AB6008F1582 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
+		D1F0F6B626169AB6008F1582 /* cork-pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "cork-pop.mp3"; sourceTree = "<group>"; };
 		D1F1AC1925F5E39E00F42065 /* YouWinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWinVC.swift; sourceTree = "<group>"; };
 		D1F1AC1A25F5E39E00F42065 /* ChooseTargetArticleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTargetArticleVC.swift; sourceTree = "<group>"; };
 		D1F1AC1B25F5E39E00F42065 /* ChooseStartingArticleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseStartingArticleVC.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 			files = (
 				98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */,
 				646DC6D325ECAD6200DB7DA6 /* WikipediaKit in Frameworks */,
+				D1F0F6B326169A8A008F1582 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +177,7 @@
 		CF014ABCFA4369762657BE7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1F0F6B226169A8A008F1582 /* AVFoundation.framework */,
 				1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */,
 			);
 			name = Frameworks;
@@ -201,6 +209,7 @@
 				64E9955925F2E2F500FD427C /* View Controllers */,
 				D19D867725FAF4DC000C421B /* Supporting Files */,
 				D12670CB25E841E900C233F9 /* AppDelegate.swift */,
+				D1F0F6B426169AB6008F1582 /* SoundEffects */,
 				D12670CD25E841E900C233F9 /* SceneDelegate.swift */,
 				D12670D725E841EC00C233F9 /* Assets.xcassets */,
 				D12670DC25E841EC00C233F9 /* Info.plist */,
@@ -256,6 +265,15 @@
 				64EA401525FB09C800D9CCE1 /* ForgotPasswordViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		D1F0F6B426169AB6008F1582 /* SoundEffects */ = {
+			isa = PBXGroup;
+			children = (
+				D1F0F6B526169AB6008F1582 /* win.mp3 */,
+				D1F0F6B626169AB6008F1582 /* cork-pop.mp3 */,
+			);
+			path = SoundEffects;
 			sourceTree = "<group>";
 		};
 		F0699A2FF806332E6E85B95A /* Pods */ = {
@@ -334,6 +352,7 @@
 			files = (
 				64EA400025FACBA100D9CCE1 /* DarkerGrotesque-Bold.ttf in Resources */,
 				D17061AC260A3F10001AF12D /* Games.storyboard in Resources */,
+				D1F0F6B826169AB6008F1582 /* cork-pop.mp3 in Resources */,
 				D12670DB25E841EC00C233F9 /* LaunchScreen.storyboard in Resources */,
 				64E9958725F59ECD00FD427C /* Login.storyboard in Resources */,
 				D17061B5260A41F9001AF12D /* Racer.storyboard in Resources */,
@@ -341,6 +360,7 @@
 				64EA3FF925FACA3400D9CCE1 /* Nunito-Regular.ttf in Resources */,
 				64EA400125FACBA100D9CCE1 /* DarkerGrotesque-Regular.ttf in Resources */,
 				64EA401225FB096900D9CCE1 /* ForgotPassword.storyboard in Resources */,
+				D1F0F6B726169AB6008F1582 /* win.mp3 in Resources */,
 				D1F9009625EB6EC600745EF9 /* GoogleService-Info.plist in Resources */,
 				64EA3FFC25FACA4E00D9CCE1 /* Nunito-Bold.ttf in Resources */,
 				D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */,
@@ -577,7 +597,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P3HBJ3QGM2;
+				DEVELOPMENT_TEAM = UWXHRPAHT3;
 				INFOPLIST_FILE = WikiRacer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -597,7 +617,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P3HBJ3QGM2;
+				DEVELOPMENT_TEAM = UWXHRPAHT3;
 				INFOPLIST_FILE = WikiRacer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
