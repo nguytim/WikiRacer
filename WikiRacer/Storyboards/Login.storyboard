@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dB3-R8-ZeA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Ni-Pc-Lhw">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -20,7 +20,7 @@
         <!--Login Page View Controller-->
         <scene sceneID="U7j-Zl-zvm">
             <objects>
-                <viewController id="dB3-R8-ZeA" customClass="LoginPageViewController" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVCIdentifier" id="dB3-R8-ZeA" customClass="LoginPageViewController" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PJW-Vo-MML">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,6 +99,7 @@
                             <constraint firstItem="aDW-De-a5r" firstAttribute="top" secondItem="Z5t-aX-HAj" secondAttribute="top" constant="104" id="GsF-cF-BTc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Bnj-HA-NQW"/>
                     <connections>
                         <outlet property="emailAddressTextField" destination="x8q-U5-hE8" id="htQ-ja-bLK"/>
                         <outlet property="forgotPasswordButton" destination="Z9y-Gj-g9a" id="qPE-yF-eB3"/>
@@ -144,6 +145,24 @@
             </objects>
             <point key="canvasLocation" x="783" y="-124"/>
         </scene>
+        <!--LaunchVC-->
+        <scene sceneID="5q9-6a-ZFn">
+            <objects>
+                <viewController storyboardIdentifier="LaunchVCIdentifier" id="5Ni-Pc-Lhw" customClass="LaunchVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EUo-We-4bm">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="788-AH-Tuo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="dB3-R8-ZeA" kind="presentation" identifier="LaunchSegueIdentifier" modalPresentationStyle="fullScreen" id="rtk-Kq-gQF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDP-5n-uAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-625" y="-40"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="sc1-R7-eAJ"/>
@@ -155,6 +174,9 @@
         <namedColor name="MainDarkColor">
             <color red="0.13333333333333333" green="0.19215686274509805" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

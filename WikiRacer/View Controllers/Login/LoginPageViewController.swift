@@ -26,10 +26,7 @@ class LoginPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        
-        
+        // Do any additional setup after loading the view
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +40,6 @@ class LoginPageViewController: UIViewController {
         self.signUpButton.alpha = 0
         self.gmailButton.alpha = 0
         self.forgotPasswordButton.alpha = 0
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -155,15 +151,14 @@ class LoginPageViewController: UIViewController {
     }
     
     private func checkLoggedInUser() {
-        
         self.view.isHidden = true
         
         Auth.auth().addStateDidChangeListener() { auth, user in
             if user == nil {
+                debugPrint("user is nil")
                 self.view.isHidden = false
                 self.emailAddressTextField.text = nil
                 self.passwordTextField.text = nil
-                self.dismiss(animated: true, completion: nil)
             }
             else {
                 self.performSegue(withIdentifier: "SignInIdentifier", sender: nil)
