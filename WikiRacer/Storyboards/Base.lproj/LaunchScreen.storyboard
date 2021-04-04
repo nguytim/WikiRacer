@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,34 +13,34 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FrontViewRacer" translatesAutoresizingMaskIntoConstraints="NO" id="305-2O-z4r">
-                                <rect key="frame" x="37" y="379" width="340" height="140"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="6rM-vw-hJR"/>
-                                    <constraint firstAttribute="width" constant="340" id="NCM-HL-KVQ"/>
-                                </constraints>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashCheckers" translatesAutoresizingMaskIntoConstraints="NO" id="pba-Nu-hv0">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FrontViewRacer" translatesAutoresizingMaskIntoConstraints="NO" id="CaC-FW-QTz">
+                                <rect key="frame" x="44" y="393" width="340" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="QhS-R1-WVt"/>
+                                    <constraint firstAttribute="width" constant="340" id="lLB-lm-ptn"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="CaC-FW-QTz" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0xK-Jl-8eX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CaC-FW-QTz" secondAttribute="trailing" priority="999" constant="37" id="4Sz-iP-OyZ"/>
                             <constraint firstItem="pba-Nu-hv0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5xT-hs-F8i"/>
-                            <constraint firstItem="305-2O-z4r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="999" constant="36" id="DNp-3P-Llv"/>
                             <constraint firstItem="pba-Nu-hv0" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="EO9-Ks-Yz8"/>
-                            <constraint firstItem="305-2O-z4r" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="1" id="Gon-Bw-UIh"/>
+                            <constraint firstItem="CaC-FW-QTz" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="FDU-SF-rIn"/>
                             <constraint firstItem="pba-Nu-hv0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lhn-GE-GdW"/>
                             <constraint firstItem="pba-Nu-hv0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="VNQ-I1-CJ9"/>
                             <constraint firstItem="pba-Nu-hv0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aUi-mt-1NH"/>
                             <constraint firstAttribute="bottom" secondItem="pba-Nu-hv0" secondAttribute="bottom" id="anI-Ef-bt2"/>
-                            <constraint firstItem="305-2O-z4r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="999" constant="292" id="ec1-Zs-Sjn"/>
-                            <constraint firstItem="305-2O-z4r" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mYa-NG-J9a"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="305-2O-z4r" secondAttribute="trailing" constant="37" id="rqW-8Y-RLk"/>
+                            <constraint firstItem="CaC-FW-QTz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="999" constant="334" id="sHn-9d-YSw"/>
+                            <constraint firstItem="CaC-FW-QTz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="999" constant="37" id="xdA-jE-Seh"/>
                         </constraints>
                     </view>
                 </viewController>
