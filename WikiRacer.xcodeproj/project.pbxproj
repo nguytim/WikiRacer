@@ -46,6 +46,7 @@
 		D190BF282611452700A091DE /* RacerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D190BF272611452700A091DE /* RacerVC.swift */; };
 		D1A79D8626140BB5001D26D9 /* SAConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A79D8526140BB5001D26D9 /* SAConfettiView.swift */; };
 		D1B8AB9825F7345200AA128E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B8AB9725F7345200AA128E /* Article.swift */; };
+		D1BB61C2261A862F00F2502A /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB61C1261A862F00F2502A /* LaunchVC.swift */; };
 		D1F0F6B326169A8A008F1582 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F0F6B226169A8A008F1582 /* AVFoundation.framework */; };
 		D1F0F6B726169AB6008F1582 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D1F0F6B526169AB6008F1582 /* win.mp3 */; };
 		D1F0F6B826169AB6008F1582 /* cork-pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D1F0F6B626169AB6008F1582 /* cork-pop.mp3 */; };
@@ -101,6 +102,7 @@
 		D190BF272611452700A091DE /* RacerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacerVC.swift; sourceTree = "<group>"; };
 		D1A79D8526140BB5001D26D9 /* SAConfettiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAConfettiView.swift; sourceTree = "<group>"; };
 		D1B8AB9725F7345200AA128E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		D1BB61C1261A862F00F2502A /* LaunchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
 		D1F0F6B226169A8A008F1582 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D1F0F6B526169AB6008F1582 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
 		D1F0F6B626169AB6008F1582 /* cork-pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "cork-pop.mp3"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				64EA40A2260AB72B00D9CCE1 /* SettingsVC.swift */,
+				D1BB61C1261A862F00F2502A /* LaunchVC.swift */,
 				D19D867A25FAF556000C421B /* Login */,
 				D19D867925FAF53C000C421B /* Article Selection */,
 				D19D867825FAF521000C421B /* Gameplay */,
@@ -449,6 +452,7 @@
 				D12670D625E841E900C233F9 /* WikiRacer.xcdatamodeld in Sources */,
 				D1F1AC2A25F5E3C200F42065 /* WikipediaTool.swift in Sources */,
 				D10AAC1C25F6CF7800750F02 /* RoundedButton.swift in Sources */,
+				D1BB61C2261A862F00F2502A /* LaunchVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

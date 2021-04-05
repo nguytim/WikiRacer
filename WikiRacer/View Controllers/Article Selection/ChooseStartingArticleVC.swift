@@ -15,6 +15,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var articlesTableView: UITableView!
     @IBOutlet weak var rerollButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     let articleCellIdentifier = "ArticleCell"
     let viewGameSegueIdentifier = "ViewGameSegueIdentifier"
@@ -25,6 +26,10 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isMultiplayer != nil {
+            titleLabel.text = "Multiplayer"
+        }
         
         WikipediaNetworking.appAuthorEmailForAPI = "maniponce22@gmail.com"
         

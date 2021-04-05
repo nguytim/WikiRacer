@@ -12,6 +12,7 @@ class ChooseCustomStartingArticleVC: UIViewController {
 
     @IBOutlet weak var inputArticleText: UITextField!
     @IBOutlet weak var errorMessageLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var isMultiplayer: Bool?
     var gameType: String?
@@ -23,6 +24,11 @@ class ChooseCustomStartingArticleVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isMultiplayer != nil {
+            titleLabel.text = "Multiplayer"
+        }
+        
         WikipediaNetworking.appAuthorEmailForAPI = "maniponce22@gmail.com"
     }
     

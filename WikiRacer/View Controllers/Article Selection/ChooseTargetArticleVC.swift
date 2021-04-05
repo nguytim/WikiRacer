@@ -114,11 +114,9 @@ class ChooseTargetArticleVC: ChooseStartingArticleVC {
             if let document = document, document.exists {
                 let data = document.data()
                 
-                games = data!["games"] as! [String]
-                games.append(code)
-                docRef.updateData(["games": games])
-                
-            } else {
+                if let storedGames = data?["games"] as? [String] {
+                    games = storedGames
+                }
                 games.append(code)
                 docRef.updateData(["games": games])
             }
