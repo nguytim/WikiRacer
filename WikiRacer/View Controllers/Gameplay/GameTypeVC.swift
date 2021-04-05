@@ -20,6 +20,9 @@ class GameTypeVC: UIViewController {
     @IBOutlet weak var goBackButton: RoundedButton!
     @IBOutlet weak var searchForGameBlock: UIStackView!
     @IBOutlet weak var codeTextField: UITextField!
+    @IBOutlet weak var joinGameButton: RoundedButton!
+    @IBOutlet weak var newGameButton: RoundedButton!
+    @IBOutlet weak var goBackNewJoinGameButton: RoundedButton!
     
     var isMultiplayer: Bool = false
     var gameType: String = ""
@@ -32,11 +35,15 @@ class GameTypeVC: UIViewController {
         super.viewDidLoad()
         
         if isMultiplayer {
+            newGameButton.isHidden = false
+            joinGameButton.isHidden = false
             normalButton.isHidden = true
             customButton.isHidden = true
-            timeTrialButton.isHidden = false
-            leastLinksButton.isHidden = false
-            searchForGameBlock.isHidden = false
+            timeTrialButton.isHidden = true
+            leastLinksButton.isHidden = true
+            searchForGameBlock.isHidden = true
+            goBackNewJoinGameButton.isHidden = true
+
             
             // [START setup]
             let settings = FirestoreSettings()
@@ -44,11 +51,37 @@ class GameTypeVC: UIViewController {
             Firestore.firestore().settings = settings
             // [END setup]
             db = Firestore.firestore()
+        } else {
+            newGameButton.isHidden = true
+            joinGameButton.isHidden = true
+            goBackNewJoinGameButton.isHidden = true
         }
     }
     
     @IBAction func normalButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: selectArticlesIdentifier, sender: nil)
+    }
+    
+    @IBAction func joinGameButtonPressed(_ sender: Any) {
+        newGameButton.isHidden = true
+        joinGameButton.isHidden = true
+        normalButton.isHidden = true
+        customButton.isHidden = true
+        timeTrialButton.isHidden = true
+        leastLinksButton.isHidden = true
+        searchForGameBlock.isHidden = false
+        goBackNewJoinGameButton.isHidden = false
+    }
+    
+    @IBAction func newGameButtonPressed(_ sender: Any) {
+        newGameButton.isHidden = true
+        joinGameButton.isHidden = true
+        normalButton.isHidden = true
+        customButton.isHidden = true
+        timeTrialButton.isHidden = false
+        leastLinksButton.isHidden = false
+        searchForGameBlock.isHidden = true
+        goBackNewJoinGameButton.isHidden = false
     }
     
     @IBAction func customButtonPressed(_ sender: Any) {
@@ -63,6 +96,17 @@ class GameTypeVC: UIViewController {
     @IBAction func leastLinksButtonPressed(_ sender: Any) {
         gameType = "Least Links"
         multiplayerModesToGameModes()
+    }
+    
+    @IBAction func goBackNewJoinGameButtonPressed(_ sender: Any) {
+        goBackNewJoinGameButton.isHidden = true
+        newGameButton.isHidden = false
+        joinGameButton.isHidden = false
+        normalButton.isHidden = true
+        customButton.isHidden = true
+        timeTrialButton.isHidden = true
+        leastLinksButton.isHidden = true
+        searchForGameBlock.isHidden = true
     }
     
     @IBAction func goBackButtonPressed(_ sender: Any) {
@@ -121,6 +165,7 @@ class GameTypeVC: UIViewController {
         normalButton.isHidden = false
         customButton.isHidden = false
         goBackButton.isHidden = false
+        goBackNewJoinGameButton.isHidden = true
     }
     
     func gameModesToMultiplayerModes() {
@@ -129,6 +174,7 @@ class GameTypeVC: UIViewController {
         normalButton.isHidden = true
         customButton.isHidden = true
         goBackButton.isHidden = true
+        goBackNewJoinGameButton.isHidden = false
     }
     
     // MARK: - Navigation
