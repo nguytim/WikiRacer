@@ -25,6 +25,7 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideLabels()
         
         let settings = FirestoreSettings()
         
@@ -38,6 +39,25 @@ class ProfileVC: UIViewController {
         loadStats()
     }
     
+    func hideLabels() {
+        numGamesLabel.isHidden = true
+        numGamesWonLabel.isHidden = true
+        fastestTimeLabel.isHidden = true
+        leastNumLinksLabel.isHidden = true
+        userNameLabel.isHidden = true
+        avgLinksLabel.isHidden = true
+        avgGameTimeLabel.isHidden = true
+    }
+    
+    func showLabels() {
+        numGamesLabel.isHidden = false
+        numGamesWonLabel.isHidden = false
+        fastestTimeLabel.isHidden = false
+        leastNumLinksLabel.isHidden = false
+        userNameLabel.isHidden = false
+        avgLinksLabel.isHidden = false
+        avgGameTimeLabel.isHidden = false
+    }
     
     func loadStats() {
         let docRef = db!.collection("users").document(Auth.auth().currentUser!.uid)
@@ -60,6 +80,7 @@ class ProfileVC: UIViewController {
                 self.avgLinksLabel.text = String(avgLinks)
                 self.avgGameTimeLabel.text = String(avgTime)
                 
+                self.showLabels()
             }
         }
         

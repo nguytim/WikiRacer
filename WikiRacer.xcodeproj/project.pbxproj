@@ -32,6 +32,7 @@
 		D12670D625E841E900C233F9 /* WikiRacer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12670D425E841E900C233F9 /* WikiRacer.xcdatamodeld */; };
 		D12670D825E841EC00C233F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12670D725E841EC00C233F9 /* Assets.xcassets */; };
 		D12670DB25E841EC00C233F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12670D925E841EC00C233F9 /* LaunchScreen.storyboard */; };
+		D15647D0261AB605003E543B /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15647CF261AB605003E543B /* ProfileVC.swift */; };
 		D15A6D052601860B00DDCD85 /* GameTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A6D042601860B00DDCD85 /* GameTypeVC.swift */; };
 		D15A6D0B26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A6D0A26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift */; };
 		D15A6D0E2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A6D0D2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift */; };
@@ -88,6 +89,7 @@
 		D12670D725E841EC00C233F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D12670DA25E841EC00C233F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D12670DC25E841EC00C233F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D15647CF261AB605003E543B /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		D15A6D042601860B00DDCD85 /* GameTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypeVC.swift; sourceTree = "<group>"; };
 		D15A6D0A26018FFC00DDCD85 /* ChooseCustomStartingArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCustomStartingArticleVC.swift; sourceTree = "<group>"; };
 		D15A6D0D2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCustomTargetArticleVC.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				64EA40A2260AB72B00D9CCE1 /* SettingsVC.swift */,
 				D1BB61C1261A862F00F2502A /* LaunchVC.swift */,
+				D15647CE261AB605003E543B /* Profile */,
 				D19D867A25FAF556000C421B /* Login */,
 				D19D867925FAF53C000C421B /* Article Selection */,
 				D19D867825FAF521000C421B /* Gameplay */,
@@ -220,6 +223,14 @@
 				D12670D425E841E900C233F9 /* WikiRacer.xcdatamodeld */,
 			);
 			path = WikiRacer;
+			sourceTree = "<group>";
+		};
+		D15647CE261AB605003E543B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D15647CF261AB605003E543B /* ProfileVC.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		D19D867725FAF4DC000C421B /* Supporting Files */ = {
@@ -424,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15647D0261AB605003E543B /* ProfileVC.swift in Sources */,
 				D15A6D0E2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift in Sources */,
 				A7DADC7D260506A300C5B850 /* ProfileVC.swift in Sources */,
 				D1A79D8626140BB5001D26D9 /* SAConfettiView.swift in Sources */,

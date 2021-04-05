@@ -27,13 +27,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lil-N6-Jc7">
-                                <rect key="frame" x="131" y="65" width="113" height="59.666666666666657"/>
+                                <rect key="frame" x="131" y="65" width="113" height="56"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fFQ-6K-M7V">
-                                <rect key="frame" x="16" y="182.66666666666666" width="343" height="507.33333333333337"/>
+                                <rect key="frame" x="16" y="179" width="343" height="511"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" name="MainAquaColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="qrV-aK-86N">
@@ -57,7 +57,7 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RacerInCart" translatesAutoresizingMaskIntoConstraints="NO" id="Zzx-L0-eCN">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zzx-L0-eCN">
                                                     <rect key="frame" x="14" y="13" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -73,7 +73,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzE-w8-San" userLabel="Money Label">
-                                <rect key="frame" x="16" y="65" width="36" height="27.333333333333329"/>
+                                <rect key="frame" x="16" y="65" width="36" height="23.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -109,7 +109,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RacerInCart" width="241" height="242"/>
         <image name="RepairShopIcon" width="22" height="22"/>
         <namedColor name="MainAquaColor">
             <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

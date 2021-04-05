@@ -6,15 +6,26 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 
 class SettingsVC: UIViewController {
-
+    
+    var db: Firestore!
+    
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        
+        db = Firestore.firestore()
+        
+        loadUsername()
         
         let user = Auth.auth().currentUser
         if let user = user {
@@ -22,6 +33,20 @@ class SettingsVC: UIViewController {
         }
 
         // Do any additional setup after loading the view.
+    }
+    
+    func loadUsername() {
+        let docRef = db!.collection("users").document(Auth.auth().currentUser!.uid)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                let userName = data!["username"] as! String
+                
+                self.usernameLabel.text = String(userName)
+                
+            }
+        }
+        
     }
     
 

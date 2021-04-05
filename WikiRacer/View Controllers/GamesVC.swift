@@ -72,6 +72,7 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if game.hasPlayed! {
             cell.gameStatusLabel.text = "Check results"
+            cell.backgroundColor = .systemGreen
         }
         
         return cell
@@ -155,18 +156,16 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-//    func checkIfUserHasPlayedAlready() {
-//        for game in games {
-//            for player in game.leaderboard! {
-//                if player.uid == uid {
-////                    game.played = true
-//                    break
-//                }
-//            }
-//        }
-//    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
 
-    
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.05 * Double(indexPath.row),
+            animations: {
+                cell.alpha = 1
+        })
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

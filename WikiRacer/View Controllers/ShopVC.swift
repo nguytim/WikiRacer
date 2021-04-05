@@ -49,6 +49,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         shopGrid.delegate = self
         shopGrid.dataSource = self
+        shopGrid.isHidden = true
         
         let settings = FirestoreSettings()
         
@@ -144,6 +145,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                 self.getData(data: racersData)
                 
                 self.shopGrid.reloadData()
+                self.shopGrid.isHidden = false
             }
         }
         
