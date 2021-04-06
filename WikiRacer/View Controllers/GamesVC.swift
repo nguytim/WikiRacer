@@ -57,14 +57,14 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let game = games[indexPath.row]
         
         // style
-        cell.layer.cornerRadius = 8
-        cell.layer.masksToBounds = true
-
-        cell.layer.masksToBounds = false
-//        cell.layer.shadowOffset = CGSizeMake(0, 0)
-//        cell.layer.shadowColor = UIColor.blackColor().CGColor
-        cell.layer.shadowOpacity = 0.23
-        cell.layer.shadowRadius = 4
+//        cell.layer.cornerRadius = 8
+//        cell.layer.masksToBounds = true
+//
+//        cell.layer.masksToBounds = false
+////        cell.layer.shadowOffset = CGSizeMake(0, 0)
+////        cell.layer.shadowColor = UIColor.blackColor().CGColor
+//        cell.layer.shadowOpacity = 0.23
+//        cell.layer.shadowRadius = 4
         
         // initialization
         cell.startingArticleLabel.text = game.startingArticle.title
@@ -72,7 +72,7 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if game.hasPlayed! {
             cell.gameStatusLabel.text = "Check results"
-            cell.backgroundColor = .systemGreen
+            cell.backgroundColor = UIColor.init(named: "MainLimeGreenColor")
         }
         
         return cell
@@ -158,6 +158,14 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.alpha = 0
+        
+        let verticalPadding: CGFloat = 12
+
+        let maskLayer = CALayer()
+        maskLayer.cornerRadius = 15   //if you want round edges
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+        cell.layer.mask = maskLayer
 
         UIView.animate(
             withDuration: 0.5,

@@ -64,7 +64,7 @@ class ChooseTargetArticleVC: ChooseStartingArticleVC {
                         self.wikiArticles.append(article)
                     }
                 }
-                self.articlesTableView.reloadData()
+                self.articlesTableView.reloadWithAnimation()
                 self.rerollButton.isEnabled = true
             case .failure(let error):
                 print(error)
