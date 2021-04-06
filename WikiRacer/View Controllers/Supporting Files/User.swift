@@ -18,6 +18,7 @@ struct User {
     var fastestGame: Int
     var averageNumberOfLinks: Int
     var leastNumberofLink: Int
+    var usernameID: String
   
 
     var dictionary: [String: Any] {
@@ -30,7 +31,8 @@ struct User {
             "averageGameTime": averageGameTime,
             "fastestGame": fastestGame,
             "averageNumberOfLinks": averageNumberOfLinks,
-            "leastNumberofLink": leastNumberofLink
+            "leastNumberofLink": leastNumberofLink,
+            "usernameID": usernameID
         ]
     }
 }
