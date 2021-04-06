@@ -119,6 +119,8 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             cell.contentView.backgroundColor = UIColor.white
         }
         
+        cell.layer.cornerRadius = 10
+        
         return cell
     }
     
