@@ -75,7 +75,15 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     @IBAction func startButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: startGameIdentifier, sender: nil)
+        // if we're already on Home tab
+        if self.tabBarController?.selectedIndex == 2 {
+            performSegue(withIdentifier: startGameIdentifier, sender: nil)
+        } else {
+            self.tabBarController?.selectedIndex = 2
+            let homeVC = self.tabBarController!.viewControllers![2].children[0] as? HomeVC
+            homeVC!.goToViewGameVC(game: game!)
+            _ = navigationController?.popViewController(animated: true)
+        }
     }
     
     // code to enable tapping on the background to remove software keyboard

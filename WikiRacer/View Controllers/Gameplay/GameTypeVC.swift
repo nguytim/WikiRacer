@@ -177,6 +177,11 @@ class GameTypeVC: UIViewController {
         goBackNewJoinGameButton.isHidden = false
     }
     
+    // code to enable tapping on the background to remove software keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
