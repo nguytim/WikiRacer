@@ -58,12 +58,20 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
+        storageRef = Storage.storage().reference()
+        hatsRef = storageRef.child("hats")
+        racecarsRef = storageRef.child("racecars")
+        racersRef = storageRef.child("racers")
         
+        loadShop()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let user = Auth.auth().currentUser
         if let user = user {
             let docRef = db.collection("users").document(user.uid)
             docRef.getDocument{ (document, eror) in if let document = document, document.exists {
-                let docRef = self.db!.collection("users").document(user.uid)
+                _ = self.db!.collection("users").document(user.uid)
                 if (document.get("itemsOwned") as? [String]) != nil {
                     self.purchasedItems = document.get("itemsOwned") as! [String]
                 }
@@ -73,13 +81,6 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                 self.moneyLabel.text = "\(points) ⚡️"
             }}
         }
-        
-        storageRef = Storage.storage().reference()
-        hatsRef = storageRef.child("hats")
-        racecarsRef = storageRef.child("racecars")
-        racersRef = storageRef.child("racers")
-        
-        loadShop()
     }
     
     
@@ -108,21 +109,20 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         itemImages.getData(maxSize: 1 * 1024 * 1024) { data, error in
-          if let error = error {
-            // Uh-oh, an error occurred!
-            print(error)
-          } else {
-            // Data for "images/island.jpg" is returned
-            let image = UIImage(data: data!)
-            cell.image.image = image
-          }
+            if let error = error {
+                // Uh-oh, an error occurred!
+                print(error)
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+                cell.image.image = image
+            }
         }
-        
-        cell.layer.borderWidth = 3
         
         if purchasedItems.contains(item.name) {
             cell.isUserInteractionEnabled = false
             cell.contentView.backgroundColor = .systemGray
+            cell.layer.borderWidth = 0
         }
         cell.layer.cornerRadius = 10
         
@@ -164,17 +164,17 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             let item = data[i] as! [String: Any]
             self.shopItems.append(
                 Item(cost: item["cost"] as! Int,
-                    name: item["name"] as! String)
+                     name: item["name"] as! String)
             )
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let cell = collectionView.cellForItem(at: indexPath) as! UICollectionViewCell
-//        cell.layer.borderColor = UIColor.systemGray.cgColor
-//        cell.contentView.backgroundColor = .systemGray
-        cell.isSelected = true
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 5
+        cell?.layer.borderColor = UIColor(named: "MainAquaColor")?.cgColor
+        cell?.isSelected = true
         // TODO: check amount of money and check price of item clicked - if not enough money - create alert saying not enough money
         
         let currItem = shopItems[indexPath.row]
@@ -223,8 +223,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-//        cell?.layer.borderColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1).cgColor
-//        cell?.contentView.backgroundColor = UIColor.white
+        cell?.layer.borderWidth = 0
         cell?.isSelected = false
     }
     
@@ -253,15 +252,15 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         return newImage!
     }
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
-
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
