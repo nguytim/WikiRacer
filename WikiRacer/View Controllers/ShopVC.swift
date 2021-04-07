@@ -41,6 +41,9 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     var racecarsCount = 0
     var racersCount = 0
     
+    var currentPoints = 0
+    var purchasedItems = [String]()
+    
     @IBOutlet weak var shopGrid: UICollectionView!
     @IBOutlet weak var moneyLabel: UILabel!
     
@@ -55,6 +58,21 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
+        
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let docRef = db.collection("users").document(user.uid)
+            docRef.getDocument{ (document, eror) in if let document = document, document.exists {
+                let docRef = self.db!.collection("users").document(user.uid)
+                if (document.get("itemsOwned") as? [String]) != nil {
+                    self.purchasedItems = document.get("itemsOwned") as! [String]
+                }
+                let data = document.data()
+                let points : Int =  data?["points"] as! Int
+                self.currentPoints = points
+                self.moneyLabel.text = "\(points) ⚡️"
+            }}
+        }
         
         storageRef = Storage.storage().reference()
         hatsRef = storageRef.child("hats")
@@ -74,13 +92,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         let index = indexPath.row
         let item = shopItems[index]
         
-        let cost = NSMutableAttributedString(string:"\(item.cost)")
-        let fuel = NSTextAttachment()
-        fuel.image = resizeImage(image: UIImage(named: "fuel.png")!, targetSize: CGSize(width: 17, height: 17))
-        let fuelText = NSAttributedString(attachment: fuel)
-        cost.append(fuelText)
-        
-        cell.costLabel.attributedText = cost
+        cell.costLabel.text = "\(item.cost) ⚡️"
         
         // Create a reference to the file you want to download
         let count = index
@@ -108,17 +120,10 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         cell.layer.borderWidth = 3
         
-        if cell.isSelected {
-            //put border logic
-            cell.layer.borderColor = UIColor.systemGray.cgColor
-            cell.contentView.backgroundColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1)
-            
-        } else {
-            // remove border
-            cell.layer.borderColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1).cgColor
-            cell.contentView.backgroundColor = UIColor.white
+        if purchasedItems.contains(item.name) {
+            cell.isUserInteractionEnabled = false
+            cell.contentView.backgroundColor = .systemGray
         }
-        
         cell.layer.cornerRadius = 10
         
         return cell
@@ -167,30 +172,59 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath) as! UICollectionViewCell
-        cell.layer.borderColor = UIColor.systemGray.cgColor
-        cell.contentView.backgroundColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1)
+//        cell.layer.borderColor = UIColor.systemGray.cgColor
+//        cell.contentView.backgroundColor = .systemGray
         cell.isSelected = true
         // TODO: check amount of money and check price of item clicked - if not enough money - create alert saying not enough money
         
-        let confirmPurchaseAlert = UIAlertController(title: "Confirm Purchase", message: "Are you sure you want to purchase this item?", preferredStyle: UIAlertController.Style.alert)
-        
-        confirmPurchaseAlert.addAction(UIAlertAction(title: "Buy", style: .default, handler: { (action: UIAlertAction!) in
+        let currItem = shopItems[indexPath.row]
+        if (currItem.cost > currentPoints) {
+            let insufficientMoneyAlert = UIAlertController(title: "Insufficient Fuel Points", message: "You do not have enough points to purchase this item.", preferredStyle: UIAlertController.Style.alert)
+            insufficientMoneyAlert.addAction(UIAlertAction(
+                                                title: "OK",
+                                                style: .default,
+                                                handler: nil))
+            present(insufficientMoneyAlert, animated: true, completion: nil)
+        } else {
             
-            // TODO: update changes in Firestore (items bought, coins left, etc.)
-            // update money label
+            let confirmPurchaseAlert = UIAlertController(title: "Confirm Purchase", message: "Are you sure you want to purchase this item?", preferredStyle: UIAlertController.Style.alert)
             
-        }))
-        
-        confirmPurchaseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-        }))
-        
-        present(confirmPurchaseAlert, animated: true, completion: nil)
+            confirmPurchaseAlert.addAction(UIAlertAction(title: "Buy", style: .default, handler: { (action: UIAlertAction!) in
+                
+                let user = Auth.auth().currentUser
+                if let user = user {
+                    let pointsLeft = self.currentPoints - self.shopItems[indexPath.row].cost
+                    self.currentPoints = pointsLeft
+                    
+                    var itemsOwned = [String]()
+                    
+                    let docRef = self.db!.collection("users").document(user.uid)
+                    docRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            
+                            if (document.get("itemsOwned") as? [String]) != nil {
+                                itemsOwned = document.get("itemsOwned") as! [String]
+                            }
+                            
+                            itemsOwned.append(self.shopItems[indexPath.row].name)
+                            self.purchasedItems = itemsOwned
+                            self.db.collection("users").document(user.uid).updateData(["itemsOwned": itemsOwned, "points": pointsLeft])
+                            self.moneyLabel.text = "\(pointsLeft) ⚡️"
+                            self.shopGrid.reloadData()
+                        }}
+                }
+            }))
+            
+            confirmPurchaseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            }))
+            
+            present(confirmPurchaseAlert, animated: true, completion: nil)}
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1).cgColor
-        cell?.contentView.backgroundColor = UIColor.white
+//        cell?.layer.borderColor = UIColor(red: 199/256, green: 199/256, blue: 204/256, alpha: 1).cgColor
+//        cell?.contentView.backgroundColor = UIColor.white
         cell?.isSelected = false
     }
     
