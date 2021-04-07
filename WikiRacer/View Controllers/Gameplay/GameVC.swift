@@ -79,6 +79,11 @@ class GameVC: UIViewController, WKNavigationDelegate {
         getArticle(article: currentArticle!.lastPathComponentURL)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         
