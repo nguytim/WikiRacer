@@ -18,7 +18,6 @@ class Item {
     init(cost:Int, name:String){
         self.cost = cost
         self.name = name
-        
     }
 }
 
@@ -29,6 +28,9 @@ class ItemCollectionCell: UICollectionViewCell{
 }
 
 class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    let animationDuration: Double = 0.5
+    let delayBase: Double = 0.3
     
     var db: Firestore!
     var storageRef: StorageReference!
@@ -81,6 +83,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                 self.moneyLabel.text = "\(points) ⚡️"
             }}
         }
+        shopGrid.reloadData()
     }
     
     
@@ -89,7 +92,14 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath as IndexPath) as! ItemCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCollectionCell
+        cell.layer.cornerRadius = 10
+        cell.isOpaque = true
+        cell.contentView.isOpaque = true
+        cell.alpha = 0
+        cell.contentView.alpha = 0
+        cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        
         let index = indexPath.row
         let item = shopItems[index]
         
@@ -121,14 +131,25 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         if purchasedItems.contains(item.name) {
             cell.isUserInteractionEnabled = false
-            cell.contentView.backgroundColor = .systemGray
+            cell.contentView.backgroundColor = .systemGray2
             cell.layer.borderWidth = 0
         }
-        cell.layer.cornerRadius = 10
-        
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let column = Double(cell.frame.minX / cell.frame.width)
+        let row = Double(cell.frame.minY / cell.frame.height)
+        let distance = sqrt(pow(column, 2) + pow(row, 2))
+        let delay = sqrt(distance) * delayBase
+        
+        UIView.animate(withDuration: animationDuration, delay: delay, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: [], animations: {
+            cell.alpha = 1
+            cell.contentView.alpha = 1
+            cell.transform = .identity
+        })
+    }
+
     // load shop items
     func loadShop() {
         let docRef = db!.collection("shop").document("items")
