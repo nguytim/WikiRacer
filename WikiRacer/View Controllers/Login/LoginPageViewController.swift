@@ -19,7 +19,6 @@ class LoginPageViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var gmailButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     
     let collectionOfUsers = Firestore.firestore().collection("users")
@@ -38,7 +37,6 @@ class LoginPageViewController: UIViewController {
         self.passwordTextField.alpha = 0
         self.loginButton.alpha = 0
         self.signUpButton.alpha = 0
-        self.gmailButton.alpha = 0
         self.forgotPasswordButton.alpha = 0
     }
     
@@ -49,7 +47,6 @@ class LoginPageViewController: UIViewController {
         self.logoLabel.center.y -= view.bounds.width
         self.loginButton.alpha = 0
         self.forgotPasswordButton.alpha = 0
-        self.gmailButton.alpha = 0
         
         self.loginButton.center.x -= self.view.bounds.width
         self.signUpButton.center.x += self.view.bounds.width
@@ -68,7 +65,6 @@ class LoginPageViewController: UIViewController {
                 self.emailAddressTextField.alpha = 1
                 self.passwordTextField.alpha = 1
                 self.forgotPasswordButton.alpha = 1
-                self.gmailButton.alpha = 1
             }, completion: nil)
         UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.3, options: [],
             animations: {
@@ -130,7 +126,6 @@ class LoginPageViewController: UIViewController {
             NSAttributedString.Key.foregroundColor : UIColor.gray,
             NSAttributedString.Key.underlineStyle:1.0
         ])
-        gmailButton.setAttributedTitle(attributedString, for: .normal)
     }
     
     private func setupTextField() {
