@@ -107,6 +107,11 @@ class SettingsVC: UIViewController {
         present(deleteAlert, animated: true, completion: nil)
     }
     
+    @IBAction func editUsernameButtonClicked(_ sender: Any) {
+        
+    }
+    
+    
     private func setupButtons() {
                 signOutButt.backgroundColor = UIColor(named: "MainDarkColor")
                 signOutButt.setTitleColor(.white, for: .normal)

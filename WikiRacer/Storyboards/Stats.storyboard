@@ -282,6 +282,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqq-pU-h4l" userLabel="Edit username button">
                                                 <rect key="frame" x="265" y="0.0" width="35" height="30"/>
                                                 <state key="normal" title="Edit"/>
+                                                <connections>
+                                                    <action selector="editUsernameButtonClicked:" destination="hOp-wn-MFy" eventType="touchUpInside" id="7HI-16-nkG"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
