@@ -22,15 +22,20 @@ class LoginPageViewController: UIViewController {
     @IBOutlet weak var forgotPasswordButton: UIButton!
     
     let collectionOfUsers = Firestore.firestore().collection("users")
+    var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // Before screen is shown make sure they dont have a logged in user in the cache.
-        checkLoggedInUser()
+//        checkLoggedInUser()
         
         self.logoLabel.alpha = 0
         self.emailAddressTextField.alpha = 0
@@ -52,27 +57,27 @@ class LoginPageViewController: UIViewController {
         self.signUpButton.center.x += self.view.bounds.width
         
         UIView.animate(withDuration: 1.0,
-            delay: 0.5,
-            usingSpringWithDamping: 0.2,
-            initialSpringVelocity: 0.3,
-            options: [],
-            animations: {
-                self.logoLabel.alpha = 1.0
-                self.logoLabel.center.y += self.view.bounds.width
-            })
+                       delay: 0.5,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 0.3,
+                       options: [],
+                       animations: {
+                        self.logoLabel.alpha = 1.0
+                        self.logoLabel.center.y += self.view.bounds.width
+                       })
         UIView.animate(withDuration: 1.5, delay: 1.0, options: [],
-            animations: {
-                self.emailAddressTextField.alpha = 1
-                self.passwordTextField.alpha = 1
-                self.forgotPasswordButton.alpha = 1
-            }, completion: nil)
+                       animations: {
+                        self.emailAddressTextField.alpha = 1
+                        self.passwordTextField.alpha = 1
+                        self.forgotPasswordButton.alpha = 1
+                       }, completion: nil)
         UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.3, options: [],
-            animations: {
-                self.loginButton.alpha = 1
-                self.signUpButton.alpha = 1
-                self.loginButton.center.x += self.view.bounds.width
-                self.signUpButton.center.x -= self.view.bounds.width
-            }, completion: nil)
+                       animations: {
+                        self.loginButton.alpha = 1
+                        self.signUpButton.alpha = 1
+                        self.loginButton.center.x += self.view.bounds.width
+                        self.signUpButton.center.x -= self.view.bounds.width
+                       }, completion: nil)
         
         //Warn users about bata
         betaNotification()
@@ -83,7 +88,54 @@ class LoginPageViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailAddressTextField.text!, password: passwordTextField.text!, completion: {user, error in
             if error == nil {
                 //successful login
-                self.performSegue(withIdentifier: "SignInIdentifier", sender: nil)
+                
+                let docRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let data = document.data()
+                        let username = data!["username"] as! String
+                        let usernameID = data!["usernameID"] as! String
+                        let points = data!["points"] as! Int
+                        
+                        // USER STATS
+                        
+                        let stats = data!["stats"] as! Dictionary<String, Int>
+                        let gamesPlayed = stats["gamesPlayed"]!
+                        let gamesWon = stats["gamesWon"]!
+                        let totalGameTime = stats["totalGameTime"]!
+                        let totalNumberOfLinks = stats["totalNumberOfLinks"]!
+                        let fastestGame = stats["fastestGame"]!
+                        let leastNumberOfLinks = stats["leastNumberOfLinks"]!
+                        
+                        let userStats = Stats(gamesPlayed: gamesPlayed, gamesWon: gamesWon, totalGameTime: totalGameTime, totalNumberOfLinks: totalNumberOfLinks, fastestGame: fastestGame, leastNumberOfLinks: leastNumberOfLinks)
+                        
+                        // USER'S RACER
+                        
+                        let racer = data!["racer"] as! Dictionary<String, Any>
+                        let accessoriesOwned = racer["accessoriesOwned"] as! [String]
+                        let racecarsOwned = racer["racecarsOwned"] as! [String]
+                        let racersOwned = racer["racersOwned"] as! [String]
+                        let currentAccessorries = racer["currentAccessorries"] as! [String]
+                        let currentRacecar = racer["currentRacecar"] as! String
+                        let currentRacer = racer["currentRacer"] as! String
+                        
+                        let userRacer = Racer(accessoriesOwned: accessoriesOwned, racecarsOwned: racecarsOwned, racersOwned: racersOwned, currentAccessorries: currentAccessorries, currentRacecar: currentRacecar, currentRacer: currentRacer)
+                        
+                        // USER SETTINGS
+                        let settings = data!["settings"] as! Dictionary<String, Bool>
+                        let darkModeEnabled = settings["darkModeEnabled"]!
+                        let colorfulButtonsEnabled = settings["colorfulButtonsEnabled"]!
+                        let soundEffectsEnabled = settings["soundEffectsEnabled"]!
+                        let notificationsEnabled = settings["notificationsEnabled"]!
+                        
+                        let userSettings = Settings(darkModeEnabled: darkModeEnabled, colorfulButtonsEnabled: colorfulButtonsEnabled, soundEffectsEnabled: soundEffectsEnabled, notificationsEnabled: notificationsEnabled)
+                        
+                        // SET GLOBAL CURRENT USER
+                        CURRENT_USER = User(username: username, usernameID: usernameID, points: points, stats: userStats, racer: userRacer, settings: userSettings)
+                        
+                        self.performSegue(withIdentifier: "SignInIdentifier", sender: nil)
+                    }
+                }
             } else {
                 //unsuccessful login
                 let alert = UIAlertController(title: "Error", message: "Could not login. Check your email and password", preferredStyle: UIAlertController.Style.alert)
@@ -102,11 +154,11 @@ class LoginPageViewController: UIViewController {
     
     //Fake segue to test
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "GmailSegue" {
-//            guard let vc = segue.destination as? LoginPageViewController else { return }
-//        }
+        //        if segue.identifier == "GmailSegue" {
+        //            guard let vc = segue.destination as? LoginPageViewController else { return }
+        //        }
         
-//        segue.destination.modalPresentationStyle = .fullScreen
+        //        segue.destination.modalPresentationStyle = .fullScreen
     }
     
     // code to enable tapping on the background to remove software keyboard
@@ -124,7 +176,7 @@ class LoginPageViewController: UIViewController {
         signUpButton.layer.cornerRadius = 17.0
         
         //Attribute to underline button text.
-        let attributedString = NSAttributedString(string: NSLocalizedString("Login with Gmail", comment: ""), attributes:[
+        _ = NSAttributedString(string: NSLocalizedString("Login with Gmail", comment: ""), attributes:[
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17.0),
             NSAttributedString.Key.foregroundColor : UIColor.gray,
             NSAttributedString.Key.underlineStyle:1.0
@@ -137,7 +189,7 @@ class LoginPageViewController: UIViewController {
         emailAddressTextField.layer.cornerRadius = 5.0
         emailAddressTextField.layer.borderWidth = 1.0
         emailAddressTextField.attributedPlaceholder = NSAttributedString(string: "Email Address",
-                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         
         
         passwordTextField.backgroundColor = UIColor.white
@@ -145,7 +197,7 @@ class LoginPageViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 5.0
         passwordTextField.layer.borderWidth = 1.0
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     }
     
     private func checkLoggedInUser() {
@@ -159,7 +211,54 @@ class LoginPageViewController: UIViewController {
                 self.passwordTextField.text = nil
             }
             else {
-                self.performSegue(withIdentifier: "SignInIdentifier", sender: nil)
+                
+                let docRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let data = document.data()
+                        let username = data!["username"] as! String
+                        let usernameID = data!["usernameID"] as! String
+                        let points = data!["points"] as! Int
+                        
+                        // USER STATS
+                        
+                        let stats = data!["stats"] as! Dictionary<String, Int>
+                        let gamesPlayed = stats["gamesPlayed"]!
+                        let gamesWon = stats["gamesWon"]!
+                        let totalGameTime = stats["totalGameTime"]!
+                        let totalNumberOfLinks = stats["totalNumberOfLinks"]!
+                        let fastestGame = stats["fastestGame"]!
+                        let leastNumberOfLinks = stats["leastNumberOfLinks"]!
+                        
+                        let userStats = Stats(gamesPlayed: gamesPlayed, gamesWon: gamesWon, totalGameTime: totalGameTime, totalNumberOfLinks: totalNumberOfLinks, fastestGame: fastestGame, leastNumberOfLinks: leastNumberOfLinks)
+                        
+                        // USER'S RACER
+                        
+                        let racer = data!["racer"] as! Dictionary<String, Any>
+                        let accessoriesOwned = racer["accessoriesOwned"] as! [String]
+                        let racecarsOwned = racer["racecarsOwned"] as! [String]
+                        let racersOwned = racer["racersOwned"] as! [String]
+                        let currentAccessorries = racer["currentAccessorries"] as! [String]
+                        let currentRacecar = racer["currentRacecar"] as! String
+                        let currentRacer = racer["currentRacer"] as! String
+                        
+                        let userRacer = Racer(accessoriesOwned: accessoriesOwned, racecarsOwned: racecarsOwned, racersOwned: racersOwned, currentAccessorries: currentAccessorries, currentRacecar: currentRacecar, currentRacer: currentRacer)
+                        
+                        // USER SETTINGS
+                        let settings = data!["settings"] as! Dictionary<String, Bool>
+                        let darkModeEnabled = settings["darkModeEnabled"]!
+                        let colorfulButtonsEnabled = settings["colorfulButtonsEnabled"]!
+                        let soundEffectsEnabled = settings["soundEffectsEnabled"]!
+                        let notificationsEnabled = settings["notificationsEnabled"]!
+                        
+                        let userSettings = Settings(darkModeEnabled: darkModeEnabled, colorfulButtonsEnabled: colorfulButtonsEnabled, soundEffectsEnabled: soundEffectsEnabled, notificationsEnabled: notificationsEnabled)
+                        
+                        // SET GLOBAL CURRENT USER
+                        CURRENT_USER = User(username: username, usernameID: usernameID, points: points, stats: userStats, racer: userRacer, settings: userSettings)
+                        
+                        self.performSegue(withIdentifier: "SignInIdentifier", sender: nil)
+                    }
+                }
             }
         }
     }

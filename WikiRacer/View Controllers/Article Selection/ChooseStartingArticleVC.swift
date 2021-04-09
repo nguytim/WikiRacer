@@ -41,6 +41,17 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
         getPopularArticles()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wikiArticles.count
     }

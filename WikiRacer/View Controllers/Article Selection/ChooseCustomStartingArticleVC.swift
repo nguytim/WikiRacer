@@ -32,6 +32,17 @@ class ChooseCustomStartingArticleVC: UIViewController {
         WikipediaNetworking.appAuthorEmailForAPI = "maniponce22@gmail.com"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
+        }
+    }
+    
     @IBAction func confirmButtonPressed(_ sender: Any) {
         // ERROR
         if inputArticleText.text == "" {

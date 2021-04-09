@@ -43,7 +43,7 @@ class GameTypeVC: UIViewController {
             leastLinksButton.isHidden = true
             searchForGameBlock.isHidden = true
             goBackNewJoinGameButton.isHidden = true
-
+            
             
             // [START setup]
             let settings = FirestoreSettings()
@@ -55,6 +55,17 @@ class GameTypeVC: UIViewController {
             newGameButton.isHidden = true
             joinGameButton.isHidden = true
             goBackNewJoinGameButton.isHidden = true
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
         }
     }
     

@@ -43,6 +43,17 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         getCurrentUsersGames()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
+        }
+    }
+    
     @IBAction func refreshButtonPressed(_ sender: Any) {
         refreshButton.isEnabled = false
         games = [Game]()

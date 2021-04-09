@@ -17,29 +17,32 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--How To PlayVC-->
         <scene sceneID="1xy-No-aza">
             <objects>
-                <viewController id="fnm-cZ-AdK" sceneMemberID="viewController">
+                <viewController id="fnm-cZ-AdK" customClass="HowToPlayVC" customModule="WikiRacer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x02-tm-ZXd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrG-h6-mcz">
-                                <rect key="frame" x="73.5" y="122" width="267" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrG-h6-mcz">
+                                <rect key="frame" x="70" y="122" width="274" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
                                 <color key="textColor" name="MainAquaColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="In WikiRacer, each player is assigned a starting and ending target Wiki article. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RKa-rO-Fwl">
-                                <rect key="frame" x="50" y="190" width="275" height="106"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="In WikiRacer, each player is assigned a starting and ending target Wiki article. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RKa-rO-Fwl">
+                                <rect key="frame" x="70" y="190" width="275" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VWl-To-ZDd">
-                                <rect key="frame" x="50" y="293" width="275" height="188"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VWl-To-ZDd">
+                                <rect key="frame" x="70" y="291" width="275" height="188"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Your aim is to get from the starting article to the target article by tapping through linked articles in either the fastest time or least amount of links possible.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -49,14 +52,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cNa-7K-ffZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="VWl-To-ZDd" firstAttribute="centerX" secondItem="cNa-7K-ffZ" secondAttribute="centerX" id="7j2-JV-7Nu"/>
-                            <constraint firstItem="RKa-rO-Fwl" firstAttribute="top" secondItem="FrG-h6-mcz" secondAttribute="bottom" constant="8.3333333333333144" id="HIm-Ln-WOQ"/>
-                            <constraint firstItem="VWl-To-ZDd" firstAttribute="top" secondItem="RKa-rO-Fwl" secondAttribute="bottom" constant="-3" id="WgN-GR-cFt"/>
-                            <constraint firstItem="RKa-rO-Fwl" firstAttribute="centerX" secondItem="cNa-7K-ffZ" secondAttribute="centerX" id="a1Q-r8-kU3"/>
-                            <constraint firstItem="FrG-h6-mcz" firstAttribute="top" secondItem="cNa-7K-ffZ" secondAttribute="top" constant="34" id="pux-j6-gI9"/>
-                            <constraint firstItem="FrG-h6-mcz" firstAttribute="centerX" secondItem="cNa-7K-ffZ" secondAttribute="centerX" id="pyd-wl-bue"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="baR-c5-YdK">
                         <barButtonItem key="backBarButtonItem" title=" " id="tqm-rJ-v80"/>

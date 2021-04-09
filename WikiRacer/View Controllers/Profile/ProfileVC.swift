@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
-import FirebaseFirestore
 
-class ProfileVC: UIViewController {
-    
-    var db: Firestore!
+protocol ChangeToDarkMode {
+    func changeDarkMode()
+}
+
+class ProfileVC: UIViewController, ChangeToDarkMode {
     
     @IBOutlet weak var leastNumLinksLabel: UILabel!
     @IBOutlet weak var fastestTimeLabel: UILabel!
@@ -26,17 +25,22 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideLabels()
-        
-        let settings = FirestoreSettings()
-        
-        Firestore.firestore().settings = settings
-        
-        db = Firestore.firestore()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        changeDarkMode()
         loadStats()
+    }
+    
+    func changeDarkMode() {
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
+        }
     }
     
     func hideLabels() {
@@ -60,50 +64,52 @@ class ProfileVC: UIViewController {
     }
     
     func loadStats() {
-        let docRef = db!.collection("users").document(Auth.auth().currentUser!.uid)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                let userName = data!["username"] as! String
-                let numGames = data!["gamesPlayed"] as! Int
-                let gamesWon = data!["gamesWon"] as! Int
-                let totalTime = data!["averageGameTime"] as! Int
-                let totalLinks = data!["averageNumberOfLinks"] as! Int
-                let fastestTime = data!["fastestGame"] as! Int
-                let leastNumLinks = data!["leastNumberofLink"] as! Int
-                
-                let avgTime = totalTime / gamesWon
-                let avgLinks = totalLinks / gamesWon
-                
-                let minutesAvgTime = (avgTime % 3600) / 60
-                let secondsAvgTime = (avgTime % 3600) % 60
-                
-                let minutesFastestTime = (fastestTime % 3600) / 60
-                let secondsFastestTime = (fastestTime % 3600) % 60
-                
-                self.numGamesLabel.text = String(numGames)
-                self.numGamesWonLabel.text = String(gamesWon)
-                self.fastestTimeLabel.text = String(format:"%d:%02d", minutesFastestTime, secondsFastestTime)
-                self.leastNumLinksLabel.text = String(leastNumLinks)
-                self.userNameLabel.text = String(userName)
-                self.avgLinksLabel.text = String(avgLinks)
-                self.avgGameTimeLabel.text = String(format:"%d:%02d", minutesAvgTime, secondsAvgTime)
-                
-                self.showLabels()
-            }
+        let username = CURRENT_USER!.username
+        let numGames = CURRENT_USER!.stats.gamesPlayed
+        let gamesWon = CURRENT_USER!.stats.gamesWon
+        let totalTime = CURRENT_USER!.stats.totalGameTime
+        let totalLinks = CURRENT_USER!.stats.totalNumberOfLinks
+        let fastestTime = CURRENT_USER!.stats.fastestGame
+        let leastNumLinks = CURRENT_USER!.stats.leastNumberOfLinks
+        
+        var avgTime = 0
+        var avgLinks = 0
+        
+        if gamesWon != 0 {
+            avgTime = totalTime / gamesWon
+            avgLinks = totalLinks / gamesWon
         }
+        
+        
+        let minutesAvgTime = (avgTime % 3600) / 60
+        let secondsAvgTime = (avgTime % 3600) % 60
+        
+        let minutesFastestTime = (fastestTime % 3600) / 60
+        let secondsFastestTime = (fastestTime % 3600) % 60
+        
+        userNameLabel.text = String(username)
+        numGamesLabel.text = String(numGames)
+        numGamesWonLabel.text = String(gamesWon)
+        fastestTimeLabel.text = String(format:"%d:%02d", minutesFastestTime, secondsFastestTime)
+        leastNumLinksLabel.text = String(leastNumLinks)
+        avgLinksLabel.text = String(avgLinks)
+        avgGameTimeLabel.text = String(format:"%d:%02d", minutesAvgTime, secondsAvgTime)
+        
+        showLabels()
         
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToSettingsIdentifier",
+           let settingsVC = segue.destination as? SettingsVC {
+            settingsVC.delegate = self
+        }
+    }
+    
     
 }
 

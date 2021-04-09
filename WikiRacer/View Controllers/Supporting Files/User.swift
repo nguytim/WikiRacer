@@ -7,32 +7,25 @@
 import UIKit
 import Firebase
 
+var CURRENT_USER: User?
+
 struct User {
-
+    
     var username: String
-    var racer: String
-    var points: Int
-    var gamesWon: Int
-    var gamesPlayed: Int
-    var averageGameTime: Int
-    var fastestGame: Int
-    var averageNumberOfLinks: Int
-    var leastNumberofLink: Int
     var usernameID: String
-  
-
+    var points: Int
+    var stats: Stats
+    var racer: Racer
+    var settings: Settings
+    
     var dictionary: [String: Any] {
         return [
             "username": username,
-            "racer": racer,
+            "usernameID": usernameID,
             "points": points,
-            "gamesWon": gamesWon,
-            "gamesPlayed": gamesPlayed,
-            "averageGameTime": averageGameTime,
-            "fastestGame": fastestGame,
-            "averageNumberOfLinks": averageNumberOfLinks,
-            "leastNumberofLink": leastNumberofLink,
-            "usernameID": usernameID
+            "stats": stats.dictionary,
+            "racer": racer.dictionary,
+            "settings": settings.dictionary
         ]
     }
 }

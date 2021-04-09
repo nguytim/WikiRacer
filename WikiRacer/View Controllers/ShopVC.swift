@@ -69,6 +69,15 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
+        }
+        
         let user = Auth.auth().currentUser
         if let user = user {
             let docRef = db.collection("users").document(user.uid)
@@ -157,7 +166,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             cell.transform = .identity
         })
     }
-
+    
     // load shop items
     func loadShop() {
         let docRef = db!.collection("shop").document("items")

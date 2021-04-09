@@ -21,7 +21,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var startingArticleLabel: UILabel!
     @IBOutlet weak var targetArticleLabel: UILabel!
-   
+    
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
     
@@ -92,6 +92,14 @@ class GameVC: UIViewController, WKNavigationDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
+        }
+        
     }
     
     // update games played for user
@@ -101,20 +109,20 @@ class GameVC: UIViewController, WKNavigationDelegate {
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
-                
-                // POINTS
-                var totalGamesPlayed = 1
-                if let gamesPlayed = data?["gamesPlayed"] as? Int {
-                    totalGamesPlayed += gamesPlayed
-                }
-                docRef.updateData(["gamesPlayed": totalGamesPlayed])
+                var stats = data!["stats"] as! Dictionary<String, Int>
+                stats["gamesPlayed"]! += 1
+                docRef.updateData(["stats": stats])
+                CURRENT_USER!.stats.gamesPlayed = stats["gamesPlayed"]!
             }
         }
     }
     
-//    func applicationWillTerminate(_ application: UIApplication) {
-//        
-//    }
+    func applicationWillTerminate(_ application: UIApplication) {
+        if isMultiplayer {
+            updateGamesPlayed()
+            // TODO INVALIDATE GAME and add player to leaderboard
+        }
+    }
     
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
@@ -124,7 +132,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
     
     @objc func fireTimer() {
         timeDisplayed += 1
-//        let hours = timeDisplayed / 3600
+        //        let hours = timeDisplayed / 3600
         let minutes = (timeDisplayed % 3600) / 60
         let seconds = (timeDisplayed % 3600) % 60
         timerLabel.text = String(format:"%d:%02d", minutes, seconds)
@@ -164,20 +172,20 @@ class GameVC: UIViewController, WKNavigationDelegate {
     
     // handles when a link is clicked on in the WebView
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-            if navigationAction.navigationType == WKNavigationType.linkActivated {
-                print("link")
-                guard let url = navigationAction.request.url else {
-                    decisionHandler(WKNavigationActionPolicy.cancel)
-                    return
-                }
-                goToArticle(url: url)
-                        
+        if navigationAction.navigationType == WKNavigationType.linkActivated {
+            print("link")
+            guard let url = navigationAction.request.url else {
                 decisionHandler(WKNavigationActionPolicy.cancel)
                 return
             }
-            print("no link")
-            decisionHandler(WKNavigationActionPolicy.allow)
-     }
+            goToArticle(url: url)
+            
+            decisionHandler(WKNavigationActionPolicy.cancel)
+            return
+        }
+        print("no link")
+        decisionHandler(WKNavigationActionPolicy.allow)
+    }
     
     // go to the Wiki article given its url
     func goToArticle(url: URL) {
@@ -291,11 +299,14 @@ class GameVC: UIViewController, WKNavigationDelegate {
             }
         }
         
-        // CHANGE THE STYLING OF LINKS
-        let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (elements[i].className != null && elements[i].className != 'image') {if (j == 0) { elements[i].style.backgroundColor='#E8787A';} else if (j == 1) { elements[i].style.backgroundColor='#7EEABF';} else if (j == 2) { elements[i].style.backgroundColor='#F0B351';} else { elements[i].style.backgroundColor='#8FDE60'; j = -1;} elements[i].style.color='white'; elements[i].style.fontWeight='700'; elements[i].style.borderRadius='7px'; j++;}}"
-        webView.evaluateJavaScript(changeLinksToButtonsScript) { (response, error) in
-            debugPrint("Am here")
+        if CURRENT_USER!.settings.colorfulButtonsEnabled {
+            // CHANGE THE STYLING OF LINKS
+            let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (elements[i].className != null && elements[i].className != 'image') {if (j == 0) { elements[i].style.backgroundColor='#E8787A';} else if (j == 1) { elements[i].style.backgroundColor='#7EEABF';} else if (j == 2) { elements[i].style.backgroundColor='#F0B351';} else { elements[i].style.backgroundColor='#8FDE60'; j = -1;} elements[i].style.color='white'; elements[i].style.fontWeight='700'; elements[i].style.borderRadius='7px'; j++;}}"
+            webView.evaluateJavaScript(changeLinksToButtonsScript) { (response, error) in
+                debugPrint("Am here")
+            }
         }
+        
         viewForEmbedingWebView.isHidden = false
     }
 }

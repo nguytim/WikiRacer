@@ -40,8 +40,13 @@ class YouWinVC: UIViewController {
         let confettiView = SAConfettiView(frame: self.view.bounds)
         self.view.addSubview(confettiView)
         self.view.addSubview(stackView)
-        Sound.play(file: "cork-pop.mp3")
-        Sound.play(file: "win.mp3")
+        
+        if CURRENT_USER!.settings.soundEffectsEnabled {
+            
+            Sound.play(file: "cork-pop.mp3")
+            Sound.play(file: "win.mp3")
+        }
+        
         confettiView.startConfetti()
         
         let timeDisplayed = game!.elapsedTime
@@ -53,6 +58,17 @@ class YouWinVC: UIViewController {
         if isMultiplayer {
             playAgainButton.isHidden = true
             leaderboardButton.isHidden = false
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
         }
     }
 
@@ -72,50 +88,47 @@ class YouWinVC: UIViewController {
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
+                var stats = data!["stats"] as! Dictionary<String, Int>
                 
                 // POINTS
                 var totalPoints = 5
-                if let currentPoints = data?["points"] as? Int {
+                if let currentPoints = data!["points"] as? Int {
                     totalPoints += currentPoints
                 }
                 docRef.updateData(["points": totalPoints])
+                CURRENT_USER!.points = totalPoints
                 
                 // GAMES WON
-                var totalGamesWon = 1
-                if let gamesWon = data?["gamesWon"] as? Int {
-                    totalGamesWon += gamesWon
-                }
-                docRef.updateData(["gamesWon": totalGamesWon])
+                stats["gamesWon"]! += 1
+                CURRENT_USER!.stats.gamesWon = stats["gamesWon"]!
                 
                 // TOTAL GAME TIME
-                var totalTime = self.game!.elapsedTime
-                if let time = data?["averageGameTime"] as? Int {
-                    totalTime += time
-                }
-                docRef.updateData(["averageGameTime": totalTime])
+                stats["totalGameTime"]! += self.game!.elapsedTime
+                CURRENT_USER!.stats.totalGameTime = stats["totalGameTime"]!
                 
                 // TOTAL LINKS
-                var totalLinks = self.game!.numLinks
-                if let numLinks = data?["averageNumberOfLinks"] as? Int {
-                    totalLinks += numLinks
-                }
-                docRef.updateData(["averageNumberOfLinks": totalLinks])
+                stats["totalNumberOfLinks"]! += self.game!.numLinks
+                CURRENT_USER!.stats.totalNumberOfLinks = stats["totalNumberOfLinks"]!
                 
                 // FASTEST GAME
                 let gameTime = self.game!.elapsedTime
-                if let fastestGame = data?["fastestGame"] as? Int {
-                    if gameTime < fastestGame || fastestGame == 0 {
-                        docRef.updateData(["fastestGame": gameTime])
-                    }
+                let fastestGame = stats["fastestGame"]!
+                
+                if gameTime < fastestGame || fastestGame == 0 {
+                    stats["fastestGame"]! = gameTime
+                    CURRENT_USER!.stats.fastestGame = gameTime
                 }
                 
                 // LEAST NUMBER OF LINKS
                 let usedNumLinks = self.game!.numLinks
-                if let leastNumLinks = data?["leastNumberofLink"] as? Int {
-                    if usedNumLinks < leastNumLinks || leastNumLinks == 0 {
-                        docRef.updateData(["leastNumberofLink": usedNumLinks])
-                    }
+                let leastNumLinks = stats["leastNumberOfLinks"]!
+                
+                if usedNumLinks < leastNumLinks || leastNumLinks == 0 {
+                    stats["leastNumberOfLinks"]! = usedNumLinks
+                    CURRENT_USER!.stats.leastNumberOfLinks = usedNumLinks
                 }
+                
+                docRef.updateData(["stats": stats])
             }
         }
     }

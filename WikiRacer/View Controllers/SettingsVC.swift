@@ -12,6 +12,8 @@ import FirebaseAuth
 class SettingsVC: UIViewController {
     
     var db: Firestore!
+    var docRef: DocumentReference!
+    var delegate: UIViewController!
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -19,6 +21,10 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var signOutButt: UIButton!
     @IBOutlet weak var deleteAccountButt: UIButton!
     
+    @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var colorfulButtonsSwitch: UISwitch!
+    @IBOutlet weak var soundEffectsSwitch: UISwitch!
+    @IBOutlet weak var notificiationsSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +35,9 @@ class SettingsVC: UIViewController {
         
         db = Firestore.firestore()
         
-        loadUsername()
+        docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        loadUserSettings()
         
         let user = Auth.auth().currentUser
         if let user = user {
@@ -37,39 +45,112 @@ class SettingsVC: UIViewController {
         }
         
         setupButtons()
-
+        
         // Do any additional setup after loading the view.
     }
     
-    func loadUsername() {
-        let docRef = db!.collection("users").document(Auth.auth().currentUser!.uid)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
+        }
+    }
+    
+    func loadUserSettings() {
+        usernameLabel.text = CURRENT_USER!.username
+        darkModeSwitch.isOn = CURRENT_USER!.settings.darkModeEnabled
+        colorfulButtonsSwitch.isOn = CURRENT_USER!.settings.colorfulButtonsEnabled
+        soundEffectsSwitch.isOn = CURRENT_USER!.settings.soundEffectsEnabled
+        notificiationsSwitch.isOn = CURRENT_USER!.settings.notificationsEnabled
+    }
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    @IBAction func darkModeSwitchToggled(_ sender: Any) {
+        darkModeSwitch.isEnabled = false
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
-                let userName = data!["username"] as! String
+                var settings = data!["settings"] as! Dictionary<String, Bool>
                 
-                self.usernameLabel.text = String(userName)
+                settings["darkModeEnabled"] = self.darkModeSwitch.isOn
+                CURRENT_USER!.settings.darkModeEnabled = self.darkModeSwitch.isOn
                 
+                if CURRENT_USER!.settings.darkModeEnabled {
+                    // adopt a light interface style
+                    self.overrideUserInterfaceStyle = .dark
+                } else {
+                    // adopt a dark interface style
+                    self.overrideUserInterfaceStyle = .light
+                }
+                
+                let profileVC = self.delegate as! ChangeToDarkMode
+                profileVC.changeDarkMode()
+                
+                self.docRef.updateData(["settings": settings])
+                self.darkModeSwitch.isEnabled = true
             }
         }
-        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func gameplayColorsSwitchToggled(_ sender: Any) {
+        colorfulButtonsSwitch.isEnabled = false
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                var settings = data!["settings"] as! Dictionary<String, Bool>
+                
+                settings["colorfulButtonsEnabled"] = self.colorfulButtonsSwitch.isOn
+                CURRENT_USER!.settings.colorfulButtonsEnabled = self.colorfulButtonsSwitch.isOn
+                
+                self.docRef.updateData(["settings": settings])
+                self.colorfulButtonsSwitch.isEnabled = true
+            }
+        }
     }
-    */
-    @IBAction func darkModeSwitchToggled(_ sender: Any) {
-    }
+    
     @IBAction func soundEffectsSwitchToggled(_ sender: Any) {
+        soundEffectsSwitch.isEnabled = false
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                var settings = data!["settings"] as! Dictionary<String, Bool>
+                
+                settings["soundEffectsEnabled"] = self.soundEffectsSwitch.isOn
+                CURRENT_USER!.settings.soundEffectsEnabled = self.soundEffectsSwitch.isOn
+                
+                self.docRef.updateData(["settings": settings])
+                self.soundEffectsSwitch.isEnabled = true
+            }
+        }
     }
+    
     @IBAction func notificationsSwitchToggled(_ sender: Any) {
+        notificiationsSwitch.isEnabled = false
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                var settings = data!["settings"] as! Dictionary<String, Bool>
+                
+                settings["notificationsEnabled"] = self.notificiationsSwitch.isOn
+                CURRENT_USER!.settings.notificationsEnabled = self.notificiationsSwitch.isOn
+                
+                self.docRef.updateData(["settings": settings])
+                self.notificiationsSwitch.isEnabled = true
+            }
+        }
     }
     
     @IBAction func signOutClicked(_ sender: Any) {
@@ -113,9 +194,9 @@ class SettingsVC: UIViewController {
     
     
     private func setupButtons() {
-                signOutButt.backgroundColor = UIColor(named: "MainDarkColor")
-                signOutButt.setTitleColor(.white, for: .normal)
-                signOutButt.layer.cornerRadius = 17.0
+        signOutButt.backgroundColor = UIColor(named: "MainDarkColor")
+        signOutButt.setTitleColor(.white, for: .normal)
+        signOutButt.layer.cornerRadius = 17.0
         
         //Attribute to underline button text.
         let attributedString = NSAttributedString(string: NSLocalizedString("Delete Account", comment: ""), attributes:[

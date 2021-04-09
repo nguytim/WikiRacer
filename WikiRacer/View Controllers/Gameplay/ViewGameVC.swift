@@ -29,7 +29,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var game: Game?
     var backViewController: UIViewController?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +46,17 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         codeLabel.text = game?.code
         startingArticleLabel.text = game?.startingArticle.title
         targetArticleLabel.text = game?.targetArticle.title
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,7 +84,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-
+    
     @IBAction func startButtonPressed(_ sender: Any) {
         // if we're already on Home tab
         if self.tabBarController?.selectedIndex == 2 {
@@ -92,7 +103,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == startGameIdentifier,
@@ -103,5 +114,5 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             gameVC.game = game
         }
     }
-
+    
 }

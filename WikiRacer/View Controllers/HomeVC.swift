@@ -23,6 +23,14 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
+        }
+        
     }
     
     // unhides navigation bar when homeVC disappears
@@ -61,5 +69,4 @@ class HomeVC: UIViewController {
             gameVC.game = game
         }
     }
-    
 }

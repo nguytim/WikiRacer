@@ -59,7 +59,7 @@
                                 <color key="tintColor" name="MainAquaColor"/>
                                 <state key="normal" image="SettingsIcon"/>
                                 <connections>
-                                    <segue destination="hOp-wn-MFy" kind="show" id="vtD-jU-5o6"/>
+                                    <segue destination="hOp-wn-MFy" kind="show" identifier="ToSettingsIdentifier" id="vtD-jU-5o6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" text="Games Won" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zi4-y5-s88">
@@ -247,7 +247,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="JGz-iK-I9u">
-                                <rect key="frame" x="64" y="104" width="300" height="664"/>
+                                <rect key="frame" x="64" y="60.666666666666686" width="300" height="751"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2Q-KZ-nxy" userLabel="Settings Label">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="56"/>
@@ -289,7 +289,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-3x-fft">
-                                        <rect key="frame" x="0.0" y="198" width="300" height="21"/>
+                                        <rect key="frame" x="0.0" y="198.00000000000003" width="300" height="21"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59u-Ck-Nzo" userLabel="Email Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="131.66666666666666" height="21"/>
@@ -308,26 +308,76 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EG0-T9-9FG" userLabel="Sound Effects Switch">
-                                        <rect key="frame" x="0.0" y="275" width="302" height="31"/>
-                                        <connections>
-                                            <action selector="soundEffectsSwitchToggled:" destination="hOp-wn-MFy" eventType="valueChanged" id="u0V-fE-dsu"/>
-                                        </connections>
-                                    </switch>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yxA-YR-ZqV" userLabel="Dark Mode Switch">
-                                        <rect key="frame" x="0.0" y="362" width="302" height="31"/>
-                                        <connections>
-                                            <action selector="darkModeSwitchToggled:" destination="hOp-wn-MFy" eventType="valueChanged" id="CqF-aX-w3x"/>
-                                        </connections>
-                                    </switch>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fzh-Wm-D1l" userLabel="Notifications Switch">
-                                        <rect key="frame" x="0.0" y="449" width="302" height="31"/>
-                                        <connections>
-                                            <action selector="notificationsSwitchToggled:" destination="hOp-wn-MFy" eventType="valueChanged" id="HL4-eq-nCr"/>
-                                        </connections>
-                                    </switch>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yED-bz-QKV">
+                                        <rect key="frame" x="0.0" y="275" width="300" height="31"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yxA-YR-ZqV" userLabel="Dark Mode Switch">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="darkModeSwitchToggled:" destination="hOp-wn-MFy" eventType="valueChanged" id="CqF-aX-w3x"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfv-xt-Bgn">
+                                                <rect key="frame" x="59" y="0.0" width="241" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="E32-Sw-RjE">
+                                        <rect key="frame" x="0.0" y="362" width="300" height="31"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xnb-Vg-RLG" userLabel="Colorful Buttons Switch">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="gameplayColorsSwitchToggled:" destination="hOp-wn-MFy" eventType="valueChanged" id="XQ0-wv-TiU"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colorful Buttons (Gameplay)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub9-2u-AOH">
+                                                <rect key="frame" x="59" y="0.0" width="241" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ezI-h9-Yb6">
+                                        <rect key="frame" x="0.0" y="449" width="300" height="31"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EG0-T9-9FG" userLabel="Sound Effects Switch">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="soundEffectsSwitchToggled:" destination="hOp-wn-MFy" eventType="valueChanged" id="u0V-fE-dsu"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound Effects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiX-Mm-eO8">
+                                                <rect key="frame" x="59" y="0.0" width="241" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hTf-KA-0L8">
+                                        <rect key="frame" x="0.0" y="536" width="300" height="31"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fzh-Wm-D1l" userLabel="Notifications Switch">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="notificationsSwitchToggled:" destination="hOp-wn-MFy" eventType="valueChanged" id="HL4-eq-nCr"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ij-Vu-e1s">
+                                                <rect key="frame" x="59" y="0.0" width="241" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHM-hk-cbA" userLabel="Sign Out Button">
-                                        <rect key="frame" x="0.0" y="536" width="300" height="36"/>
+                                        <rect key="frame" x="0.0" y="623" width="300" height="36"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="20"/>
                                         <state key="normal" title="Sign Out"/>
                                         <userDefinedRuntimeAttributes>
@@ -339,7 +389,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t10-ZZ-NWB" userLabel="Delete Account Button">
-                                        <rect key="frame" x="0.0" y="628" width="300" height="36"/>
+                                        <rect key="frame" x="0.0" y="715" width="300" height="36"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                         <state key="normal" title="Delete Account">
                                             <color key="titleColor" name="MainRedColor"/>
@@ -361,9 +411,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="OLy-rt-9Yo"/>
                     <connections>
+                        <outlet property="colorfulButtonsSwitch" destination="Xnb-Vg-RLG" id="HLh-zQ-ejb"/>
+                        <outlet property="darkModeSwitch" destination="yxA-YR-ZqV" id="jlo-G9-fcb"/>
                         <outlet property="deleteAccountButt" destination="t10-ZZ-NWB" id="jnA-Ab-F7F"/>
                         <outlet property="emailLabel" destination="npM-05-dRU" id="qst-gP-Paa"/>
+                        <outlet property="notificiationsSwitch" destination="Fzh-Wm-D1l" id="4wD-GD-oke"/>
                         <outlet property="signOutButt" destination="LHM-hk-cbA" id="DSa-cu-5Ig"/>
+                        <outlet property="soundEffectsSwitch" destination="EG0-T9-9FG" id="Tog-L9-BBm"/>
                         <outlet property="usernameLabel" destination="mIf-Vo-G3S" id="Gr4-hL-gju"/>
                         <segue destination="EPR-Je-TSr" kind="presentation" identifier="LoginIdentifier" modalPresentationStyle="fullScreen" id="Otx-g9-FMu"/>
                     </connections>
