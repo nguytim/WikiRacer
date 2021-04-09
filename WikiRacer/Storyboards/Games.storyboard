@@ -70,10 +70,17 @@
                         <viewLayoutGuide key="safeArea" id="QfG-fM-0v1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TZ0-TU-rNb"/>
+                    <navigationItem key="navigationItem" id="TZ0-TU-rNb">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="yBe-Q8-tnK">
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="EJt-3Q-ggR" id="Xsc-Pq-KtZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="gamesTableView" destination="0PJ-rZ-aI0" id="j6P-6w-KA1"/>
+                        <outlet property="refreshButton" destination="yBe-Q8-tnK" id="BzN-XH-PZv"/>
                         <segue destination="AGe-WN-Ljn" kind="show" identifier="ViewGameSegueIdentifier" id="cQw-0l-o1d"/>
                     </connections>
                 </viewController>

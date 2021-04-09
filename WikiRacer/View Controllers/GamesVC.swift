@@ -21,6 +21,7 @@ class GameTableViewCell: UITableViewCell {
 class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var gamesTableView: UITableView!
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
     
     var games: [Game] = [Game]()
     var gameIDs: [String] = [String]()
@@ -38,13 +39,14 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         gamesTableView.dataSource = self
         gamesTableView.delegate = self
+        
+        getCurrentUsersGames()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    @IBAction func refreshButtonPressed(_ sender: Any) {
+        refreshButton.isEnabled = false
         games = [Game]()
         getCurrentUsersGames()
-        
-        // set if game has already been played and set the game.played = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,22 +59,27 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let game = games[indexPath.row]
         
         // style
-//        cell.layer.cornerRadius = 8
-//        cell.layer.masksToBounds = true
-//
-//        cell.layer.masksToBounds = false
-////        cell.layer.shadowOffset = CGSizeMake(0, 0)
-////        cell.layer.shadowColor = UIColor.blackColor().CGColor
-//        cell.layer.shadowOpacity = 0.23
-//        cell.layer.shadowRadius = 4
+        //        cell.layer.cornerRadius = 8
+        //        cell.layer.masksToBounds = true
+        //
+        //        cell.layer.masksToBounds = false
+        ////        cell.layer.shadowOffset = CGSizeMake(0, 0)
+        ////        cell.layer.shadowColor = UIColor.blackColor().CGColor
+        //        cell.layer.shadowOpacity = 0.23
+        //        cell.layer.shadowRadius = 4
         
         // initialization
         cell.startingArticleLabel.text = game.startingArticle.title
         cell.targetArticleLabel.text = game.targetArticle.title
         
-        if game.hasPlayed! {
+        let hasPlayed = game.hasPlayed!
+        
+        if hasPlayed {
             cell.gameStatusLabel.text = "Check results"
             cell.backgroundColor = UIColor.init(named: "MainLimeGreenColor")
+        } else {
+            cell.gameStatusLabel.text = "In Progress"
+            cell.backgroundColor = UIColor.init(named: "MainYellowColor")
         }
         
         return cell
@@ -84,16 +91,16 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: self.viewExistingGameIdentifier, sender: game)
     }
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        let index = indexPath.row
-//        let game = games[index]
-//        
-//        if editingStyle == .delete {
-//            
-//            games.remove(at: index)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
+    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        let index = indexPath.row
+    //        let game = games[index]
+    //
+    //        if editingStyle == .delete {
+    //
+    //            games.remove(at: index)
+    //            tableView.deleteRows(at: [indexPath], with: .fade)
+    //        }
+    //    }
     
     func getCurrentUsersGames() {
         let docRef = db!.collection("users").document(Auth.auth().currentUser!.uid)
@@ -146,9 +153,9 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     let game = Game(startingArticle: startingArticle, targetArticle: targetArticle, code: gameID, gameType: gameType, leaderboard: leaderboard)
                     
                     game.hasPlayed = hasPlayed
-                    
                     self.games.append(game)
                     self.gamesTableView.reloadData()
+                    self.refreshButton.isEnabled = true
                 } else {
                     print("CODE IS NOT VALID")
                 }
@@ -160,29 +167,29 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.alpha = 0
         
         let verticalPadding: CGFloat = 12
-
+        
         let maskLayer = CALayer()
         maskLayer.cornerRadius = 15   //if you want round edges
         maskLayer.backgroundColor = UIColor.black.cgColor
         maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
         cell.layer.mask = maskLayer
-
+        
         UIView.animate(
             withDuration: 0.5,
             delay: 0.05 * Double(indexPath.row),
             animations: {
                 cell.alpha = 1
-        })
+            })
     }
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == viewExistingGameIdentifier,
-                  let viewGameVC = segue.destination as? ViewGameVC {
+           let viewGameVC = segue.destination as? ViewGameVC {
             viewGameVC.game = sender as? Game
             viewGameVC.backViewController = self
         }
     }
-
+    
 }

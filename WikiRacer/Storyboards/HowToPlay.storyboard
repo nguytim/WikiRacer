@@ -20,14 +20,13 @@
         <!--View Controller-->
         <scene sceneID="1xy-No-aza">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BoS-XE-l0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="fnm-cZ-AdK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x02-tm-ZXd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrG-h6-mcz">
-                                <rect key="frame" x="73.5" y="122" width="267" height="56"/>
+                                <rect key="frame" x="70" y="122" width="274" height="60"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
                                 <color key="textColor" name="MainAquaColor"/>
                                 <nil key="highlightedColor"/>
@@ -64,6 +63,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BoS-XE-l0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1250" y="841"/>
         </scene>
