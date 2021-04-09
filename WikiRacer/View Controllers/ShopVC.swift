@@ -77,7 +77,6 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             // adopt a dark interface style
             overrideUserInterfaceStyle = .light
         }
-        
         let user = Auth.auth().currentUser
         if let user = user {
             let docRef = db.collection("users").document(user.uid)
@@ -90,9 +89,9 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                 let points : Int =  data?["points"] as! Int
                 self.currentPoints = points
                 self.moneyLabel.text = "\(points) ⚡️"
+                self.moneyLabel.center.x += self.view.bounds.width
             }}
         }
-        self.moneyLabel.center.x += self.view.bounds.width
         shopGrid.reloadData()
     }
     
@@ -100,6 +99,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
             self.moneyLabel.center.x -= self.view.bounds.width
         })
+        self.shopGrid.indexPathsForSelectedItems?.forEach({ self.shopGrid.deselectItem(at: $0, animated: false) })
     }
     
     func collectionView(_ collectionView:  UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -148,9 +148,9 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         if purchasedItems.contains(item.name) {
             cell.isUserInteractionEnabled = false
             cell.contentView.backgroundColor = .systemGray
-            cell.layer.borderWidth = 0
             cell.costLabel.textColor = .white
         }
+        cell.layer.borderWidth = 0
         return cell
     }
     
