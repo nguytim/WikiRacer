@@ -8,9 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Nunito-Bold.ttf">
-            <string>Nunito-Bold</string>
-        </array>
         <array key="Nunito-Regular.ttf">
             <string>Nunito-Regular</string>
         </array>
@@ -28,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="d9z-0y-PwO">
-                                <rect key="frame" x="68" y="219" width="278" height="458"/>
+                                <rect key="frame" x="68" y="286" width="278" height="324.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up 👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2i-lc-Hu9">
                                         <rect key="frame" x="0.0" y="0.0" width="278" height="66.5"/>
@@ -57,21 +54,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoD-J0-SQI">
                                         <rect key="frame" x="0.0" y="288.5" width="278" height="36"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
-                                        <state key="normal" title="Sign up"/>
+                                        <state key="normal" title="Create Account"/>
                                         <connections>
                                             <action selector="signUpButton:" destination="8hO-fl-ENv" eventType="touchUpInside" id="gof-0d-rGM"/>
                                         </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d96-aH-Txg">
-                                        <rect key="frame" x="0.0" y="361.5" width="278" height="23.5"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
-                                        <color key="textColor" name="MainDarkColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoN-gB-quQ">
-                                        <rect key="frame" x="0.0" y="422" width="278" height="36"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
-                                        <state key="normal" title="Sign up with Gmail"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -87,7 +73,6 @@
                         <outlet property="emailAddressTextField" destination="bO0-0O-2aO" id="SUQ-KR-Crs"/>
                         <outlet property="passwordTextField" destination="PLS-uU-xEp" id="6op-Ih-qzJ"/>
                         <outlet property="signUpButton" destination="NoD-J0-SQI" id="2mP-wg-QGL"/>
-                        <outlet property="signUpGmailButton" destination="xoN-gB-quQ" id="jzJ-nN-jE3"/>
                         <outlet property="usernameTextField" destination="Bay-aY-w60" id="U7k-v0-29L"/>
                         <segue destination="646-A2-zFa" kind="presentation" identifier="RegisterToMainIdentifier" modalPresentationStyle="fullScreen" id="eAH-H5-fgn"/>
                     </connections>
@@ -110,9 +95,6 @@
     <resources>
         <namedColor name="MainAquaColor">
             <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="MainDarkColor">
-            <color red="0.13333333333333333" green="0.19215686274509805" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -18,7 +18,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var signUpGmailButton: UIButton!
     
     var globalUsernames: [String] = []
     
@@ -103,14 +102,9 @@ class RegisterViewController: UIViewController {
     private func setupRegisterButtons() {
         //Attribute to underline button text.
         let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20.0), NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.underlineStyle:1.0] as [NSAttributedString.Key : Any]
-        var attributedString = NSAttributedString(string: NSLocalizedString("Sign up", comment: ""), attributes: attributes)
+        var attributedString = NSAttributedString(string: NSLocalizedString("Create Account", comment: ""), attributes: attributes)
         signUpButton.setAttributedTitle(attributedString, for: .normal)
         signUpButton.setTitleColor(.white, for: .normal)
-        
-        attributedString = NSAttributedString(string: NSLocalizedString("Sign up with Gmail", comment: ""), attributes: attributes)
-        signUpGmailButton.setAttributedTitle(attributedString, for: .normal)
-        signUpGmailButton.setTitleColor(.white, for: .normal)
-        
     }
     
     //Function to style the text fields
