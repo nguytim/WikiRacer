@@ -83,9 +83,15 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                 self.moneyLabel.text = "\(points) ⚡️"
             }}
         }
+        self.moneyLabel.center.x += self.view.bounds.width
         shopGrid.reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+            self.moneyLabel.center.x -= self.view.bounds.width
+        })
+    }
     
     func collectionView(_ collectionView:  UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return shopItems.count
@@ -95,6 +101,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCollectionCell
         cell.layer.cornerRadius = 10
         cell.isOpaque = true
+        cell.contentView.backgroundColor = .systemGray3
         cell.contentView.isOpaque = true
         cell.alpha = 0
         cell.contentView.alpha = 0
@@ -131,8 +138,9 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         if purchasedItems.contains(item.name) {
             cell.isUserInteractionEnabled = false
-            cell.contentView.backgroundColor = .systemGray2
+            cell.contentView.backgroundColor = .systemGray
             cell.layer.borderWidth = 0
+            cell.costLabel.textColor = .white
         }
         return cell
     }
@@ -200,10 +208,10 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         let currItem = shopItems[indexPath.row]
         if (currItem.cost > currentPoints) {
-            let insufficientMoneyAlert = UIAlertController(title: "Insufficient Fuel Points", message: "You do not have enough points to purchase this item.", preferredStyle: UIAlertController.Style.alert)
+            let insufficientMoneyAlert = UIAlertController(title: "Not Enough Fuel Points", message: "You do not have enough points to purchase this item.", preferredStyle: UIAlertController.Style.alert)
             insufficientMoneyAlert.addAction(UIAlertAction(
                                                 title: "OK",
-                                                style: .default,
+                                                style: .destructive,
                                                 handler: nil))
             present(insufficientMoneyAlert, animated: true, completion: nil)
         } else {
