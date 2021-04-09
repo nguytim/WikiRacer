@@ -56,7 +56,7 @@ class RegisterViewController: UIViewController {
                                 let usernameCollection = Firestore.firestore().collection("usernames")
                                 
                                 //Create a document for a new username being registered.
-                                usernameCollection.document().setData(["username": self.usernameTextField.text!.lowercased()])
+                                let usernameCollectionDocumentReference = usernameCollection.addDocument(data:["username": self.usernameTextField.text!.lowercased()])
                                 
                                 let defaultStats = Stats(gamesPlayed: 0, gamesWon: 0, totalGameTime: 0, totalNumberOfLinks: 0, fastestGame: 0, leastNumberOfLinks: 0)
                                 
@@ -64,7 +64,7 @@ class RegisterViewController: UIViewController {
                                 
                                 let defaultSettings = Settings(darkModeEnabled: false, colorfulButtonsEnabled: true, soundEffectsEnabled: true, notificationsEnabled: true)
                                 
-                                let user = User(username: self.usernameTextField.text!, usernameID: self.usernameTextField.text!, points: 0, stats: defaultStats, racer: defaultRacer, settings: defaultSettings)
+                                let user = User(username: self.usernameTextField.text!, usernameID: usernameCollectionDocumentReference.documentID, points: 0, stats: defaultStats, racer: defaultRacer, settings: defaultSettings)
                                 
                                 //Create a document for the user collection with the key being the users UID given by Firebase Authentication.
                                 collection.document(Auth.auth().currentUser!.uid).setData(user.dictionary)
