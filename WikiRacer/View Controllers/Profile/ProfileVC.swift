@@ -67,18 +67,27 @@ class ProfileVC: UIViewController {
                 let userName = data!["username"] as! String
                 let numGames = data!["gamesPlayed"] as! Int
                 let gamesWon = data!["gamesWon"] as! Int
-                let avgTime = data!["averageGameTime"] as! Int
-                let avgLinks = data!["averageNumberOfLinks"] as! Int
-                let fastestTime = data!["fastestGame"] as!  Int
+                let totalTime = data!["averageGameTime"] as! Int
+                let totalLinks = data!["averageNumberOfLinks"] as! Int
+                let fastestTime = data!["fastestGame"] as! Int
                 let leastNumLinks = data!["leastNumberofLink"] as! Int
+                
+                let avgTime = totalTime / gamesWon
+                let avgLinks = totalLinks / gamesWon
+                
+                let minutesAvgTime = (avgTime % 3600) / 60
+                let secondsAvgTime = (avgTime % 3600) % 60
+                
+                let minutesFastestTime = (fastestTime % 3600) / 60
+                let secondsFastestTime = (fastestTime % 3600) % 60
                 
                 self.numGamesLabel.text = String(numGames)
                 self.numGamesWonLabel.text = String(gamesWon)
-                self.fastestTimeLabel.text = String(fastestTime)
+                self.fastestTimeLabel.text = String(format:"%d:%02d", minutesFastestTime, secondsFastestTime)
                 self.leastNumLinksLabel.text = String(leastNumLinks)
                 self.userNameLabel.text = String(userName)
                 self.avgLinksLabel.text = String(avgLinks)
-                self.avgGameTimeLabel.text = String(avgTime)
+                self.avgGameTimeLabel.text = String(format:"%d:%02d", minutesAvgTime, secondsAvgTime)
                 
                 self.showLabels()
             }

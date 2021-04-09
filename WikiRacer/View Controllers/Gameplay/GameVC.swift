@@ -44,6 +44,8 @@ class GameVC: UIViewController, WKNavigationDelegate {
     var currentArticle: Article?
     var previousArticles = [Article]()
     
+    var db: Firestore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewForEmbedingWebView.isHidden = true
@@ -52,6 +54,14 @@ class GameVC: UIViewController, WKNavigationDelegate {
         
         // resets navigation to this VC
         self.navigationController?.viewControllers = [self]
+        
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        
+        // update games played for user stats
+        updateGamesPlayed()
         
         // set up webview
         webView = WKWebView(frame: viewForEmbedingWebView.bounds, configuration: WKWebViewConfiguration())
@@ -83,6 +93,28 @@ class GameVC: UIViewController, WKNavigationDelegate {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
     }
+    
+    // update games played for user
+    func updateGamesPlayed() {
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                
+                // POINTS
+                var totalGamesPlayed = 1
+                if let gamesPlayed = data?["gamesPlayed"] as? Int {
+                    totalGamesPlayed += gamesPlayed
+                }
+                docRef.updateData(["gamesPlayed": totalGamesPlayed])
+            }
+        }
+    }
+    
+//    func applicationWillTerminate(_ application: UIApplication) {
+//        
+//    }
     
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)

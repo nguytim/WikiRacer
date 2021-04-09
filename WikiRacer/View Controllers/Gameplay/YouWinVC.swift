@@ -8,7 +8,6 @@
 import UIKit
 import SwiftySound
 import Firebase
-import FirebaseFirestore
 
 class YouWinVC: UIViewController {
     
@@ -33,8 +32,8 @@ class YouWinVC: UIViewController {
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         
-        // add game points for user
-        addPointsForUser()
+        // update user stats
+        updateStats()
         
         // resets navigation to this VC
         self.navigationController?.viewControllers = [self]
@@ -66,18 +65,57 @@ class YouWinVC: UIViewController {
         performSegue(withIdentifier: viewExistingGameIdentifier, sender: game)
     }
     
-    func addPointsForUser() {
+    // update stats for user
+    func updateStats() {
         let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
                 
-                var pointsEarned = 5
+                // POINTS
+                var totalPoints = 5
                 if let currentPoints = data?["points"] as? Int {
-                    pointsEarned += currentPoints
+                    totalPoints += currentPoints
                 }
-                docRef.updateData(["points": pointsEarned])
+                docRef.updateData(["points": totalPoints])
+                
+                // GAMES WON
+                var totalGamesWon = 1
+                if let gamesWon = data?["gamesWon"] as? Int {
+                    totalGamesWon += gamesWon
+                }
+                docRef.updateData(["gamesWon": totalGamesWon])
+                
+                // TOTAL GAME TIME
+                var totalTime = self.game!.elapsedTime
+                if let time = data?["averageGameTime"] as? Int {
+                    totalTime += time
+                }
+                docRef.updateData(["averageGameTime": totalTime])
+                
+                // TOTAL LINKS
+                var totalLinks = self.game!.numLinks
+                if let numLinks = data?["averageNumberOfLinks"] as? Int {
+                    totalLinks += numLinks
+                }
+                docRef.updateData(["averageNumberOfLinks": totalLinks])
+                
+                // FASTEST GAME
+                let gameTime = self.game!.elapsedTime
+                if let fastestGame = data?["fastestGame"] as? Int {
+                    if gameTime < fastestGame || fastestGame == 0 {
+                        docRef.updateData(["fastestGame": gameTime])
+                    }
+                }
+                
+                // LEAST NUMBER OF LINKS
+                let usedNumLinks = self.game!.numLinks
+                if let leastNumLinks = data?["leastNumberofLink"] as? Int {
+                    if usedNumLinks < leastNumLinks || leastNumLinks == 0 {
+                        docRef.updateData(["leastNumberofLink": usedNumLinks])
+                    }
+                }
             }
         }
     }
