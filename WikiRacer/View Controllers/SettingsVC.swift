@@ -17,10 +17,12 @@ class SettingsVC: UIViewController {
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var usernametextLabel: UILabel!
     
     
     @IBOutlet weak var signOutButt: UIButton!
     @IBOutlet weak var deleteAccountButt: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var colorfulButtonsSwitch: UISwitch!
@@ -258,6 +260,10 @@ class SettingsVC: UIViewController {
         signOutButt.setTitleColor(.white, for: .normal)
         signOutButt.layer.cornerRadius = 17.0
         
+        editButton.backgroundColor = UIColor(named: "MainDarkColor")
+        editButton.setTitleColor(.white, for: .normal)
+        editButton.layer.cornerRadius = 17.0
+        
         //Attribute to underline button text.
         let attributedString = NSAttributedString(string: NSLocalizedString("Delete Account", comment: ""), attributes:[
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17.0),
@@ -279,7 +285,7 @@ class SettingsVC: UIViewController {
         
         usernameTextField.layer.addSublayer(usernameBorder)
         usernameTextField.layer.masksToBounds = true
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username",
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: CURRENT_USER!.username,
                                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
 }
