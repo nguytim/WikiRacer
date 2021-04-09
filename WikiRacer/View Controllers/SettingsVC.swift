@@ -16,6 +16,10 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
+    @IBOutlet weak var signOutButt: UIButton!
+    @IBOutlet weak var deleteAccountButt: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +35,8 @@ class SettingsVC: UIViewController {
         if let user = user {
             emailLabel.text = user.email
         }
+        
+        setupButtons()
 
         // Do any additional setup after loading the view.
     }
@@ -99,5 +105,11 @@ class SettingsVC: UIViewController {
         deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
         }))
         present(deleteAlert, animated: true, completion: nil)
+    }
+    
+    private func setupButtons() {
+                signOutButt.backgroundColor = UIColor(named: "MainDarkColor")
+                signOutButt.setTitleColor(.white, for: .normal)
+                signOutButt.layer.cornerRadius = 17.0
     }
 }
