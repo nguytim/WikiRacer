@@ -46,6 +46,7 @@ class SettingsVC: UIViewController {
         }
         
         setupButtons()
+        setupUsernameTextfield()
         
         // Do any additional setup after loading the view.
     }
@@ -265,5 +266,20 @@ class SettingsVC: UIViewController {
         ])
         deleteAccountButt.setAttributedTitle(attributedString, for: .normal)
         
+    }
+    
+    private func setupUsernameTextfield() {
+        let borderWidth = CGFloat(2.0)
+        
+        //USERNAME
+        let usernameBorder = CALayer()
+        usernameBorder.borderColor = UIColor.white.cgColor
+        usernameBorder.frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: usernameTextField.frame.size.height)
+        usernameBorder.borderWidth = borderWidth
+        
+        usernameTextField.layer.addSublayer(usernameBorder)
+        usernameTextField.layer.masksToBounds = true
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
 }
