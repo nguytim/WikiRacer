@@ -15,8 +15,9 @@ class SettingsVC: UIViewController {
     var docRef: DocumentReference!
     var delegate: UIViewController!
     
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var usernameTextField: UITextField!
+    
     
     @IBOutlet weak var signOutButt: UIButton!
     @IBOutlet weak var deleteAccountButt: UIButton!
@@ -61,7 +62,8 @@ class SettingsVC: UIViewController {
     }
     
     func loadUserSettings() {
-        usernameLabel.text = CURRENT_USER!.username
+        usernameTextField.placeholder = CURRENT_USER!.username
+        //usernameLabel.text = CURRENT_USER!.username
         darkModeSwitch.isOn = CURRENT_USER!.settings.darkModeEnabled
         colorfulButtonsSwitch.isOn = CURRENT_USER!.settings.colorfulButtonsEnabled
         soundEffectsSwitch.isOn = CURRENT_USER!.settings.soundEffectsEnabled
@@ -189,9 +191,66 @@ class SettingsVC: UIViewController {
     }
     
     @IBAction func editUsernameButtonClicked(_ sender: Any) {
+        if(usernameTextField.text != nil && !usernameTextField.text!.isEmpty) {
+                print("made it inside newusername != ")
+            let docRef = Firestore.firestore().collection("usernames").whereField("username", isEqualTo: usernameTextField.text!.lowercased()).limit(to: 1)
+                docRef.getDocuments { (querysnapshot, error) in
+                    if error != nil {
+                        print("Document Error: ", error!)
+                    } else {
+                        if let doc = querysnapshot?.documents, !doc.isEmpty {
+                            //unsuccessful registration
+                            let alert = UIAlertController(title: "Username is taken", message: "Please try a different username.", preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        else {
+                            //change the username bc it not currently existing and is valid
+                            
+                            //Change GOBLAL users username.
+                            CURRENT_USER?.username = self.usernameTextField.text!
+                            
+                            //change current Authenticated users Display Name
+                            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                            changeRequest?.displayName = self.usernameTextField.text!
+                            changeRequest?.commitChanges(completion: nil)
+                            
+                            //change usernames user database
+                            self.db.collection("usernames").document(CURRENT_USER!.usernameID).setData([ "username": self.usernameTextField.text! ])
+                            
+                            self.db.collection("users").document(Auth.auth().currentUser!.uid).setData(["username": self.usernameTextField.text!], merge: true)
+                            
+                            //Let user know they have successfully changed their username.
+                            let alert = UIAlertController(title: "Congrats!", message: "You have updated your username.", preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "Wohoo!", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                            
+                            //Reset the textfield and display new username
+                            self.usernameTextField.text = ""
+                            self.usernameTextField.placeholder = CURRENT_USER?.username
+                        }
+                    }
+                }
+        }
+        else {
+            let alert = UIAlertController(title: "Error", message: "Please make sure new username is not empty.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
         
+//        let ac = UIAlertController(title: "Enter new username", message: nil, preferredStyle: .alert)
+//        ac.addTextField()
+//
+//        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+//
+//            let newUsernameEntered = ac.textFields![0]
+//            // do something interesting with "answer" here
+//            newUsername = newUsernameEntered.text ?? ""
+//        }
+//        ac.addAction(submitAction)
+//        present(ac, animated: true)
     }
-    
+            
     
     private func setupButtons() {
         signOutButt.backgroundColor = UIColor(named: "MainDarkColor")
