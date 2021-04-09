@@ -7,6 +7,8 @@
 
 import UIKit
 import SwiftySound
+import Firebase
+import FirebaseFirestore
 
 class YouWinVC: UIViewController {
     
@@ -19,11 +21,20 @@ class YouWinVC: UIViewController {
     let replaySegueIdentifier = "ReplayIdentifier"
     let viewExistingGameIdentifier = "ViewExistingGameIdentifier"
     
+    var db: Firestore!
     var game: Game?
     var isMultiplayer: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        
+        // add game points for user
+        addPointsForUser()
         
         // resets navigation to this VC
         self.navigationController?.viewControllers = [self]
@@ -53,6 +64,22 @@ class YouWinVC: UIViewController {
     // multiplayer
     @IBAction func leaderboardButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: viewExistingGameIdentifier, sender: game)
+    }
+    
+    func addPointsForUser() {
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                
+                var pointsEarned = 5
+                if let currentPoints = data?["points"] as? Int {
+                    pointsEarned += currentPoints
+                }
+                docRef.updateData(["points": pointsEarned])
+            }
+        }
     }
     
     // MARK: - Navigation
