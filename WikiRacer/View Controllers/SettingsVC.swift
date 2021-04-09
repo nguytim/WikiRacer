@@ -111,5 +111,14 @@ class SettingsVC: UIViewController {
                 signOutButt.backgroundColor = UIColor(named: "MainDarkColor")
                 signOutButt.setTitleColor(.white, for: .normal)
                 signOutButt.layer.cornerRadius = 17.0
+        
+        //Attribute to underline button text.
+        let attributedString = NSAttributedString(string: NSLocalizedString("Delete Account", comment: ""), attributes:[
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17.0),
+            NSAttributedString.Key.foregroundColor : UIColor.red,
+            NSAttributedString.Key.underlineStyle:1.0
+        ])
+        deleteAccountButt.setAttributedTitle(attributedString, for: .normal)
+        
     }
 }
