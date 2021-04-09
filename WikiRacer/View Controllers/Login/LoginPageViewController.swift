@@ -73,6 +73,9 @@ class LoginPageViewController: UIViewController {
                 self.loginButton.center.x += self.view.bounds.width
                 self.signUpButton.center.x -= self.view.bounds.width
             }, completion: nil)
+        
+        //Warn users about bata
+        betaNotification()
     }
     
     //Code for firebase login
@@ -159,6 +162,12 @@ class LoginPageViewController: UIViewController {
                 self.performSegue(withIdentifier: "SignInIdentifier", sender: nil)
             }
         }
+    }
+    
+    private func betaNotification() {
+        let alert = UIAlertController(title: "Please Read.", message: "This is a beta test. Core functionality of playing the game works and is the focus of this test. ", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
