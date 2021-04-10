@@ -121,6 +121,8 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 if (data?["games"] != nil) {
                     self.gameIDs = data!["games"] as! [String]
                     self.getGames()
+                } else {
+                    self.refreshButton.isEnabled = true
                 }
             }
         }

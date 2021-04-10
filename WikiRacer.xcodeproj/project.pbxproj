@@ -24,7 +24,6 @@
 		64EA40A3260AB72B00D9CCE1 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EA40A2260AB72B00D9CCE1 /* SettingsVC.swift */; };
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
 		A70CDBEC2605252100269BC2 /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70CDBEB2605252100269BC2 /* ShopVC.swift */; };
-		A7DADC7D260506A300C5B850 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DADC7C260506A300C5B850 /* ProfileVC.swift */; };
 		D10AAC1C25F6CF7800750F02 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */; };
 		D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CB25E841E900C233F9 /* AppDelegate.swift */; };
 		D12670CE25E841E900C233F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CD25E841E900C233F9 /* SceneDelegate.swift */; };
@@ -82,7 +81,6 @@
 		64EA40A2260AB72B00D9CCE1 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.debug.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.debug.xcconfig"; sourceTree = "<group>"; };
 		A70CDBEB2605252100269BC2 /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
-		A7DADC7C260506A300C5B850 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileVC.swift; path = Profile/ProfileVC.swift; sourceTree = "<group>"; };
 		D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D12670C825E841E900C233F9 /* WikiRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12670CB25E841E900C233F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				D19D867925FAF53C000C421B /* Article Selection */,
 				D19D867825FAF521000C421B /* Gameplay */,
 				D1F1AC1D25F5E39E00F42065 /* HomeVC.swift */,
-				A7DADC7C260506A300C5B850 /* ProfileVC.swift */,
 				A70CDBEB2605252100269BC2 /* ShopVC.swift */,
 				D1839674260D51BC00D5AE7A /* GamesVC.swift */,
 				D190BF272611452700A091DE /* RacerVC.swift */,
@@ -446,7 +443,6 @@
 			files = (
 				D15647D0261AB605003E543B /* ProfileVC.swift in Sources */,
 				D15A6D0E2601901900DDCD85 /* ChooseCustomTargetArticleVC.swift in Sources */,
-				A7DADC7D260506A300C5B850 /* ProfileVC.swift in Sources */,
 				D1A05B712620142800C9FDC7 /* HowToPlayVC.swift in Sources */,
 				D1A79D8626140BB5001D26D9 /* SAConfettiView.swift in Sources */,
 				D1839675260D51BC00D5AE7A /* GamesVC.swift in Sources */,
@@ -625,13 +621,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W3QRJT4LM3;
+				DEVELOPMENT_TEAM = UWXHRPAHT3;
 				INFOPLIST_FILE = WikiRacer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CS378.WikiRacer.pal;
+				PRODUCT_BUNDLE_IDENTIFIER = CS378.WikiRacer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -645,13 +641,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W3QRJT4LM3;
+				DEVELOPMENT_TEAM = UWXHRPAHT3;
 				INFOPLIST_FILE = WikiRacer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CS378.WikiRacer.pal;
+				PRODUCT_BUNDLE_IDENTIFIER = CS378.WikiRacer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

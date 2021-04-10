@@ -77,20 +77,27 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             // adopt a dark interface style
             overrideUserInterfaceStyle = .light
         }
-        let user = Auth.auth().currentUser
-        if let user = user {
-            let docRef = db.collection("users").document(user.uid)
-            docRef.getDocument{ (document, eror) in if let document = document, document.exists {
-                _ = self.db!.collection("users").document(user.uid)
-                if (document.get("itemsOwned") as? [String]) != nil {
-                    self.purchasedItems = document.get("itemsOwned") as! [String]
-                }
+        
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
                 let data = document.data()
-                let points : Int =  data?["points"] as! Int
+                
+                let points:Int = data?["points"] as! Int
                 self.currentPoints = points
                 self.moneyLabel.text = "\(points) ⚡️"
                 self.moneyLabel.center.x += self.view.bounds.width
-            }}
+                
+                let racer = data!["racer"] as! Dictionary<String, Any>
+                let accessoriesOwned = racer["accessoriesOwned"] as! [String]
+                let racecarsOwned = racer["racecarsOwned"] as! [String]
+                let racersOwned = racer["racersOwned"] as! [String]
+                
+                self.purchasedItems.append(contentsOf: accessoriesOwned)
+                self.purchasedItems.append(contentsOf: racecarsOwned)
+                self.purchasedItems.append(contentsOf: racersOwned)
+            }
         }
         shopGrid.reloadData()
     }
@@ -229,27 +236,41 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             
             confirmPurchaseAlert.addAction(UIAlertAction(title: "Buy", style: .default, handler: { (action: UIAlertAction!) in
                 
-                let user = Auth.auth().currentUser
-                if let user = user {
-                    let pointsLeft = self.currentPoints - self.shopItems[indexPath.row].cost
-                    self.currentPoints = pointsLeft
-                    
-                    var itemsOwned = [String]()
-                    
-                    let docRef = self.db!.collection("users").document(user.uid)
-                    docRef.getDocument { (document, error) in
-                        if let document = document, document.exists {
-                            
-                            if (document.get("itemsOwned") as? [String]) != nil {
-                                itemsOwned = document.get("itemsOwned") as! [String]
-                            }
-                            
-                            itemsOwned.append(self.shopItems[indexPath.row].name)
-                            self.purchasedItems = itemsOwned
-                            self.db.collection("users").document(user.uid).updateData(["itemsOwned": itemsOwned, "points": pointsLeft])
-                            self.moneyLabel.text = "\(pointsLeft) ⚡️"
-                            self.shopGrid.reloadData()
-                        }}
+                let docRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+                
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let data = document.data()
+                        
+                        let pointsLeft = self.currentPoints - self.shopItems[indexPath.row].cost
+                        self.currentPoints = pointsLeft
+                        
+                        var racer = data!["racer"] as! Dictionary<String, Any>
+
+                        let count = indexPath.row
+                        let item = self.shopItems[indexPath.row].name
+                        
+                        self.purchasedItems.append(item)
+                        
+                        // find which category this item belongs in
+                        if count < self.hatsCount {
+                            var accessoriesOwned = racer["accessoriesOwned"] as! [String]
+                            accessoriesOwned.append(item)
+                            racer["accessoriesOwned"] = accessoriesOwned
+                        } else if count < self.hatsCount + self.racecarsCount {
+                            var racecarsOwned = racer["racecarsOwned"] as! [String]
+                            racecarsOwned.append(item)
+                            racer["racecarsOwned"] = racecarsOwned
+                        } else {
+                            var racersOwned = racer["racersOwned"] as! [String]
+                            racersOwned.append(item)
+                            racer["racersOwned"] = racersOwned
+                        }
+                        
+                        docRef.updateData(["racer": racer, "points": pointsLeft])
+                        self.moneyLabel.text = "\(pointsLeft) ⚡️"
+                        self.shopGrid.reloadData()
+                    }
                 }
             }))
             
