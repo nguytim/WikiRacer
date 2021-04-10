@@ -230,10 +230,12 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         }
         
         if equippedItems.contains(item) {
+            cell.isUserInteractionEnabled = false
             cell.contentView.backgroundColor = .systemGray
             cell.costLabel.textColor = .white
             cell.costLabel.text = "Equipped"
         } else {
+            cell.isUserInteractionEnabled = true
             cell.costLabel.text = ""
         }
         
@@ -242,7 +244,6 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("SELECTED")
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.layer.borderWidth = 5
         cell?.layer.borderColor = UIColor(named: "MainAquaColor")?.cgColor

@@ -156,7 +156,10 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             cell.isUserInteractionEnabled = false
             cell.contentView.backgroundColor = .systemGray
             cell.costLabel.textColor = .white
+        } else {
+            cell.isUserInteractionEnabled = true
         }
+        
         cell.layer.borderWidth = 0
         return cell
     }
