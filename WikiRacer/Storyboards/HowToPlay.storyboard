@@ -25,33 +25,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrG-h6-mcz">
-                                <rect key="frame" x="70" y="122" width="274" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
-                                <color key="textColor" name="MainAquaColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="In WikiRacer, each player is assigned a starting and ending target Wiki article. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RKa-rO-Fwl">
-                                <rect key="frame" x="70" y="190" width="275" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VWl-To-ZDd">
-                                <rect key="frame" x="70" y="291" width="275" height="188"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Your aim is to get from the starting article to the target article by tapping through linked articles in either the fastest time or least amount of links possible.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-Np-U8R">
+                                <rect key="frame" x="57" y="247" width="300" height="402"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrG-h6-mcz">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="MGt-Zu-e2B"/>
+                                            <constraint firstAttribute="width" constant="300" id="X4T-44-3Ck"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="48"/>
+                                        <color key="textColor" name="MainAquaColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In WikiRacer, each player is assigned a starting and ending target Wiki article. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hue-pz-Srj">
+                                        <rect key="frame" x="0.0" y="90" width="300" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="thA-cp-Tf9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ro-pY-kZ8">
+                                        <rect key="frame" x="0.0" y="190" width="300" height="172"/>
+                                        <string key="text">Your aim is to get from the starting article to the target article by tapping through linked articles in either the fastest time or least amount of links possible.</string>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happy Racing! 🏁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaV-9f-maz">
+                                        <rect key="frame" x="0.0" y="362" width="300" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="j0G-Uc-LvV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cNa-7K-ffZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h4e-Np-U8R" firstAttribute="centerX" secondItem="x02-tm-ZXd" secondAttribute="centerX" id="Ctv-cv-o2s"/>
+                            <constraint firstItem="h4e-Np-U8R" firstAttribute="centerY" secondItem="x02-tm-ZXd" secondAttribute="centerY" id="gM4-bp-KQb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="baR-c5-YdK">
                         <barButtonItem key="backBarButtonItem" title=" " id="tqm-rJ-v80"/>
@@ -60,16 +80,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BoS-XE-l0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1250" y="841"/>
+            <point key="canvasLocation" x="1249.2753623188407" y="840.40178571428567"/>
         </scene>
     </scenes>
     <resources>
         <namedColor name="MainAquaColor">
             <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
