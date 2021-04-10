@@ -181,13 +181,13 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
-        let exitAlert = UIAlertController(title: "Delete game", message: "Are you sure you want to delete this game? This action cannot be undone.", preferredStyle: .alert)
+        let deleteAlert = UIAlertController(title: "Delete game", message: "Are you sure you want to delete this game? This action cannot be undone.", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
-            exitAlert.dismiss(animated: true, completion: nil)
+            deleteAlert.dismiss(animated: true, completion: nil)
         }
         
-        let exitAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
             
             // DELETE GAME CODE IN USER'S FIREBASE
             let userRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
@@ -213,10 +213,10 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-        exitAlert.addAction(cancelAction)
-        exitAlert.addAction(exitAction)
+        deleteAlert.addAction(cancelAction)
+        deleteAlert.addAction(deleteAction)
         
-        self.present(exitAlert, animated: true, completion: nil)
+        self.present(deleteAlert, animated: true, completion: nil)
     }
     
     // code to enable tapping on the background to remove software keyboard

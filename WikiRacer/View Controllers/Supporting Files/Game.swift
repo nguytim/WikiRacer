@@ -86,6 +86,7 @@ class Game {
     var dictionary: [String: Any] {
         return [
             "gameType": gameType!,
+            "ownerUID": ownerUID!,
             "leaderboard": leaderboardToStringArray(),
             "startingArticleTitle": startingArticle.title,
             "startingArticleURL": startingArticle.lastPathComponentURL,

@@ -114,26 +114,68 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Ref
         self.performSegue(withIdentifier: self.viewExistingGameIdentifier, sender: game)
     }
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        let index = indexPath.row
-//        let game = games[index]
-//
-//        if editingStyle == .delete {
-//            games.remove(at: index)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//
-//            // DELETE GAME CODE IN USER'S FIREBASE
-//            let userRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
-//            userRef.getDocument { (document, error) in
-//                if let document = document, document.exists {
-//                    let data = document.data()
-//                    var games = data!["games"] as! [String]
-//                    games.remove(at: games.firstIndex(of: game.code!)!)
-//                    userRef.updateData(["games": games])
-//                }
-//            }
-//        }
-//    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let game = games[index]
+        
+        if editingStyle == .delete {
+            // if OWNER of the game, prompt
+            if game.ownerUID == Auth.auth().currentUser!.uid {
+                
+                let deleteAlert = UIAlertController(title: "Delete game", message: "Are you sure you want to delete this game? This action cannot be undone.", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                    deleteAlert.dismiss(animated: true, completion: nil)
+                }
+                
+                let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+                    
+                    self.games.remove(at: index)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    
+                    // DELETE GAME CODE IN USER'S FIREBASE
+                    let userRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+                    userRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            let data = document.data()
+                            var games = data!["games"] as! [String]
+                            games.remove(at: games.firstIndex(of: game.code!)!)
+                            userRef.updateData(["games": games])
+                        }
+                    }
+                    
+                    // DELETE GAME IN FIREBASE
+                    self.db.collection("games").document(game.code!).delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            print("Document successfully removed!")
+                        }
+                    }
+                }
+                
+                deleteAlert.addAction(cancelAction)
+                deleteAlert.addAction(deleteAction)
+                
+                self.present(deleteAlert, animated: true, completion: nil)
+            } else {
+                // if regular user
+                games.remove(at: index)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                // DELETE GAME CODE IN USER'S FIREBASE
+                let userRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+                userRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let data = document.data()
+                        var games = data!["games"] as! [String]
+                        games.remove(at: games.firstIndex(of: game.code!)!)
+                        userRef.updateData(["games": games])
+                    }
+                }
+            }
+        }
+    }
     
     func getCurrentUsersGames() {
         let docRef = db!.collection("users").document(Auth.auth().currentUser!.uid)
