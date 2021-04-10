@@ -48,7 +48,7 @@ class SettingsVC: UIViewController {
         }
         
         setupButtons()
-        setupUsernameTextfield()
+        setupUsernameTextfield(isDarkMode: CURRENT_USER!.settings.darkModeEnabled)
         
         // Do any additional setup after loading the view.
     }
@@ -92,6 +92,8 @@ class SettingsVC: UIViewController {
                 
                 settings["darkModeEnabled"] = self.darkModeSwitch.isOn
                 CURRENT_USER!.settings.darkModeEnabled = self.darkModeSwitch.isOn
+                //update for textfield too
+                self.setupUsernameTextfield(isDarkMode: self.darkModeSwitch.isOn)
                 
                 if CURRENT_USER!.settings.darkModeEnabled {
                     // adopt a light interface style
@@ -221,6 +223,7 @@ class SettingsVC: UIViewController {
                             //change usernames user database
                             self.db.collection("usernames").document(CURRENT_USER!.usernameID).setData([ "username": self.usernameTextField.text! ])
                             
+                            //change corresponding users database for that users username
                             self.db.collection("users").document(Auth.auth().currentUser!.uid).setData(["username": self.usernameTextField.text!], merge: true)
                             
                             //Let user know they have successfully changed their username.
@@ -240,18 +243,6 @@ class SettingsVC: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        
-//        let ac = UIAlertController(title: "Enter new username", message: nil, preferredStyle: .alert)
-//        ac.addTextField()
-//
-//        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
-//
-//            let newUsernameEntered = ac.textFields![0]
-//            // do something interesting with "answer" here
-//            newUsername = newUsernameEntered.text ?? ""
-//        }
-//        ac.addAction(submitAction)
-//        present(ac, animated: true)
     }
             
     
@@ -274,18 +265,29 @@ class SettingsVC: UIViewController {
         
     }
     
-    private func setupUsernameTextfield() {
+    private func setupUsernameTextfield(isDarkMode: Bool) {
         let borderWidth = CGFloat(2.0)
         
         //USERNAME
         let usernameBorder = CALayer()
-        usernameBorder.borderColor = UIColor.white.cgColor
         usernameBorder.frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: usernameTextField.frame.size.height)
         usernameBorder.borderWidth = borderWidth
         
         usernameTextField.layer.addSublayer(usernameBorder)
         usernameTextField.layer.masksToBounds = true
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: CURRENT_USER!.username,
-                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        
+        ///adjust color based on dark mode
+        if(isDarkMode) {
+            usernameBorder.borderColor = UIColor.white.cgColor
+            usernameTextField.attributedPlaceholder = NSAttributedString(string: CURRENT_USER!.username,
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        }
+        else {
+            usernameBorder.borderColor = UIColor.black.cgColor
+            usernameTextField.attributedPlaceholder = NSAttributedString(string: CURRENT_USER!.username,
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        }
     }
+    
 }
