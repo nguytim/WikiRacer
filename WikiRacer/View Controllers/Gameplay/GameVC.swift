@@ -251,12 +251,8 @@ class GameVC: UIViewController, WKNavigationDelegate {
                 
                 let uid = Auth.auth().currentUser!.uid
                 let username = Auth.auth().currentUser!.displayName!
-                let timeDisplayed = game!.elapsedTime
-                let minutes = (timeDisplayed % 3600) / 60
-                let seconds = (timeDisplayed % 3600) % 60
-                let time = String(format:"%d:%02d", minutes, seconds)
                 
-                let currentPlayer = Player(uid: uid, name: username, time: time, numLinks: game!.numLinks)
+                let currentPlayer = Player(uid: uid, name: username, time: game!.elapsedTime, numLinks: game!.numLinks)
                 
                 // add to leaderboard
                 game!.leaderboard!.append(currentPlayer)

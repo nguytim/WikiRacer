@@ -23,6 +23,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var targetArticleLabel: UILabel!
     @IBOutlet weak var leaderboardTableView: UITableView!
     @IBOutlet weak var startButton: RoundedButton!
+    @IBOutlet weak var gameTypeLabel: UILabel!
     
     let startGameIdentifier = "StartGameIdentifier"
     let leaderboardCellIdentifier = "LeaderboardCellIdentifier"
@@ -43,6 +44,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         leaderboardTableView.delegate = self
         leaderboardTableView.dataSource = self
         
+        gameTypeLabel.text = game?.gameType
         codeLabel.text = game?.code
         startingArticleLabel.text = game?.startingArticle.title
         targetArticleLabel.text = game?.targetArticle.title
@@ -67,12 +69,27 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: leaderboardCellIdentifier, for: indexPath as IndexPath) as! LeaderboardTableCell
         let player = game!.leaderboard![indexPath.row]
         
+        let timeDisplayed = player.time
+        let minutes = (timeDisplayed % 3600) / 60
+        let seconds = (timeDisplayed % 3600) % 60
+        let time = String(format:"%d:%02d", minutes, seconds)
+        
         cell.rankLabel.text = "#\(indexPath.row + 1)"
         cell.playerLabel.text = player.name
-        cell.timeLabel.text = player.time
+        cell.timeLabel.text = time
         cell.linksLabel.text = "\(player.numLinks)"
         
+        if game?.gameType == "Time Trial" {
+            cell.timeLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        } else {
+            cell.linksLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func checkIfUserHasPlayedAlready() {

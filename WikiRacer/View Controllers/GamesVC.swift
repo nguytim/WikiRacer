@@ -146,19 +146,25 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     var leaderboard = [Player]()
                     
                     var hasPlayed = false
+                    let isTimeTrial = gameType == "Time Trial" ? true : false
                     
                     if !leaderboardData.isEmpty {
                         for i in 0...leaderboardData.count - 1 {
-                            let player = leaderboardData[i] as! [String: Any]
-                            leaderboard.append(
-                                Player(uid: player["uid"] as! String,
-                                       name: player["name"] as! String,
-                                       time: player["time"] as! String,
-                                       numLinks: player["links"] as! Int)
-                            )
-                            hasPlayed = player["uid"] as? String == Auth.auth().currentUser?.uid
+                            let playerData = leaderboardData[i] as! [String: Any]
+                            let player = Player(uid: playerData["uid"] as! String,
+                                                name: playerData["name"] as! String,
+                                                time: playerData["time"] as! Int,
+                                                numLinks: playerData["links"] as! Int)
+                            player.timeTrial = isTimeTrial
+                            leaderboard.append(player)
+                            
+                            if playerData["uid"] as? String == Auth.auth().currentUser?.uid {
+                                hasPlayed = true
+                            }
                         }
                     }
+                    
+                    leaderboard.sort(by: <)
                     
                     let startingArticle = Article(title: startingArticleTitle, lastPathComponentURL: startingArticleURL)
                     let targetArticle = Article(title: targetArticleTitle, lastPathComponentURL: targetArticleURL)

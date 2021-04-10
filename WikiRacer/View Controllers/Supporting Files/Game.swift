@@ -8,18 +8,34 @@
 import Foundation
 import UIKit
 
-class Player {
+class Player: Comparable {
     
     var uid: String
     var name: String
-    var time: String
+    var time: Int
     var numLinks: Int
     
-    init(uid: String, name: String, time: String, numLinks: Int) {
+    var timeTrial: Bool = true
+    
+    init(uid: String, name: String, time: Int, numLinks: Int) {
         self.uid = uid
         self.name = name
         self.time = time
         self.numLinks = numLinks
+    }
+    
+    static func < (lhs: Player, rhs: Player) -> Bool {
+        if lhs.timeTrial && rhs.timeTrial {
+            return lhs.time < rhs.time
+        }
+        return lhs.numLinks < rhs.numLinks
+    }
+    
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        if lhs.timeTrial && rhs.timeTrial {
+            return lhs.time == rhs.time
+        }
+        return lhs.numLinks == rhs.numLinks
     }
 }
 

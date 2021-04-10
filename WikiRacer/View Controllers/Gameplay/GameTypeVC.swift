@@ -151,7 +151,7 @@ class GameTypeVC: UIViewController {
                             leaderboard.append(
                                 Player(uid: player["uid"] as! String,
                                        name: player["name"] as! String,
-                                       time: player["time"] as! String,
+                                       time: player["time"] as! Int,
                                        numLinks: player["links"] as! Int)
                             )
                         }
