@@ -72,6 +72,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TZ0-TU-rNb">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="yBe-Q8-tnK">
+                            <color key="tintColor" name="MainAquaColor"/>
                             <connections>
                                 <action selector="refreshButtonPressed:" destination="EJt-3Q-ggR" id="Xsc-Pq-KtZ"/>
                             </connections>
@@ -121,6 +122,9 @@
     </scenes>
     <resources>
         <image name="RacetrackIcon" width="22" height="22"/>
+        <namedColor name="MainAquaColor">
+            <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="MainYellowColor">
             <color red="0.94117647058823528" green="0.70196078431372544" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

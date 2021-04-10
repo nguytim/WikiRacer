@@ -15,15 +15,18 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Warn users about bata
-        betaNotification()
-        
-        // resets navigation to this VC
-        self.navigationController?.viewControllers = [self]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) 
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // resets navigation to this VC
+        self.navigationController?.viewControllers = [self]
+        self.navigationController?.navigationBar.isHidden = true
+        
         self.tabBarController?.tabBar.isHidden = false
         if CURRENT_USER!.settings.darkModeEnabled {
             // adopt a light interface style
@@ -32,7 +35,11 @@ class HomeVC: UIViewController {
             // adopt a dark interface style
             overrideUserInterfaceStyle = .light
         }
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     // unhides navigation bar when homeVC disappears
@@ -70,11 +77,5 @@ class HomeVC: UIViewController {
             gameVC.isMultiplayer = true
             gameVC.game = game
         }
-    }
-    
-    private func betaNotification() {
-        let alert = UIAlertController(title: "Please Read.", message: "This is a beta test. Core functionality of playing the game works and is the focus of this test. ", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 }

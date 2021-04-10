@@ -26,28 +26,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-De-a5r">
-                                <rect key="frame" x="66.666666666666686" y="148" width="295" height="630"/>
+                                <rect key="frame" x="67" y="148" width="294" height="630"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WikiRacer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rt-hk-VF5" userLabel="WikiSpeedia Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="114.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="111"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="65"/>
                                         <color key="textColor" name="MainAquaColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-U5-hE8" userLabel="Username Text Field">
-                                        <rect key="frame" x="0.0" y="151.33333333333331" width="295" height="52.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="148" width="294" height="49.666666666666657"/>
                                         <color key="textColor" name="MainDarkColor"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="avR-mF-O51" userLabel="Password Text Field">
-                                        <rect key="frame" x="0.0" y="240.66666666666669" width="295" height="51"/>
+                                        <rect key="frame" x="0.0" y="234.66666666666666" width="294" height="49.666666666666657"/>
                                         <color key="textColor" name="MainDarkColor"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQb-9f-aJ0" userLabel="Log in Button">
-                                        <rect key="frame" x="0.0" y="328.66666666666669" width="295" height="52"/>
+                                        <rect key="frame" x="0.0" y="321.33333333333331" width="294" height="52.666666666666686"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="20"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" name="MainDarkColor"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26d-2A-DSw" userLabel="Sign up Button">
-                                        <rect key="frame" x="0.0" y="417.66666666666663" width="295" height="52.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="411" width="294" height="52.666666666666686"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="20"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" name="MainDarkColor"/>
@@ -68,7 +68,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9y-Gj-g9a" userLabel="Forgot Password Button">
-                                        <rect key="frame" x="0.0" y="507" width="295" height="123"/>
+                                        <rect key="frame" x="0.0" y="500.66666666666657" width="294" height="129.33333333333331"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                         <state key="normal" title="Forgot Password?">
                                             <color key="titleColor" systemColor="systemGray2Color"/>
