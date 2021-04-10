@@ -6,7 +6,9 @@
 //
 
 import UIKit
+import FirebaseFirestore
 import FirebaseStorage
+import FirebaseAuth
 
 class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -16,9 +18,10 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     @IBOutlet weak var hatImage: UIImageView!
     
     @IBOutlet weak var inventoryGrid: UICollectionView!
-    let RACER = CURRENT_USER!.racer
     var items = [String]()
+    var equippedItems = [String]()
     
+    var db: Firestore!
     var storageRef: StorageReference!
     var hatsRef: StorageReference!
     var racecarsRef: StorageReference!
@@ -34,6 +37,11 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
         storageRef = Storage.storage().reference()
         hatsRef = storageRef.child("hats")
         racecarsRef = storageRef.child("racecars")
@@ -42,32 +50,74 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         inventoryGrid.dataSource = self
         inventoryGrid.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CURRENT_USER!.settings.darkModeEnabled {
+            // adopt a light interface style
+            overrideUserInterfaceStyle = .dark
+        } else {
+            // adopt a dark interface style
+            overrideUserInterfaceStyle = .light
+        }
+        
+        self.hatImage.center.y -= self.view.bounds.height
+        self.characterImage.center.x -= self.view.bounds.width
+        self.carImage.center.x += self.view.bounds.width
+        
+        UIView.animate(withDuration: 1.0, delay: 0.5,
+                       usingSpringWithDamping: 0.3,
+                       initialSpringVelocity: 0.2,
+                       options: [],
+                       animations: {
+                        self.hatImage.center.y += self.view.bounds.height
+                        self.characterImage.center.x += self.view.bounds.width
+                        self.carImage.center.x -= self.view.bounds.width
+                       },
+                       completion: nil)
         loadUserInventory()
         loadRacer()
     }
     
     func loadUserInventory() {
-        let hats = RACER.accessoriesOwned
-        let racecars = RACER.racecarsOwned
-        let racers = RACER.racersOwned
-        currentAccessorries = RACER.currentAccessorries
-        currentRacecar = RACER.currentRacecar
-        currentRacer = RACER.currentRacer
+        let hats = CURRENT_USER!.racer.accessoriesOwned
+        let racecars = CURRENT_USER!.racer.racecarsOwned
+        let racers = CURRENT_USER!.racer.racersOwned
+        
+        setEquippedItems()
         
         hatsCount = hats.count
         racecarsCount = racecars.count
         racersCount = racers.count
         
+        items = [String]()
         items.append(contentsOf: hats)
         items.append(contentsOf: racecars)
         items.append(contentsOf: racers)
         inventoryGrid.reloadData()
     }
     
-    func loadRacer() {
-        let racecarImageRef = racecarsRef.child("\(currentRacecar!)")
-        let racerImageRef = racersRef.child("\(currentRacer!)")
+    func setEquippedItems() {
+        currentAccessorries = CURRENT_USER!.racer.currentAccessorries
+        currentRacecar = CURRENT_USER!.racer.currentRacecar
+        currentRacer = CURRENT_USER!.racer.currentRacer
         
+        equippedItems = [String]()
+        if !currentAccessorries.isEmpty {
+            equippedItems.append(currentAccessorries[0])
+        }
+        equippedItems.append(currentRacecar)
+        equippedItems.append(currentRacer)
+    }
+    
+    func loadRacer() {
+        loadHat()
+        loadRacecar()
+        loadCharacter()
+    }
+    
+    func loadHat() {
         if !currentAccessorries.isEmpty {
             let hatImageRef = hatsRef.child("\(currentAccessorries[0])")
             // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
@@ -78,10 +128,23 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
                 } else {
                     let image = UIImage(data: data!)
                     self.hatImage.image = image
+                    self.hatImage.center.y -= self.view.bounds.height
+                    
+                    UIView.animate(withDuration: 1.0, delay: 0.5,
+                                   usingSpringWithDamping: 0.3,
+                                   initialSpringVelocity: 0.2,
+                                   options: [],
+                                   animations: {
+                                    self.hatImage.center.y += self.view.bounds.height
+                                   },
+                                   completion: nil)
                 }
             }
         }
-        
+    }
+    
+    func loadRacecar() {
+        let racecarImageRef = racecarsRef.child("\(currentRacecar!)")
         racecarImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 // Uh-oh, an error occurred!
@@ -89,19 +152,41 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             } else {
                 let image = UIImage(data: data!)
                 self.carImage.image = image
+                self.carImage.center.x += self.view.bounds.width
+                
+                UIView.animate(withDuration: 1.0, delay: 0.5,
+                               usingSpringWithDamping: 0.3,
+                               initialSpringVelocity: 0.2,
+                               options: [],
+                               animations: {
+                                self.carImage.center.x -= self.view.bounds.width
+                               },
+                               completion: nil)
             }
         }
-        
-        racerImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+    }
+    
+    func loadCharacter() {
+        let characterImageRef = racersRef.child("\(currentRacer!)")
+        characterImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 // Uh-oh, an error occurred!
                 print(error)
             } else {
                 let image = UIImage(data: data!)
                 self.characterImage.image = image
+                self.characterImage.center.x -= self.view.bounds.width
+                
+                UIView.animate(withDuration: 1.0, delay: 0.5,
+                               usingSpringWithDamping: 0.3,
+                               initialSpringVelocity: 0.2,
+                               options: [],
+                               animations: {
+                                self.characterImage.center.x += self.view.bounds.width
+                               },
+                               completion: nil)
             }
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -115,13 +200,10 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         cell.contentView.backgroundColor = .systemGray3
         cell.contentView.isOpaque = true
         cell.alpha = 0
-        cell.contentView.alpha = 0
         cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         
         let index = indexPath.row
         let item = items[index]
-        
-        cell.costLabel.text = "\(item)"
         
         // Create a reference to the file you want to download
         let count = index
@@ -147,39 +229,65 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             }
         }
         
-        //        if purchasedItems.contains(item.name) {
-        //            cell.isUserInteractionEnabled = false
-        //            cell.contentView.backgroundColor = .systemGray
-        //            cell.costLabel.textColor = .white
-        //        }
+        if equippedItems.contains(item) {
+            cell.isUserInteractionEnabled = false
+            cell.contentView.backgroundColor = .systemGray
+            cell.costLabel.textColor = .white
+            cell.costLabel.text = "Equipped"
+        } else {
+            cell.costLabel.text = ""
+        }
+        
         cell.layer.borderWidth = 0
         return cell
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if CURRENT_USER!.settings.darkModeEnabled {
-            // adopt a light interface style
-            overrideUserInterfaceStyle = .dark
-        } else {
-            // adopt a dark interface style
-            overrideUserInterfaceStyle = .light
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 5
+        cell?.layer.borderColor = UIColor(named: "MainAquaColor")?.cgColor
+        cell?.isSelected = true
+        
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                
+                var racer = data!["racer"] as! Dictionary<String, Any>
+                
+                let count = indexPath.row
+                let item = self.items[indexPath.row]
+                
+                // find which category this item belongs in
+                if count < self.hatsCount {
+                    racer["currentAccessorries"] = [item]
+                    CURRENT_USER!.racer.currentAccessorries = [item]
+                    self.setEquippedItems()
+                    self.loadHat()
+                } else if count < self.hatsCount + self.racecarsCount {
+                    racer["currentRacecar"] = item
+                    CURRENT_USER!.racer.currentRacecar = item
+                    self.setEquippedItems()
+                    self.loadRacecar()
+                } else {
+                    racer["currentRacer"] = item
+                    CURRENT_USER!.racer.currentRacer = item
+                    self.setEquippedItems()
+                    self.loadCharacter()
+                }
+                docRef.updateData(["racer": racer])
+                self.inventoryGrid.reloadData()
+            }
         }
-        
-        self.characterImage.center.x -= self.view.bounds.width
-        self.carImage.center.x += self.view.bounds.width
-        
-        UIView.animate(withDuration: 1.0, delay: 0.5,
-                       usingSpringWithDamping: 0.3,
-                       initialSpringVelocity: 0.2,
-                       options: [],
-                       animations: {
-                        self.characterImage.center.x += self.view.bounds.width
-                        self.carImage.center.x -= self.view.bounds.width
-                       },
-                       completion: nil)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 0
+        cell?.isSelected = false
+    }
     
     /*
      // MARK: - Navigation

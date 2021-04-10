@@ -248,7 +248,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                         var racer = data!["racer"] as! Dictionary<String, Any>
 
                         let count = indexPath.row
-                        let item = self.shopItems[indexPath.row].name
+                        let item = currItem.name
                         
                         self.purchasedItems.append(item)
                         
@@ -257,14 +257,17 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                             var accessoriesOwned = racer["accessoriesOwned"] as! [String]
                             accessoriesOwned.append(item)
                             racer["accessoriesOwned"] = accessoriesOwned
+                            CURRENT_USER!.racer.accessoriesOwned = accessoriesOwned
                         } else if count < self.hatsCount + self.racecarsCount {
                             var racecarsOwned = racer["racecarsOwned"] as! [String]
                             racecarsOwned.append(item)
                             racer["racecarsOwned"] = racecarsOwned
+                            CURRENT_USER!.racer.racecarsOwned = racecarsOwned
                         } else {
                             var racersOwned = racer["racersOwned"] as! [String]
                             racersOwned.append(item)
                             racer["racersOwned"] = racersOwned
+                            CURRENT_USER!.racer.racersOwned = racersOwned
                         }
                         
                         docRef.updateData(["racer": racer, "points": pointsLeft])
