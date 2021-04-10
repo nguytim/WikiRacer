@@ -65,19 +65,20 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func loadRacer() {
-        let hatImageRef = hatsRef.child("\(currentAccessorries[0])")
         let racecarImageRef = racecarsRef.child("\(currentRacecar!)")
         let racerImageRef = racersRef.child("\(currentRacer!)")
         
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        hatImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if let error = error {
-                // Uh-oh, an error occurred!
-                print(error)
-            } else {
-                // Data for "images/island.jpg" is returned
-                let image = UIImage(data: data!)
-                self.hatImage.image = image
+        if !currentAccessorries.isEmpty {
+            let hatImageRef = hatsRef.child("\(currentAccessorries[0])")
+            // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+            hatImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if let error = error {
+                    // Uh-oh, an error occurred!
+                    print(error)
+                } else {
+                    let image = UIImage(data: data!)
+                    self.hatImage.image = image
+                }
             }
         }
         
@@ -86,7 +87,6 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
                 // Uh-oh, an error occurred!
                 print(error)
             } else {
-                // Data for "images/island.jpg" is returned
                 let image = UIImage(data: data!)
                 self.carImage.image = image
             }
@@ -97,7 +97,6 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
                 // Uh-oh, an error occurred!
                 print(error)
             } else {
-                // Data for "images/island.jpg" is returned
                 let image = UIImage(data: data!)
                 self.characterImage.image = image
             }
