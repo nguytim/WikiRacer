@@ -162,7 +162,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             UIActivity.ActivityType.postToFlickr,
             UIActivity.ActivityType.postToVimeo,
             UIActivity.ActivityType.postToTencentWeibo,
-            UIActivity.ActivityType.postToFacebook
+            UIActivity.ActivityType.postToFacebook,
         ]
         
         activityViewController.isModalInPresentation = true
