@@ -262,39 +262,38 @@ class GameVC: UIViewController, WKNavigationDelegate {
             }
         }
     }
-    
-    // Convert to NSAttributedString
-    func htmlToString(htmlString: String) -> NSAttributedString {
-        let htmlString = htmlString
-        let data = htmlString.data(using: .utf8)!
-        let attributedString = try? NSAttributedString(
-            data: data,
-            options: [.documentType: NSAttributedString.DocumentType.html],
-            documentAttributes: nil)
-        return attributedString!
+
+    func insertContentsOfCSSFile(into webView: WKWebView) {
+        guard let path = Bundle.main.path(forResource: "styles", ofType: "css") else { debugPrint("Nothing found"); return; }
+        debugPrint("path is: \(path)")
+        let cssString = try! String(contentsOfFile: path).trimmingCharacters(in: .whitespacesAndNewlines)
+        debugPrint("cssString is: \(cssString)")
+        let jsString = "var style = document.createElement('style'); style.innerHTML = '\(cssString)'; document.head.appendChild(style);"
+        debugPrint("Done adding style")
+        webView.evaluateJavaScript(jsString, completionHandler: nil)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        
+
         // REMOVE HEADER, WIKI ACTIONS, AND FOOTER
-        let elementClassesToRemove = ["header-container header-chrome", "page-actions-menu", "mw-footer minerva-footer", "box-Multiple_issues plainlinks metadata ambox ambox-content ambox-multiple_issues compact-ambox", "reference", "unicode haudio", "edit-page menu__item--page-actions-edit mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-editLock-base20 mw-ui-icon-with-label-desktop", "mw-editsection"]
-        
+        let elementClassesToRemove = ["header-container header-chrome", "page-actions-menu", "mw-footer minerva-footer", "box-Multiple_issues plainlinks metadata ambox ambox-content ambox-multiple_issues compact-ambox", "reference", "unicode haudio", "edit-page menu__item--page-actions-edit mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-editLock-base20 mw-ui-icon-with-label-desktop", "mw-editsection", "box-More_citations_needed plainlinks metadata ambox ambox-content ambox-Refimprove"]
+
         for elementClassName in elementClassesToRemove {
             let removeElementClassScript = "var elements = document.getElementsByClassName('\(elementClassName)'); for (var i = elements.length - 1; i >= 0; i--) { elements[i].parentNode.removeChild(elements[i]);}"
             webView.evaluateJavaScript(removeElementClassScript) { (response, error) in
                 debugPrint("Am here")
             }
         }
-        
+
         let elementIdsToRemove = ["References", "Bibliography", "External_links", "Notes", "Further_reading", "Footnotes", "mw-head", "mw-panel"]
-        
+
         for elementId in elementIdsToRemove {
             let removeElementIdScript = "var element = document.getElementById('\(elementId)'); if (element != null) {element.parentNode.parentNode.removeChild(element.parentNode);}"
             webView.evaluateJavaScript(removeElementIdScript) { (response, error) in
                 debugPrint("Could not remove stuff")
             }
         }
-        
+
         if CURRENT_USER!.settings.colorfulButtonsEnabled {
             // CHANGE THE STYLING OF LINKS
             let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (elements[i].className != null && elements[i].className != 'image') {if (j == 0) { elements[i].style.backgroundColor='#E8787A';} else if (j == 1) { elements[i].style.backgroundColor='#7EEABF';} else if (j == 2) { elements[i].style.backgroundColor='#F0B351';} else { elements[i].style.backgroundColor='#8FDE60'; j = -1;} elements[i].style.color='white'; elements[i].style.fontWeight='700'; elements[i].style.borderRadius='7px'; j++;}}"
@@ -302,7 +301,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
                 debugPrint("Am here")
             }
         }
-        
+        insertContentsOfCSSFile(into: webView)
         viewForEmbedingWebView.isHidden = false
     }
 }
