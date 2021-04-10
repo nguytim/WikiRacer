@@ -59,11 +59,12 @@ class Game {
         self.numLinks = 0
     }
     
-    init(startingArticle: Article, targetArticle: Article, code: String, gameType: String, leaderboard: [Player]) {
+    init(startingArticle: Article, targetArticle: Article, ownerUID: String, code: String, gameType: String, leaderboard: [Player]) {
         self.startingArticle = startingArticle
         self.targetArticle = targetArticle
         self.elapsedTime = 0
         self.numLinks = 0
+        self.ownerUID = ownerUID
         self.code = code
         self.gameType = gameType
         self.leaderboard = leaderboard
@@ -96,7 +97,7 @@ class Game {
 
 // get random code for multiplayer
 func getRandomCode() -> String {
-    return randomString(length: 10)
+    return randomString(length: 7)
 }
 
 // generate random string given a length

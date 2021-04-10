@@ -10,6 +10,10 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
+protocol RefreshGames {
+    func refreshGames()
+}
+
 class GameTableViewCell: UITableViewCell {
     
     @IBOutlet weak var startingArticleLabel: UILabel!
@@ -18,7 +22,7 @@ class GameTableViewCell: UITableViewCell {
     
 }
 
-class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, RefreshGames {
     
     @IBOutlet weak var gamesTableView: UITableView!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
@@ -58,10 +62,14 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @IBAction func refreshButtonPressed(_ sender: Any) {
+    func refreshGames() {
         refreshButton.isEnabled = false
         games = [Game]()
         getCurrentUsersGames()
+    }
+    
+    @IBAction func refreshButtonPressed(_ sender: Any) {
+        refreshGames()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,27 +114,38 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: self.viewExistingGameIdentifier, sender: game)
     }
     
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        let index = indexPath.row
-    //        let game = games[index]
-    //
-    //        if editingStyle == .delete {
-    //
-    //            games.remove(at: index)
-    //            tableView.deleteRows(at: [indexPath], with: .fade)
-    //        }
-    //    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        let index = indexPath.row
+//        let game = games[index]
+//
+//        if editingStyle == .delete {
+//            games.remove(at: index)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//
+//            // DELETE GAME CODE IN USER'S FIREBASE
+//            let userRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+//            userRef.getDocument { (document, error) in
+//                if let document = document, document.exists {
+//                    let data = document.data()
+//                    var games = data!["games"] as! [String]
+//                    games.remove(at: games.firstIndex(of: game.code!)!)
+//                    userRef.updateData(["games": games])
+//                }
+//            }
+//        }
+//    }
     
     func getCurrentUsersGames() {
         let docRef = db!.collection("users").document(Auth.auth().currentUser!.uid)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
-                if (data?["games"] != nil) {
+                if (data?["games"] != nil && !(data?["games"] as! [String]).isEmpty) {
                     self.gameIDs = data!["games"] as! [String]
                     self.getGames()
                 } else {
                     self.refreshButton.isEnabled = true
+                    self.gamesTableView.reloadData()
                 }
             }
         }
@@ -141,6 +160,7 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     let data = document.data()
                     
                     let gameType = data!["gameType"] as! String
+                    let ownerUID = data!["ownerUID"] as! String
                     let leaderboardData = data!["leaderboard"] as! [Any]
                     let startingArticleTitle = data!["startingArticleTitle"] as! String
                     let startingArticleURL = data!["startingArticleURL"] as! String
@@ -173,7 +193,7 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     let startingArticle = Article(title: startingArticleTitle, lastPathComponentURL: startingArticleURL)
                     let targetArticle = Article(title: targetArticleTitle, lastPathComponentURL: targetArticleURL)
                     
-                    let game = Game(startingArticle: startingArticle, targetArticle: targetArticle, code: gameID, gameType: gameType, leaderboard: leaderboard)
+                    let game = Game(startingArticle: startingArticle, targetArticle: targetArticle, ownerUID: ownerUID, code: gameID, gameType: gameType, leaderboard: leaderboard)
                     
                     game.hasPlayed = hasPlayed
                     self.games.append(game)
@@ -181,6 +201,19 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     self.refreshButton.isEnabled = true
                 } else {
                     print("CODE IS NOT VALID")
+                    
+                    // DELETE GAME CODE IN USER'S FIREBASE
+                    let userRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+                    userRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            let data = document.data()
+                            var games = data!["games"] as! [String]
+                            if games.contains(gameID) {
+                                games.remove(at: games.firstIndex(of: gameID)!)
+                                userRef.updateData(["games": games])
+                            }
+                        }
+                    }
                 }
             }
         }

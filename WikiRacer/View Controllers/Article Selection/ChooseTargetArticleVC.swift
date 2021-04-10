@@ -82,12 +82,13 @@ class ChooseTargetArticleVC: ChooseStartingArticleVC {
                   let viewGameVC = segue.destination as? ViewGameVC {
             
             let code = getRandomCode()
-            let game = Game(startingArticle: startingArticle!, targetArticle: sender as! Article, code: code, gameType: gameType!, leaderboard: [Player]())
+            let uid = Auth.auth().currentUser!.uid
+            let game = Game(startingArticle: startingArticle!, targetArticle: sender as! Article, ownerUID: uid, code: code, gameType: gameType!, leaderboard: [Player]())
             
             viewGameVC.game = game
             // Add a new document in collection "cities"
             db.collection("games").document(code).setData([
-                "ownerUID": Auth.auth().currentUser!.uid,
+                "ownerUID": uid,
                 "gameType": game.gameType!,
                 "leaderboard": game.leaderboard!,
                 "startingArticleTitle": game.startingArticle.title,

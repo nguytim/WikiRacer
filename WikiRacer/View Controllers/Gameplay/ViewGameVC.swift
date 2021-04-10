@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class LeaderboardTableCell: UITableViewCell {
     
@@ -24,15 +25,21 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var leaderboardTableView: UITableView!
     @IBOutlet weak var startButton: RoundedButton!
     @IBOutlet weak var gameTypeLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
     
     let startGameIdentifier = "StartGameIdentifier"
     let leaderboardCellIdentifier = "LeaderboardCellIdentifier"
     
+    var db: Firestore!
     var game: Game?
     var backViewController: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
         
         if backViewController == nil {
             backViewController = storyboard!.instantiateViewController(withIdentifier: "HomeVC")
@@ -48,6 +55,10 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         codeLabel.text = game?.code
         startingArticleLabel.text = game?.startingArticle.title
         targetArticleLabel.text = game?.targetArticle.title
+        
+        if game!.ownerUID == Auth.auth().currentUser!.uid {
+            deleteButton.isHidden = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -168,6 +179,46 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         activityViewController.isModalInPresentation = true
         self.present(activityViewController, animated: true, completion: nil)
     }
+    
+    @IBAction func deleteButtonPressed(_ sender: Any) {
+        let exitAlert = UIAlertController(title: "Delete game", message: "Are you sure you want to delete this game? This action cannot be undone.", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            exitAlert.dismiss(animated: true, completion: nil)
+        }
+        
+        let exitAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+            
+            // DELETE GAME CODE IN USER'S FIREBASE
+            let userRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+            userRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    var games = data!["games"] as! [String]
+                    games.remove(at: games.firstIndex(of: self.game!.code!)!)
+                    userRef.updateData(["games": games])
+                }
+            }
+            
+            // DELETE GAME IN FIREBASE
+            self.db.collection("games").document(self.game!.code!).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                    let delegate = self.backViewController as! RefreshGames
+                    delegate.refreshGames()
+                    _ = self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+        
+        exitAlert.addAction(cancelAction)
+        exitAlert.addAction(exitAction)
+        
+        self.present(exitAlert, animated: true, completion: nil)
+    }
+    
     // code to enable tapping on the background to remove software keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

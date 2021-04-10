@@ -134,9 +134,30 @@ class GameTypeVC: UIViewController {
             
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
+                    var games: [String] = [String]()
+                    
+                    // ADD GAME CODE IN USER'S GAMES FIREBASE IF IT DOESN'T EXIST
+                    let userRef = self.db!.collection("users").document(Auth.auth().currentUser!.uid)
+                    userRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            let data = document.data()
+                            if let storedGames = data?["games"] as? [String] {
+                                games = storedGames
+                                if !games.contains(code) {
+                                    games.append(code)
+                                    userRef.updateData(["games": games])
+                                }
+                            } else {
+                                games.append(code)
+                                userRef.updateData(["games": games])
+                            }
+                        }
+                    }
+                    
                     let data = document.data()
                     
                     let gameType = data!["gameType"] as! String
+                    let ownerUID = data!["ownerUID"] as! String
                     let leaderboardData = data!["leaderboard"] as! [Any]
                     let startingArticleTitle = data!["startingArticleTitle"] as! String
                     let startingArticleURL = data!["startingArticleURL"] as! String
@@ -160,7 +181,7 @@ class GameTypeVC: UIViewController {
                     let startingArticle = Article(title: startingArticleTitle, lastPathComponentURL: startingArticleURL)
                     let targetArticle = Article(title: targetArticleTitle, lastPathComponentURL: targetArticleURL)
                     
-                    let game = Game(startingArticle: startingArticle, targetArticle: targetArticle, code: code, gameType: gameType, leaderboard: leaderboard)
+                    let game = Game(startingArticle: startingArticle, targetArticle: targetArticle, ownerUID: ownerUID, code: code, gameType: gameType, leaderboard: leaderboard)
                     
                     self.performSegue(withIdentifier: self.viewExistingGameIdentifier, sender: game)
                 } else {

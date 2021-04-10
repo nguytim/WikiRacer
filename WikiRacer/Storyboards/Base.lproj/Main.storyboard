@@ -766,6 +766,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMh-k9-iua" userLabel="Delete Button">
+                                <rect key="frame" x="277.33333333333331" y="48" width="23.666666666666686" height="22"/>
+                                <color key="tintColor" name="MainDarkColor"/>
+                                <state key="normal" image="xmark.rectangle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="p0u-Ot-JcC" eventType="touchUpInside" id="aLa-WB-7bu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Zu-dp-Hqs"/>
                         <color key="backgroundColor" name="MainRedColor"/>
@@ -781,6 +789,7 @@
                             <constraint firstItem="g2V-2C-oQZ" firstAttribute="top" secondItem="t2O-Tk-d2f" secondAttribute="bottom" constant="26.666666666666686" id="EIm-jV-RL1"/>
                             <constraint firstItem="0Zu-dp-Hqs" firstAttribute="trailing" secondItem="g2V-2C-oQZ" secondAttribute="trailing" constant="27" id="Gbd-i9-uiT"/>
                             <constraint firstItem="blL-Mc-e4D" firstAttribute="centerX" secondItem="Owy-aD-a1O" secondAttribute="centerX" id="Jzw-k3-iSo"/>
+                            <constraint firstItem="BMh-k9-iua" firstAttribute="top" secondItem="0Zu-dp-Hqs" secondAttribute="top" constant="4" id="M61-67-kBP"/>
                             <constraint firstItem="jTK-UH-goZ" firstAttribute="top" secondItem="g2V-2C-oQZ" secondAttribute="bottom" constant="31" id="Tdi-bg-o1L"/>
                             <constraint firstItem="0Zu-dp-Hqs" firstAttribute="trailing" secondItem="O5d-R7-AzA" secondAttribute="trailing" constant="77" id="ULw-Rc-K5J"/>
                             <constraint firstItem="DEN-mp-5NU" firstAttribute="top" secondItem="wvG-Ax-86I" secondAttribute="bottom" constant="8" symbolic="YES" id="Zbf-mT-NlA"/>
@@ -799,6 +808,7 @@
                             <constraint firstItem="g2V-2C-oQZ" firstAttribute="centerX" secondItem="Owy-aD-a1O" secondAttribute="centerX" id="qnA-n0-DG5"/>
                             <constraint firstItem="wvG-Ax-86I" firstAttribute="top" secondItem="blL-Mc-e4D" secondAttribute="bottom" constant="-4" id="sOU-CC-WJO"/>
                             <constraint firstItem="0Zu-dp-Hqs" firstAttribute="trailing" secondItem="paX-HO-bi9" secondAttribute="trailing" constant="113" id="sOl-ne-cIY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BMh-k9-iua" secondAttribute="trailing" constant="11" id="swF-fp-dAT"/>
                             <constraint firstItem="blL-Mc-e4D" firstAttribute="top" secondItem="paX-HO-bi9" secondAttribute="bottom" constant="15.666666666666657" id="t2u-kF-JDs"/>
                             <constraint firstItem="ZbG-7F-Qxj" firstAttribute="centerX" secondItem="Owy-aD-a1O" secondAttribute="centerX" id="zTD-DZ-5xR"/>
                         </constraints>
@@ -806,6 +816,7 @@
                     <navigationItem key="navigationItem" id="4wl-ep-JKK"/>
                     <connections>
                         <outlet property="codeLabel" destination="paX-HO-bi9" id="Og9-45-YWU"/>
+                        <outlet property="deleteButton" destination="BMh-k9-iua" id="FDZ-Ui-n65"/>
                         <outlet property="gameTypeLabel" destination="O5d-R7-AzA" id="nLl-rK-BVv"/>
                         <outlet property="leaderboardTableView" destination="g2V-2C-oQZ" id="wmj-Po-Ctd"/>
                         <outlet property="startButton" destination="jTK-UH-goZ" id="53Q-Uj-8eD"/>
@@ -1447,6 +1458,7 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <image name="xmark.rectangle.fill" catalog="system" width="128" height="93"/>
         <namedColor name="MainAquaColor">
             <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
