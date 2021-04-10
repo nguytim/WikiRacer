@@ -30,6 +30,7 @@ class ChooseCustomStartingArticleVC: UIViewController {
         }
         
         WikipediaNetworking.appAuthorEmailForAPI = "maniponce22@gmail.com"
+        setupUsernameTextfield(isDarkMode: CURRENT_USER!.settings.darkModeEnabled)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,6 +90,31 @@ class ChooseCustomStartingArticleVC: UIViewController {
                 customTargetArticleVC.isMultiplayer = isMultiplayer
                 customTargetArticleVC.gameType = gameType
             }
+        }
+    }
+    
+    private func setupUsernameTextfield(isDarkMode: Bool) {
+        let borderWidth = CGFloat(2.0)
+        
+        //USERNAME
+        let usernameBorder = CALayer()
+        usernameBorder.frame = CGRect(x: 0, y: inputArticleText.frame.size.height - borderWidth, width: inputArticleText.frame.size.width, height: inputArticleText.frame.size.height)
+        usernameBorder.borderWidth = borderWidth
+        
+        inputArticleText.layer.addSublayer(usernameBorder)
+        inputArticleText.layer.masksToBounds = true
+        
+        
+        ///adjust color based on dark mode
+        if(isDarkMode) {
+            usernameBorder.borderColor = UIColor.white.cgColor
+            inputArticleText.attributedPlaceholder = NSAttributedString(string: "Example Article",
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        }
+        else {
+            usernameBorder.borderColor = UIColor.black.cgColor
+            inputArticleText.attributedPlaceholder = NSAttributedString(string: "Example Article",
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         }
     }
     
