@@ -109,6 +109,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xv7-DU-zz4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="MainAquaColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

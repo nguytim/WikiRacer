@@ -40,6 +40,7 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Ref
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
