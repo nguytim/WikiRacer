@@ -20,6 +20,8 @@ class LoginPageViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var continueAsGuestButton: UIButton!
+    
     
     let collectionOfUsers = Firestore.firestore().collection("users")
     var db: Firestore!
@@ -149,14 +151,14 @@ class LoginPageViewController: UIViewController {
         performSegue(withIdentifier: "GmailSegue", sender: self)
     }
     
-    //Fake segue to test
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        if segue.identifier == "GmailSegue" {
-        //            guard let vc = segue.destination as? LoginPageViewController else { return }
-        //        }
-        
-        //        segue.destination.modalPresentationStyle = .fullScreen
-    }
+//    //Guest segue to test
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//                if segue.identifier == "GuestSegueIdentifier" {
+//                    guard let vc = segue.destination as? LoginPageViewController else { return }
+//                }
+//        
+//                segue.destination.modalPresentationStyle = .fullScreen
+//    }
     
     // code to enable tapping on the background to remove software keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -171,14 +173,26 @@ class LoginPageViewController: UIViewController {
         signUpButton.backgroundColor = UIColor(named: "MainDarkColor")
         signUpButton.setTitleColor(.white, for: .normal)
         signUpButton.layer.cornerRadius = 17.0
-        
-        //Attribute to underline button text.
-        _ = NSAttributedString(string: NSLocalizedString("Login with Gmail", comment: ""), attributes:[
+                
+        continueAsGuestButton.setAttributedTitle(NSAttributedString(string: NSLocalizedString("Continue as Guest", comment: ""), attributes:[
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17.0),
             NSAttributedString.Key.foregroundColor : UIColor.gray,
             NSAttributedString.Key.underlineStyle:1.0
-        ])
+        ]), for: .normal)
     }
+    
+    @IBAction func contAsGuestButtonSegue(_ sender: Any) {
+        let defaultStats = Stats(gamesPlayed: 0, gamesWon: 0, totalGameTime: 0, totalNumberOfLinks: 0, fastestGame: 0, leastNumberOfLinks: 0)
+        
+        let defaultRacer = Racer(accessoriesOwned: [String](), racecarsOwned: ["racecar1.png"], racersOwned: ["racer1.png"], currentAccessorries: [String](), currentRacecar: "racecar1.png", currentRacer: "racer1.png")
+        
+        let defaultSettings = Settings(darkModeEnabled: false, colorfulButtonsEnabled: true, soundEffectsEnabled: true, notificationsEnabled: true)
+        
+        let user = User(username: "Guest", usernameID: "Guest", points: 0, stats: defaultStats, racer: defaultRacer, settings: defaultSettings)
+        
+        CURRENT_USER = user
+    }
+    
     
     private func setupTextField() {
         emailAddressTextField.backgroundColor = UIColor.white
