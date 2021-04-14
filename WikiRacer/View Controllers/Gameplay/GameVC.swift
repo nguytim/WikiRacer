@@ -34,6 +34,8 @@ class GameVC: UIViewController, WKNavigationDelegate {
     let youWinSegueIdentifier = "YouWinSegueIdentifier"
     let exitSegueIdentifier = "ExitIdentifier"
     
+    let colors = ["#7EEABF", "#8FDE60", "#F0B351", "#E8787A"]
+    
     var game: Game?
     var isMultiplayer: Bool = false
     
@@ -294,9 +296,10 @@ class GameVC: UIViewController, WKNavigationDelegate {
             }
         }
 
-        if CURRENT_USER!.settings.colorfulButtonsEnabled {
+        if CURRENT_USER!.settings.gameplayButtonColor != 0 {
+        //if CURRENT_USER!.settings.colorfulButtonsEnabled {
             // CHANGE THE STYLING OF LINKS
-            let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (elements[i].className != null && elements[i].className != 'image') {if (j == 0) { elements[i].style.backgroundColor='#E8787A';} else if (j == 1) { elements[i].style.backgroundColor='#7EEABF';} else if (j == 2) { elements[i].style.backgroundColor='#F0B351';} else { elements[i].style.backgroundColor='#8FDE60'; j = -1;} elements[i].style.color='white'; elements[i].style.fontWeight='700'; elements[i].style.borderRadius='7px'; j++;}}"
+            let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (elements[i].className != null && elements[i].className != 'image') { elements[i].style.backgroundColor='\(colors[CURRENT_USER!.settings.gameplayButtonColor - 1])'; elements[i].style.color='white'; elements[i].style.fontWeight='700'; elements[i].style.borderRadius='7px';}}"
             webView.evaluateJavaScript(changeLinksToButtonsScript) { (response, error) in
                 debugPrint("Am here")
             }

@@ -7,14 +7,14 @@
 
 struct Settings {
     var darkModeEnabled: Bool
-    var colorfulButtonsEnabled: Bool
+    var gameplayButtonColor: Int
     var soundEffectsEnabled: Bool
     var notificationsEnabled: Bool
     
-    var dictionary: [String: Bool] {
+    var dictionary: [String: Any] {
         return [
             "darkModeEnabled": darkModeEnabled,
-            "colorfulButtonsEnabled": colorfulButtonsEnabled,
+            "gameplayButtonColor": gameplayButtonColor,
             "soundEffectsEnabled": soundEffectsEnabled,
             "notificationsEnabled": notificationsEnabled
         ]

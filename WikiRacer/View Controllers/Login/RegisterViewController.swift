@@ -62,7 +62,7 @@ class RegisterViewController: UIViewController {
                                 
                                 let defaultRacer = Racer(accessoriesOwned: [String](), racecarsOwned: ["racecar1.png"], racersOwned: ["racer1.png"], currentAccessorries: [String](), currentRacecar: "racecar1.png", currentRacer: "racer1.png")
                                 
-                                let defaultSettings = Settings(darkModeEnabled: false, colorfulButtonsEnabled: true, soundEffectsEnabled: true, notificationsEnabled: true)
+                                let defaultSettings = Settings(darkModeEnabled: false, gameplayButtonColor: 0, soundEffectsEnabled: true, notificationsEnabled: true)
                                 
                                 let user = User(username: self.usernameTextField.text!, usernameID: usernameCollectionDocumentReference.documentID, points: 0, stats: defaultStats, racer: defaultRacer, settings: defaultSettings)
                                 

@@ -8,13 +8,15 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class SettingsVC: UIViewController {
+    
     
     var db: Firestore!
     var docRef: DocumentReference!
     var delegate: UIViewController!
-    
+    @IBOutlet weak var colorSlider: UISlider!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var usernametextLabel: UILabel!
@@ -68,7 +70,8 @@ class SettingsVC: UIViewController {
         usernameTextField.placeholder = CURRENT_USER!.username
         //usernameLabel.text = CURRENT_USER!.username
         darkModeSwitch.isOn = CURRENT_USER!.settings.darkModeEnabled
-        colorfulButtonsSwitch.isOn = CURRENT_USER!.settings.colorfulButtonsEnabled
+//        colorfulButtonsSwitch.isOn = CURRENT_USER!.settings.colorfulButtonsEnabled
+        colorSlider.value = Float(CURRENT_USER!.settings.gameplayButtonColor)
         soundEffectsSwitch.isOn = CURRENT_USER!.settings.soundEffectsEnabled
         notificiationsSwitch.isOn = CURRENT_USER!.settings.notificationsEnabled
     }
@@ -83,6 +86,23 @@ class SettingsVC: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    @IBAction func colorSliderChanged(_ sender: Any) {
+        //        selectedColorView.backgroundColor = uiColorFromHex(colorArray[Int(slider.value)])
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let data = document.data()
+                        var settings = data!["settings"] as! Dictionary<String, Any>
+                        
+                        settings["gameplayButtonColor"] = self.colorSlider.value
+                        CURRENT_USER!.settings.gameplayButtonColor = Int(self.colorSlider.value)
+                        
+                        self.docRef.updateData(["settings": settings])
+                    }
+                }
+    }
+    
+    
     @IBAction func darkModeSwitchToggled(_ sender: Any) {
         darkModeSwitch.isEnabled = false
         docRef.getDocument { (document, error) in
@@ -114,18 +134,18 @@ class SettingsVC: UIViewController {
     
     @IBAction func gameplayColorsSwitchToggled(_ sender: Any) {
         colorfulButtonsSwitch.isEnabled = false
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                var settings = data!["settings"] as! Dictionary<String, Bool>
-                
-                settings["colorfulButtonsEnabled"] = self.colorfulButtonsSwitch.isOn
-                CURRENT_USER!.settings.colorfulButtonsEnabled = self.colorfulButtonsSwitch.isOn
-                
-                self.docRef.updateData(["settings": settings])
-                self.colorfulButtonsSwitch.isEnabled = true
-            }
-        }
+//        docRef.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//                let data = document.data()
+//                var settings = data!["settings"] as! Dictionary<String, Bool>
+//                
+//                settings["colorfulButtonsEnabled"] = self.colorfulButtonsSwitch.isOn
+//                CURRENT_USER!.settings.colorfulButtonsEnabled = self.colorfulButtonsSwitch.isOn
+//                
+//                self.docRef.updateData(["settings": settings])
+//                self.colorfulButtonsSwitch.isEnabled = true
+//            }
+//        }
     }
     
     @IBAction func soundEffectsSwitchToggled(_ sender: Any) {

@@ -119,13 +119,13 @@ class LoginPageViewController: UIViewController {
                         let userRacer = Racer(accessoriesOwned: accessoriesOwned, racecarsOwned: racecarsOwned, racersOwned: racersOwned, currentAccessorries: currentAccessorries, currentRacecar: currentRacecar, currentRacer: currentRacer)
                         
                         // USER SETTINGS
-                        let settings = data!["settings"] as! Dictionary<String, Bool>
-                        let darkModeEnabled = settings["darkModeEnabled"]!
-                        let colorfulButtonsEnabled = settings["colorfulButtonsEnabled"]!
-                        let soundEffectsEnabled = settings["soundEffectsEnabled"]!
-                        let notificationsEnabled = settings["notificationsEnabled"]!
+                        let settings = data!["settings"] as! Dictionary<String, Any>
+                        let darkModeEnabled = settings["darkModeEnabled"] as! Bool
+                        let gameplayButtonColor = settings["gameplayButtonColor"] as! Int
+                        let soundEffectsEnabled = settings["soundEffectsEnabled"] as! Bool
+                        let notificationsEnabled = settings["notificationsEnabled"] as! Bool
                         
-                        let userSettings = Settings(darkModeEnabled: darkModeEnabled, colorfulButtonsEnabled: colorfulButtonsEnabled, soundEffectsEnabled: soundEffectsEnabled, notificationsEnabled: notificationsEnabled)
+                        let userSettings = Settings(darkModeEnabled: darkModeEnabled, gameplayButtonColor: gameplayButtonColor, soundEffectsEnabled: soundEffectsEnabled, notificationsEnabled: notificationsEnabled)
                         
                         // SET GLOBAL CURRENT USER
                         CURRENT_USER = User(username: username, usernameID: usernameID, points: points, stats: userStats, racer: userRacer, settings: userSettings)
@@ -245,13 +245,14 @@ class LoginPageViewController: UIViewController {
                         let userRacer = Racer(accessoriesOwned: accessoriesOwned, racecarsOwned: racecarsOwned, racersOwned: racersOwned, currentAccessorries: currentAccessorries, currentRacecar: currentRacecar, currentRacer: currentRacer)
                         
                         // USER SETTINGS
-                        let settings = data!["settings"] as! Dictionary<String, Bool>
-                        let darkModeEnabled = settings["darkModeEnabled"]!
-                        let colorfulButtonsEnabled = settings["colorfulButtonsEnabled"]!
-                        let soundEffectsEnabled = settings["soundEffectsEnabled"]!
-                        let notificationsEnabled = settings["notificationsEnabled"]!
+                        let settings = data!["settings"] as! Dictionary<String, Any>
+                        let darkModeEnabled = settings["darkModeEnabled"] as! Bool
+                        //  let colorfulButtonsEnabled = settings["colorfulButtonsEnabled"]!
+                        let gameplayButtonColor = settings["gameplayButtonColor"] as! Int
+                        let soundEffectsEnabled = settings["soundEffectsEnabled"] as! Bool
+                        let notificationsEnabled = settings["notificationsEnabled"] as! Bool
                         
-                        let userSettings = Settings(darkModeEnabled: darkModeEnabled, colorfulButtonsEnabled: colorfulButtonsEnabled, soundEffectsEnabled: soundEffectsEnabled, notificationsEnabled: notificationsEnabled)
+                        let userSettings = Settings(darkModeEnabled: darkModeEnabled, gameplayButtonColor: gameplayButtonColor, soundEffectsEnabled: soundEffectsEnabled, notificationsEnabled: notificationsEnabled)
                         
                         // SET GLOBAL CURRENT USER
                         CURRENT_USER = User(username: username, usernameID: usernameID, points: points, stats: userStats, racer: userRacer, settings: userSettings)
