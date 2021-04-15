@@ -186,7 +186,7 @@ class LoginPageViewController: UIViewController {
         
         let defaultRacer = Racer(accessoriesOwned: [String](), racecarsOwned: ["racecar1.png"], racersOwned: ["racer1.png"], currentAccessorries: [String](), currentRacecar: "racecar1.png", currentRacer: "racer1.png")
         
-        let defaultSettings = Settings(darkModeEnabled: false, colorfulButtonsEnabled: true, soundEffectsEnabled: true, notificationsEnabled: true)
+        let defaultSettings = Settings(darkModeEnabled: false, gameplayButtonColor: Int(0), soundEffectsEnabled: true, notificationsEnabled: true)
         
         let user = User(username: "Guest", usernameID: "Guest", points: 0, stats: defaultStats, racer: defaultRacer, settings: defaultSettings)
         
@@ -262,11 +262,11 @@ class LoginPageViewController: UIViewController {
                         let settings = data!["settings"] as! Dictionary<String, Any>
                         let darkModeEnabled = settings["darkModeEnabled"] as! Bool
                         //  let colorfulButtonsEnabled = settings["colorfulButtonsEnabled"]!
-                        let gameplayButtonColor = settings["gameplayButtonColor"] as! Int
+                        let gameplayButtonColor = settings["gameplayButtonColor"] as! Double
                         let soundEffectsEnabled = settings["soundEffectsEnabled"] as! Bool
                         let notificationsEnabled = settings["notificationsEnabled"] as! Bool
                         
-                        let userSettings = Settings(darkModeEnabled: darkModeEnabled, gameplayButtonColor: gameplayButtonColor, soundEffectsEnabled: soundEffectsEnabled, notificationsEnabled: notificationsEnabled)
+                        let userSettings = Settings(darkModeEnabled: darkModeEnabled, gameplayButtonColor: Int(gameplayButtonColor), soundEffectsEnabled: soundEffectsEnabled, notificationsEnabled: notificationsEnabled)
                         
                         // SET GLOBAL CURRENT USER
                         CURRENT_USER = User(username: username, usernameID: usernameID, points: points, stats: userStats, racer: userRacer, settings: userSettings)

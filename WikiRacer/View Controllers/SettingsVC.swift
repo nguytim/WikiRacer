@@ -94,8 +94,8 @@ class SettingsVC: UIViewController {
                         let data = document.data()
                         var settings = data!["settings"] as! Dictionary<String, Any>
                         
-                        settings["gameplayButtonColor"] = self.colorSlider.value
-                        CURRENT_USER!.settings.gameplayButtonColor = Int(self.colorSlider.value)
+                        settings["gameplayButtonColor"] = round(self.colorSlider.value)
+                        CURRENT_USER!.settings.gameplayButtonColor = Int(round(self.colorSlider.value))
                         
                         self.docRef.updateData(["settings": settings])
                     }
@@ -130,22 +130,6 @@ class SettingsVC: UIViewController {
                 self.darkModeSwitch.isEnabled = true
             }
         }
-    }
-    
-    @IBAction func gameplayColorsSwitchToggled(_ sender: Any) {
-        colorfulButtonsSwitch.isEnabled = false
-//        docRef.getDocument { (document, error) in
-//            if let document = document, document.exists {
-//                let data = document.data()
-//                var settings = data!["settings"] as! Dictionary<String, Bool>
-//                
-//                settings["colorfulButtonsEnabled"] = self.colorfulButtonsSwitch.isOn
-//                CURRENT_USER!.settings.colorfulButtonsEnabled = self.colorfulButtonsSwitch.isOn
-//                
-//                self.docRef.updateData(["settings": settings])
-//                self.colorfulButtonsSwitch.isEnabled = true
-//            }
-//        }
     }
     
     @IBAction func soundEffectsSwitchToggled(_ sender: Any) {
