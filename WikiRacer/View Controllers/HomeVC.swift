@@ -7,8 +7,11 @@
 
 import UIKit
 import WikipediaKit
+import FirebaseAuth
 
 class HomeVC: UIViewController {
+    
+    @IBOutlet weak var multiplayerButton: RoundedButton!
     
     let gameTypeIdentifier = "GameTypeSegueIdentifier"
     let startGameIdentifier = "StartGameIdentifier"
@@ -20,6 +23,9 @@ class HomeVC: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        if Auth.auth().currentUser == nil {
+            multiplayerButton.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

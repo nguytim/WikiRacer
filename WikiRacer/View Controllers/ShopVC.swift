@@ -78,28 +78,36 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             overrideUserInterfaceStyle = .light
         }
         
-        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-        
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                
-                let points:Int = data?["points"] as! Int
-                self.currentPoints = points
-                self.moneyLabel.text = "\(points) ⚡️"
-                self.moneyLabel.center.x += self.view.bounds.width
-                
-                let racer = data!["racer"] as! Dictionary<String, Any>
-                let accessoriesOwned = racer["accessoriesOwned"] as! [String]
-                let racecarsOwned = racer["racecarsOwned"] as! [String]
-                let racersOwned = racer["racersOwned"] as! [String]
-                
-                self.purchasedItems.append(contentsOf: accessoriesOwned)
-                self.purchasedItems.append(contentsOf: racecarsOwned)
-                self.purchasedItems.append(contentsOf: racersOwned)
+        if Auth.auth().currentUser != nil {
+            
+            let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+            
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    
+                    let points:Int = data?["points"] as! Int
+                    self.currentPoints = points
+                    self.moneyLabel.text = "\(points) ⚡️"
+                    self.moneyLabel.center.x += self.view.bounds.width
+                    
+                    let racer = data!["racer"] as! Dictionary<String, Any>
+                    let accessoriesOwned = racer["accessoriesOwned"] as! [String]
+                    let racecarsOwned = racer["racecarsOwned"] as! [String]
+                    let racersOwned = racer["racersOwned"] as! [String]
+                    
+                    self.purchasedItems.append(contentsOf: accessoriesOwned)
+                    self.purchasedItems.append(contentsOf: racecarsOwned)
+                    self.purchasedItems.append(contentsOf: racersOwned)
+                }
             }
+            shopGrid.reloadData()
+        } else {
+            self.moneyLabel.font = self.moneyLabel.font.withSize(25)
+            self.moneyLabel.text = "Sign up to earn ⚡️"
+            self.moneyLabel.center.x += self.view.bounds.width
         }
-        shopGrid.reloadData()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -163,9 +171,9 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         cell.layer.borderWidth = 0
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         let width = view.frame.size.width
         // Cell is 30% of your controllers view
         return CGSize(width: width * 0.3, height: width * 0.3)
@@ -256,7 +264,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                         self.currentPoints = pointsLeft
                         
                         var racer = data!["racer"] as! Dictionary<String, Any>
-
+                        
                         let count = indexPath.row
                         let item = currItem.name
                         

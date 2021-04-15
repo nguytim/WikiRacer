@@ -72,7 +72,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzE-w8-San" userLabel="Money Label">
-                                <rect key="frame" x="272" y="44" width="87" height="35"/>
+                                <rect key="frame" x="16" y="44" width="343" height="35"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" systemColor="labelColor"/>
@@ -82,7 +82,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fFQ-6K-M7V" firstAttribute="centerX" secondItem="g30-Ue-Vls" secondAttribute="centerX" id="05h-xe-mAl"/>
-                            <constraint firstItem="NzE-w8-San" firstAttribute="leading" secondItem="g30-Ue-Vls" secondAttribute="leading" constant="272" id="Glo-Pn-uUL"/>
+                            <constraint firstItem="NzE-w8-San" firstAttribute="leading" secondItem="g30-Ue-Vls" secondAttribute="leading" constant="16" id="Glo-Pn-uUL"/>
                             <constraint firstItem="NzE-w8-San" firstAttribute="top" secondItem="g30-Ue-Vls" secondAttribute="top" id="HiK-tV-SVp"/>
                             <constraint firstItem="g30-Ue-Vls" firstAttribute="trailing" secondItem="NzE-w8-San" secondAttribute="trailing" constant="16" id="Hzm-Tx-SGn"/>
                             <constraint firstItem="fFQ-6K-M7V" firstAttribute="top" secondItem="g30-Ue-Vls" secondAttribute="top" constant="64" id="IGl-f5-1Ej"/>

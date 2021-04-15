@@ -16,6 +16,7 @@ class YouWinVC: UIViewController {
     @IBOutlet weak var playAgainButton: RoundedButton!
     @IBOutlet weak var leaderboardButton: RoundedButton!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var earnPointsLabel: UILabel!
     
     let replaySegueIdentifier = "ReplayIdentifier"
     let viewExistingGameIdentifier = "ViewExistingGameIdentifier"
@@ -23,7 +24,7 @@ class YouWinVC: UIViewController {
     var db: Firestore!
     var game: Game?
     var isMultiplayer: Bool = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +34,11 @@ class YouWinVC: UIViewController {
         db = Firestore.firestore()
         
         // update user stats
-        updateStats()
+        if Auth.auth().currentUser != nil {
+            updateStats()
+        } else {
+            earnPointsLabel.text = "Sign up to earn ⚡️ for your racer!"
+        }
         
         // resets navigation to this VC
         self.navigationController?.viewControllers = [self]
@@ -71,7 +76,7 @@ class YouWinVC: UIViewController {
             overrideUserInterfaceStyle = .light
         }
     }
-
+    
     @IBAction func playAgainButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: replaySegueIdentifier, sender: nil)
     }
@@ -134,11 +139,11 @@ class YouWinVC: UIViewController {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == replaySegueIdentifier,
-            let gameVC = segue.destination as? GameVC {
+           let gameVC = segue.destination as? GameVC {
             gameVC.startingArticle = game!.startingArticle
             gameVC.targetArticle = game!.targetArticle
         } else if segue.identifier == viewExistingGameIdentifier,
@@ -146,5 +151,5 @@ class YouWinVC: UIViewController {
             viewGameVC.game = sender as? Game
         }
     }
-
+    
 }

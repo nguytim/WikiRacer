@@ -106,15 +106,19 @@ class GameVC: UIViewController, WKNavigationDelegate {
     
     // update games played for user
     func updateGamesPlayed() {
-        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-        
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                var stats = data!["stats"] as! Dictionary<String, Int>
-                stats["gamesPlayed"]! += 1
-                docRef.updateData(["stats": stats])
-                CURRENT_USER!.stats.gamesPlayed = stats["gamesPlayed"]!
+        if Auth.auth().currentUser != nil {
+            
+            
+            let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+            
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    var stats = data!["stats"] as! Dictionary<String, Int>
+                    stats["gamesPlayed"]! += 1
+                    docRef.updateData(["stats": stats])
+                    CURRENT_USER!.stats.gamesPlayed = stats["gamesPlayed"]!
+                }
             }
         }
     }
@@ -264,7 +268,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
             }
         }
     }
-
+    
     func insertContentsOfCSSFile(into webView: WKWebView) {
         guard let path = Bundle.main.path(forResource: "styles", ofType: "css") else { debugPrint("Nothing found"); return; }
         debugPrint("path is: \(path)")
@@ -276,28 +280,28 @@ class GameVC: UIViewController, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-
+        
         // REMOVE HEADER, WIKI ACTIONS, AND FOOTER
         let elementClassesToRemove = ["header-container header-chrome", "page-actions-menu", "mw-footer minerva-footer", "box-Multiple_issues plainlinks metadata ambox ambox-content ambox-multiple_issues compact-ambox", "reference", "unicode haudio", "edit-page menu__item--page-actions-edit mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-editLock-base20 mw-ui-icon-with-label-desktop", "mw-editsection", "box-More_citations_needed plainlinks metadata ambox ambox-content ambox-Refimprove"]
-
+        
         for elementClassName in elementClassesToRemove {
             let removeElementClassScript = "var elements = document.getElementsByClassName('\(elementClassName)'); for (var i = elements.length - 1; i >= 0; i--) { elements[i].parentNode.removeChild(elements[i]);}"
             webView.evaluateJavaScript(removeElementClassScript) { (response, error) in
                 debugPrint("Am here")
             }
         }
-
+        
         let elementIdsToRemove = ["References", "Bibliography", "External_links", "Notes", "Further_reading", "Footnotes", "mw-head", "mw-panel"]
-
+        
         for elementId in elementIdsToRemove {
             let removeElementIdScript = "var element = document.getElementById('\(elementId)'); if (element != null) {element.parentNode.parentNode.removeChild(element.parentNode);}"
             webView.evaluateJavaScript(removeElementIdScript) { (response, error) in
                 debugPrint("Could not remove stuff")
             }
         }
-
+        
         if CURRENT_USER!.settings.gameplayButtonColor != 0 {
-        //if CURRENT_USER!.settings.colorfulButtonsEnabled {
+            //if CURRENT_USER!.settings.colorfulButtonsEnabled {
             // CHANGE THE STYLING OF LINKS
             let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (elements[i].className != null && elements[i].className != 'image') { elements[i].style.backgroundColor='\(colors[CURRENT_USER!.settings.gameplayButtonColor - 1])'; elements[i].style.color='white'; elements[i].style.fontWeight='700'; elements[i].style.borderRadius='7px';}}"
             webView.evaluateJavaScript(changeLinksToButtonsScript) { (response, error) in

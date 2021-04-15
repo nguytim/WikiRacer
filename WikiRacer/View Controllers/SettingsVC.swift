@@ -27,7 +27,6 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     
     @IBOutlet weak var darkModeSwitch: UISwitch!
-    @IBOutlet weak var colorfulButtonsSwitch: UISwitch!
     @IBOutlet weak var soundEffectsSwitch: UISwitch!
     @IBOutlet weak var notificiationsSwitch: UISwitch!
     
@@ -40,19 +39,21 @@ class SettingsVC: UIViewController {
         
         db = Firestore.firestore()
         
-        docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-        
-        loadUserSettings()
-        
-        let user = Auth.auth().currentUser
-        if let user = user {
-            emailLabel.text = user.email
+        if Auth.auth().currentUser != nil {
+            docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+            let user = Auth.auth().currentUser
+            if let user = user {
+                emailLabel.text = user.email
+            }
+        } else {
+            deleteAccountButt.isHidden = true
+            editButton.isHidden = true
+            usernameTextField.isUserInteractionEnabled = false
         }
         
+        loadUserSettings()
         setupButtons()
         setupUsernameTextfield(isDarkMode: CURRENT_USER!.settings.darkModeEnabled)
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,9 +69,7 @@ class SettingsVC: UIViewController {
     
     func loadUserSettings() {
         usernameTextField.placeholder = CURRENT_USER!.username
-        //usernameLabel.text = CURRENT_USER!.username
         darkModeSwitch.isOn = CURRENT_USER!.settings.darkModeEnabled
-//        colorfulButtonsSwitch.isOn = CURRENT_USER!.settings.colorfulButtonsEnabled
         colorSlider.value = Float(CURRENT_USER!.settings.gameplayButtonColor)
         soundEffectsSwitch.isOn = CURRENT_USER!.settings.soundEffectsEnabled
         notificiationsSwitch.isOn = CURRENT_USER!.settings.notificationsEnabled
@@ -89,82 +88,115 @@ class SettingsVC: UIViewController {
     
     @IBAction func colorSliderChanged(_ sender: Any) {
         //        selectedColorView.backgroundColor = uiColorFromHex(colorArray[Int(slider.value)])
-                docRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let data = document.data()
-                        var settings = data!["settings"] as! Dictionary<String, Any>
-                        
-                        settings["gameplayButtonColor"] = round(self.colorSlider.value)
-                        CURRENT_USER!.settings.gameplayButtonColor = Int(round(self.colorSlider.value))
-                        
-                        self.docRef.updateData(["settings": settings])
-                    }
+        if Auth.auth().currentUser != nil {
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    var settings = data!["settings"] as! Dictionary<String, Any>
+                    
+                    settings["gameplayButtonColor"] = round(self.colorSlider.value)
+                    CURRENT_USER!.settings.gameplayButtonColor = Int(round(self.colorSlider.value))
+                    
+                    self.docRef.updateData(["settings": settings])
                 }
+            }
+        } else {
+            CURRENT_USER!.settings.gameplayButtonColor = Int(round(self.colorSlider.value))
+        }
     }
     
     
     @IBAction func darkModeSwitchToggled(_ sender: Any) {
         darkModeSwitch.isEnabled = false
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                var settings = data!["settings"] as! Dictionary<String, Bool>
-                
-                settings["darkModeEnabled"] = self.darkModeSwitch.isOn
-                CURRENT_USER!.settings.darkModeEnabled = self.darkModeSwitch.isOn
-                //update for textfield too
-                self.setupUsernameTextfield(isDarkMode: self.darkModeSwitch.isOn)
-                
-                if CURRENT_USER!.settings.darkModeEnabled {
-                    // adopt a light interface style
-                    self.overrideUserInterfaceStyle = .dark
-                } else {
-                    // adopt a dark interface style
-                    self.overrideUserInterfaceStyle = .light
+        if Auth.auth().currentUser != nil {
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    var settings = data!["settings"] as! Dictionary<String, Bool>
+                    
+                    settings["darkModeEnabled"] = self.darkModeSwitch.isOn
+                    CURRENT_USER!.settings.darkModeEnabled = self.darkModeSwitch.isOn
+                    //update for textfield too
+                    self.setupUsernameTextfield(isDarkMode: self.darkModeSwitch.isOn)
+                    
+                    if CURRENT_USER!.settings.darkModeEnabled {
+                        // adopt a light interface style
+                        self.overrideUserInterfaceStyle = .dark
+                    } else {
+                        // adopt a dark interface style
+                        self.overrideUserInterfaceStyle = .light
+                    }
+                    
+                    let profileVC = self.delegate as! ChangeToDarkMode
+                    profileVC.changeDarkMode()
+                    
+                    self.docRef.updateData(["settings": settings])
+                    self.darkModeSwitch.isEnabled = true
                 }
-                
-                let profileVC = self.delegate as! ChangeToDarkMode
-                profileVC.changeDarkMode()
-                
-                self.docRef.updateData(["settings": settings])
-                self.darkModeSwitch.isEnabled = true
             }
+        } else {
+            CURRENT_USER!.settings.darkModeEnabled = self.darkModeSwitch.isOn
+            //update for textfield too
+            self.setupUsernameTextfield(isDarkMode: self.darkModeSwitch.isOn)
+            if CURRENT_USER!.settings.darkModeEnabled {
+                // adopt a light interface style
+                self.overrideUserInterfaceStyle = .dark
+            } else {
+                // adopt a dark interface style
+                self.overrideUserInterfaceStyle = .light
+            }
+            let profileVC = self.delegate as! ChangeToDarkMode
+            profileVC.changeDarkMode()
+            self.darkModeSwitch.isEnabled = true
         }
     }
     
     @IBAction func soundEffectsSwitchToggled(_ sender: Any) {
         soundEffectsSwitch.isEnabled = false
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                var settings = data!["settings"] as! Dictionary<String, Bool>
-                
-                settings["soundEffectsEnabled"] = self.soundEffectsSwitch.isOn
-                CURRENT_USER!.settings.soundEffectsEnabled = self.soundEffectsSwitch.isOn
-                
-                self.docRef.updateData(["settings": settings])
-                self.soundEffectsSwitch.isEnabled = true
+        if Auth.auth().currentUser != nil {
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    var settings = data!["settings"] as! Dictionary<String, Bool>
+                    
+                    settings["soundEffectsEnabled"] = self.soundEffectsSwitch.isOn
+                    CURRENT_USER!.settings.soundEffectsEnabled = self.soundEffectsSwitch.isOn
+                    
+                    self.docRef.updateData(["settings": settings])
+                    self.soundEffectsSwitch.isEnabled = true
+                }
             }
+        } else {
+            CURRENT_USER!.settings.soundEffectsEnabled = self.soundEffectsSwitch.isOn
+            self.soundEffectsSwitch.isEnabled = true
         }
     }
     
     @IBAction func notificationsSwitchToggled(_ sender: Any) {
         notificiationsSwitch.isEnabled = false
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                var settings = data!["settings"] as! Dictionary<String, Bool>
-                
-                settings["notificationsEnabled"] = self.notificiationsSwitch.isOn
-                CURRENT_USER!.settings.notificationsEnabled = self.notificiationsSwitch.isOn
-                
-                self.docRef.updateData(["settings": settings])
-                self.notificiationsSwitch.isEnabled = true
+        if Auth.auth().currentUser != nil {
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    var settings = data!["settings"] as! Dictionary<String, Bool>
+                    
+                    settings["notificationsEnabled"] = self.notificiationsSwitch.isOn
+                    CURRENT_USER!.settings.notificationsEnabled = self.notificiationsSwitch.isOn
+                    
+                    self.docRef.updateData(["settings": settings])
+                    self.notificiationsSwitch.isEnabled = true
+                }
             }
+        } else {
+            CURRENT_USER!.settings.notificationsEnabled = self.notificiationsSwitch.isOn
+            self.notificiationsSwitch.isEnabled = true
         }
     }
     
     @IBAction func signOutClicked(_ sender: Any) {
+        if Auth.auth().currentUser == nil {
+            self.performSegue(withIdentifier: "LoginIdentifier", sender: self)
+        }
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -201,46 +233,46 @@ class SettingsVC: UIViewController {
     
     @IBAction func editUsernameButtonClicked(_ sender: Any) {
         if(usernameTextField.text != nil && !usernameTextField.text!.isEmpty) {
-                print("made it inside newusername != ")
+            print("made it inside newusername != ")
             let docRef = Firestore.firestore().collection("usernames").whereField("username", isEqualTo: usernameTextField.text!.lowercased()).limit(to: 1)
-                docRef.getDocuments { (querysnapshot, error) in
-                    if error != nil {
-                        print("Document Error: ", error!)
-                    } else {
-                        if let doc = querysnapshot?.documents, !doc.isEmpty {
-                            //unsuccessful registration
-                            let alert = UIAlertController(title: "Username is taken", message: "Please try a different username.", preferredStyle: UIAlertController.Style.alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                        else {
-                            //change the username bc it not currently existing and is valid
-                            
-                            //Change GOBLAL users username.
-                            CURRENT_USER?.username = self.usernameTextField.text!
-                            
-                            //change current Authenticated users Display Name
-                            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                            changeRequest?.displayName = self.usernameTextField.text!
-                            changeRequest?.commitChanges(completion: nil)
-                            
-                            //change usernames user database
-                            self.db.collection("usernames").document(CURRENT_USER!.usernameID).setData([ "username": self.usernameTextField.text! ])
-                            
-                            //change corresponding users database for that users username
-                            self.db.collection("users").document(Auth.auth().currentUser!.uid).setData(["username": self.usernameTextField.text!], merge: true)
-                            
-                            //Let user know they have successfully changed their username.
-                            let alert = UIAlertController(title: "Congrats!", message: "You have updated your username.", preferredStyle: UIAlertController.Style.alert)
-                            alert.addAction(UIAlertAction(title: "Wohoo!", style: UIAlertAction.Style.default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                            
-                            //Reset the textfield and display new username
-                            self.usernameTextField.text = ""
-                            self.usernameTextField.placeholder = CURRENT_USER?.username
-                        }
+            docRef.getDocuments { (querysnapshot, error) in
+                if error != nil {
+                    print("Document Error: ", error!)
+                } else {
+                    if let doc = querysnapshot?.documents, !doc.isEmpty {
+                        //unsuccessful registration
+                        let alert = UIAlertController(title: "Username is taken", message: "Please try a different username.", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    else {
+                        //change the username bc it not currently existing and is valid
+                        
+                        //Change GOBLAL users username.
+                        CURRENT_USER?.username = self.usernameTextField.text!
+                        
+                        //change current Authenticated users Display Name
+                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                        changeRequest?.displayName = self.usernameTextField.text!
+                        changeRequest?.commitChanges(completion: nil)
+                        
+                        //change usernames user database
+                        self.db.collection("usernames").document(CURRENT_USER!.usernameID).setData([ "username": self.usernameTextField.text! ])
+                        
+                        //change corresponding users database for that users username
+                        self.db.collection("users").document(Auth.auth().currentUser!.uid).setData(["username": self.usernameTextField.text!], merge: true)
+                        
+                        //Let user know they have successfully changed their username.
+                        let alert = UIAlertController(title: "Congrats!", message: "You have updated your username.", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Wohoo!", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        
+                        //Reset the textfield and display new username
+                        self.usernameTextField.text = ""
+                        self.usernameTextField.placeholder = CURRENT_USER?.username
                     }
                 }
+            }
         }
         else {
             let alert = UIAlertController(title: "Error", message: "Please make sure new username is not empty.", preferredStyle: UIAlertController.Style.alert)
@@ -248,7 +280,7 @@ class SettingsVC: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-            
+    
     
     private func setupButtons() {
         signOutButt.backgroundColor = UIColor(named: "MainDarkColor")

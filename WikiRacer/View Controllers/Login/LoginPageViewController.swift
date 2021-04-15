@@ -184,7 +184,7 @@ class LoginPageViewController: UIViewController {
     @IBAction func contAsGuestButtonSegue(_ sender: Any) {
         let defaultStats = Stats(gamesPlayed: 0, gamesWon: 0, totalGameTime: 0, totalNumberOfLinks: 0, fastestGame: 0, leastNumberOfLinks: 0)
         
-        let defaultRacer = Racer(accessoriesOwned: [String](), racecarsOwned: ["racecar1.png"], racersOwned: ["racer1.png"], currentAccessorries: [String](), currentRacecar: "racecar1.png", currentRacer: "racer1.png")
+        let defaultRacer = Racer(accessoriesOwned: [String](), racecarsOwned: [], racersOwned: [], currentAccessorries: [String](), currentRacecar: "", currentRacer: "")
         
         let defaultSettings = Settings(darkModeEnabled: false, gameplayButtonColor: Int(0), soundEffectsEnabled: true, notificationsEnabled: true)
         
@@ -220,9 +220,6 @@ class LoginPageViewController: UIViewController {
                 self.view.isHidden = false
                 self.emailAddressTextField.text = nil
                 self.passwordTextField.text = nil
-                
-                // Warn users about bata
-                self.betaNotification()
             }
             else {
                 
@@ -276,12 +273,6 @@ class LoginPageViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    private func betaNotification() {
-        let alert = UIAlertController(title: "Please Read.", message: "This is a beta test. Core functionality of playing the game works and is the focus of this test. ", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
     
 }

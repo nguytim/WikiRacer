@@ -179,18 +179,22 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Ref
     }
     
     func getCurrentUsersGames() {
-        let docRef = db!.collection("users").document(Auth.auth().currentUser!.uid)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                if (data?["games"] != nil && !(data?["games"] as! [String]).isEmpty) {
-                    self.gameIDs = data!["games"] as! [String]
-                    self.getGames()
-                } else {
-                    self.refreshButton.isEnabled = true
-                    self.gamesTableView.reloadData()
+        if Auth.auth().currentUser != nil {
+            let docRef = db!.collection("users").document(Auth.auth().currentUser!.uid)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    if (data?["games"] != nil && !(data?["games"] as! [String]).isEmpty) {
+                        self.gameIDs = data!["games"] as! [String]
+                        self.getGames()
+                    } else {
+                        self.refreshButton.isEnabled = true
+                        self.gamesTableView.reloadData()
+                    }
                 }
             }
+        } else {
+            self.refreshButton.isEnabled = true
         }
     }
     

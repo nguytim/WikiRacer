@@ -109,7 +109,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xv7-DU-zz4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="MainAquaColor"/>
+                        <color key="tintColor" name="MainDarkColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -125,6 +125,9 @@
         <image name="RacetrackIcon" width="22" height="22"/>
         <namedColor name="MainAquaColor">
             <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MainDarkColor">
+            <color red="0.13333333333333333" green="0.19215686274509805" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainYellowColor">
             <color red="0.94117647058823528" green="0.70196078431372544" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
