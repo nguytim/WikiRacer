@@ -16,8 +16,11 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     @IBOutlet weak var carImage: UIImageView!
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var hatImage: UIImageView!
-    
     @IBOutlet weak var inventoryGrid: UICollectionView!
+    
+    let animationDuration: Double = 0.5
+    let delayBase: Double = 0.3
+    
     var items = [String]()
     var equippedItems = [String]()
     
@@ -193,6 +196,19 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         return items.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let column = Double(cell.frame.minX / cell.frame.width)
+        let row = Double(cell.frame.minY / cell.frame.height)
+        let distance = sqrt(pow(column, 2) + pow(row, 2))
+        let delay = sqrt(distance) * delayBase
+        
+        UIView.animate(withDuration: animationDuration, delay: delay, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: [], animations: {
+            cell.alpha = 1
+            cell.contentView.alpha = 1
+            cell.transform = .identity
+        })
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let width = view.frame.size.width
@@ -207,6 +223,8 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         cell.contentView.backgroundColor = .systemGray3
         cell.contentView.isOpaque = true
         cell.alpha = 0
+        cell.alpha = 0
+        cell.contentView.alpha = 0
         cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         
         let index = indexPath.row
