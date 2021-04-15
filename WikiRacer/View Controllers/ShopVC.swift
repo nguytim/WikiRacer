@@ -27,7 +27,7 @@ class ItemCollectionCell: UICollectionViewCell{
     
 }
 
-class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let animationDuration: Double = 0.5
     let delayBase: Double = 0.3
@@ -163,6 +163,13 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         cell.layer.borderWidth = 0
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = view.frame.size.width
+        // Cell is 30% of your controllers view
+        return CGSize(width: width * 0.3, height: width * 0.3)
+    }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let column = Double(cell.frame.minX / cell.frame.width)
@@ -291,41 +298,5 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         cell?.layer.borderWidth = 0
         cell?.isSelected = false
     }
-    
-    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
-        
-        let widthRatio  = targetSize.width  / size.width
-        let heightRatio = targetSize.height / size.height
-        
-        // Figure out what our orientation is, and use that to form the rectangle
-        var newSize: CGSize
-        if(widthRatio > heightRatio) {
-            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-        } else {
-            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
-        }
-        
-        // This is the rect that we've calculated out and this is what is actually used below
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-        
-        // Actually do the resizing to the rect using the ImageContext stuff
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

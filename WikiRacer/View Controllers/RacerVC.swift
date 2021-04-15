@@ -10,7 +10,7 @@ import FirebaseFirestore
 import FirebaseStorage
 import FirebaseAuth
 
-class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var carImage: UIImageView!
@@ -191,6 +191,13 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = view.frame.size.width
+        // Cell is 30% of your controllers view
+        return CGSize(width: width * 0.27, height: width * 0.27)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
