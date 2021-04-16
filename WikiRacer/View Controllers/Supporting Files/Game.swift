@@ -26,7 +26,17 @@ class Player: Comparable {
     
     static func < (lhs: Player, rhs: Player) -> Bool {
         if lhs.timeTrial && rhs.timeTrial {
+            if lhs.time == -1 {
+                return false
+            } else if rhs.time == -1 {
+                return true
+            }
             return lhs.time < rhs.time
+        }
+        if lhs.numLinks == -1 {
+            return false
+        } else if rhs.numLinks == -1 {
+            return true
         }
         return lhs.numLinks < rhs.numLinks
     }
