@@ -375,7 +375,7 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgX-8c-o4a">
                                 <rect key="frame" x="16" y="74" width="382" height="747"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUC-Vq-IgA">
                                 <rect key="frame" x="37" y="42" width="83" height="24"/>
@@ -609,44 +609,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Article:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blL-Mc-e4D" userLabel="Starting Article Title">
-                                <rect key="frame" x="122" y="170" width="170.5" height="33"/>
+                                <rect key="frame" x="122" y="214" width="170.5" height="33"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="24"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Article:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEN-mp-5NU" userLabel="Target Article Title">
-                                <rect key="frame" x="131" y="240" width="152.5" height="33"/>
+                                <rect key="frame" x="131" y="284" width="152.5" height="33"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="24"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbG-7F-Qxj" userLabel="Target Article">
-                                <rect key="frame" x="169.5" y="281" width="75.5" height="33"/>
+                                <rect key="frame" x="169.5" y="325" width="75.5" height="33"/>
                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2O-Tk-d2f">
-                                <rect key="frame" x="116.5" y="322" width="181" height="37.5"/>
+                                <rect key="frame" x="116.5" y="366" width="181" height="37.5"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiplayer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghE-Z3-9pA">
-                                <rect key="frame" x="102" y="76" width="210" height="50"/>
+                                <rect key="frame" x="102" y="120" width="210" height="50"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvG-Ax-86I" userLabel="Starting Article">
-                                <rect key="frame" x="169.5" y="199" width="75.5" height="33"/>
+                                <rect key="frame" x="169.5" y="243" width="75.5" height="33"/>
                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g2V-2C-oQZ">
-                                <rect key="frame" x="27" y="386" width="360" height="385"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="27" y="430" width="360" height="341"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaderboardCellIdentifier" id="pBV-R8-PCv" customClass="LeaderboardTableCell" customModule="WikiRacer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="360" height="44.5"/>
@@ -692,6 +692,7 @@
                                                 <constraint firstItem="tYX-8G-Wbh" firstAttribute="top" secondItem="doT-ax-sO3" secondAttribute="topMargin" constant="1" id="rdT-DW-pv2"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="linksLabel" destination="nZF-hr-ACZ" id="tC2-8A-ROC"/>
                                             <outlet property="playerLabel" destination="ZeO-Mt-pxU" id="8QN-zl-zyg"/>
@@ -716,27 +717,27 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Trial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5d-R7-AzA">
-                                <rect key="frame" x="77" y="54" width="260" height="20.5"/>
+                                <rect key="frame" x="77" y="98" width="260" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMh-k9-iua" userLabel="Delete Button">
-                                <rect key="frame" x="359" y="48" width="24" height="22"/>
+                                <rect key="frame" x="363.5" y="92" width="19.5" height="22"/>
                                 <color key="tintColor" name="MainDarkColor"/>
-                                <state key="normal" image="xmark.rectangle.fill" catalog="system"/>
+                                <state key="normal" image="trash.fill" catalog="system"/>
                                 <connections>
                                     <action selector="deleteButtonPressed:" destination="p0u-Ot-JcC" eventType="touchUpInside" id="aLa-WB-7bu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Code" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paX-HO-bi9">
-                                <rect key="frame" x="149" y="135" width="95" height="20.5"/>
+                                <rect key="frame" x="149" y="179" width="95" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="FFI-Bu-yBR">
-                                <rect key="frame" x="252" y="134" width="64" height="23"/>
+                                <rect key="frame" x="252" y="178" width="64" height="23"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PX-lu-7Uk" userLabel="Copy Button">
                                         <rect key="frame" x="0.0" y="0.0" width="21" height="23"/>
@@ -1097,7 +1098,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-ha-tcc">
-                                <rect key="frame" x="63" y="309" width="288" height="31"/>
+                                <rect key="frame" x="63" y="309" width="288" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="Ark-it-E2g"/>
                                 </constraints>
@@ -1123,7 +1124,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sir-hb-zRg" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="132" y="387" width="150" height="50"/>
+                                <rect key="frame" x="132" y="388" width="150" height="50"/>
                                 <color key="backgroundColor" name="MainDarkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="53u-9I-rwg"/>
@@ -1297,7 +1298,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHg-B6-coq">
-                                <rect key="frame" x="61.5" y="341.5" width="291" height="31"/>
+                                <rect key="frame" x="61.5" y="341.5" width="291" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="291" id="f8D-S7-oUE"/>
                                 </constraints>
@@ -1305,7 +1306,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGO-4w-apH" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="132" y="404" width="150" height="50"/>
+                                <rect key="frame" x="132" y="405" width="150" height="50"/>
                                 <color key="backgroundColor" name="MainDarkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="52F-5b-4Y3"/>
@@ -1428,17 +1429,17 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="n9v-5q-IG6"/>
+        <segue reference="bkR-56-dAu"/>
         <segue reference="fUR-hF-Fes"/>
-        <segue reference="w9n-P0-Qzn"/>
+        <segue reference="Vzd-rn-tWt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="FlagIcon" width="22" height="22"/>
         <image name="arrowshape.turn.up.forward.fill" catalog="system" width="128" height="106"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
-        <image name="xmark.rectangle.fill" catalog="system" width="128" height="93"/>
         <namedColor name="MainAquaColor">
             <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -1456,9 +1457,6 @@
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

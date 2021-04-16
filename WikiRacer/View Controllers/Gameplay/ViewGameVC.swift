@@ -106,6 +106,17 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
+        let verticalPadding: CGFloat = 12
+
+        let maskLayer = CALayer()
+        maskLayer.cornerRadius = 20   //if you want round edges
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+        cell.layer.mask = maskLayer
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection
                                 section: Int) -> String? {
        return "Rank | User | Time | # Links"
