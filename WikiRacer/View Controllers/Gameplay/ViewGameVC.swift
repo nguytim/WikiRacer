@@ -80,23 +80,35 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: leaderboardCellIdentifier, for: indexPath as IndexPath) as! LeaderboardTableCell
         let player = game!.leaderboard![indexPath.row]
         
-        let timeDisplayed = player.time
-        let minutes = (timeDisplayed % 3600) / 60
-        let seconds = (timeDisplayed % 3600) % 60
-        let time = String(format:"%d:%02d", minutes, seconds)
-        
-        cell.rankLabel.text = "#\(indexPath.row + 1)"
         cell.playerLabel.text = player.name
-        cell.timeLabel.text = time
-        cell.linksLabel.text = "\(player.numLinks)"
+        if player.time != -1 || player.numLinks != -1 {
+            cell.rankLabel.text = "#\(indexPath.row + 1)"
+            let timeDisplayed = player.time
+            let minutes = (timeDisplayed % 3600) / 60
+            let seconds = (timeDisplayed % 3600) % 60
+            let time = String(format:"%d:%02d", minutes, seconds)
+            cell.timeLabel.text = time
+            cell.linksLabel.text = "\(player.numLinks)"
+        } else {
+            cell.rankLabel.text = "Forfeit"
+            cell.timeLabel.text = "None"
+            cell.linksLabel.text = "None"
+        }
         
         if game?.gameType == "Time Trial" {
             cell.timeLabel.font = UIFont.boldSystemFont(ofSize: 17)
+            cell.timeLabel.textColor = UIColor(named: "MainYellowColor")
         } else {
             cell.linksLabel.font = UIFont.boldSystemFont(ofSize: 17)
+            cell.linksLabel.textColor = UIColor(named: "MainYellowColor")
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection
+                                section: Int) -> String? {
+       return "Rank | User | Time | # Links"
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

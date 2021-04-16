@@ -226,13 +226,27 @@ class GameVC: UIViewController, WKNavigationDelegate {
     }
     
     @IBAction func exitButtonClicked(_ sender: Any) {
-        let exitAlert = UIAlertController(title: "Exit", message: "Are you sure you want to end the game?", preferredStyle: .alert)
+        var message = "Are you sure you want to end the game?"
+        if isMultiplayer {
+            message = "Are you sure you want to end the game? You will not be able to replay this multiplayer game."
+        }
+        let exitAlert = UIAlertController(title: "Exit", message: message, preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Go Back", style: .default) { (action) in
             exitAlert.dismiss(animated: true, completion: nil)
         }
         
         let exitAction = UIAlertAction(title: "Exit", style: .destructive) { (action) in
+            let uid = Auth.auth().currentUser!.uid
+            let username = Auth.auth().currentUser!.displayName!
+            
+            let currentPlayer = Player(uid: uid, name: username, time: -1, numLinks: -1)
+            
+            // add to leaderboard
+            self.game!.leaderboard!.append(currentPlayer)
+            
+            let db: Firestore = Firestore.firestore()
+            db.collection("games").document(self.game!.code!).setData(self.game!.dictionary)
             self.performSegue(withIdentifier: self.exitSegueIdentifier, sender: nil)
         }
         
