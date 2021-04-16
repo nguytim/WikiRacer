@@ -108,7 +108,6 @@ class GameVC: UIViewController, WKNavigationDelegate {
     func updateGamesPlayed() {
         if Auth.auth().currentUser != nil {
             
-            
             let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
             
             docRef.getDocument { (document, error) in
@@ -237,16 +236,18 @@ class GameVC: UIViewController, WKNavigationDelegate {
         }
         
         let exitAction = UIAlertAction(title: "Exit", style: .destructive) { (action) in
-            let uid = Auth.auth().currentUser!.uid
-            let username = Auth.auth().currentUser!.displayName!
-            
-            let currentPlayer = Player(uid: uid, name: username, time: -1, numLinks: -1)
-            
-            // add to leaderboard
-            self.game!.leaderboard!.append(currentPlayer)
-            
-            let db: Firestore = Firestore.firestore()
-            db.collection("games").document(self.game!.code!).setData(self.game!.dictionary)
+            if self.isMultiplayer {
+                let uid = Auth.auth().currentUser!.uid
+                let username = Auth.auth().currentUser!.displayName!
+                
+                let currentPlayer = Player(uid: uid, name: username, time: -1, numLinks: -1)
+                
+                // add to leaderboard
+                self.game!.leaderboard!.append(currentPlayer)
+                
+                let db: Firestore = Firestore.firestore()
+                db.collection("games").document(self.game!.code!).setData(self.game!.dictionary)
+            }
             self.performSegue(withIdentifier: self.exitSegueIdentifier, sender: nil)
         }
         
@@ -323,6 +324,6 @@ class GameVC: UIViewController, WKNavigationDelegate {
             }
         }
         insertContentsOfCSSFile(into: webView)
-        viewForEmbedingWebView.isHidden = false
+        self.viewForEmbedingWebView.isHidden = false
     }
 }
