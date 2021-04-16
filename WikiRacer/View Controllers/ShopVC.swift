@@ -70,7 +70,6 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.moneyLabel.center.x += self.view.bounds.width
 
         if CURRENT_USER!.settings.darkModeEnabled {
             // adopt a light interface style
@@ -111,6 +110,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.moneyLabel.center.x += self.view.bounds.width
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
             self.moneyLabel.center.x -= self.view.bounds.width
         })

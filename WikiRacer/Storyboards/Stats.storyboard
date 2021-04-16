@@ -221,6 +221,7 @@
                         <outlet property="numGamesLabel" destination="jWX-dq-4JG" id="TUH-bK-r50"/>
                         <outlet property="numGamesWonLabel" destination="Amk-0i-hny" id="RgZ-fQ-CtJ"/>
                         <outlet property="racerImage" destination="8G6-Ex-AH1" id="nSO-4X-QLy"/>
+                        <outlet property="settingsButton" destination="hqq-yw-vAm" id="ISn-oA-fDG"/>
                         <outlet property="userNameLabel" destination="PO1-Q1-CPM" id="n8C-iU-SnR"/>
                     </connections>
                 </viewController>

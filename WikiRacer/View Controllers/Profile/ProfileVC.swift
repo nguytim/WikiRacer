@@ -13,6 +13,7 @@ protocol ChangeToDarkMode {
 
 class ProfileVC: UIViewController, ChangeToDarkMode {
     
+    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var leastNumLinksLabel: UILabel!
     @IBOutlet weak var fastestTimeLabel: UILabel!
     @IBOutlet weak var avgLinksLabel: UILabel!
@@ -29,6 +30,10 @@ class ProfileVC: UIViewController, ChangeToDarkMode {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        settingsButton.center.x += view.bounds.width
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+            self.settingsButton.center.x -= self.view.bounds.width
+        })
         changeDarkMode()
         loadStats()
     }

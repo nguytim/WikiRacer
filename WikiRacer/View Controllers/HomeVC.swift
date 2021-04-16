@@ -11,7 +11,11 @@ import FirebaseAuth
 
 class HomeVC: UIViewController {
     
+
+    @IBOutlet weak var singlePlayerButton: RoundedButton!
     @IBOutlet weak var multiplayerButton: RoundedButton!
+    @IBOutlet weak var howToPlayButton: RoundedButton!
+    @IBOutlet weak var newRaceLabel: UILabel!
     
     let gameTypeIdentifier = "GameTypeSegueIdentifier"
     let startGameIdentifier = "StartGameIdentifier"
@@ -34,6 +38,9 @@ class HomeVC: UIViewController {
         self.navigationController?.viewControllers = [self]
         self.navigationController?.navigationBar.isHidden = true
         
+        self.newRaceLabel.alpha = 0
+       
+        
         self.tabBarController?.tabBar.isHidden = false
         if CURRENT_USER!.settings.darkModeEnabled {
             // adopt a light interface style
@@ -42,6 +49,24 @@ class HomeVC: UIViewController {
             // adopt a dark interface style
             overrideUserInterfaceStyle = .light
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        singlePlayerButton.center.x += self.view.bounds.width
+        howToPlayButton.center.x += self.view.bounds.width
+        multiplayerButton.center.x -= self.view.bounds.width
+        UIView.animate(withDuration: 1.0, delay: 0, options: [],
+                       animations: {
+                        self.newRaceLabel.alpha = 1
+                       }, completion: nil)
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.1, options: [],
+                       animations: {
+                        self.singlePlayerButton.center.x -= self.view.bounds.width
+                        self.howToPlayButton.center.x -= self.view.bounds.width
+                        self.multiplayerButton.center.x += self.view.bounds.width
+                       }, completion: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
