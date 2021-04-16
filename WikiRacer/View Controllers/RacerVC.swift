@@ -10,6 +10,25 @@ import FirebaseFirestore
 import FirebaseStorage
 import FirebaseAuth
 
+extension UICollectionView {
+
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = .black
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = UIFont(name: "Righteous", size: 20)
+        messageLabel.sizeToFit()
+
+        self.backgroundView = messageLabel;
+    }
+
+    func restore() {
+        self.backgroundView = nil
+    }
+}
+
 class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -193,6 +212,12 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if (items.count == 0) {
+            self.inventoryGrid.setEmptyMessage("Sign Up or Log In to Customize")
+        } else {
+            self.inventoryGrid.restore()
+        }
         return items.count
     }
     

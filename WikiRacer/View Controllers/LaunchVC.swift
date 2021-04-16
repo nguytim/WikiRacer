@@ -42,7 +42,7 @@ class LaunchVC: UIViewController {
     }
     
     private func animate() {
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.4, animations: {
             let size = self.view.frame.size.width * 2.5
             let diffX = size - self.view.frame.size.width
             let diffY = self.view.frame.size.height - size
@@ -50,7 +50,7 @@ class LaunchVC: UIViewController {
             self.racerView.frame = CGRect(x: -(diffX/2), y: diffY/2, width: size, height: size)
         })
         
-        UIView.animate(withDuration: 1.3, animations: {
+        UIView.animate(withDuration: 0.75, animations: {
             self.racerView.alpha = 0
             self.backgroundView.alpha = 0
         }, completion: { done in

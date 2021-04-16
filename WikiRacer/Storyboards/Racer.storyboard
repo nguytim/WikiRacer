@@ -20,6 +20,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="noi-AT-JcS" userLabel="Background Image">
                                 <rect key="frame" x="0.0" y="-9" width="428" height="365"/>
+                                <color key="backgroundColor" systemColor="placeholderTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="365" id="4gJ-1E-LKj"/>
                                 </constraints>
@@ -27,7 +28,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Glb-lc-PBp" userLabel="Car Image">
                                 <rect key="frame" x="157" y="127" width="254" height="208"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bIW-Uf-qnJ" userLabel="Character Image">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Racer" translatesAutoresizingMaskIntoConstraints="NO" id="bIW-Uf-qnJ" userLabel="Character Image">
                                 <rect key="frame" x="23" y="109" width="209" height="251"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l7G-gB-iQJ" userLabel="Hat Image">
@@ -118,10 +119,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Racer" width="581" height="712"/>
         <image name="TireIcon" width="22" height="22"/>
         <namedColor name="MainAquaColor">
             <color red="0.49411764705882355" green="0.91764705882352937" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

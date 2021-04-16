@@ -730,7 +730,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Code" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paX-HO-bi9">
-                                <rect key="frame" x="149" y="135" width="95" height="21"/>
+                                <rect key="frame" x="149" y="135" width="95" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -923,7 +923,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzi-u2-vqf">
-                                <rect key="frame" x="66" y="114" width="296" height="50"/>
+                                <rect key="frame" x="66" y="114" width="282" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="296" id="0hG-fJ-PPH"/>
                                 </constraints>
@@ -932,19 +932,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DVH-5k-tQe">
-                                <rect key="frame" x="49" y="311" width="330" height="448"/>
+                                <rect key="frame" x="49" y="311" width="316" height="448"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" name="MainAquaColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" textLabel="JOh-XB-zjs" style="IBUITableViewCellStyleDefault" id="03I-z2-KP7" userLabel="Article Cell">
-                                        <rect key="frame" x="0.0" y="28" width="330" height="55"/>
+                                        <rect key="frame" x="0.0" y="28" width="316" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="03I-z2-KP7" id="2ek-Ia-EUA">
-                                            <rect key="frame" x="0.0" y="0.0" width="330" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="316" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JOh-XB-zjs">
-                                                    <rect key="frame" x="20" y="0.0" width="290" height="55"/>
+                                                    <rect key="frame" x="16" y="0.0" width="284" height="55"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -957,7 +957,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J24-OZ-BEA" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="105" y="789" width="219" height="50"/>
+                                <rect key="frame" x="105" y="789" width="205" height="50"/>
                                 <color key="backgroundColor" name="MainDarkColor"/>
                                 <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="30"/>
                                 <state key="normal" title="Reroll? 🎲">
@@ -971,7 +971,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCD-Ci-F5Y">
-                                <rect key="frame" x="49" y="213" width="315" height="33"/>
+                                <rect key="frame" x="49" y="213" width="301" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="315" id="peO-Qk-Fuu"/>
                                 </constraints>
@@ -980,7 +980,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected starting article:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaN-0g-xyB">
-                                <rect key="frame" x="56.5" y="172" width="315" height="33"/>
+                                <rect key="frame" x="56.5" y="172" width="301" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="315.33333333333326" id="KcR-qp-ehs"/>
                                 </constraints>
@@ -989,7 +989,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your target article: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiN-dh-NLx">
-                                <rect key="frame" x="42" y="248" width="344" height="33"/>
+                                <rect key="frame" x="42" y="248" width="330" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="344" id="te6-74-ojp"/>
                                 </constraints>
@@ -1097,7 +1097,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-ha-tcc">
-                                <rect key="frame" x="63" y="309" width="288" height="32"/>
+                                <rect key="frame" x="63" y="309" width="288" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="Ark-it-E2g"/>
                                 </constraints>
@@ -1123,7 +1123,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sir-hb-zRg" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="132" y="388" width="150" height="50"/>
+                                <rect key="frame" x="132" y="387" width="150" height="50"/>
                                 <color key="backgroundColor" name="MainDarkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="53u-9I-rwg"/>
@@ -1297,7 +1297,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHg-B6-coq">
-                                <rect key="frame" x="61.5" y="341.5" width="291" height="32"/>
+                                <rect key="frame" x="61.5" y="341.5" width="291" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="291" id="f8D-S7-oUE"/>
                                 </constraints>
@@ -1305,7 +1305,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGO-4w-apH" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                <rect key="frame" x="132" y="405" width="150" height="50"/>
+                                <rect key="frame" x="132" y="404" width="150" height="50"/>
                                 <color key="backgroundColor" name="MainDarkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="52F-5b-4Y3"/>

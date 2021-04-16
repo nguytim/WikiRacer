@@ -70,6 +70,8 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.moneyLabel.center.x += self.view.bounds.width
+
         if CURRENT_USER!.settings.darkModeEnabled {
             // adopt a light interface style
             overrideUserInterfaceStyle = .dark
@@ -89,7 +91,6 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                     let points:Int = data?["points"] as! Int
                     self.currentPoints = points
                     self.moneyLabel.text = "\(points) ⚡️"
-                    self.moneyLabel.center.x += self.view.bounds.width
                     
                     let racer = data!["racer"] as! Dictionary<String, Any>
                     let accessoriesOwned = racer["accessoriesOwned"] as! [String]
@@ -105,7 +106,6 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         } else {
             self.moneyLabel.font = self.moneyLabel.font.withSize(25)
             self.moneyLabel.text = "Sign up to earn ⚡️"
-            self.moneyLabel.center.x += self.view.bounds.width
         }
         
     }
@@ -238,67 +238,76 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         cell?.layer.borderWidth = 5
         cell?.layer.borderColor = UIColor(named: "MainAquaColor")?.cgColor
         cell?.isSelected = true
-        // TODO: check amount of money and check price of item clicked - if not enough money - create alert saying not enough money
-        
+    
         let currItem = shopItems[indexPath.row]
-        if (currItem.cost > currentPoints) {
-            let insufficientMoneyAlert = UIAlertController(title: "Not Enough Fuel Points", message: "You do not have enough points to purchase this item.", preferredStyle: UIAlertController.Style.alert)
-            insufficientMoneyAlert.addAction(UIAlertAction(
-                                                title: "OK",
-                                                style: .destructive,
-                                                handler: nil))
-            present(insufficientMoneyAlert, animated: true, completion: nil)
+        if Auth.auth().currentUser == nil {
+            let noAccountAlert = UIAlertController(title: "No Account Connected", message: "Sign up for an account to earn and use ⚡️ points on items.", preferredStyle: UIAlertController.Style.alert)
+            noAccountAlert.addAction(UIAlertAction(
+                                        title: "OK",
+                                        style: .destructive,
+                                        handler: nil))
+            present(noAccountAlert, animated: true, completion: nil)
+            
         } else {
-            
-            let confirmPurchaseAlert = UIAlertController(title: "Confirm Purchase", message: "Are you sure you want to purchase this item?", preferredStyle: UIAlertController.Style.alert)
-            
-            confirmPurchaseAlert.addAction(UIAlertAction(title: "Buy", style: .default, handler: { (action: UIAlertAction!) in
+            if (currItem.cost > currentPoints) {
+                let insufficientMoneyAlert = UIAlertController(title: "Not Enough Fuel Points", message: "You do not have enough points to purchase this item.", preferredStyle: UIAlertController.Style.alert)
+                insufficientMoneyAlert.addAction(UIAlertAction(
+                                                    title: "OK",
+                                                    style: .destructive,
+                                                    handler: nil))
+                present(insufficientMoneyAlert, animated: true, completion: nil)
+            } else {
                 
-                let docRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+                let confirmPurchaseAlert = UIAlertController(title: "Confirm Purchase", message: "Are you sure you want to purchase this item?", preferredStyle: UIAlertController.Style.alert)
                 
-                docRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let data = document.data()
-                        
-                        let pointsLeft = self.currentPoints - self.shopItems[indexPath.row].cost
-                        self.currentPoints = pointsLeft
-                        
-                        var racer = data!["racer"] as! Dictionary<String, Any>
-                        
-                        let count = indexPath.row
-                        let item = currItem.name
-                        
-                        self.purchasedItems.append(item)
-                        
-                        // find which category this item belongs in
-                        if count < self.hatsCount {
-                            var accessoriesOwned = racer["accessoriesOwned"] as! [String]
-                            accessoriesOwned.append(item)
-                            racer["accessoriesOwned"] = accessoriesOwned
-                            CURRENT_USER!.racer.accessoriesOwned = accessoriesOwned
-                        } else if count < self.hatsCount + self.racecarsCount {
-                            var racecarsOwned = racer["racecarsOwned"] as! [String]
-                            racecarsOwned.append(item)
-                            racer["racecarsOwned"] = racecarsOwned
-                            CURRENT_USER!.racer.racecarsOwned = racecarsOwned
-                        } else {
-                            var racersOwned = racer["racersOwned"] as! [String]
-                            racersOwned.append(item)
-                            racer["racersOwned"] = racersOwned
-                            CURRENT_USER!.racer.racersOwned = racersOwned
+                confirmPurchaseAlert.addAction(UIAlertAction(title: "Buy", style: .default, handler: { (action: UIAlertAction!) in
+                    
+                    let docRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+                    
+                    docRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            let data = document.data()
+                            
+                            let pointsLeft = self.currentPoints - self.shopItems[indexPath.row].cost
+                            self.currentPoints = pointsLeft
+                            
+                            var racer = data!["racer"] as! Dictionary<String, Any>
+                            
+                            let count = indexPath.row
+                            let item = currItem.name
+                            
+                            self.purchasedItems.append(item)
+                            
+                            // find which category this item belongs in
+                            if count < self.hatsCount {
+                                var accessoriesOwned = racer["accessoriesOwned"] as! [String]
+                                accessoriesOwned.append(item)
+                                racer["accessoriesOwned"] = accessoriesOwned
+                                CURRENT_USER!.racer.accessoriesOwned = accessoriesOwned
+                            } else if count < self.hatsCount + self.racecarsCount {
+                                var racecarsOwned = racer["racecarsOwned"] as! [String]
+                                racecarsOwned.append(item)
+                                racer["racecarsOwned"] = racecarsOwned
+                                CURRENT_USER!.racer.racecarsOwned = racecarsOwned
+                            } else {
+                                var racersOwned = racer["racersOwned"] as! [String]
+                                racersOwned.append(item)
+                                racer["racersOwned"] = racersOwned
+                                CURRENT_USER!.racer.racersOwned = racersOwned
+                            }
+                            
+                            docRef.updateData(["racer": racer, "points": pointsLeft])
+                            self.moneyLabel.text = "\(pointsLeft) ⚡️"
+                            self.shopGrid.reloadData()
                         }
-                        
-                        docRef.updateData(["racer": racer, "points": pointsLeft])
-                        self.moneyLabel.text = "\(pointsLeft) ⚡️"
-                        self.shopGrid.reloadData()
                     }
-                }
-            }))
-            
-            confirmPurchaseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            }))
-            
-            present(confirmPurchaseAlert, animated: true, completion: nil)}
+                }))
+                
+                confirmPurchaseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                }))
+                
+                present(confirmPurchaseAlert, animated: true, completion: nil)}
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
