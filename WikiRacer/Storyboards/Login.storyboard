@@ -26,28 +26,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-De-a5r">
-                                <rect key="frame" x="66.666666666666686" y="148" width="295" height="630"/>
+                                <rect key="frame" x="67" y="148" width="294" height="630"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WikiRacer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rt-hk-VF5" userLabel="WikiSpeedia Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="98.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="95.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="65"/>
                                         <color key="textColor" name="MainAquaColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-U5-hE8" userLabel="Username Text Field">
-                                        <rect key="frame" x="0.0" y="135.33333333333331" width="295" height="45"/>
+                                        <rect key="frame" x="0.0" y="132.66666666666669" width="294" height="43"/>
                                         <color key="textColor" name="MainDarkColor"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="avR-mF-O51" userLabel="Password Text Field">
-                                        <rect key="frame" x="0.0" y="217.33333333333331" width="295" height="43.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="212.66666666666669" width="294" height="42.666666666666657"/>
                                         <color key="textColor" name="MainDarkColor"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQb-9f-aJ0" userLabel="Log in Button">
-                                        <rect key="frame" x="0.0" y="298" width="295" height="45"/>
+                                        <rect key="frame" x="0.0" y="292.33333333333331" width="294" height="45.333333333333314"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="20"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" name="MainDarkColor"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26d-2A-DSw" userLabel="Sign up Button">
-                                        <rect key="frame" x="0.0" y="380" width="295" height="44.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="374.66666666666663" width="294" height="45.333333333333314"/>
                                         <fontDescription key="fontDescription" name="Righteous-Regular" family="Righteous" pointSize="20"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" name="MainDarkColor"/>
@@ -68,7 +68,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzN-Zp-9aJ">
-                                        <rect key="frame" x="0.0" y="461.66666666666663" width="295" height="43.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="457" width="294" height="40.333333333333314"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
                                         <state key="normal" title="Continue as Guest">
                                             <color key="titleColor" name="MainDarkColor"/>
@@ -79,7 +79,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9y-Gj-g9a" userLabel="Forgot Password Button">
-                                        <rect key="frame" x="0.0" y="542.33333333333337" width="295" height="87.666666666666629"/>
+                                        <rect key="frame" x="0.0" y="534.33333333333337" width="294" height="95.666666666666629"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                         <state key="normal" title="Forgot Password?">
                                             <color key="titleColor" systemColor="systemGray2Color"/>
@@ -92,7 +92,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z5t-aX-HAj"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Z5t-aX-HAj" firstAttribute="bottom" secondItem="aDW-De-a5r" secondAttribute="bottom" constant="114" id="6eo-FU-Jm2"/>
                             <constraint firstItem="aDW-De-a5r" firstAttribute="centerX" secondItem="PJW-Vo-MML" secondAttribute="centerX" id="Fvk-tw-0u0"/>

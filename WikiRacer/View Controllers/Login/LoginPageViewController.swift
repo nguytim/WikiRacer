@@ -45,6 +45,7 @@ class LoginPageViewController: UIViewController {
         self.loginButton.alpha = 0
         self.signUpButton.alpha = 0
         self.forgotPasswordButton.alpha = 0
+        self.continueAsGuestButton.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,6 +73,7 @@ class LoginPageViewController: UIViewController {
                         self.emailAddressTextField.alpha = 1
                         self.passwordTextField.alpha = 1
                         self.forgotPasswordButton.alpha = 1
+                        self.continueAsGuestButton.alpha = 1
                        }, completion: nil)
         UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.3, options: [],
                        animations: {
