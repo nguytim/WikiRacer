@@ -269,17 +269,44 @@ class GameVC: UIViewController, WKNavigationDelegate {
             youWinVC.game = game
             youWinVC.isMultiplayer = isMultiplayer
             if isMultiplayer {
+                let docRef = db!.collection("games").document(game!.code!)
                 
-                let uid = Auth.auth().currentUser!.uid
-                let username = Auth.auth().currentUser!.displayName!
-                
-                let currentPlayer = Player(uid: uid, name: username, time: game!.elapsedTime, numLinks: game!.numLinks)
-                
-                // add to leaderboard
-                game!.leaderboard!.append(currentPlayer)
-                
-                let db: Firestore = Firestore.firestore()
-                db.collection("games").document(game!.code!).setData(game!.dictionary)
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let data = document.data()
+                        let leaderboardData = data!["leaderboard"] as! [Any]
+                        let gameType = data!["gameType"] as! String
+                        
+                        var leaderboard = [Player]()
+                        let isTimeTrial = gameType == "Time Trial" ? true : false
+                        
+                        if !leaderboardData.isEmpty {
+                            for i in 0...leaderboardData.count - 1 {
+                                let playerData = leaderboardData[i] as! [String: Any]
+                                let player = Player(uid: playerData["uid"] as! String,
+                                                    name: playerData["name"] as! String,
+                                                    time: playerData["time"] as! Int,
+                                                    numLinks: playerData["links"] as! Int)
+                                player.timeTrial = isTimeTrial
+                                leaderboard.append(player)
+                            }
+                        }
+                        
+                        // add current player
+                        let uid = Auth.auth().currentUser!.uid
+                        let username = Auth.auth().currentUser!.displayName!
+                        
+                        let currentPlayer = Player(uid: uid, name: username, time: self.game!.elapsedTime, numLinks: self.game!.numLinks)
+                        
+                        leaderboard.append(currentPlayer)
+                        leaderboard.sort(by: <)
+                        
+                        self.game!.leaderboard = leaderboard
+                        
+                        let db: Firestore = Firestore.firestore()
+                        db.collection("games").document(self.game!.code!).setData(self.game!.dictionary)
+                    }
+                }
             }
         }
     }
