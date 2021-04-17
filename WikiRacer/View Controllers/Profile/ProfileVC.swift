@@ -30,12 +30,30 @@ class ProfileVC: UIViewController, ChangeToDarkMode {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        leastNumLinksLabel.alpha = 0
+        fastestTimeLabel.alpha = 0
+        avgLinksLabel.alpha = 0
+        avgGameTimeLabel.alpha = 0
+        numGamesWonLabel.alpha = 0
+        numGamesLabel.alpha = 0
+        changeDarkMode()
+        loadStats()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1.0, delay: 0, options: [],
+                       animations: {
+                        self.leastNumLinksLabel.alpha = 1
+                        self.fastestTimeLabel.alpha = 1
+                        self.avgLinksLabel.alpha = 1
+                        self.avgGameTimeLabel.alpha = 1
+                        self.numGamesWonLabel.alpha = 1
+                        self.numGamesLabel.alpha = 1
+                       }, completion: nil)
         settingsButton.center.x += view.bounds.width
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
             self.settingsButton.center.x -= self.view.bounds.width
         })
-        changeDarkMode()
-        loadStats()
     }
     
     func changeDarkMode() {
