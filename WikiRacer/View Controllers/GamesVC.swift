@@ -74,6 +74,22 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Ref
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if(games.count == 0 && Auth.auth().currentUser == nil) {
+            print("Inside count = 0 and nill auth")
+            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 350, height: 350))
+            messageLabel.text = "Sign up to to take part of multiplayer mode and keep track of your races against others!"
+            messageLabel.center = view.center
+            messageLabel.textAlignment = .center
+            messageLabel.textColor = .black
+            messageLabel.numberOfLines = 0;
+            messageLabel.textAlignment = .center;
+            messageLabel.font = UIFont(name: "Righteous", size: 20)
+            messageLabel.sizeToFit()
+            
+            self.view.addSubview(messageLabel)
+        }
+        
         return games.count
     }
     
