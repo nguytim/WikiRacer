@@ -15,7 +15,7 @@ extension UICollectionView {
     func setEmptyMessage(_ message: String) {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         messageLabel.text = message
-        messageLabel.textColor = .black
+        messageLabel.textColor = UIColor(named: "MainAquaColor")
         messageLabel.numberOfLines = 0;
         messageLabel.textAlignment = .center;
         messageLabel.font = UIFont(name: "Righteous", size: 20)
@@ -214,7 +214,7 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if (items.count == 0) {
-            self.inventoryGrid.setEmptyMessage("Sign Up or Log In to Customize")
+            self.inventoryGrid.setEmptyMessage("Sign Up or Log In to Personalize your own Racer!")
         } else {
             self.inventoryGrid.restore()
         }
