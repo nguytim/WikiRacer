@@ -15,6 +15,8 @@ import FirebaseFirestore
 class GameVC: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
+    var spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+    
     @IBOutlet weak var viewForEmbedingWebView: UIView!
     
     @IBOutlet weak var backButton: UIButton!
@@ -50,27 +52,17 @@ class GameVC: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewForEmbedingWebView.isHidden = true
         
         self.navigationController?.navigationBar.isHidden = true
-        
-        // resets navigation to this VC
-        self.navigationController?.viewControllers = [self]
+        self.navigationController?.viewControllers = [self] // resets navigation to this VC
         
         let settings = FirestoreSettings()
-        
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         
-        // update games played for user stats
-        updateGamesPlayed()
+        setupWebView()
         
-        // set up webview
-        webView = WKWebView(frame: viewForEmbedingWebView.bounds, configuration: WKWebViewConfiguration())
-        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        webView.navigationDelegate = self
-        webView.allowsLinkPreview = false
-        viewForEmbedingWebView.addSubview(webView)
+        updateGamesPlayed() // update games played for user stats
         
         timerLabel.text = "0:00"
         counterLabel.text = "0"
@@ -102,6 +94,15 @@ class GameVC: UIViewController, WKNavigationDelegate {
             overrideUserInterfaceStyle = .light
         }
         
+    }
+    
+    func setupWebView() {
+        // set up webview
+        webView = WKWebView(frame: viewForEmbedingWebView.bounds, configuration: WKWebViewConfiguration())
+        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        webView.navigationDelegate = self
+        webView.allowsLinkPreview = false
+        viewForEmbedingWebView.addSubview(webView)
     }
     
     // update games played for user
@@ -145,6 +146,8 @@ class GameVC: UIViewController, WKNavigationDelegate {
     
     // retrieves the Wiki article and updates the UILabel of the title and UITextview of the description
     func getArticle(article: String) {
+        self.showSpinner(onView: self.view)
+        viewForEmbedingWebView.isHidden = true
         let _ = Wikipedia.shared.requestArticle(language: language, title: article, imageWidth: 640) { result in
             switch result {
             case .success(let article):
@@ -183,6 +186,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
                 decisionHandler(WKNavigationActionPolicy.cancel)
                 return
             }
+            
             goToArticle(url: url)
             
             decisionHandler(WKNavigationActionPolicy.cancel)
@@ -350,7 +354,37 @@ class GameVC: UIViewController, WKNavigationDelegate {
                 debugPrint("Am here")
             }
         }
+        
         insertContentsOfCSSFile(into: webView)
         self.viewForEmbedingWebView.isHidden = false
+        self.removeSpinner()
+    }
+}
+
+
+// code from https://brainwashinc.com/2017/07/21/loading-activity-indicator-ios-swift/
+var vSpinner : UIView?
+
+extension UIViewController {
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.large)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            vSpinner?.removeFromSuperview()
+            vSpinner = nil
+        }
     }
 }
