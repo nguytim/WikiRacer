@@ -41,6 +41,9 @@ class ChooseTargetArticleVC: ChooseStartingArticleVC {
     
     // get 10 popular articles from wiki in a random day from 1 - 1500
     override func getPopularArticles() {
+        wikiArticles.removeAll()
+        articlesTableView.reloadData()
+        self.showSpinner(onView: self.view)
         rerollButton.isEnabled = false
         let randomDay = Int.random(in: 1..<1500)
         
@@ -66,6 +69,7 @@ class ChooseTargetArticleVC: ChooseStartingArticleVC {
                 }
                 self.articlesTableView.reloadWithAnimation()
                 self.rerollButton.isEnabled = true
+                self.removeSpinner()
             case .failure(let error):
                 print(error)
             }

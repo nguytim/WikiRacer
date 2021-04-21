@@ -82,6 +82,9 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
     
     // get 10 popular articles from wiki in a random day from 1 - 1500
     func getPopularArticles() {
+        wikiArticles.removeAll()
+        articlesTableView.reloadData()
+        self.showSpinner(onView: self.view)
         rerollButton.isEnabled = false
         let randomDay = Int.random(in: 1..<1500)
 
@@ -107,6 +110,7 @@ class ChooseStartingArticleVC: UIViewController, UITableViewDelegate, UITableVie
                 }
                 self.articlesTableView.reloadWithAnimation()
                 self.rerollButton.isEnabled = true
+                self.removeSpinner()
             case .failure(let error):
               print(error)
             }
