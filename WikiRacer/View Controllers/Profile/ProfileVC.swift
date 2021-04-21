@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 protocol ChangeToDarkMode {
     func changeDarkMode()
@@ -54,6 +55,7 @@ class ProfileVC: UIViewController, ChangeToDarkMode {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
             self.settingsButton.center.x -= self.view.bounds.width
         })
+        loadCharacter()
     }
     
     func changeDarkMode() {
@@ -94,6 +96,9 @@ class ProfileVC: UIViewController, ChangeToDarkMode {
         let totalLinks = CURRENT_USER!.stats.totalNumberOfLinks
         let fastestTime = CURRENT_USER!.stats.fastestGame
         let leastNumLinks = CURRENT_USER!.stats.leastNumberOfLinks
+        let blah = CURRENT_USER!.racer.currentRacer
+        debugPrint("blah is: ")
+        debugPrint(blah)
         
         var avgTime = 0
         var avgLinks = 0
@@ -122,6 +127,46 @@ class ProfileVC: UIViewController, ChangeToDarkMode {
         
     }
     
+    func loadCharacter() {
+        let storageRef = Storage.storage().reference()
+        let racersRef = storageRef.child("racers")
+        let characterImageRef = racersRef.child("\(CURRENT_USER!.racer.currentRacer)")
+        characterImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                // Uh-oh, an error occurred!
+                print(error)
+            } else {
+                let image = self.resizeImage(image: UIImage(data: data!)!, targetSize: CGSize(width: 240, height: 242))
+                self.racerImage.image = image
+            }
+        }
+    }
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+            let size = image.size
+
+            let widthRatio  = targetSize.width  / size.width
+            let heightRatio = targetSize.height / size.height
+
+            // Figure out what our orientation is, and use that to form the rectangle
+            var newSize: CGSize
+            if(widthRatio > heightRatio) {
+                newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+            } else {
+                newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+            }
+
+            // This is the rect that we've calculated out and this is what is actually used below
+            let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+            // Actually do the resizing to the rect using the ImageContext stuff
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+            image.draw(in: rect)
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+
+            return newImage!
+        }
     
     // MARK: - Navigation
     
