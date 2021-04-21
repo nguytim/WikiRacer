@@ -49,6 +49,7 @@ class SettingsVC: UIViewController {
             deleteAccountButt.isHidden = true
             editButton.isHidden = true
             usernameTextField.isUserInteractionEnabled = false
+            signOutButt.setTitle("Return to Login", for: .normal)
         }
         
         loadUserSettings()
