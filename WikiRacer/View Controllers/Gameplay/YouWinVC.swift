@@ -37,7 +37,8 @@ class YouWinVC: UIViewController {
         if Auth.auth().currentUser != nil {
             updateStats()
         } else {
-            earnPointsLabel.text = "Sign up to earn ⚡️ for your racer!"
+            earnPointsLabel.font = self.earnPointsLabel.font.withSize(25)
+            earnPointsLabel.text = "Sign up to earn ⚡️"
         }
         
         // resets navigation to this VC

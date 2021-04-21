@@ -260,6 +260,7 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Ref
                     
                     game.hasPlayed = hasPlayed
                     self.games.append(game)
+                    self.games.sort(by: <)
                     self.gamesTableView.reloadData()
                     self.refreshButton.isEnabled = true
                 } else {

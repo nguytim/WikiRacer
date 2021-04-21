@@ -53,7 +53,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController?.viewControllers = [self] // resets navigation to this VC
         
         let settings = FirestoreSettings()

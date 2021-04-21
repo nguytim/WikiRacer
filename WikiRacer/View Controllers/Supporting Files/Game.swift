@@ -49,7 +49,8 @@ class Player: Comparable {
     }
 }
 
-class Game {
+class Game: Comparable {
+    
     let startingArticle: Article
     let targetArticle: Article
     var elapsedTime: Int
@@ -103,6 +104,15 @@ class Game {
             "targetArticleTitle": targetArticle.title,
             "targetArticleURL": targetArticle.lastPathComponentURL
         ]
+    }
+    
+    static func < (lhs: Game, rhs: Game) -> Bool {
+        // if lhs game is not played and the rhs game has been played
+        return !lhs.hasPlayed! && rhs.hasPlayed!
+    }
+    
+    static func == (lhs: Game, rhs: Game) -> Bool {
+        return lhs.hasPlayed == rhs.hasPlayed
     }
 }
 

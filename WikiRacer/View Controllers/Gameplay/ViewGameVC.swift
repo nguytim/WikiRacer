@@ -41,6 +41,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         
+        self.navigationController?.navigationBar.isHidden = false
         if backViewController == nil {
             backViewController = storyboard!.instantiateViewController(withIdentifier: "HomeVC")
         }
@@ -229,8 +230,11 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     print("Error removing document: \(err)")
                 } else {
                     print("Document successfully removed!")
-                    let delegate = self.backViewController as! RefreshGames
-                    delegate.refreshGames()
+                    
+                    // either backViewController is GamesVC or else, HomeVC
+                    if let delegate = self.backViewController as? RefreshGames {
+                        delegate.refreshGames()
+                    }
                     _ = self.navigationController?.popViewController(animated: true)
                 }
             }
