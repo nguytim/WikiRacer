@@ -30,6 +30,9 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var soundEffectsSwitch: UISwitch!
     @IBOutlet weak var notificiationsSwitch: UISwitch!
     
+    @IBOutlet weak var versionLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +58,10 @@ class SettingsVC: UIViewController {
         loadUserSettings()
         setupButtons()
         setupUsernameTextfield(isDarkMode: CURRENT_USER!.settings.darkModeEnabled)
+        
+        //Version number the app is on
+        let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        versionLabel.text = "Version \(appVersionString)"
     }
     
     override func viewWillAppear(_ animated: Bool) {
