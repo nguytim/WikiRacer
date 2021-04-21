@@ -75,6 +75,11 @@ class SettingsVC: UIViewController {
         }
     }
     
+    // code to enable tapping on the background to remove software keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func loadUserSettings() {
         usernameTextField.placeholder = CURRENT_USER!.username
         darkModeSwitch.isOn = CURRENT_USER!.settings.darkModeEnabled
