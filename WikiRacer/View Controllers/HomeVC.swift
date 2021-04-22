@@ -36,7 +36,7 @@ class HomeVC: UIViewController {
         super.viewWillAppear(animated)
         // resets navigation to this VC
         self.navigationController?.viewControllers = [self]
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         self.newRaceLabel.alpha = 0
        
@@ -71,13 +71,13 @@ class HomeVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     // unhides navigation bar when homeVC disappears
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction func singlePlayerButtonPressed(_ sender: Any) {

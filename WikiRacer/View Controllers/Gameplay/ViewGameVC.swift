@@ -41,7 +41,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         if backViewController == nil {
             backViewController = storyboard!.instantiateViewController(withIdentifier: "HomeVC")
         }
