@@ -170,7 +170,7 @@ class SettingsVC: UIViewController {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let data = document.data()
-                    var settings = data!["settings"] as! Dictionary<String, Bool>
+                    var settings = data!["settings"] as! Dictionary<String, Any>
                     
                     settings["soundEffectsEnabled"] = self.soundEffectsSwitch.isOn
                     CURRENT_USER!.settings.soundEffectsEnabled = self.soundEffectsSwitch.isOn
@@ -191,7 +191,7 @@ class SettingsVC: UIViewController {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let data = document.data()
-                    var settings = data!["settings"] as! Dictionary<String, Bool>
+                    var settings = data!["settings"] as! Dictionary<String, Any>
                     
                     settings["notificationsEnabled"] = self.notificiationsSwitch.isOn
                     CURRENT_USER!.settings.notificationsEnabled = self.notificiationsSwitch.isOn
