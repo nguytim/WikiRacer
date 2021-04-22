@@ -227,7 +227,23 @@ class SettingsVC: UIViewController {
             
             let user = Auth.auth().currentUser
             
-            // TODO: delete account data and info in database
+            //Delete Username from usernames collection.
+            self.db.collection("usernames").document(CURRENT_USER!.usernameID).delete() { err in
+                if let err = err {
+                    print("Error removing username document: \(err)")
+                } else {
+                    print("Username Document successfully removed!")
+                }
+            }
+            
+            //Delete User from the users collection.
+            self.db.collection("users").document(user!.uid).delete() { err in
+                if let err = err {
+                    print("Error removing user document: \(err)")
+                } else {
+                    print("User Document successfully removed!")
+                }
+            }
             
             // delete user in authentication
             user?.delete { error in
@@ -237,6 +253,8 @@ class SettingsVC: UIViewController {
                     print("User deleted.")
                 }
             }
+            
+            CURRENT_USER = nil
             self.performSegue(withIdentifier: "LoginIdentifier", sender: self)
         }))
         
