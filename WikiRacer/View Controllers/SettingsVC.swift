@@ -125,7 +125,7 @@ class SettingsVC: UIViewController {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let data = document.data()
-                    var settings = data!["settings"] as! Dictionary<String, Bool>
+                    var settings = data!["settings"] as! Dictionary<String, Any>
                     
                     settings["darkModeEnabled"] = self.darkModeSwitch.isOn
                     CURRENT_USER!.settings.darkModeEnabled = self.darkModeSwitch.isOn
