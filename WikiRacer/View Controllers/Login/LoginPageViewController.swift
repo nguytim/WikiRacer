@@ -124,12 +124,12 @@ class LoginPageViewController: UIViewController {
                         
                         // USER SETTINGS
                         let settings = data!["settings"] as! Dictionary<String, Any>
-                        let darkModeEnabled = settings["darkModeEnabled"] as! Bool
-                        let gameplayButtonColor = settings["gameplayButtonColor"] as! Int
-                        let soundEffectsEnabled = settings["soundEffectsEnabled"] as! Bool
-                        let notificationsEnabled = settings["notificationsEnabled"] as! Bool
+                        let darkModeEnabled = settings["darkModeEnabled"] as! NSNumber
+                        let gameplayButtonColor = settings["gameplayButtonColor"] as! NSNumber
+                        let soundEffectsEnabled = settings["soundEffectsEnabled"] as! NSNumber
+                        let notificationsEnabled = settings["notificationsEnabled"] as! NSNumber
                         
-                        let userSettings = Settings(darkModeEnabled: darkModeEnabled, gameplayButtonColor: gameplayButtonColor, soundEffectsEnabled: soundEffectsEnabled, notificationsEnabled: notificationsEnabled)
+                        let userSettings = Settings(darkModeEnabled: darkModeEnabled.boolValue, gameplayButtonColor: gameplayButtonColor.intValue, soundEffectsEnabled: soundEffectsEnabled.boolValue, notificationsEnabled: notificationsEnabled.boolValue)
                         
                         // SET GLOBAL CURRENT USER
                         CURRENT_USER = User(username: username, usernameID: usernameID, points: points, stats: userStats, racer: userRacer, settings: userSettings)
@@ -259,13 +259,13 @@ class LoginPageViewController: UIViewController {
                         
                         // USER SETTINGS
                         let settings = data!["settings"] as! Dictionary<String, Any>
-                        let darkModeEnabled = settings["darkModeEnabled"] as! Bool
+                        let darkModeEnabled = settings["darkModeEnabled"] as! NSNumber
                         //  let colorfulButtonsEnabled = settings["colorfulButtonsEnabled"]!
-                        let gameplayButtonColor = settings["gameplayButtonColor"] as! Double
-                        let soundEffectsEnabled = settings["soundEffectsEnabled"] as! Bool
-                        let notificationsEnabled = settings["notificationsEnabled"] as! Bool
+                        let gameplayButtonColor = settings["gameplayButtonColor"] as! NSNumber
+                        let soundEffectsEnabled = settings["soundEffectsEnabled"] as! NSNumber
+                        let notificationsEnabled = settings["notificationsEnabled"] as! NSNumber
                         
-                        let userSettings = Settings(darkModeEnabled: darkModeEnabled, gameplayButtonColor: Int(gameplayButtonColor), soundEffectsEnabled: soundEffectsEnabled, notificationsEnabled: notificationsEnabled)
+                        let userSettings = Settings(darkModeEnabled: darkModeEnabled.boolValue, gameplayButtonColor: gameplayButtonColor.intValue, soundEffectsEnabled: soundEffectsEnabled.boolValue, notificationsEnabled: notificationsEnabled.boolValue)
                         
                         // SET GLOBAL CURRENT USER
                         CURRENT_USER = User(username: username, usernameID: usernameID, points: points, stats: userStats, racer: userRacer, settings: userSettings)
