@@ -78,7 +78,7 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Ref
         if(games.count == 0 && Auth.auth().currentUser == nil) {
             print("Inside count = 0 and nill auth")
             let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 350, height: 350))
-            messageLabel.text = "Sign up to to take part of Multiplayer mode and keep track of your races against others!"
+            messageLabel.text = "Sign up or log in to to take part of Multiplayer mode and keep track of your races against others"
             messageLabel.center = view.center
             messageLabel.textAlignment = .center
             messageLabel.textColor = UIColor(named: "MainAquaColor")

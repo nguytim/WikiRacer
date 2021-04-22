@@ -98,7 +98,7 @@ class ChooseCustomStartingArticleVC: UIViewController {
         
         //USERNAME
         let usernameBorder = CALayer()
-        usernameBorder.frame = CGRect(x: 0, y: inputArticleText.frame.size.height - borderWidth, width: inputArticleText.frame.size.width, height: inputArticleText.frame.size.height)
+        usernameBorder.frame = CGRect(x: 0, y: inputArticleText.frame.size.height - borderWidth, width: inputArticleText.frame.size.width, height: borderWidth)
         usernameBorder.borderWidth = borderWidth
         
         inputArticleText.layer.addSublayer(usernameBorder)

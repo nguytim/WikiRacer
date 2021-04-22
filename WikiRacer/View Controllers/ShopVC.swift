@@ -104,7 +104,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             shopGrid.reloadData()
         } else {
             self.moneyLabel.font = self.moneyLabel.font.withSize(25)
-            self.moneyLabel.text = "Sign up to earn ⚡️"
+            self.moneyLabel.text = "Sign Up/Log In to earn ⚡️"
         }
         
     }
@@ -241,7 +241,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
         let currItem = shopItems[indexPath.row]
         if Auth.auth().currentUser == nil {
-            let noAccountAlert = UIAlertController(title: "No Account Connected", message: "Sign up for an account to earn and use ⚡️ points on items.", preferredStyle: UIAlertController.Style.alert)
+            let noAccountAlert = UIAlertController(title: "No Account Connected", message: "Sign up for an account or log in to earn and use ⚡️ points on items.", preferredStyle: UIAlertController.Style.alert)
             noAccountAlert.addAction(UIAlertAction(
                                         title: "OK",
                                         style: .destructive,
@@ -250,7 +250,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             
         } else {
             if (currItem.cost > currentPoints) {
-                let insufficientMoneyAlert = UIAlertController(title: "Not Enough Fuel Points", message: "You do not have enough points to purchase this item.", preferredStyle: UIAlertController.Style.alert)
+                let insufficientMoneyAlert = UIAlertController(title: "Not Enough Fuel Points", message: "You do not have enough ⚡️ points to purchase this item.", preferredStyle: UIAlertController.Style.alert)
                 insufficientMoneyAlert.addAction(UIAlertAction(
                                                     title: "OK",
                                                     style: .destructive,

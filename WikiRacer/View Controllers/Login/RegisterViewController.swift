@@ -60,9 +60,9 @@ class RegisterViewController: UIViewController {
                                 
                                 let defaultStats = Stats(gamesPlayed: 0, gamesWon: 0, totalGameTime: 0, totalNumberOfLinks: 0, fastestGame: 0, leastNumberOfLinks: 0)
                                 
-                                let defaultRacer = Racer(accessoriesOwned: [String](), racecarsOwned: ["racecar1.png"], racersOwned: ["racer1.png"], currentAccessorries: [String](), currentRacecar: "racecar1.png", currentRacer: "racer1.png")
+                                let defaultRacer = Racer(accessoriesOwned: [String](), racecarsOwned: [], racersOwned: ["racer1.png"], currentAccessorries: [String](), currentRacecar: "", currentRacer: "racer1.png")
                                 
-                                let defaultSettings = Settings(darkModeEnabled: false, gameplayButtonColor: 0, soundEffectsEnabled: true, notificationsEnabled: true)
+                                let defaultSettings = Settings(darkModeEnabled: false, gameplayButtonColor: 1, soundEffectsEnabled: true, notificationsEnabled: true)
                                 
                                 let user = User(username: self.usernameTextField.text!, usernameID: usernameCollectionDocumentReference.documentID, points: 0, stats: defaultStats, racer: defaultRacer, settings: defaultSettings)
                                 
@@ -80,7 +80,7 @@ class RegisterViewController: UIViewController {
                                 self.performSegue(withIdentifier: "RegisterToMainIdentifier", sender: nil)
                             } else {
                                 //unsuccessful registration
-                                let alert = UIAlertController(title: "Oops", message: "Could not register user. Try again.", preferredStyle: UIAlertController.Style.alert)
+                                let alert = UIAlertController(title: "Oops!!", message: "Could not register user. Try again.", preferredStyle: UIAlertController.Style.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                                 self.present(alert, animated: true, completion: nil)
                             }
@@ -91,7 +91,7 @@ class RegisterViewController: UIViewController {
         }
         else {
             //Username or Password is empty
-            let alert = UIAlertController(title: "Oops", message: "Please make sure Username, Email, and Password are not empty.", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Oops!!", message: "Please make sure Username, Email, and Password are not empty.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -114,7 +114,7 @@ class RegisterViewController: UIViewController {
         //USERNAME
         let usernameBorder = CALayer()
         usernameBorder.borderColor = UIColor.white.cgColor
-        usernameBorder.frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: usernameTextField.frame.size.height)
+        usernameBorder.frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: borderWidth)
         usernameBorder.borderWidth = borderWidth
         
         usernameTextField.layer.addSublayer(usernameBorder)
@@ -126,7 +126,7 @@ class RegisterViewController: UIViewController {
         let emailBorder = CALayer()
         emailBorder.borderWidth = borderWidth
         emailBorder.borderColor = UIColor.white.cgColor
-        emailBorder.frame = CGRect(x: 0, y: emailAddressTextField.frame.size.height - borderWidth, width: emailAddressTextField.frame.size.width, height: emailAddressTextField.frame.size.height)
+        emailBorder.frame = CGRect(x: 0, y: emailAddressTextField.frame.size.height - borderWidth, width: emailAddressTextField.frame.size.width, height: borderWidth)
         
         emailAddressTextField.layer.addSublayer(emailBorder)
         emailAddressTextField.layer.masksToBounds = true
@@ -136,7 +136,7 @@ class RegisterViewController: UIViewController {
         let passwordBorder = CALayer()
         passwordBorder.borderWidth = borderWidth
         passwordBorder.borderColor = UIColor.white.cgColor
-        passwordBorder.frame = CGRect(x: 0, y: passwordTextField.frame.size.height - borderWidth, width: passwordTextField.frame.size.width, height: passwordTextField.frame.size.height)
+        passwordBorder.frame = CGRect(x: 0, y: passwordTextField.frame.size.height - borderWidth, width: passwordTextField.frame.size.width, height: borderWidth)
         
         passwordTextField.layer.addSublayer(passwordBorder)
         passwordTextField.layer.masksToBounds = true

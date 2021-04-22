@@ -350,7 +350,7 @@ class GameVC: UIViewController, WKNavigationDelegate {
         if CURRENT_USER!.settings.gameplayButtonColor != 0 {
             //if CURRENT_USER!.settings.colorfulButtonsEnabled {
             // CHANGE THE STYLING OF LINKS
-            let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (elements[i].className != null && elements[i].className != 'image') { elements[i].style.backgroundColor='\(colors[CURRENT_USER!.settings.gameplayButtonColor - 1])'; elements[i].style.color='white'; elements[i].style.fontWeight='700'; elements[i].style.borderRadius='7px';}}"
+            let changeLinksToButtonsScript = "var elements = document.getElementsByTagName('a'); var j = 0; for (var i = 0; i < elements.length; i++) { if (elements[i].className != null && elements[i].className != 'image') { elements[i].style.backgroundColor='\(colors[CURRENT_USER!.settings.gameplayButtonColor - 1])'; elements[i].style.color='black'; elements[i].style.fontWeight='700'; elements[i].style.borderRadius='6px';}}"
             webView.evaluateJavaScript(changeLinksToButtonsScript) { (response, error) in
                 debugPrint("Am here")
             }

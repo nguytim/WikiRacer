@@ -52,6 +52,7 @@ class SettingsVC: UIViewController {
             deleteAccountButt.isHidden = true
             editButton.isHidden = true
             usernameTextField.isUserInteractionEnabled = false
+            usernameTextField.frame.size.width += 65
             signOutButt.setTitle("Return to Login", for: .normal)
         }
         
@@ -319,7 +320,7 @@ class SettingsVC: UIViewController {
         
         //USERNAME
         let usernameBorder = CALayer()
-        usernameBorder.frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: usernameTextField.frame.size.height)
+        usernameBorder.frame = CGRect(x: 0, y: usernameTextField.frame.size.height - borderWidth, width: usernameTextField.frame.size.width, height: borderWidth)
         usernameBorder.borderWidth = borderWidth
         
         usernameTextField.layer.addSublayer(usernameBorder)

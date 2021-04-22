@@ -118,10 +118,10 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.layer.mask = maskLayer
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection
-                                section: Int) -> String? {
-       return "Rank | User | Time | # Links"
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection
+//                                section: Int) -> String? {
+//       return "Rank | User | Time | # Links"
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

@@ -128,6 +128,12 @@ class GameTypeVC: UIViewController {
         let code = codeTextField.text!
         print("Code ENTERED \(code)")
         if (code == "") {
+            let codeEmptyAlert = UIAlertController(title: "Game Code Empty", message: "Please provide a valid game code to join a game.", preferredStyle: UIAlertController.Style.alert)
+            codeEmptyAlert.addAction(UIAlertAction(
+                                                title: "OK",
+                                                style: .destructive,
+                                                handler: nil))
+            present(codeEmptyAlert, animated: true, completion: nil)
             print("CODE CANNOT BE EMPTY")
         } else {
             let docRef = db!.collection("games").document(code)
@@ -185,6 +191,12 @@ class GameTypeVC: UIViewController {
                     
                     self.performSegue(withIdentifier: self.viewExistingGameIdentifier, sender: game)
                 } else {
+                    let codeIncorrectAlert = UIAlertController(title: "No Games with Code Found", message: "Please provide a valid game code to join a game.", preferredStyle: UIAlertController.Style.alert)
+                    codeIncorrectAlert.addAction(UIAlertAction(
+                                                        title: "OK",
+                                                        style: .destructive,
+                                                        handler: nil))
+                    self.present(codeIncorrectAlert, animated: true, completion: nil)
                     print("CODE IS NOT VALID")
                 }
             }

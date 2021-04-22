@@ -188,7 +188,7 @@ class LoginPageViewController: UIViewController {
         
         let defaultRacer = Racer(accessoriesOwned: [String](), racecarsOwned: [], racersOwned: [], currentAccessorries: [String](), currentRacecar: "", currentRacer: "")
         
-        let defaultSettings = Settings(darkModeEnabled: false, gameplayButtonColor: Int(0), soundEffectsEnabled: true, notificationsEnabled: true)
+        let defaultSettings = Settings(darkModeEnabled: false, gameplayButtonColor: Int(1), soundEffectsEnabled: true, notificationsEnabled: true)
         
         let user = User(username: "Guest", usernameID: "Guest", points: 0, stats: defaultStats, racer: defaultRacer, settings: defaultSettings)
         

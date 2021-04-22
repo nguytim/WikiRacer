@@ -214,7 +214,7 @@ class RacerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if (items.count == 0) {
-            self.inventoryGrid.setEmptyMessage("Sign Up or Log In to Personalize your own Racer!")
+            self.inventoryGrid.setEmptyMessage("Sign up or log in to personalize your own racer")
         } else {
             self.inventoryGrid.restore()
         }

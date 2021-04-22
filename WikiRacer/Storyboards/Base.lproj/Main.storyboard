@@ -159,28 +159,21 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VgK-cv-8NJ" userLabel="Search for Game Stack View">
-                                        <rect key="frame" x="0.0" y="124" width="300" height="0.0"/>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="VgK-cv-8NJ" userLabel="Search for Game Stack View">
+                                        <rect key="frame" x="0.0" y="124" width="300" height="60"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsU-D0-ujG">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter game code:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPO-BW-aRT">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="0.0"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CODE:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPO-BW-aRT">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="0.0"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZV-BS-10h">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="0.0"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TZV-BS-10h">
+                                                <rect key="frame" x="0.0" y="30" width="300" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZp-8m-D1D" customClass="RoundedButton" customModule="WikiRacer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="60" width="300" height="0.0"/>
                                                 <color key="backgroundColor" name="MainDarkColor"/>
                                                 <fontDescription key="fontDescription" name="DarkerGrotesque-Bold" family="Darker Grotesque" pointSize="35"/>
                                                 <state key="normal" title="Enter">
@@ -357,19 +350,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Article Placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bni-3I-eDi">
-                                <rect key="frame" x="16" y="844" width="218.5" height="20"/>
+                                <rect key="frame" x="16" y="795" width="218.5" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Article Placeholder" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXB-Qs-g83">
-                                <rect key="frame" x="190.5" y="844" width="207.5" height="20"/>
+                                <rect key="frame" x="190.5" y="795" width="207.5" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfg-qw-KvE" userLabel="Back Button">
-                                <rect key="frame" x="16" y="44" width="13" height="22"/>
+                                <rect key="frame" x="16" y="88" width="13" height="22"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <state key="normal" image="chevron.backward" catalog="system"/>
                                 <connections>
@@ -377,17 +370,17 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgX-8c-o4a">
-                                <rect key="frame" x="16" y="74" width="382" height="747"/>
+                                <rect key="frame" x="16" y="118" width="382" height="654"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUC-Vq-IgA">
-                                <rect key="frame" x="37" y="42" width="83" height="24"/>
+                                <rect key="frame" x="37" y="86" width="83" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="542-kg-7Ek" userLabel="Exit Button">
-                                <rect key="frame" x="380" y="44" width="18" height="22"/>
+                                <rect key="frame" x="380" y="88" width="18" height="22"/>
                                 <state key="normal" image="xmark" catalog="system"/>
                                 <connections>
                                     <action selector="exitButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1EN-py-DSJ"/>
@@ -395,7 +388,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHg-9f-CVm">
-                                <rect key="frame" x="359" y="43" width="13" height="24"/>
+                                <rect key="frame" x="359" y="87" width="13" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -733,8 +726,8 @@
                                     <action selector="deleteButtonPressed:" destination="p0u-Ot-JcC" eventType="touchUpInside" id="aLa-WB-7bu"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Code" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paX-HO-bi9">
-                                <rect key="frame" x="149" y="176" width="95" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Code Placeholder" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paX-HO-bi9">
+                                <rect key="frame" x="102" y="176" width="142" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -793,7 +786,7 @@
                             <constraint firstItem="0Zu-dp-Hqs" firstAttribute="trailing" secondItem="paX-HO-bi9" secondAttribute="trailing" constant="170" id="sOl-ne-cIY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BMh-k9-iua" secondAttribute="trailing" constant="11" id="swF-fp-dAT"/>
                             <constraint firstItem="blL-Mc-e4D" firstAttribute="top" secondItem="paX-HO-bi9" secondAttribute="bottom" constant="14.5" id="t2u-kF-JDs"/>
-                            <constraint firstItem="paX-HO-bi9" firstAttribute="leading" secondItem="0Zu-dp-Hqs" secondAttribute="leading" constant="149" id="ymG-hK-1rX"/>
+                            <constraint firstItem="paX-HO-bi9" firstAttribute="leading" secondItem="0Zu-dp-Hqs" secondAttribute="leading" constant="102" id="ymG-hK-1rX"/>
                             <constraint firstItem="ZbG-7F-Qxj" firstAttribute="centerX" secondItem="Owy-aD-a1O" secondAttribute="centerX" id="zTD-DZ-5xR"/>
                         </constraints>
                     </view>
@@ -1145,7 +1138,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tdt-Dm-oVH"/>
-                        <color key="backgroundColor" name="MainAquaColor"/>
+                        <color key="backgroundColor" name="MainYellowColor"/>
                         <constraints>
                             <constraint firstItem="jdf-ha-tcc" firstAttribute="centerX" secondItem="V9S-ax-LUr" secondAttribute="centerX" id="Fdx-a9-vx2"/>
                             <constraint firstItem="Ps1-M5-Cig" firstAttribute="centerX" secondItem="V9S-ax-LUr" secondAttribute="centerX" id="Fgb-2D-CvX"/>
@@ -1236,7 +1229,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BCn-Yb-Mhv">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="MainDarkColor"/>
+                        <color key="tintColor" name="MainAquaColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1327,7 +1320,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mKA-KO-KhZ"/>
-                        <color key="backgroundColor" name="MainYellowColor"/>
+                        <color key="backgroundColor" name="MainRedColor"/>
                         <constraints>
                             <constraint firstItem="CA9-Og-Hf6" firstAttribute="centerX" secondItem="mfv-i9-Rlb" secondAttribute="centerX" id="136-Q6-vZ9"/>
                             <constraint firstItem="RHg-B6-coq" firstAttribute="centerX" secondItem="mfv-i9-Rlb" secondAttribute="centerX" id="2Ea-sC-FQ3"/>
@@ -1432,9 +1425,9 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="bkR-56-dAu"/>
-        <segue reference="0kv-ym-zeb"/>
-        <segue reference="Vzd-rn-tWt"/>
+        <segue reference="AmO-Zt-YRR"/>
+        <segue reference="fUR-hF-Fes"/>
+        <segue reference="Xem-Wt-4Tg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="FlagIcon" width="22" height="22"/>

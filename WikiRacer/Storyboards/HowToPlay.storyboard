@@ -25,8 +25,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-Np-U8R">
-                                <rect key="frame" x="57" y="259.5" width="300" height="377"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-Np-U8R">
+                                <rect key="frame" x="57" y="218.5" width="300" height="459"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrG-h6-mcz">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
@@ -39,7 +39,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In WikiRacer, each player is assigned a starting and ending target Wiki article. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hue-pz-Srj">
-                                        <rect key="frame" x="0.0" y="90" width="300" height="100"/>
+                                        <rect key="frame" x="0.0" y="100" width="300" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="thA-cp-Tf9"/>
                                         </constraints>
@@ -48,18 +48,24 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ro-pY-kZ8">
-                                        <rect key="frame" x="0.0" y="190" width="300" height="147"/>
+                                        <rect key="frame" x="0.0" y="210" width="300" height="147"/>
                                         <string key="text">Your aim is to get from the starting article to the target article by tapping through linked articles in either the fastest time or least amount of links possible.</string>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happy Racing! 🏁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaV-9f-maz">
-                                        <rect key="frame" x="0.0" y="337" width="300" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏁   🏁   🏁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cg1-dS-pHa">
+                                        <rect key="frame" x="0.0" y="367" width="300" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happy racing!! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaV-9f-maz">
+                                        <rect key="frame" x="0.0" y="419" width="300" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="j0G-Uc-LvV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="23"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
