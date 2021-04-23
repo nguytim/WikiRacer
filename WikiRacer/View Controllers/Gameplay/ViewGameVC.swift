@@ -110,7 +110,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
         let verticalPadding: CGFloat = 12
-
+        
         let maskLayer = CALayer()
         maskLayer.cornerRadius = 20   //if you want round edges
         maskLayer.backgroundColor = UIColor.black.cgColor
@@ -118,10 +118,10 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.layer.mask = maskLayer
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection
-//                                section: Int) -> String? {
-//       return "Rank | User | Time | # Links"
-//    }
+    //    func tableView(_ tableView: UITableView, titleForHeaderInSection
+    //                                section: Int) -> String? {
+    //       return "Rank | User | Time | # Links"
+    //    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -154,23 +154,23 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // the alert view
         let alert = UIAlertController(title: "Code copied", message: "\(game!.code!) copied to clipboard!", preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
-
+        
         let when = DispatchTime.now() + 1
         DispatchQueue.main.asyncAfter(deadline: when){
-          // your code with delay
-          alert.dismiss(animated: true, completion: nil)
+            // your code with delay
+            alert.dismiss(animated: true, completion: nil)
         }
     }
     
     @IBAction func shareButtonPressed(_ sender: Any) {
         // Setting description
         let firstActivityItem = "Race against me in WikiRacer! Here's my game code: \(game!.code!)"
-
+        
         // Setting url
-//        let secondActivityItem : NSURL = NSURL(string: "http://your-url.com/")!
+        //        let secondActivityItem : NSURL = NSURL(string: "http://your-url.com/")!
         
         // If you want to use an image
-//        let image : UIImage = UIImage(named: "AppIcon")!
+        //        let image : UIImage = UIImage(named: "AppIcon")!
         
         let activityViewController : UIActivityViewController = UIActivityViewController(
             activityItems: [firstActivityItem], applicationActivities: nil)
@@ -184,7 +184,7 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // Pre-configuring activity items
         activityViewController.activityItemsConfiguration = [
-        UIActivity.ActivityType.message
+            UIActivity.ActivityType.message
         ] as? UIActivityItemsConfigurationReading
         
         // Anything you want to exclude
@@ -218,9 +218,16 @@ class ViewGameVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             userRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let data = document.data()
-                    var games = data!["games"] as! [String]
-                    games.remove(at: games.firstIndex(of: self.game!.code!)!)
-                    userRef.updateData(["games": games])
+                    
+                    if var games = data!["games"] as? [String] {
+                        games.remove(at: games.firstIndex(of: self.game!.code!)!)
+                        userRef.updateData(["games": games])
+                    }
+                    
+                    if var gamesOwned = data!["gamesOwned"] as? [String] {
+                        gamesOwned.remove(at: gamesOwned.firstIndex(of: self.game!.code!)!)
+                        userRef.updateData(["gamesOwned": gamesOwned])
+                    }
                 }
             }
             

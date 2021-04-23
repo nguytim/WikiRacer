@@ -225,42 +225,66 @@ class SettingsVC: UIViewController {
         
         deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
             
-            let user = Auth.auth().currentUser
-            
-            //Delete Username from usernames collection.
-            self.db.collection("usernames").document(CURRENT_USER!.usernameID).delete() { err in
-                if let err = err {
-                    print("Error removing username document: \(err)")
-                } else {
-                    print("Username Document successfully removed!")
+            // Delete all user's owned games
+            let userRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+            userRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    
+                    if let gamesOwned = data!["gamesOwned"] as? [String] {
+                        for gameID in gamesOwned {
+                            self.db.collection("games").document(gameID).delete() { err in
+                                if let err = err {
+                                    print("Error removing \(gameID): \(err)")
+                                } else {
+                                    print("\(gameID) successfully removed!")
+                                }
+                            }
+                        }
+                        self.deleteRest()
+                    } else {
+                        self.deleteRest()
+                    }
                 }
             }
-            
-            //Delete User from the users collection.
-            self.db.collection("users").document(user!.uid).delete() { err in
-                if let err = err {
-                    print("Error removing user document: \(err)")
-                } else {
-                    print("User Document successfully removed!")
-                }
-            }
-            
-            // delete user in authentication
-            user?.delete { error in
-                if let error = error {
-                    print(error)
-                } else {
-                    print("User deleted.")
-                }
-            }
-            
-            CURRENT_USER = nil
-            self.performSegue(withIdentifier: "LoginIdentifier", sender: self)
         }))
         
         deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
         }))
         present(deleteAlert, animated: true, completion: nil)
+    }
+    
+    func deleteRest() {
+        let user = Auth.auth().currentUser
+        //Delete Username from usernames collection.
+        self.db.collection("usernames").document(CURRENT_USER!.usernameID).delete() { err in
+            if let err = err {
+                print("Error removing username document: \(err)")
+            } else {
+                print("Username Document successfully removed!")
+            }
+        }
+        
+        //Delete User from the users collection.
+        self.db.collection("users").document(user!.uid).delete() { err in
+            if let err = err {
+                print("Error removing user document: \(err)")
+            } else {
+                print("User Document successfully removed!")
+            }
+        }
+        
+        // delete user in authentication
+        user?.delete { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("User deleted.")
+            }
+        }
+        
+        CURRENT_USER = nil
+        self.performSegue(withIdentifier: "LoginIdentifier", sender: self)
     }
     
     @IBAction func editUsernameButtonClicked(_ sender: Any) {

@@ -80,6 +80,7 @@ class ChooseCustomTargetArticleVC: ChooseCustomStartingArticleVC {
         
         let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         var games: [String] = [String]()
+        var gamesOwned: [String] = [String]()
         
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -90,6 +91,12 @@ class ChooseCustomTargetArticleVC: ChooseCustomStartingArticleVC {
                 }
                 games.append(code)
                 docRef.updateData(["games": games])
+                
+                if let storedGames = data?["gamesOwned"] as? [String] {
+                    gamesOwned = storedGames
+                }
+                gamesOwned.append(code)
+                docRef.updateData(["gamesOwned": gamesOwned])
             }
         }
     }

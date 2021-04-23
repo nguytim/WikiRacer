@@ -155,9 +155,17 @@ class GamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Ref
                     userRef.getDocument { (document, error) in
                         if let document = document, document.exists {
                             let data = document.data()
-                            var games = data!["games"] as! [String]
-                            games.remove(at: games.firstIndex(of: game.code!)!)
-                            userRef.updateData(["games": games])
+                            
+                            if var games = data!["games"] as? [String] {
+                                games.remove(at: games.firstIndex(of: game.code!)!)
+                                userRef.updateData(["games": games])
+                            }
+                            
+                            if var gamesOwned = data!["gamesOwned"] as? [String] {
+                                gamesOwned.remove(at: gamesOwned.firstIndex(of: game.code!)!)
+                                userRef.updateData(["gamesOwned": gamesOwned])
+                            }
+                            
                         }
                     }
                     
