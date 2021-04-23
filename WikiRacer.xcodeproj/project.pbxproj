@@ -25,6 +25,7 @@
 		98BB27B1F43455DDFA5F1B74 /* Pods_WikiRacer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E24BD608F91945DD0261E7B /* Pods_WikiRacer.framework */; };
 		A70CDBEC2605252100269BC2 /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70CDBEB2605252100269BC2 /* ShopVC.swift */; };
 		B12A68A2262251C900114BA3 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = B12A689D26224FEF00114BA3 /* styles.css */; };
+		B1F005D3263242690054D04F /* HowToPlay.mov in Resources */ = {isa = PBXBuildFile; fileRef = B1F005D2263242690054D04F /* HowToPlay.mov */; };
 		D10AAC1C25F6CF7800750F02 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */; };
 		D12670CC25E841E900C233F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CB25E841E900C233F9 /* AppDelegate.swift */; };
 		D12670CE25E841E900C233F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12670CD25E841E900C233F9 /* SceneDelegate.swift */; };
@@ -83,6 +84,7 @@
 		995E21BF8CC8F8E077F535B8 /* Pods-WikiRacer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiRacer.debug.xcconfig"; path = "Target Support Files/Pods-WikiRacer/Pods-WikiRacer.debug.xcconfig"; sourceTree = "<group>"; };
 		A70CDBEB2605252100269BC2 /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
 		B12A689D26224FEF00114BA3 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
+		B1F005D2263242690054D04F /* HowToPlay.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = HowToPlay.mov; sourceTree = "<group>"; };
 		D10AAC1B25F6CF7800750F02 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D12670C825E841E900C233F9 /* WikiRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12670CB25E841E900C233F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		D12670BF25E841E800C233F9 = {
 			isa = PBXGroup;
 			children = (
+				B1F005D2263242690054D04F /* HowToPlay.mov */,
 				D12670CA25E841E900C233F9 /* WikiRacer */,
 				D12670C925E841E900C233F9 /* Products */,
 				F0699A2FF806332E6E85B95A /* Pods */,
@@ -373,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F005D3263242690054D04F /* HowToPlay.mov in Resources */,
 				B12A68A2262251C900114BA3 /* styles.css in Resources */,
 				64EA400025FACBA100D9CCE1 /* DarkerGrotesque-Bold.ttf in Resources */,
 				D17061AC260A3F10001AF12D /* Games.storyboard in Resources */,
@@ -626,7 +630,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = P3HBJ3QGM2;
+				DEVELOPMENT_TEAM = P7QY326CG6;
 				INFOPLIST_FILE = WikiRacer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -648,7 +652,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = P3HBJ3QGM2;
+				DEVELOPMENT_TEAM = P7QY326CG6;
 				INFOPLIST_FILE = WikiRacer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class HowToPlayVC: UIViewController {
 
@@ -26,7 +28,23 @@ class HowToPlayVC: UIViewController {
         }
     }
     
-
+    private func playVideo() {
+        guard let path = Bundle.main.path(forResource: "HowToPlay", ofType:"mov") else {
+            debugPrint("HowToPlay.mov not found")
+            return
+        }
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        present(playerController, animated: true) {
+            player.play()
+        }
+    }
+    
+    @IBAction func watchVideoButtonPressed(_ sender: Any) {
+        playVideo()
+    }
+    
     /*
     // MARK: - Navigation
 
