@@ -1160,6 +1160,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="J4l-Pp-pbt"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="confirmButton" destination="Sir-hb-zRg" id="cM3-fv-SYf"/>
                         <outlet property="errorMessageLabel" destination="IWy-l6-Dkw" id="UHd-nR-LyU"/>
                         <outlet property="inputArticleText" destination="jdf-ha-tcc" id="N7D-7E-7wn"/>
                         <outlet property="titleLabel" destination="Ps1-M5-Cig" id="Zim-uA-xxc"/>
@@ -1349,6 +1350,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Xst-Aw-fEu"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="confirmButton" destination="SGO-4w-apH" id="bfS-5w-opR"/>
                         <outlet property="errorMessageLabel" destination="uL1-TF-GQW" id="nqK-Gh-PR8"/>
                         <outlet property="inputArticleText" destination="RHg-B6-coq" id="CGa-a3-Lno"/>
                         <outlet property="startingArticleLabel" destination="CA9-Og-Hf6" id="Om0-1H-bAh"/>
@@ -1425,8 +1427,8 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="AmO-Zt-YRR"/>
-        <segue reference="fUR-hF-Fes"/>
+        <segue reference="qiu-2j-JIB"/>
+        <segue reference="rtQ-2R-5fP"/>
         <segue reference="Xem-Wt-4Tg"/>
     </inferredMetricsTieBreakers>
     <resources>

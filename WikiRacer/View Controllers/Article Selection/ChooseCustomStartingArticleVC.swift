@@ -13,6 +13,7 @@ class ChooseCustomStartingArticleVC: UIViewController {
     @IBOutlet weak var inputArticleText: UITextField!
     @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var confirmButton: RoundedButton!
     
     var isMultiplayer: Bool?
     var gameType: String?
@@ -31,6 +32,8 @@ class ChooseCustomStartingArticleVC: UIViewController {
         
         WikipediaNetworking.appAuthorEmailForAPI = "maniponce22@gmail.com"
         setupUsernameTextfield(isDarkMode: CURRENT_USER!.settings.darkModeEnabled)
+        
+        confirmButton.setTitleColor(.systemGray, for: .disabled)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,9 +49,11 @@ class ChooseCustomStartingArticleVC: UIViewController {
     
     @IBAction func confirmButtonPressed(_ sender: Any) {
         // ERROR
+        confirmButton.isEnabled = false
         if inputArticleText.text == "" {
             errorMessageLabel.isHidden = false
             errorMessageLabel.text = "Article cannot be blank!"
+            confirmButton.isEnabled = true
         } else {
             errorMessageLabel.isHidden = true
             getArticle(article: inputArticleText.text!)
@@ -62,6 +67,7 @@ class ChooseCustomStartingArticleVC: UIViewController {
                 let title = "\(article.url!.lastPathComponent)".replacingOccurrences(of: "_", with: " ")
                 let article = Article(title: "\(title)", lastPathComponentURL: "\(article.url!.lastPathComponent)")
                 self.goToGame(article: article)
+                self.confirmButton.isEnabled = true
             case .failure(let error):
               print(error)
                 self.errorMessageLabel.isHidden = false
