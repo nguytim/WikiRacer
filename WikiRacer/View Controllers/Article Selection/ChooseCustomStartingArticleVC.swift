@@ -72,6 +72,7 @@ class ChooseCustomStartingArticleVC: UIViewController {
               print(error)
                 self.errorMessageLabel.isHidden = false
                 self.errorMessageLabel.text = "\(article) is not an existing Wiki article!"
+                self.confirmButton.isEnabled = true
             }
         }
     }
